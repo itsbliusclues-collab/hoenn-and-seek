@@ -1,4 +1,5 @@
 #include "global.h"
+#include "hoenn.h" // Hoenn & Seek 2.1-09 (HoennSilverStarterUpdate)
 #include "overworld.h"
 #include "constants/heal_locations.h"
 #include "battle_pyramid.h"
@@ -1895,6 +1896,9 @@ static void OverworldBasic(void)
 {
     ScriptContext_RunScript();
     RunTasks();
+#if IS_HNS
+    HoennSilverStarterUpdate(); // Hoenn & Seek (2.1-09)
+#endif
     AnimateSprites();
     CameraUpdate();
     UpdateCameraPanning();

@@ -502,3 +502,22 @@ HoennSeek_Text_BMSilverLine:
 	.string "He battled us both without saying\n"
 	.string "a word, then asked if we knew you.\p"
 	.string "Friend of yours?$"
+
+@ ==== 2.1-09: SILVER's starter follows him ====
+@ The object is spawned by src/hoenn_silver_starter.c (no template); talking
+@ to it runs this through GetObjectEventScriptPointerByLocalIdAndMap.
+HoennSeek_EventScript_SilverStarter::
+	lock
+	faceplayer
+	specialvar VAR_RESULT, HoennSilverStarterForScript
+	playmoncry VAR_RESULT, CRY_MODE_NORMAL
+	msgbox HoennSeek_Text_SilverStarter, MSGBOX_DEFAULT
+	waitmoncry
+	release
+	end
+
+HoennSeek_Text_SilverStarter:
+	.string "SILVER's {STR_VAR_1} gives you\n"
+	.string "a long look.\p"
+	.string "It doesn't stray far\n"
+	.string "from its trainer.$"
