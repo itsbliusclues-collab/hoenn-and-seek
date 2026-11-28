@@ -12,7 +12,7 @@ Only track A's builder edits this file (the reviewer may add a line when it merg
 | A1 | **2.1-02** Foundations: 2.1 flag/var block + save v7, both tracks' ranges and files, radio segments (28's and 35b's hooks folded in), scaled-opponent ladder | PR #113 open (Nov 28) | `claude/project-thread-b7lyt3` | no flags used; `HOENN_LADDER_*` constants. Also carries the 2.1 plan docs (#103, #108) |
 | A2 | 2.1-04 Key-item pocket audit (+ 80 slots if needed) | PR #114 open (Nov 28) | `v2.1-04-key-pocket` (on 2.1-02) | no flags; pocket 80 slots in SaveBlock3 (320 B), save version 8. Audit: `hoenn-docs/key-items.md` |
 | A3 | 2.1-05 Seeker's Journal A | PR #121 open (Nov 28) | `v2.1-05-journal` (on 2.1-04) | heard flags: one block, `HOENN_TRACK_A_FLAGS` + 0x00–0x5F (62 used, numbers locked in `data/hoenn/journal_flags.json`); `FLAG_HOENN_GOT_SEEKERS_JOURNAL` = + 0x60; `ITEM_SEEKERS_JOURNAL` (911). Next free flag: + 0x61 |
-| A4 | 2.1-06 Seeker's Journal B | PR open (Nov 28) | `v2.1-06-journal-b` (on 2.1-05) | flags + 0x61–0x66 (`FLAG_HOENN_JOURNAL_DOLL_*`, `FLAG_HOENN_CALL_JOURNAL_*`), calls 100–102 (`HOENN_CALL_JOURNAL_*`), decorations 127–129 (CELEBI, MEW, JIRACHI DOLL). Next free flag: + 0x67, next call: 103, next decoration: 130 |
+| A4 | 2.1-06 Seeker's Journal B | PR #122 open (Nov 28) | `v2.1-06-journal-b` (on 2.1-05) | flags + 0x61–0x66 (`FLAG_HOENN_JOURNAL_DOLL_*`, `FLAG_HOENN_CALL_JOURNAL_*`), calls 100–102 (`HOENN_CALL_JOURNAL_*`), decorations 127–129 (CELEBI, MEW, JIRACHI DOLL). Next free flag: + 0x67, next call: 103, next decoration: 130 |
 | A5 | 2.1-07 | next | | |
 | A5 | 2.1-07 Swarms (+ the berry check) | | | |
 | A6 | 2.1-08 Silver | | | joins `LADDER_RIVAL` |
