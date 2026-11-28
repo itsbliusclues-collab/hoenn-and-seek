@@ -38,6 +38,7 @@
 #include "constants/vars.h"
 #include "constants/weather.h"
 #include "trainer_slide.h"
+#include "hoenn.h"
 #include "battle_message.h"
 
 static u32 BattlerHPPercentage(enum BattlerId battler, u32 operation, u32 threshold);
@@ -143,6 +144,10 @@ static const u8* const *GetTrainerSlideArray(enum DifficultyLevel difficulty, u3
 #else
     if (gBattleTypeFlags & BATTLE_TYPE_FRONTIER)
         return sFrontierTrainerSlides[difficulty][trainerId];
+#if IS_HNS
+    if (HoennFriendSlides(trainerId) != NULL) // Hoenn & Seek 2.1-14b: the friend trainers' lines (src/hoenn_friends.c)
+        return HoennFriendSlides(trainerId);
+#endif
     else
         return sTrainerSlides[difficulty][trainerId];
 #endif // TESTING
