@@ -58,6 +58,7 @@ bool32 HoennLaneAOnStep(void); // src/hoenn_lane_a.c (part 32: the Ampharos ride
 bool32 HoennLaneAFollowerOverride(u32 *species, bool32 *shiny, bool32 *female); // src/hoenn_lane_a.c (part 32)
 u16 HoennLaneBDueCall(void); // src/hoenn_lane_b.c
 u16 Hoenn21LaneADueCall(void); // src/hoenn_2_1_lane_a.c (2.1-02)
+void HoennUpdateLeaderWeekends(void); // 2.1-18: leaders' weekends (src/hoenn_2_1_lane_b.c)
 u16 Hoenn21LaneBDueCall(void); // src/hoenn_2_1_lane_b.c (2.1-02)
 // Teleport to your secret base (src/hoenn_2_1_lane_b.c, 2.1-34)
 void HoennRecordBaseEntrance(u32 secretBaseId);
