@@ -73,8 +73,14 @@
 #include "constants/hoenn_journal.h"
 #define FLAG_HOENN_GOT_SEEKERS_JOURNAL (HOENN_21_LANE_A_FLAGS + 0x00) // Elm's aide gave it
 
-// ==== Lane B (2.1) ==========================================================
-// (no definitions yet)
+// ---- 2.1-06: the journal's rewards (a region's page all found) -------------
+#define FLAG_HOENN_JOURNAL_DOLL_JOHTO  (HOENN_21_LANE_A_FLAGS + 0x01) // Elm gave the CELEBI DOLL
+#define FLAG_HOENN_JOURNAL_DOLL_KANTO  (HOENN_21_LANE_A_FLAGS + 0x02) // Oak gave the MEW DOLL
+#define FLAG_HOENN_JOURNAL_DOLL_HOENN  (HOENN_21_LANE_A_FLAGS + 0x03) // Birch gave the JIRACHI DOLL
+#define FLAG_HOENN_CALL_JOURNAL_JOHTO  (HOENN_21_LANE_A_FLAGS + 0x04) // Elm's call rang
+#define FLAG_HOENN_CALL_JOURNAL_KANTO  (HOENN_21_LANE_A_FLAGS + 0x05) // Oak's
+#define FLAG_HOENN_CALL_JOURNAL_HOENN  (HOENN_21_LANE_A_FLAGS + 0x06) // Birch's
 
+// ==== Lane B (2.1) ===================================================
 
 #endif // GUARD_CONSTANTS_HOENN_EVENTS_2_1_H

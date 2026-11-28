@@ -19,6 +19,21 @@
 
 u16 Hoenn21LaneADueCall(void)
 {
+    // 2.1-06: a region's journal page is all found, and its doll not given yet.
+    if (FlagGet(FLAG_HOENN_GOT_SEEKERS_JOURNAL))
+    {
+        static const u16 sJournalCalls[][3] = {
+            {HOENN_JOURNAL_PAGE_JOHTO, FLAG_HOENN_CALL_JOURNAL_JOHTO, FLAG_HOENN_JOURNAL_DOLL_JOHTO},
+            {HOENN_JOURNAL_PAGE_KANTO, FLAG_HOENN_CALL_JOURNAL_KANTO, FLAG_HOENN_JOURNAL_DOLL_KANTO},
+            {HOENN_JOURNAL_PAGE_HOENN, FLAG_HOENN_CALL_JOURNAL_HOENN, FLAG_HOENN_JOURNAL_DOLL_HOENN},
+        };
+        u32 i;
+
+        for (i = 0; i < ARRAY_COUNT(sJournalCalls); i++)
+            if (!FlagGet(sJournalCalls[i][1]) && !FlagGet(sJournalCalls[i][2])
+             && HoennJournalPageComplete(sJournalCalls[i][0]))
+                return HOENN_CALL_JOURNAL_JOHTO + i;
+    }
     return Hoenn21LaneBDueCall(); // lane B's 2.1 calls come next
 }
 

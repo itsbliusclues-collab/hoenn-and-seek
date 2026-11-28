@@ -65,6 +65,12 @@ void HoennJournalPushPages(void);     // special
 void HoennJournalPushEntries(void);   // special, page in VAR_0x8004
 struct ScriptContext;
 void HoennSeek_JournalEntryText(struct ScriptContext *ctx);
+// 2.1-06: the TODAY page, the field notes, the professors' rewards.
+void HoennSeek_JournalWhenText(struct ScriptContext *ctx);
+u32 HoennJournalCountFound(u32 *total);
+const u8 *HoennJournalFieldNote(void);
+bool32 HoennJournalPageComplete(u32 page);
+u16 HoennJournalPageDone(void); // specialvar, page in VAR_0x8004
 // The Kangaskhan baby as your follower (src/hoenn_lane_b.c, 2.0 part 30a)
 bool32 HoennIsKangaBabyGfx(u32 species);
 u32 HoennFollowerPaletteSpecies(u32 species);

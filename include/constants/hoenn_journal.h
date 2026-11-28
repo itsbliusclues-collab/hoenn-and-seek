@@ -11,6 +11,7 @@
 #define HOENN_JOURNAL_PAGE_KANTO  1
 #define HOENN_JOURNAL_PAGE_HOENN  2
 #define HOENN_JOURNAL_PAGE_COUNT  3
+#define HOENN_JOURNAL_PAGE_TODAY  3 // 2.1-06: the TODAY page (listed first; its id comes after the regions)
 #define HOENN_JOURNAL_MENU_BACK   126 // the BACK row's id in an entry list (MULTI_B_PRESSED is 127)
 
 #define FLAG_HOENN_HEARD_CHIKORITA_MEADOW        (HOENN_JOURNAL_FLAGS + 0x00)
