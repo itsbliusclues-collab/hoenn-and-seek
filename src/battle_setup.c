@@ -60,6 +60,7 @@
 #include "fishing.h"
 #include "nuzlocke.h"
 #include "hoenn_battle_bg.h" // Hoenn & Seek (2.0 part 13b)
+#include "hoenn.h" // Hoenn & Seek 2.1-12 (HoennIsFriendBattle)
 
 enum TransitionType
 {
@@ -1760,7 +1761,8 @@ static void CB2_EndTrainerBattle(void)
     }
     else if (DidPlayerForfeitNormalTrainerBattle())
     {
-        if (FlagGet(B_FLAG_NO_WHITEOUT) || CurrentBattlePyramidLocation() != PYRAMID_LOCATION_NONE || InTrainerHillChallenge())
+        if (FlagGet(B_FLAG_NO_WHITEOUT) || CurrentBattlePyramidLocation() != PYRAMID_LOCATION_NONE || InTrainerHillChallenge()
+         || HOENN_IS_FRIEND_BATTLE()) // Hoenn & Seek 2.1-12: back to the friend's script
             SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
         else
             SetMainCallback2(CB2_WhiteOut);

@@ -60,6 +60,14 @@ IGNORE_PREFIXES = ("FLAG_TEMP_", "VAR_TEMP_", "VAR_OBJ_GFX_ID_", "VAR_0x8", "VAR
                    "VAR_SPECIAL", "VAR_LAST_TALKED", "FLAG_HIDDEN_ITEMS_START")
 
 
+
+# 2.1-12: see "trainers" in main(): appended in this order, never sorted in.
+LATE_TRAINERS = [
+    "TRAINER_KAYLEE",   # 2.1-12: EXPLORER BRIDGETTE
+    "TRAINER_DUDLEY",   # 2.1-14: SKYDIVER AIDAN
+    "TRAINER_TERRY",    # 2.1-14: ATHLETE BROCK
+]
+
 def rd(p):
     with open(os.path.join(ROOT, p), errors="ignore") as f:
         return f.read()
@@ -217,15 +225,19 @@ def main():
         overridden = set(re.findall(r"^=== (TRAINER_\w+) ===", rd("data/hoenn/trainer_parties.party"), re.M)) if os.path.exists(over_path) else set()
         evo = species_evolutions()
         for t, r in roles.items():
-            if r in ("hopeful", "strong") and t in blocks and t not in overridden:
-                blocks[t] = evolve_block(blocks[t], evo, 24 if r == "strong" else 12)
+            if r in ("hopeful", "strong", "elite") and t in blocks and t not in overridden:
+                blocks[t] = evolve_block(blocks[t], evo, 12 if r == "hopeful" else 24)
         for t in json.load(open(roles_path)).get("rematch", {}).values():
             if t in blocks and t not in overridden:
                 blocks[t] = evolve_block(blocks[t], evo, 28)
     missing = sorted(t for t in trainers if t not in blocks)
     if missing:
         sys.exit(f"Hoenn scripts reference trainers with no Emerald party data: {missing}")
-    hoenn_trainers = sorted(trainers)
+    # 2.1-12: trainers added from 2.1 on (the friend trainers' renamed Emerald slots)
+    # take IDs after the sorted ones, in this order, so no earlier trainer's ID (and
+    # its defeated flag in a 2.0 save) moves. Add new ones at the end of the list.
+    late = [t for t in LATE_TRAINERS if t in trainers]
+    hoenn_trainers = sorted(trainers - set(late)) + late
     if len(hoenn_trainers) > HOENN_TRAINER_FLAGS_COUNT:
         sys.exit("too many Hoenn trainers for the trainer flag block")
     trainers_count = HNS_TRAINERS + len(hoenn_trainers)

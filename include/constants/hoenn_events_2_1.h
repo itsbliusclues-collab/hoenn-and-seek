@@ -91,6 +91,47 @@
 #define FLAG_HOENN_SILVER_CELEBI_LINE  (HOENN_21_LANE_A_FLAGS + 0x0A) // he told you what he remembered after the Route 22 scene
 #define FLAG_HOENN_BM_SILVER_LINE      (HOENN_21_LANE_A_FLAGS + 0x0B) // Brendan or May told you they met him
 
+// 2.1-12/14: the three friend trainers (src/hoenn_friends.c; one per friend, in HOENN_FRIEND_* order)
+#define FLAG_HOENN_MET_BRIDGETTE       (HOENN_21_LANE_A_FLAGS + 0x0C) // talked once (her name line is first-meeting only)
+#define FLAG_HOENN_MET_AIDAN           (HOENN_21_LANE_A_FLAGS + 0x0D)
+#define FLAG_HOENN_MET_BROCK           (HOENN_21_LANE_A_FLAGS + 0x0E)
+#define FLAG_HOENN_HARD_BEAT_BRIDGETTE (HOENN_21_LANE_A_FLAGS + 0x0F) // first HARD win (2.1-14; Pangea reads them)
+#define FLAG_HOENN_HARD_BEAT_AIDAN     (HOENN_21_LANE_A_FLAGS + 0x10)
+#define FLAG_HOENN_HARD_BEAT_BROCK     (HOENN_21_LANE_A_FLAGS + 0x11)
+#define FLAG_HOENN_BROCK_BEST_FRIEND   (HOENN_21_LANE_A_FLAGS + 0x12) // 2.1-14: you've beaten ATHLETE BROCK once (he calls you his best friend)
+#define FLAG_HOENN_DAILY_BRIDGETTE     (HOENN_21_LANE_A_DAILY + 0)    // battled today
+#define FLAG_HOENN_DAILY_AIDAN         (HOENN_21_LANE_A_DAILY + 1)
+#define FLAG_HOENN_DAILY_BROCK         (HOENN_21_LANE_A_DAILY + 2)
+#define VAR_HOENN_FRIEND_LV_BRIDGETTE  (HOENN_21_LANE_A_VARS + 0x01)  // her ace's level in your last battle (0 = never)
+#define VAR_HOENN_FRIEND_LV_AIDAN      (HOENN_21_LANE_A_VARS + 0x02)
+#define VAR_HOENN_FRIEND_LV_BROCK      (HOENN_21_LANE_A_VARS + 0x03)
+#define HOENN_FRIEND_BRIDGETTE 0 // VAR_0x8004 for the friends' specials
+#define HOENN_FRIEND_AIDAN     1
+#define HOENN_FRIEND_BROCK     2
+#define HOENN_FRIEND_COUNT     3
+#define HOENN_NAME_OTHER       0 // HoennFriendNameLine
+#define HOENN_NAME_AIDAN       1
+#define HOENN_NAME_BRIDGET     2
+#define HOENN_NAME_BROCK       3
+#define HOENN_FRIEND_STATE_FIRST    0 // HoennFriendTalkState: first meeting (sets the met flag)
+#define HOENN_FRIEND_STATE_AGAIN    1
+#define HOENN_FRIEND_STATE_STRONGER 2 // the ladder is higher than at your last battle
+#define HOENN_FRIEND_STATE_TODAY    3 // already battled today
+#define HOENN_FRIEND_TEXT_MEET      0 // callnative HoennSeek_FriendText, .byte HOENN_FRIEND_TEXT_*
+#define HOENN_FRIEND_TEXT_NAME      1 // the line for your name (only when HoennFriendHasNameLine)
+#define HOENN_FRIEND_TEXT_AGAIN     2 // ends with the "battle?" question
+#define HOENN_FRIEND_TEXT_STRONGER  3 // ends with the "battle?" question
+#define HOENN_FRIEND_TEXT_ASK       4 // first meeting's question
+#define HOENN_FRIEND_TEXT_GO        5
+#define HOENN_FRIEND_TEXT_WON       6
+#define HOENN_FRIEND_TEXT_RAN       7
+#define HOENN_FRIEND_TEXT_DECLINE   8
+#define HOENN_FRIEND_TEXT_TODAY     9
+#define HOENN_FRIEND_TEXT_HARD_WON  10
+#define HOENN_FRIEND_TEXT_COUNT     11
+#define HOENN_FRIEND_CHOICE_NORMAL  0 // the NORMAL / HARD / NO menu after the final Red
+#define HOENN_FRIEND_CHOICE_HARD    1
+
 // ==== Lane B (2.1) ============================================
 
 // 2.1-34: Teleport to your secret base. Your own base's entrance, recorded each

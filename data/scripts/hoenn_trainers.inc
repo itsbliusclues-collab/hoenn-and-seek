@@ -595,7 +595,7 @@ HoennSeek_EventScript_T_Missy_Done::
 	end
 
 HoennSeek_EventScript_T_Carolina::
-	trainerbattle_single TRAINER_CAROLINA, HoennSeek_Text_Intro_strong_4, Route108_Text_CarolinaDefeated
+	trainerbattle_single TRAINER_CAROLINA, HoennSeek_Text_Intro_elite_4, Route108_Text_CarolinaDefeated
 	msgbox Route108_Text_CarolinaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -1811,7 +1811,7 @@ HoennSeek_EventScript_T_Callie_Done::
 	end
 
 HoennSeek_EventScript_T_Leonel::
-	trainerbattle_single TRAINER_LEONEL, HoennSeek_Text_Intro_strong_1, Route120_Text_LeonelDefeat
+	trainerbattle_single TRAINER_LEONEL, HoennSeek_Text_Intro_elite_1, Route120_Text_LeonelDefeat
 	msgbox Route120_Text_LeonelPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -1891,7 +1891,7 @@ HoennSeek_EventScript_T_Pat::
 	end
 
 HoennSeek_EventScript_T_Marcel::
-	trainerbattle_single TRAINER_MARCEL, HoennSeek_Text_Intro_strong_2, Route121_Text_MarcelDefeat
+	trainerbattle_single TRAINER_MARCEL, HoennSeek_Text_Intro_elite_2, Route121_Text_MarcelDefeat
 	msgbox Route121_Text_MarcelPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -1930,7 +1930,7 @@ HoennSeek_EventScript_T_Wendy_Done::
 	end
 
 HoennSeek_EventScript_T_Braxton::
-	trainerbattle_single TRAINER_BRAXTON, HoennSeek_Text_Intro_strong_3, Route123_Text_BraxtonDefeat
+	trainerbattle_single TRAINER_BRAXTON, HoennSeek_Text_Intro_elite_3, Route123_Text_BraxtonDefeat
 	msgbox Route123_Text_BraxtonPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -2011,7 +2011,7 @@ HoennSeek_EventScript_T_Alberto::
 	end
 
 HoennSeek_EventScript_T_Fredrick::
-	trainerbattle_single TRAINER_FREDRICK, HoennSeek_Text_Intro_strong_2, Route123_Text_FrederickDefeat
+	trainerbattle_single TRAINER_FREDRICK, HoennSeek_Text_Intro_elite_2, Route123_Text_FrederickDefeat
 	msgbox Route123_Text_FrederickPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -2127,7 +2127,7 @@ HoennSeek_EventScript_T_Presley::
 	end
 
 HoennSeek_EventScript_T_Auron::
-	trainerbattle_single TRAINER_AURON, HoennSeek_Text_Intro_strong_3, Route125_Text_AuronDefeat
+	trainerbattle_single TRAINER_AURON, HoennSeek_Text_Intro_elite_3, Route125_Text_AuronDefeat
 	msgbox Route125_Text_AuronPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -2237,7 +2237,7 @@ HoennSeek_EventScript_T_Koji1_Rematch::
 	end
 
 HoennSeek_EventScript_T_Athena::
-	trainerbattle_single TRAINER_ATHENA, HoennSeek_Text_Intro_strong_3, Route127_Text_AthenaDefeat
+	trainerbattle_single TRAINER_ATHENA, HoennSeek_Text_Intro_elite_3, Route127_Text_AthenaDefeat
 	msgbox Route127_Text_AthenaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -2270,7 +2270,7 @@ HoennSeek_EventScript_T_Wayne::
 	end
 
 HoennSeek_EventScript_T_Ruben::
-	trainerbattle_single TRAINER_RUBEN, HoennSeek_Text_Intro_strong_4, Route128_Text_RubenDefeat
+	trainerbattle_single TRAINER_RUBEN, HoennSeek_Text_Intro_elite_4, Route128_Text_RubenDefeat
 	msgbox Route128_Text_RubenPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -2396,7 +2396,7 @@ HoennSeek_EventScript_T_Ronald::
 	end
 
 HoennSeek_EventScript_T_Paxton::
-	trainerbattle_single TRAINER_PAXTON, HoennSeek_Text_Intro_strong_4, Route132_Text_PaxtonDefeat
+	trainerbattle_single TRAINER_PAXTON, HoennSeek_Text_Intro_elite_4, Route132_Text_PaxtonDefeat
 	msgbox Route132_Text_PaxtonPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -2450,7 +2450,7 @@ HoennSeek_EventScript_T_Mollie::
 	end
 
 HoennSeek_EventScript_T_Conor::
-	trainerbattle_single TRAINER_CONOR, HoennSeek_Text_Intro_strong_0, Route133_Text_ConorDefeat
+	trainerbattle_single TRAINER_CONOR, HoennSeek_Text_Intro_elite_0, Route133_Text_ConorDefeat
 	msgbox Route133_Text_ConorPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -2464,7 +2464,7 @@ HoennSeek_EventScript_T_Laurel::
 	end
 
 HoennSeek_EventScript_T_Aaron::
-	trainerbattle_single TRAINER_AARON, HoennSeek_Text_Intro_strong_4, Route134_Text_AaronDefeat
+	trainerbattle_single TRAINER_AARON, HoennSeek_Text_Intro_elite_4, Route134_Text_AaronDefeat
 	msgbox Route134_Text_AaronPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -2517,17 +2517,17 @@ HoennSeek_EventScript_T_Albert::
 	end
 
 HoennSeek_EventScript_T_Katelynn::
-	trainerbattle_single TRAINER_KATELYNN, HoennSeek_Text_Intro_strong_3, VictoryRoad_1F_Text_KatelynnDefeat
+	trainerbattle_single TRAINER_KATELYNN, HoennSeek_Text_Intro_elite_3, VictoryRoad_1F_Text_KatelynnDefeat
 	msgbox VictoryRoad_1F_Text_KatelynnPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 HoennSeek_EventScript_T_Quincy::
-	trainerbattle_single TRAINER_QUINCY, HoennSeek_Text_Intro_strong_2, VictoryRoad_1F_Text_QuincyDefeat
+	trainerbattle_single TRAINER_QUINCY, HoennSeek_Text_Intro_elite_2, VictoryRoad_1F_Text_QuincyDefeat
 	msgbox VictoryRoad_1F_Text_QuincyPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 HoennSeek_EventScript_T_Samuel::
-	trainerbattle_single TRAINER_SAMUEL, HoennSeek_Text_Intro_strong_1, VictoryRoad_B1F_Text_SamuelDefeat
+	trainerbattle_single TRAINER_SAMUEL, HoennSeek_Text_Intro_elite_1, VictoryRoad_B1F_Text_SamuelDefeat
 	msgbox VictoryRoad_B1F_Text_SamuelPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -2552,7 +2552,7 @@ HoennSeek_EventScript_T_Halle::
 	end
 
 HoennSeek_EventScript_T_Vito::
-	trainerbattle_single TRAINER_VITO, HoennSeek_Text_Intro_strong_2, VictoryRoad_B2F_Text_VitoDefeat
+	trainerbattle_single TRAINER_VITO, HoennSeek_Text_Intro_elite_2, VictoryRoad_B2F_Text_VitoDefeat
 	msgbox VictoryRoad_B2F_Text_VitoPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -2767,6 +2767,36 @@ HoennSeek_Text_Gear_Route128_Text_IsaiahRegister:
 	.string "I know I'm not good now, but I think\n"
 	.string "I can win eventually.\p"
 	.string "Please register me in your POKéGEAR.$"
+
+HoennSeek_Text_Intro_elite_0:
+	.string "{PLAYER}. I've followed every one of\n"
+	.string "your HOENN BADGES.\p"
+	.string "I've built this team to beat the\n"
+	.string "next LEADER. Starting with you.$"
+
+HoennSeek_Text_Intro_elite_1:
+	.string "You're {PLAYER}, from JOHTO.\n"
+	.string "I've been waiting on this route\l"
+	.string "for you specifically.\p"
+	.string "No holding back. From either of us.$"
+
+HoennSeek_Text_Intro_elite_2:
+	.string "{PLAYER}! The GYM LEADERS talk about\n"
+	.string "you, you know.\p"
+	.string "Let's see if you're as strong as\n"
+	.string "they say.$"
+
+HoennSeek_Text_Intro_elite_3:
+	.string "So you're {PLAYER}.\n"
+	.string "I train with the GYM LEADERS.\p"
+	.string "They said you'd come this way.\n"
+	.string "Show me what they saw.$"
+
+HoennSeek_Text_Intro_elite_4:
+	.string "{PLAYER}, right? Every TRAINER here\n"
+	.string "knows your name by now.\p"
+	.string "I want mine to be the one you\n"
+	.string "remember. Let's go!$"
 
 HoennSeek_Text_Intro_hopeful_0:
 	.string "I know who you are. The champion\n"

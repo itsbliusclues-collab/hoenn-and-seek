@@ -521,3 +521,393 @@ HoennSeek_Text_SilverStarter:
 	.string "a long look.\p"
 	.string "It doesn't stray far\n"
 	.string "from its trainer.$"
+
+@ ==== 2.1-12/14: the friend trainers ====
+@ src/hoenn_friends.c explains the system. One script for all three; each
+@ friend's lines are picked in C by VAR_0x8004 (friendmsg). Only the battle
+@ itself needs one stub per friend (trainerbattle takes a constant).
+	.macro friendmsg which:req, type=MSGBOX_DEFAULT
+	callnative HoennSeek_FriendText
+	.byte \which
+	callstd \type
+	.endm
+
+HoennSeek_EventScript_FriendBridgette::
+	lock
+	faceplayer
+	setvar VAR_0x8004, HOENN_FRIEND_BRIDGETTE
+	goto HoennSeek_EventScript_FriendTalk
+
+HoennSeek_EventScript_FriendAidan::
+	lock
+	faceplayer
+	setvar VAR_0x8004, HOENN_FRIEND_AIDAN
+	goto HoennSeek_EventScript_FriendTalk
+
+HoennSeek_EventScript_FriendBrock::
+	lock
+	faceplayer
+	setvar VAR_0x8004, HOENN_FRIEND_BROCK
+	goto HoennSeek_EventScript_FriendTalk
+
+HoennSeek_EventScript_FriendTalk::
+	specialvar VAR_RESULT, HoennFriendTalkState
+	goto_if_eq VAR_RESULT, HOENN_FRIEND_STATE_TODAY, HoennSeek_EventScript_FriendToday
+	goto_if_eq VAR_RESULT, HOENN_FRIEND_STATE_FIRST, HoennSeek_EventScript_FriendFirst
+	goto_if_eq VAR_RESULT, HOENN_FRIEND_STATE_STRONGER, HoennSeek_EventScript_FriendStronger
+	callnative HoennSeek_FriendText
+	.byte HOENN_FRIEND_TEXT_AGAIN
+	goto HoennSeek_EventScript_FriendAsk
+
+HoennSeek_EventScript_FriendStronger::
+	callnative HoennSeek_FriendText
+	.byte HOENN_FRIEND_TEXT_STRONGER
+	goto HoennSeek_EventScript_FriendAsk
+
+HoennSeek_EventScript_FriendFirst::
+	friendmsg HOENN_FRIEND_TEXT_MEET
+	specialvar VAR_RESULT, HoennFriendHasNameLine
+	call_if_eq VAR_RESULT, TRUE, HoennSeek_EventScript_FriendNameLine
+	call_if_eq VAR_0x8004, HOENN_FRIEND_BROCK, HoennSeek_EventScript_BrockTypeQuestion
+	callnative HoennSeek_FriendText
+	.byte HOENN_FRIEND_TEXT_ASK
+@ data[0] holds the question: YES/NO, or NORMAL/HARD/NO after the final Red.
+HoennSeek_EventScript_FriendAsk::
+	specialvar VAR_RESULT, HoennFriendHardUnlocked
+	goto_if_eq VAR_RESULT, TRUE, HoennSeek_EventScript_FriendAskHard
+	callstd MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, HoennSeek_EventScript_FriendDecline
+	setvar VAR_0x8005, FALSE
+	goto HoennSeek_EventScript_FriendBattle
+
+HoennSeek_EventScript_FriendAskHard::
+	message NULL
+	waitmessage
+	dynmultichoice 21, 6, FALSE, 3, 0, DYN_MULTICHOICE_CB_NONE, HoennSeek_Text_FriendNormal, HoennSeek_Text_FriendHard, gText_No
+	goto_if_eq VAR_RESULT, HOENN_FRIEND_CHOICE_NORMAL, HoennSeek_EventScript_FriendNormal
+	goto_if_eq VAR_RESULT, HOENN_FRIEND_CHOICE_HARD, HoennSeek_EventScript_FriendHard
+	goto HoennSeek_EventScript_FriendDecline
+
+HoennSeek_EventScript_FriendNormal::
+	setvar VAR_0x8005, FALSE
+	goto HoennSeek_EventScript_FriendBattle
+
+HoennSeek_EventScript_FriendHard::
+	setvar VAR_0x8005, TRUE
+HoennSeek_EventScript_FriendBattle::
+	friendmsg HOENN_FRIEND_TEXT_GO
+	closemessage
+	special HoennFriendSetHard
+	goto_if_eq VAR_0x8004, HOENN_FRIEND_AIDAN, HoennSeek_EventScript_FriendBattleAidan
+	goto_if_eq VAR_0x8004, HOENN_FRIEND_BROCK, HoennSeek_EventScript_FriendBattleBrock
+	cleartrainerflag TRAINER_KAYLEE
+	trainerbattle_no_intro TRAINER_KAYLEE, HoennSeek_Text_BridgetteDefeat
+	goto HoennSeek_EventScript_FriendBattleEnded
+
+HoennSeek_EventScript_FriendBattleAidan::
+	cleartrainerflag TRAINER_DUDLEY
+	trainerbattle_no_intro TRAINER_DUDLEY, HoennSeek_Text_AidanDefeat
+	goto HoennSeek_EventScript_FriendBattleEnded
+
+HoennSeek_EventScript_FriendBattleBrock::
+	cleartrainerflag TRAINER_TERRY
+	trainerbattle_no_intro TRAINER_TERRY, HoennSeek_Text_BrockDefeat
+@ HoennFriendBattleEnded puts the friend back in VAR_0x8004 and HARD in 0x8005.
+HoennSeek_EventScript_FriendBattleEnded::
+	specialvar VAR_RESULT, HoennFriendBattleEnded
+	goto_if_eq VAR_RESULT, B_OUTCOME_FORFEITED, HoennSeek_EventScript_FriendRan
+	goto_if_eq VAR_0x8005, TRUE, HoennSeek_EventScript_FriendHardWon
+	friendmsg HOENN_FRIEND_TEXT_WON
+	release
+	end
+
+HoennSeek_EventScript_FriendHardWon::
+	friendmsg HOENN_FRIEND_TEXT_HARD_WON
+	release
+	end
+
+HoennSeek_EventScript_FriendRan::
+	friendmsg HOENN_FRIEND_TEXT_RAN
+	release
+	end
+
+HoennSeek_EventScript_FriendDecline::
+	friendmsg HOENN_FRIEND_TEXT_DECLINE
+	release
+	end
+
+HoennSeek_EventScript_FriendToday::
+	friendmsg HOENN_FRIEND_TEXT_TODAY
+	release
+	end
+
+HoennSeek_EventScript_FriendNameLine::
+	friendmsg HOENN_FRIEND_TEXT_NAME
+	return
+
+@ BROCK sizes you up: what type of Pokémon are you into? (B picks NORMAL's
+@ answer too: he doesn't take no for an answer.)
+HoennSeek_EventScript_BrockTypeQuestion::
+	message HoennSeek_Text_BrockTypeQuestion
+	waitmessage
+	dynmultichoice 18, 0, FALSE, 6, 0, DYN_MULTICHOICE_CB_NONE, HoennSeek_Text_TypeNormal, HoennSeek_Text_TypeFire, HoennSeek_Text_TypeWater, HoennSeek_Text_TypeGrass, HoennSeek_Text_TypeElectric, HoennSeek_Text_TypeIce, HoennSeek_Text_TypeFighting, HoennSeek_Text_TypePoison, HoennSeek_Text_TypeGround, HoennSeek_Text_TypeFlying, HoennSeek_Text_TypePsychic, HoennSeek_Text_TypeBug, HoennSeek_Text_TypeRock, HoennSeek_Text_TypeGhost, HoennSeek_Text_TypeDragon, HoennSeek_Text_TypeDark, HoennSeek_Text_TypeSteel, HoennSeek_Text_TypeFairy
+	copyvar VAR_0x8005, VAR_RESULT
+	specialvar VAR_RESULT, HoennFriendTypeReaction
+	call_if_eq VAR_RESULT, TRUE, HoennSeek_EventScript_BrockTypeShared
+	call_if_eq VAR_RESULT, FALSE, HoennSeek_EventScript_BrockTypeOther
+	setvar VAR_0x8004, HOENN_FRIEND_BROCK
+	return
+
+HoennSeek_EventScript_BrockTypeShared::
+	msgbox HoennSeek_Text_BrockTypeShared, MSGBOX_DEFAULT
+	return
+
+HoennSeek_EventScript_BrockTypeOther::
+	msgbox HoennSeek_Text_BrockTypeOther, MSGBOX_DEFAULT
+	return
+
+HoennSeek_Text_FriendNormal:
+	.string "NORMAL$"
+
+HoennSeek_Text_FriendHard:
+	.string "HARD$"
+
+HoennSeek_Text_TypeNormal:
+	.string "NORMAL$"
+HoennSeek_Text_TypeFire:
+	.string "FIRE$"
+HoennSeek_Text_TypeWater:
+	.string "WATER$"
+HoennSeek_Text_TypeGrass:
+	.string "GRASS$"
+HoennSeek_Text_TypeElectric:
+	.string "ELECTRIC$"
+HoennSeek_Text_TypeIce:
+	.string "ICE$"
+HoennSeek_Text_TypeFighting:
+	.string "FIGHTING$"
+HoennSeek_Text_TypePoison:
+	.string "POISON$"
+HoennSeek_Text_TypeGround:
+	.string "GROUND$"
+HoennSeek_Text_TypeFlying:
+	.string "FLYING$"
+HoennSeek_Text_TypePsychic:
+	.string "PSYCHIC$"
+HoennSeek_Text_TypeBug:
+	.string "BUG$"
+HoennSeek_Text_TypeRock:
+	.string "ROCK$"
+HoennSeek_Text_TypeGhost:
+	.string "GHOST$"
+HoennSeek_Text_TypeDragon:
+	.string "DRAGON$"
+HoennSeek_Text_TypeDark:
+	.string "DARK$"
+HoennSeek_Text_TypeSteel:
+	.string "STEEL$"
+HoennSeek_Text_TypeFairy:
+	.string "FAIRY$"
+
+@ ---- EXPLORER BRIDGETTE (Route 111) ----
+HoennSeek_Text_BridgetteMeet::
+	.string "Oh! Hello! I didn't hear you\n"
+	.string "over the wind.\p"
+	.string "I'm BRIDGETTE. I came all the way\n"
+	.string "from SINNOH to explore ruins.\p"
+	.string "This one hums at night, did you\n"
+	.string "know? I've been mapping it for\l"
+	.string "weeks now.$"
+
+HoennSeek_Text_BridgetteNameAidan::
+	.string "Wait, your name's {PLAYER}?\n"
+	.string "My boyfriend is named AIDAN too!$"
+
+HoennSeek_Text_BridgetteNameBridget::
+	.string "{PLAYER}? Hey, that's my name!\n"
+	.string "Well, almost.$"
+
+HoennSeek_Text_BridgetteAgain::
+	.string "Back again? The ruins aren't\n"
+	.string "going anywhere. Neither am I.\p"
+	.string "Up for another battle?$"
+
+HoennSeek_Text_BridgetteStronger::
+	.string "Oh, it's you! I've been training\n"
+	.string "between digs.\p"
+	.string "My team's gotten stronger since\n"
+	.string "our last battle. Want to see?$"
+
+HoennSeek_Text_BridgetteAsk::
+	.string "You look like a strong TRAINER.\n"
+	.string "How about a battle?$"
+
+HoennSeek_Text_BridgetteGo::
+	.string "Let's go! I'll try not to get\n"
+	.string "sand in your eyes.$"
+
+HoennSeek_Text_BridgetteDefeat::
+	.string "You won! I knew this desert was\n"
+	.string "hiding something good.$"
+
+HoennSeek_Text_BridgetteWon::
+	.string "That was fun! Come back tomorrow.\n"
+	.string "I'll have dug up a new strategy.$"
+
+HoennSeek_Text_BridgetteRan::
+	.string "Giving up already? The desert\n"
+	.string "gets to everyone.\p"
+	.string "Come back when you're ready.$"
+
+HoennSeek_Text_BridgetteDecline::
+	.string "That's fine. I'll be right\n"
+	.string "here, digging away.$"
+
+HoennSeek_Text_BridgetteToday::
+	.string "I'm all battled out for today.\n"
+	.string "The ruins come first!\p"
+	.string "Come back tomorrow.$"
+
+HoennSeek_Text_BridgetteHardWon::
+	.string "Every one of them at their best,\n"
+	.string "and you still dug your way out.\p"
+	.string "I'm writing this one down in my\n"
+	.string "field notes. In ink!$"
+
+@ ---- SKYDIVER AIDAN (Route 119, the ledge above the Weather Institute) ----
+HoennSeek_Text_AidanMeet::
+	.string "Whoa, hey! Careful near the edge.\p"
+	.string "I'm AIDAN. I skydive! I come up\n"
+	.string "here to read the wind before\l"
+	.string "a jump.\p"
+	.string "The INSTITUTE folks tell me when\n"
+	.string "the updrafts are good. Today's\l"
+	.string "looking perfect.$"
+
+HoennSeek_Text_AidanNameAidan::
+	.string "Hold on, you're {PLAYER} too?\n"
+	.string "That's my name!$"
+
+HoennSeek_Text_AidanNameBridget::
+	.string "{PLAYER}? No way. My girlfriend's\n"
+	.string "named BRIDGETTE!$"
+
+HoennSeek_Text_AidanAgain::
+	.string "Back up here? The view's worth\n"
+	.string "the climb, right?\p"
+	.string "Want to battle before I jump?$"
+
+HoennSeek_Text_AidanStronger::
+	.string "Hey! I've been jumping every day.\n"
+	.string "My team's gotten stronger too.\p"
+	.string "Want to see how high we fly now?$"
+
+HoennSeek_Text_AidanAsk::
+	.string "You look like you've got guts.\n"
+	.string "Battle me before my next jump?$"
+
+HoennSeek_Text_AidanGo::
+	.string "Three, two, one... Let's go!$"
+
+HoennSeek_Text_AidanDefeat::
+	.string "Whoa! That was a free fall!$"
+
+HoennSeek_Text_AidanWon::
+	.string "You knocked the wind right out\n"
+	.string "of my sails!\p"
+	.string "I'm done for today. Come find\n"
+	.string "me tomorrow!$"
+
+HoennSeek_Text_AidanHardWon::
+	.string "Everyone at full strength and\n"
+	.string "you still came out on top?\p"
+	.string "That's the biggest rush I've had\n"
+	.string "without a parachute!$"
+
+HoennSeek_Text_AidanRan::
+	.string "Pulled the cord early, huh?\n"
+	.string "No shame in a safe landing.$"
+
+HoennSeek_Text_AidanDecline::
+	.string "Suit yourself! I'll be up here\n"
+	.string "watching the clouds.$"
+
+HoennSeek_Text_AidanToday::
+	.string "I'm done battling for today.\n"
+	.string "Saving my energy for the jump!\p"
+	.string "Come back tomorrow.$"
+
+@ ---- ATHLETE BROCK (Route 115, the north end of the beach) ----
+HoennSeek_Text_BrockMeet::
+	.string "HEY! You! Yeah, YOU!\p"
+	.string "I'm BROCK! Not the gym leader!\n"
+	.string "I train right here on the sand!$"
+
+HoennSeek_Text_BrockNameBrock::
+	.string "Wait, your name's {PLAYER}?!\p"
+	.string "With a name like that, you must\n"
+	.string "be a very good TRAINER!$"
+
+HoennSeek_Text_BrockTypeQuestion::
+	.string "Before anything else, tell me!\n"
+	.string "What type of POKéMON are you into?$"
+
+HoennSeek_Text_BrockTypeShared::
+	.string "{STR_VAR_1}!! Now THAT'S taste!\p"
+	.string "My {STR_VAR_2} is going to\n"
+	.string "love you!$"
+
+HoennSeek_Text_BrockTypeOther::
+	.string "{STR_VAR_1}? Ha! None of mine are,\n"
+	.string "but I respect a TRAINER who\l"
+	.string "knows what they like!$"
+
+HoennSeek_Text_BrockAgain::
+	.string "You came back! I knew it!\p"
+	.string "Want to go another round?$"
+
+HoennSeek_Text_BrockAgainBest::
+	.string "BEST FRIEND!! You're here!\n"
+	.string "I've been training all day!\p"
+	.string "Another round? Say yes!$"
+
+HoennSeek_Text_BrockStronger::
+	.string "I've been doing sprints in the\n"
+	.string "sand since our last battle!\p"
+	.string "My team got stronger too. Ready\n"
+	.string "to feel it?$"
+
+HoennSeek_Text_BrockAsk::
+	.string "Now that we know each other,\n"
+	.string "how about a battle?$"
+
+HoennSeek_Text_BrockGo::
+	.string "Give me everything you've got!$"
+
+HoennSeek_Text_BrockDefeat::
+	.string "WHAT A BATTLE!!\n"
+	.string "My heart is pounding!$"
+
+HoennSeek_Text_BrockWon::
+	.string "That settles it. From now on,\n"
+	.string "you're my BEST FRIEND!\p"
+	.string "Come back tomorrow, best friend!$"
+
+HoennSeek_Text_BrockHardWon::
+	.string "Every one of my team at full\n"
+	.string "power, and you beat them all!\p"
+	.string "Best friend for life.\n"
+	.string "No take-backs!$"
+
+HoennSeek_Text_BrockRan::
+	.string "Taking a breather? Smart! Come\n"
+	.string "back when your legs are ready!$"
+
+HoennSeek_Text_BrockDecline::
+	.string "No? That's fine! I'll be right\n"
+	.string "here doing push-ups!$"
+
+HoennSeek_Text_BrockToday::
+	.string "I'm all trained out for today,\n"
+	.string "best friend!\p"
+	.string "Come back tomorrow!$"
