@@ -4375,6 +4375,9 @@ BattleScript_DoSwitchOut::
 	hidepartystatussummary BS_ATTACKER
 	switchinanim BS_ATTACKER, FALSE, FALSE
 	waitstate
+#if IS_HNS
+	callnative BS_HoennFriendSwitchTaunt @ Hoenn & Seek 2.1-14b: a friend trainer's line on a switch (src/hoenn_friends.c)
+#endif
 	switchineffects BS_ATTACKER
 	switchinevents
 	moveendcase MOVEEND_STATUS_IMMUNITY_ABILITIES

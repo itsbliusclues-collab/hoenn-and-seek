@@ -103,6 +103,9 @@ void HoennFriendSetHard(void);    // special
 u16 HoennFriendBattleEnded(void); // specialvar
 u16 HoennFriendHasNameLine(void); // specialvar
 u16 HoennFriendTypeReaction(void); // specialvar
+const u8 *const *HoennFriendSlides(u32 trainerId); // the friend's trainer slides, or NULL
+bool32 HoennFriendSwitchFunc(u32 battler);         // setdynamicswitchaifunc
+void BS_HoennFriendSwitchTaunt(void);              // battle script callnative
 bool32 HoennIsSilverScaled(const struct Trainer *trainer);
 // The Kangaskhan baby as your follower (src/hoenn_lane_b.c, 2.0 part 30a)
 bool32 HoennIsKangaBabyGfx(u32 species);
