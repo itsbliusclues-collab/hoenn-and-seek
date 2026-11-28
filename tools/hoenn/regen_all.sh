@@ -45,6 +45,7 @@ GENERATORS=(
     gen_hoenn_chains         # fan-favorite chains: tables and pool texts (2.1-21; after weekends)
     gen_hoenn_followers      # trainer followers (after trainers + ow mons)
     gen_hoenn_buildings      # opened buildings (before hints)
+    gen_hoenn_peoples_pokemon # people's Pokémon in towns and rooms (2.1-28; after objects move, before hints)
     gen_hoenn_hints          # hint NPC wrappers (after everything that moves objects)
     gen_hoenn_swarms         # daily swarm table (2.1-07)
     gen_hoenn_journal        # SEEKER'S JOURNAL table (2.1-05; after hints, reads their order)

@@ -11,6 +11,7 @@
 //   order they should ring; IDs come from lane B's 2.1 range in constants/hoenn_phone.h.
 // - 2.1-34: Teleport to your secret base (below; plan section 17).
 // - 2.1-21 to 23: fan-favorite chains: src/hoenn_fan_chains.c (run from the weekend update).
+// - 2.1-30: RYAN and THE LIBRARIAN: src/hoenn_ryan.c (also run from the weekend update).
 // - 2.1-18 to 20: gym leaders' weekends (below; plan section 6). A leader you've
 //   beaten takes Saturdays and Sundays off. tools/hoenn/gen_hoenn_weekends.py
 // turns data/hoenn/leader_weekends.json into three flags per leader, the table
@@ -92,6 +93,7 @@ void HoennUpdateLeaderWeekends(void)
             FlagSetTo(l->dojoFlag, FlagGet(l->dojoHide) || away);
     }
     HoennUpdateFanChains(); // 2.1-21: a chain step can move a leader off their spot
+    HoennUpdateRyan();      // 2.1-30: RYAN is in the lobby of today's run
 }
 
 // TRUE while any leader is at their weekend spot (May's call).
@@ -122,6 +124,9 @@ u16 Hoenn21LaneBDueCall(void)
     // 2.1-23: BLUE told Brendan himself, at the VIRIDIAN GYM.
     if (FlagGet(FLAG_HOENN_BM_PHONE) && HoennChainCallDue(HOENN_CHAIN_BLUE, FLAG_HOENN_CALL_BLUE_CHAIN))
         return HOENN_CALL_BLUE_CHAIN;
+    // 2.1-30: May watched RYAN's broadcast (BRENDAN found it first).
+    if (FlagGet(FLAG_HOENN_BM_PHONE) && FlagGet(FLAG_HOENN_RYAN_MET) && !FlagGet(FLAG_HOENN_CALL_RYAN))
+        return HOENN_CALL_RYAN;
     return HOENN_CALL_NONE; // the end of the chain
 }
 

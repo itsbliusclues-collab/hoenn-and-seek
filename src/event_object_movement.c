@@ -262,6 +262,7 @@ static void (*const sCameraObjectFuncs[])(struct Sprite *) = {
 };
 
 #include "data/object_events/object_event_graphics.h"
+#include "data/object_events/hoenn_friend_pics.h" // Hoenn & Seek 2.1-13
 
 // movement type callbacks
 static void (*const sMovementTypeCallbacks[])(struct Sprite *) =
@@ -489,6 +490,7 @@ const u8 gInitialMovementTypeFacingDirections[NUM_MOVEMENT_TYPES] = {
 #include "data/object_events/object_event_subsprites.h"
 #include "data/object_events/object_event_graphics_info.h"
 #include "data/object_events/object_event_graphics_info_followers.h"
+#include "data/object_events/hoenn_friend_graphics_info.h" // Hoenn & Seek 2.1-13
 #if IS_HNS
 #include "data/hoenn_kanga_baby.h" // Hoenn & Seek (2.0 part 30a)
 #endif
@@ -590,6 +592,9 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Kris_hns, OBJ_EVENT_PAL_TAG_KRIS_HNS},
     {gObjectEventPal_KrisReflection_hns, OBJ_EVENT_PAL_TAG_KRIS_REFLECTION_HNS},
     {gObjectEventPal_AlolaOak_hns, OBJ_EVENT_PAL_TAG_ALOLA_OAK_HNS},
+    {gObjectEventPal_ExplorerBridgette, OBJ_EVENT_PAL_TAG_EXPLORER_BRIDGETTE}, // Hoenn & Seek 2.1-13
+    {gObjectEventPal_SkydiverAidan, OBJ_EVENT_PAL_TAG_SKYDIVER_AIDAN},
+    {gObjectEventPal_AthleteBrock, OBJ_EVENT_PAL_TAG_ATHLETE_BROCK},
 #endif // IS_HNS
 #if OW_FOLLOWERS_POKEBALLS
     {gObjectEventPal_MasterBall,            OBJ_EVENT_PAL_TAG_BALL_MASTER},

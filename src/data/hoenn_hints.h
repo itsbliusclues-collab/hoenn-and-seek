@@ -132,6 +132,8 @@ extern const u8 HoennSeek_Text_Hint_LineStoryAideTotodile[];
 extern const u8 HoennSeek_Text_Hint_LineStoryBillGarden[];
 extern const u8 HoennSeek_Text_Hint_LineStoryCeruleanCharmander[];
 extern const u8 HoennSeek_Text_Hint_LineStoryFerry[];
+extern const u8 HoennSeek_Text_Hint_LineStoryRyanJ[];
+extern const u8 HoennSeek_Text_Hint_LineStoryRyanH[];
 extern const u8 HoennSeek_Text_Hint_LineStoryNorman[];
 extern const u8 HoennSeek_Text_Hint_LineStoryWattson[];
 extern const u8 HoennSeek_Text_Hint_LineStoryMeteorite[];
@@ -286,6 +288,8 @@ static const struct HoennHintLine sHintLines[] = {
     { (const struct HoennHintCond[]){{HINT_IF_NOT_FLAG, FLAG_HOENN_BULBASAUR_SCENE, 0}}, 1, HoennSeek_Text_Hint_LineStoryBillGarden, HINT_STORY, 0 }, // STORY_BILL_GARDEN
     { (const struct HoennHintCond[]){{HINT_IF_NOT_FLAG, FLAG_HOENN_CHARMANDER_DONE, 0}}, 1, HoennSeek_Text_Hint_LineStoryCeruleanCharmander, HINT_STORY, 0 }, // STORY_CERULEAN_CHARMANDER
     { (const struct HoennHintCond[]){{HINT_IF_BADGES_MIN, 0, 16}, {HINT_IF_STAMPS_BELOW, 0, 1}}, 2, HoennSeek_Text_Hint_LineStoryFerry, HINT_STORY, 0 }, // STORY_FERRY
+    { (const struct HoennHintCond[]){{HINT_IF_BADGES_MIN, 0, 16}, {HINT_IF_NOT_FLAG, FLAG_HOENN_RYAN_MET, 0}}, 2, HoennSeek_Text_Hint_LineStoryRyanJ, HINT_STORY, 0 }, // STORY_RYAN_J
+    { (const struct HoennHintCond[]){{HINT_IF_NOT_FLAG, FLAG_HOENN_RYAN_MET, 0}}, 1, HoennSeek_Text_Hint_LineStoryRyanH, HINT_STORY, 0 }, // STORY_RYAN_H
     { (const struct HoennHintCond[]){{HINT_IF_STAMPS_BELOW, 0, 4}}, 1, HoennSeek_Text_Hint_LineStoryNorman, HINT_STORY, 0 }, // STORY_NORMAN
     { (const struct HoennHintCond[]){{HINT_IF_NOT_FLAG, FLAG_HOENN_STAMP_GYM_3, 0}, {HINT_IF_VAR_BELOW, VAR_NEW_MAUVILLE_STATE, 2}}, 2, HoennSeek_Text_Hint_LineStoryWattson, HINT_STORY, 0 }, // STORY_WATTSON
     { (const struct HoennHintCond[]){{HINT_IF_NOT_FLAG, FLAG_HOENN_METEORITE_DELIVERED, 0}}, 1, HoennSeek_Text_Hint_LineStoryMeteorite, HINT_STORY, 0 }, // STORY_METEORITE
@@ -396,28 +400,28 @@ static const struct HoennHintLine sHintLines[] = {
 
 static const struct HoennHintNpc sHintNpcs[] = {
     { (const u8[]){2, 4}, 2, FALSE }, // CherrygroveCity_PokemonCenter_hns
-    { (const u8[]){5, 2, 130}, 3, FALSE }, // VioletCity_PokemonCenter_hns
-    { (const u8[]){16, 45, 40}, 3, FALSE }, // AzaleaTown_PokemonCenter_hns
-    { (const u8[]){8, 43, 135}, 3, FALSE }, // GoldenrodCity_PokemonCenter_hns
-    { (const u8[]){6, 134}, 2, FALSE }, // EcruteakCity_PokemonCenter_hns
-    { (const u8[]){32, 7, 133}, 3, FALSE }, // OlivineCity_PokemonCenter_hns
-    { (const u8[]){5, 6, 42, 132}, 4, FALSE }, // CianwoodPokecenter_hns
-    { (const u8[]){40, 42, 131}, 3, FALSE }, // MahoganyTown_PokemonCenter_hns
+    { (const u8[]){5, 2, 132}, 3, FALSE }, // VioletCity_PokemonCenter_hns
+    { (const u8[]){16, 47, 42}, 3, FALSE }, // AzaleaTown_PokemonCenter_hns
+    { (const u8[]){8, 45, 137}, 3, FALSE }, // GoldenrodCity_PokemonCenter_hns
+    { (const u8[]){6, 136}, 2, FALSE }, // EcruteakCity_PokemonCenter_hns
+    { (const u8[]){32, 7, 135}, 3, FALSE }, // OlivineCity_PokemonCenter_hns
+    { (const u8[]){5, 6, 44, 134}, 4, FALSE }, // CianwoodPokecenter_hns
+    { (const u8[]){42, 44, 133}, 3, FALSE }, // MahoganyTown_PokemonCenter_hns
     { (const u8[]){16, 7}, 2, FALSE }, // BlackthornCity_PokemonCenter_hns
     { (const u8[]){16, 5, 2, 3}, 4, FALSE }, // PewterCity_PokemonCenter_hns
     { (const u8[]){31, 6}, 2, FALSE }, // CeruleanCity_PokemonCenter_hns
-    { (const u8[]){32, 2}, 2, FALSE }, // VermilionCity_PokemonCenter_hns
-    { (const u8[]){44, 7}, 2, FALSE }, // LavenderTown_PokemonCenter_hns
-    { (const u8[]){137, 8}, 2, FALSE }, // SaffronCity_PokemonCenter_hns
+    { (const u8[]){32, 2, 33}, 3, FALSE }, // VermilionCity_PokemonCenter_hns
+    { (const u8[]){46, 7}, 2, FALSE }, // LavenderTown_PokemonCenter_hns
+    { (const u8[]){139, 8}, 2, FALSE }, // SaffronCity_PokemonCenter_hns
     { (const u8[]){32, 5, 2}, 3, FALSE }, // CeladonCity_PokemonCenter_hns
-    { (const u8[]){39, 56}, 2, FALSE }, // OldaleTown_PokemonCenter_1F
-    { (const u8[]){33, 10, 53}, 3, FALSE }, // SlateportCity_PokemonCenter_1F
-    { (const u8[]){34, 37, 55}, 3, FALSE }, // MauvilleCity_PokemonCenter_1F
-    { (const u8[]){35, 46, 47, 50, 9, 17}, 6, FALSE }, // FallarborTown_PokemonCenter_1F
-    { (const u8[]){36, 38, 49, 54}, 4, FALSE }, // FortreeCity_PokemonCenter_1F
-    { (const u8[]){38, 17, 51, 87}, 4, FALSE }, // LilycoveCity_PokemonCenter_1F
-    { (const u8[]){35, 11, 5, 52, 84}, 5, FALSE }, // MossdeepCity_PokemonCenter_1F
-    { (const u8[]){138}, 1, TRUE }, // Route119_WeatherInstitute_1F
+    { (const u8[]){41, 58}, 2, FALSE }, // OldaleTown_PokemonCenter_1F
+    { (const u8[]){35, 10, 55, 34}, 4, FALSE }, // SlateportCity_PokemonCenter_1F
+    { (const u8[]){36, 39, 57}, 3, FALSE }, // MauvilleCity_PokemonCenter_1F
+    { (const u8[]){37, 48, 49, 52, 9, 17}, 6, FALSE }, // FallarborTown_PokemonCenter_1F
+    { (const u8[]){38, 40, 51, 56}, 4, FALSE }, // FortreeCity_PokemonCenter_1F
+    { (const u8[]){40, 17, 53, 89}, 4, FALSE }, // LilycoveCity_PokemonCenter_1F
+    { (const u8[]){37, 11, 5, 54, 86}, 5, FALSE }, // MossdeepCity_PokemonCenter_1F
+    { (const u8[]){140}, 1, TRUE }, // Route119_WeatherInstitute_1F
     { (const u8[]){12, 13, 14}, 3, FALSE }, // CianwoodCity_hns
     { (const u8[]){12, 13, 14}, 3, FALSE }, // OlivineCity_hns
     { (const u8[]){15}, 1, FALSE }, // DewfordTown
@@ -425,56 +429,56 @@ static const struct HoennHintNpc sHintNpcs[] = {
     { (const u8[]){21, 22, 23}, 3, FALSE }, // NewBarkTown_PlayersHouse_1F_hns
     { (const u8[]){24, 25, 26, 27, 28, 29}, 6, FALSE }, // NewBarkTown_Lab_hns
     { (const u8[]){30}, 1, FALSE }, // Route25_BillsHouse_hns
-    { (const u8[]){58}, 1, FALSE }, // Route102
-    { (const u8[]){57}, 1, FALSE }, // Route102
-    { (const u8[]){48, 41}, 2, FALSE }, // PetalburgCity_PokemonCenter_1F
-    { (const u8[]){59}, 1, FALSE }, // NationalPark_Normal_hns
-    { (const u8[]){60}, 1, FALSE }, // LavenderTown_hns
-    { (const u8[]){61}, 1, FALSE }, // AzaleaTown_hns
-    { (const u8[]){62}, 1, FALSE }, // Route113
-    { (const u8[]){63}, 1, FALSE }, // Route113
-    { (const u8[]){64}, 1, FALSE }, // PetalburgWoods
-    { (const u8[]){65}, 1, FALSE }, // FortreeCity
-    { (const u8[]){66}, 1, FALSE }, // Route119
-    { (const u8[]){67}, 1, FALSE }, // FallarborTown
-    { (const u8[]){68}, 1, FALSE }, // FortreeCity
-    { (const u8[]){69, 86}, 2, FALSE }, // PacifidlogTown
-    { (const u8[]){70}, 1, FALSE }, // MtPyre_Summit
-    { (const u8[]){71}, 1, FALSE }, // Route115
-    { (const u8[]){76, 72}, 2, FALSE }, // FallarborTown
-    { (const u8[]){73}, 1, FALSE }, // FallarborTown_CozmosHouse
-    { (const u8[]){74, 75}, 2, FALSE }, // Route111
-    { (const u8[]){77}, 1, FALSE }, // FallarborTown_CozmosHouse
-    { (const u8[]){78, 81}, 2, FALSE }, // VerdanturfTown_PokemonCenter_1F
-    { (const u8[]){79, 80}, 2, FALSE }, // LavaridgeTown
-    { (const u8[]){82, 83, 85}, 3, FALSE }, // MossdeepCity
-    { (const u8[]){88, 92, 91, 89}, 4, FALSE }, // ShoalCave_LowTideEntranceRoom
-    { (const u8[]){111, 90, 136}, 3, FALSE }, // PacifidlogTown_PokemonCenter_1F
-    { (const u8[]){113, 114, 112}, 3, FALSE }, // RuinsOfAlph_Lab_hns
-    { (const u8[]){97}, 1, FALSE }, // BlackthornCity_Mart_hns
-    { (const u8[]){138, 98}, 2, FALSE }, // Route10_PowerPlantEntrance_hns
-    { (const u8[]){99}, 1, FALSE }, // Route113_GlassWorkshop
-    { (const u8[]){100}, 1, FALSE }, // LavenderTown_hns
-    { (const u8[]){101}, 1, FALSE }, // VioletCity_hns
-    { (const u8[]){102}, 1, FALSE }, // PalletTown_hns
-    { (const u8[]){103}, 1, FALSE }, // FuchsiaCity_SafariZoneBrush_hns
-    { (const u8[]){115, 116}, 2, FALSE }, // BlackthornCity_hns
-    { (const u8[]){104}, 1, FALSE }, // FuchsiaCity_SafariZoneEntrance_hns
-    { (const u8[]){105}, 1, FALSE }, // Route19_hns
-    { (const u8[]){106}, 1, FALSE }, // SouthernIsland_Exterior_hns
-    { (const u8[]){107}, 1, FALSE }, // CinnabarIsland_PokemonCenter_hns
-    { (const u8[]){108, 109}, 2, FALSE }, // ViridianCity_PokemonCenter_hns
-    { (const u8[]){108}, 1, FALSE }, // OldaleTown_PokemonCenter_1F
-    { (const u8[]){118, 117}, 2, FALSE }, // OlivineCity_Cafe_hns
-    { (const u8[]){119}, 1, FALSE }, // OlivineCity_Lighthouse_hns
-    { (const u8[]){120, 110}, 2, FALSE }, // OlivineCity_PokemonCenter_hns
-    { (const u8[]){121, 122, 123}, 3, FALSE }, // MossdeepCity_SpaceCenter_1F
-    { (const u8[]){124, 125}, 2, FALSE }, // MossdeepCity_SpaceCenter_1F
-    { (const u8[]){128, 127, 126, 129}, 4, FALSE }, // SinjohRuins_House1_hns
+    { (const u8[]){60}, 1, FALSE }, // Route102
+    { (const u8[]){59}, 1, FALSE }, // Route102
+    { (const u8[]){50, 43}, 2, FALSE }, // PetalburgCity_PokemonCenter_1F
+    { (const u8[]){61}, 1, FALSE }, // NationalPark_Normal_hns
+    { (const u8[]){62}, 1, FALSE }, // LavenderTown_hns
+    { (const u8[]){63}, 1, FALSE }, // AzaleaTown_hns
+    { (const u8[]){64}, 1, FALSE }, // Route113
+    { (const u8[]){65}, 1, FALSE }, // Route113
+    { (const u8[]){66}, 1, FALSE }, // PetalburgWoods
+    { (const u8[]){67}, 1, FALSE }, // FortreeCity
+    { (const u8[]){68}, 1, FALSE }, // Route119
+    { (const u8[]){69}, 1, FALSE }, // FallarborTown
+    { (const u8[]){70}, 1, FALSE }, // FortreeCity
+    { (const u8[]){71, 88}, 2, FALSE }, // PacifidlogTown
+    { (const u8[]){72}, 1, FALSE }, // MtPyre_Summit
+    { (const u8[]){73}, 1, FALSE }, // Route115
+    { (const u8[]){78, 74}, 2, FALSE }, // FallarborTown
+    { (const u8[]){75}, 1, FALSE }, // FallarborTown_CozmosHouse
+    { (const u8[]){76, 77}, 2, FALSE }, // Route111
+    { (const u8[]){79}, 1, FALSE }, // FallarborTown_CozmosHouse
+    { (const u8[]){80, 83}, 2, FALSE }, // VerdanturfTown_PokemonCenter_1F
+    { (const u8[]){81, 82}, 2, FALSE }, // LavaridgeTown
+    { (const u8[]){84, 85, 87}, 3, FALSE }, // MossdeepCity
+    { (const u8[]){90, 94, 93, 91}, 4, FALSE }, // ShoalCave_LowTideEntranceRoom
+    { (const u8[]){113, 92, 138}, 3, FALSE }, // PacifidlogTown_PokemonCenter_1F
+    { (const u8[]){115, 116, 114}, 3, FALSE }, // RuinsOfAlph_Lab_hns
+    { (const u8[]){99}, 1, FALSE }, // BlackthornCity_Mart_hns
+    { (const u8[]){140, 100}, 2, FALSE }, // Route10_PowerPlantEntrance_hns
+    { (const u8[]){101}, 1, FALSE }, // Route113_GlassWorkshop
+    { (const u8[]){102}, 1, FALSE }, // LavenderTown_hns
+    { (const u8[]){103}, 1, FALSE }, // VioletCity_hns
+    { (const u8[]){104}, 1, FALSE }, // PalletTown_hns
+    { (const u8[]){105}, 1, FALSE }, // FuchsiaCity_SafariZoneBrush_hns
+    { (const u8[]){117, 118}, 2, FALSE }, // BlackthornCity_hns
+    { (const u8[]){106}, 1, FALSE }, // FuchsiaCity_SafariZoneEntrance_hns
+    { (const u8[]){107}, 1, FALSE }, // Route19_hns
+    { (const u8[]){108}, 1, FALSE }, // SouthernIsland_Exterior_hns
+    { (const u8[]){109}, 1, FALSE }, // CinnabarIsland_PokemonCenter_hns
+    { (const u8[]){110, 111}, 2, FALSE }, // ViridianCity_PokemonCenter_hns
+    { (const u8[]){110}, 1, FALSE }, // OldaleTown_PokemonCenter_1F
+    { (const u8[]){120, 119}, 2, FALSE }, // OlivineCity_Cafe_hns
+    { (const u8[]){121}, 1, FALSE }, // OlivineCity_Lighthouse_hns
+    { (const u8[]){122, 112}, 2, FALSE }, // OlivineCity_PokemonCenter_hns
+    { (const u8[]){123, 124, 125}, 3, FALSE }, // MossdeepCity_SpaceCenter_1F
+    { (const u8[]){126, 127}, 2, FALSE }, // MossdeepCity_SpaceCenter_1F
+    { (const u8[]){130, 129, 128, 131}, 4, FALSE }, // SinjohRuins_House1_hns
     { (const u8[]){6, 2}, 2, FALSE }, // Route34_FishingShack_hoenn
     { (const u8[]){32, 9}, 2, FALSE }, // OlivineCity_HarborOffice_hoenn
     { (const u8[]){8, 10}, 2, FALSE }, // OlivineCity_SailorsHouse_hoenn
-    { (const u8[]){40}, 1, FALSE }, // OlivineCity_CaptainsHouse_hoenn
+    { (const u8[]){42}, 1, FALSE }, // OlivineCity_CaptainsHouse_hoenn
     { (const u8[]){6}, 1, FALSE }, // OlivineCity_TackleShop_hoenn
     { (const u8[]){2}, 1, FALSE }, // OlivineCity_Shipwright_hoenn
     { (const u8[]){5}, 1, FALSE }, // OlivineCity_KeepersHouse_hoenn
@@ -487,7 +491,7 @@ static const struct HoennHintNpc sHintNpcs[] = {
     { (const u8[]){6}, 1, FALSE }, // CeladonCity_FloristsHouse_hoenn
     { (const u8[]){5}, 1, FALSE }, // MelemeleIsle_IslandHome_hoenn
     { (const u8[]){6}, 1, FALSE }, // MelemeleIsle_SurfShop_hoenn
-    { (const u8[]){96, 95, 94, 93}, 4, FALSE }, // Route45_BeekeeperHouse_hoenn
+    { (const u8[]){98, 97, 96, 95}, 4, FALSE }, // Route45_BeekeeperHouse_hoenn
 };
 
 static const struct HoennForecast sForecasts[] = {

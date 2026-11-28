@@ -420,6 +420,11 @@
      "found_text": "The signal, logged night after night. It came with a ticket to a far island.",
      "found": [{"flag": "FLAG_HOENN_DEOXYS_TICKET"}],
      "heard": {"rumors": ["DEOXYS_SIGNAL"], "lines": ["STORY_SIGNAL"], "calls": ["HOENN_CALL_DEOXYS"]},
-     "when": {"times": ["night"]}}
+     "when": {"times": ["night"]}},
+    {"key": "RYAN_RUNS", "page": "hoenn", "hint": "A loud trainer?", "title": "RYAN's runs",
+     "rumor": "A trainer at the BATTLE FRONTIER talks through every battle for an audience at home, half of it in another language. He's in a different building each day.",
+     "found_text": "RYAN narrates his FRONTIER runs in two languages. THE LIBRARIAN writes down every word and translates.",
+     "found": [{"flag": "FLAG_HOENN_RYAN_MET"}],
+     "heard": {"lines": ["STORY_RYAN_J", "STORY_RYAN_H"]}}
   ]
 }

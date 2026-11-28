@@ -228,6 +228,10 @@ enum __attribute__((packed)) TrainerPicID
     TRAINER_PIC_FRONT_TWINS_HNS,
     TRAINER_PIC_FRONT_YOUNGSTER_HNS,
     TRAINER_PIC_FRONT_SAMSON_OAK_HNS,
+    // Hoenn & Seek 2.1-13: the friend trainers (graphics/hoenn/friends/)
+    TRAINER_PIC_FRONT_EXPLORER_BRIDGETTE,
+    TRAINER_PIC_FRONT_SKYDIVER_AIDAN,
+    TRAINER_PIC_FRONT_ATHLETE_BROCK,
     TRAINER_PIC_FRONT_COUNT,
     TRAINER_PIC_BACK_BRENDAN = TRAINER_PIC_FRONT_COUNT, // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
     TRAINER_PIC_BACK_MAY,

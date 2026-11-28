@@ -232,4 +232,20 @@
 #define VAR_HOENN_CHAIN_BLUE_WEEKEND   (HOENN_21_LANE_B_VARS + 9)
 #define HOENN_CHAIN_BLUE  2
 #define HOENN_CHAIN_DONE  4 // every chain has four steps
+// 2.1-30: RYAN and THE LIBRARIAN at the BATTLE FRONTIER (src/hoenn_ryan.c).
+#define FLAG_HOENN_RYAN_MET          (HOENN_21_LANE_B_FLAGS + 0x55) // the first meeting is done
+#define FLAG_HOENN_CALL_RYAN         (HOENN_21_LANE_B_FLAGS + 0x56) // May's call: she watched you on his broadcast
+// One per lobby, set = RYAN and THE LIBRARIAN hidden there (HoennUpdateRyan, every map load).
+#define FLAG_HOENN_RYAN_HIDE_TOWER   (HOENN_21_LANE_B_FLAGS + 0x57)
+#define FLAG_HOENN_RYAN_HIDE_DOME    (HOENN_21_LANE_B_FLAGS + 0x58)
+#define FLAG_HOENN_RYAN_HIDE_PALACE  (HOENN_21_LANE_B_FLAGS + 0x59)
+#define FLAG_HOENN_RYAN_HIDE_ARENA   (HOENN_21_LANE_B_FLAGS + 0x5A)
+#define FLAG_HOENN_RYAN_HIDE_FACTORY (HOENN_21_LANE_B_FLAGS + 0x5B)
+#define FLAG_HOENN_RYAN_HIDE_PIKE    (HOENN_21_LANE_B_FLAGS + 0x5C)
+#define FLAG_HOENN_RYAN_HIDE_PYRAMID (HOENN_21_LANE_B_FLAGS + 0x5D)
+#define FLAG_HOENN_DAILY_RYAN_RUN    (HOENN_21_LANE_B_DAILY + 0)    // today's run is told (the first talk of the day)
+#define VAR_HOENN_RYAN_TURN          (HOENN_21_LANE_B_VARS + 10)    // pool lines said (they take turns)
+#define VAR_HOENN_RYAN_PHRASE        (HOENN_21_LANE_B_VARS + 11)    // the Mandarin phrase waiting for THE LIBRARIAN, 0 = none
+#define VAR_HOENN_RYAN_ENTRY         (HOENN_21_LANE_B_VARS + 12)    // things RYAN has said: THE LIBRARIAN's entry number - 4000
+#define VAR_HOENN_LIBRARIAN_TURN     (HOENN_21_LANE_B_VARS + 13)    // THE LIBRARIAN's own lines said
 #endif // GUARD_CONSTANTS_HOENN_EVENTS_2_1_H
