@@ -152,6 +152,12 @@
      "found_text": "All three boulders rolled aside. Something big stirred behind each one.",
      "found": [{"flag": "FLAG_HOENN_REGI_OPEN_ROCK"}, {"flag": "FLAG_HOENN_REGI_OPEN_ICE"}, {"flag": "FLAG_HOENN_REGI_OPEN_STEEL"}],
      "heard": {"rumors": ["REGI_DOORS"], "lines": ["STORY_REGI_BRAILLE", "STORY_REGI_SEA"], "calls": ["HOENN_CALL_REGIS"]}},
+    {"key": "DAILY_SWARM", "page": "johto", "hint": "Today's swarm?", "title": "The daily swarm",
+     "rumor": "Every day, one kind of POKéMON swarms on one route, in JOHTO, KANTO or HOENN. The TV news and PROF. OAK's show on the radio say where.",
+     "found_text": "A whole route full of one kind of POKéMON! A different one swarms every day, and some are found nowhere else.",
+     "found": [{"flag": "FLAG_HOENN_SWARM_MET"}],
+     "heard": {},
+     "when": {"repeat": true, "text": "Today: {STR_VAR_1} on {STR_VAR_2}."}},
 
     {"key": "BULBASAUR_GARDEN", "page": "kanto", "hint": "A secret garden?", "title": "BULBASAUR's garden",
      "rumor": "BILL's grandpa says BULBASAUR meet in a garden behind his house. In the morning, slip through the trees above the cape.",

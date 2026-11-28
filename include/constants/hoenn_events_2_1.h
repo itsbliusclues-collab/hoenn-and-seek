@@ -81,6 +81,9 @@
 #define FLAG_HOENN_CALL_JOURNAL_KANTO  (HOENN_21_LANE_A_FLAGS + 0x05) // Oak's
 #define FLAG_HOENN_CALL_JOURNAL_HOENN  (HOENN_21_LANE_A_FLAGS + 0x06) // Birch's
 
-// ==== Lane B (2.1) ===================================================
+// ---- 2.1-07: the daily swarm (src/hoenn_swarm.c) ----------------------------
+#define FLAG_HOENN_SWARM_MET           (HOENN_21_LANE_A_FLAGS + 0x07) // met a swarm Pokémon (the journal's found)
+#define VAR_HOENN_SWARM_TODAY          (HOENN_21_LANE_A_VARS + 0x00)  // today's row in sHoennSwarms + 1 (0 = not rolled yet)
 
+// ==== Lane B (2.1) ============================================
 #endif // GUARD_CONSTANTS_HOENN_EVENTS_2_1_H
