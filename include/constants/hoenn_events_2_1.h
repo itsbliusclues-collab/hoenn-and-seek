@@ -101,6 +101,14 @@
 #include "constants/hoenn_journal.h"
 #define FLAG_HOENN_GOT_SEEKERS_JOURNAL (HOENN_TRACK_A_FLAGS + 0x60) // Elm's aide gave it
 
+// ---- 2.1-06: the journal's rewards (a region's page all found) -------------
+#define FLAG_HOENN_JOURNAL_DOLL_JOHTO  (HOENN_TRACK_A_FLAGS + 0x61) // Elm gave the CELEBI DOLL
+#define FLAG_HOENN_JOURNAL_DOLL_KANTO  (HOENN_TRACK_A_FLAGS + 0x62) // Oak gave the MEW DOLL
+#define FLAG_HOENN_JOURNAL_DOLL_HOENN  (HOENN_TRACK_A_FLAGS + 0x63) // Birch gave the JIRACHI DOLL
+#define FLAG_HOENN_CALL_JOURNAL_JOHTO  (HOENN_TRACK_A_FLAGS + 0x64) // Elm's call rang
+#define FLAG_HOENN_CALL_JOURNAL_KANTO  (HOENN_TRACK_A_FLAGS + 0x65) // Oak's
+#define FLAG_HOENN_CALL_JOURNAL_HOENN  (HOENN_TRACK_A_FLAGS + 0x66) // Birch's
+
 // (track A's parts add their sections here, above track B's banner)
 
 // ============================================================================

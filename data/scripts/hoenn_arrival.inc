@@ -34,6 +34,7 @@ HoennSeek_EventScript_SlateportAide::
 HoennSeek_EventScript_Birch::
 	lock
 	faceplayer
+	call HoennSeek_EventScript_BirchJournal @ 2.1-06: the JIRACHI DOLL (hoenn_2_1_a.inc)
 	goto_if_set FLAG_HOENN_RECEIVED_MUDKIP, HoennSeek_EventScript_BirchAfter
 	msgbox HoennSeek_Text_BirchWelcome, MSGBOX_DEFAULT
 	showmonpic SPECIES_MUDKIP, 10, 3

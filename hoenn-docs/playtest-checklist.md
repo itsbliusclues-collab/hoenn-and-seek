@@ -587,5 +587,13 @@ No content of its own; these check the plumbing on a real cartridge/emulator sav
 - [ ] **Hearing as you play:** talk to hint NPCs, take event calls and read the field notes; each event they mention turns from ??? into its question. Events you've already done show as found. (Emulator-tested: the Saffron PC teacher, Brendan's pond call, the field notes.)
 - [ ] **Every entry reachable:** over the playthrough, every entry on all three pages should get past ??? before or when you find it. Note any that stays ??? until found: it needs a hint line.
 
+## 2.1-06 (the SEEKER'S JOURNAL: TODAY page, field notes, the professors' dolls)
+- [ ] **TODAY page:** it's listed first and the journal opens on it. It lists the events you've heard of that are on today or tonight (weekday events only on their day; night events by the night's weekday, so after midnight it still shows last night's); found ones drop off unless they come back (repeat). Picking one shows when ("In the morning or by day.") and then its rumor. (Emulator-tested on a Monday morning with every entry heard: 41 listed.)
+- [ ] **Weather entries on TODAY:** Absol, Zapdos, the SEAFOAM titans, Castform and Masquerain only show on their route's special-weather day. Not tested in the emulator: check one on a storm/fog day.
+- [ ] **Is TODAY useful?** With everything heard it lists most events (41 on a Monday), because only weekday and weather rules filter it; times of day are shown, not filtered. If it reads like a second copy of the pages, say so and it can filter by the hour instead.
+- [ ] **Field notes:** Birch's aide counts found events out of all 62, then reads the first one you haven't heard of (Hoenn's page first, then Johto, Kanto), and it turns from ??? into its question in the journal. (Emulator-tested: MUDKIP's pond first.)
+- [ ] **The professors' calls and dolls:** when a page is all found, its professor calls (Elm, Oak, Birch, outdoors) and gives the doll at the lab: CELEBI (Elm, New Bark), MEW (Oak, Pallet), JIRACHI (Birch, after his MUDKIP). The doll goes to the PC; place it in a secret base on a desk or mat. (Calls and gifts emulator-tested with every found flag poked; placing the dolls wasn't.)
+- [ ] **Full PC:** with the decoration PC full, the professor says to make room and gives it next time.
+
 ## Track B parts (2.1: the world and its people)
 Track B's `## 2.1-NN` sections go below this line, at the end of the file.

@@ -13,6 +13,9 @@ HoennSeek_Text_JournalChikoritaMeadowRumor::
 HoennSeek_Text_JournalChikoritaMeadowFoundText::
 	.string "A MEGANIUM watching over its young\nin the sun. The meadow smelled\llike spring the whole time!$"
 
+HoennSeek_Text_JournalChikoritaMeadowWhen::
+	.string "In the morning or by day.$"
+
 HoennSeek_Text_JournalCyndaquilTowerHint::
 	.string "Embers at night?$"
 
@@ -24,6 +27,9 @@ HoennSeek_Text_JournalCyndaquilTowerRumor::
 
 HoennSeek_Text_JournalCyndaquilTowerFoundText::
 	.string "A TYPHLOSION and its CYNDAQUIL,\nwarming the pit of the BURNED\lTOWER. It still smells of smoke\ldown there.$"
+
+HoennSeek_Text_JournalCyndaquilTowerWhen::
+	.string "At night.$"
 
 HoennSeek_Text_JournalTotodileCoveHint::
 	.string "A bait thief?$"
@@ -37,6 +43,9 @@ HoennSeek_Text_JournalTotodileCoveRumor::
 HoennSeek_Text_JournalTotodileCoveFoundText::
 	.string "A FERALIGATR and its TOTODILE in\nthe LAKE OF RAGE's south cove. The\lbait thief was one of them\lall along!$"
 
+HoennSeek_Text_JournalTotodileCoveWhen::
+	.string "In the morning, by day or in\nthe evening.$"
+
 HoennSeek_Text_JournalLaprasSongHint::
 	.string "A cave song?$"
 
@@ -48,6 +57,9 @@ HoennSeek_Text_JournalLaprasSongRumor::
 
 HoennSeek_Text_JournalLaprasSongFoundText::
 	.string "The LAPRAS of UNION CAVE. Its song\ncarried through the whole cave.$"
+
+HoennSeek_Text_JournalLaprasSongWhen::
+	.string "All day.$"
 
 HoennSeek_Text_JournalKiyoMachampHint::
 	.string "A karate match?$"
@@ -61,6 +73,9 @@ HoennSeek_Text_JournalKiyoMachampRumor::
 HoennSeek_Text_JournalKiyoMachampFoundText::
 	.string "KIYO and the MACHAMP, trading\nblows at dawn. KIYO says it's the\lonly partner who never holds back.$"
 
+HoennSeek_Text_JournalKiyoMachampWhen::
+	.string "In the morning.$"
+
 HoennSeek_Text_JournalScizorDuelHint::
 	.string "Clashing blades?$"
 
@@ -73,6 +88,9 @@ HoennSeek_Text_JournalScizorDuelRumor::
 HoennSeek_Text_JournalScizorDuelFoundText::
 	.string "A SCIZOR fighting two SCYTHER for\nthe park's corner. It kept\lits ground.$"
 
+HoennSeek_Text_JournalScizorDuelWhen::
+	.string "In the evening.$"
+
 HoennSeek_Text_JournalSlowkingSageHint::
 	.string "A well's riddles?$"
 
@@ -84,6 +102,9 @@ HoennSeek_Text_JournalSlowkingSageRumor::
 
 HoennSeek_Text_JournalSlowkingSageFoundText::
 	.string "Seven riddles, seven answers, and\nthen a prophecy about a silver\lbird and the sea.$"
+
+HoennSeek_Text_JournalSlowkingSageWhen::
+	.string "A new riddle every day.$"
 
 HoennSeek_Text_JournalUnownRosettaHint::
 	.string "New writing?$"
@@ -109,6 +130,9 @@ HoennSeek_Text_JournalUnownWordsRumor::
 HoennSeek_Text_JournalUnownWordsFoundText::
 	.string "A word for every night of the\nweek, glowing in the WORDS\lchambers. Each one names a place.$"
 
+HoennSeek_Text_JournalUnownWordsWhen::
+	.string "At night.$"
+
 HoennSeek_Text_JournalUnownRingsHint::
 	.string "Rings of UNOWN?$"
 
@@ -120,6 +144,9 @@ HoennSeek_Text_JournalUnownRingsRumor::
 
 HoennSeek_Text_JournalUnownRingsFoundText::
 	.string "Seven rings of UNOWN, seven pieces\nof an old tablet. Put together,\lthey spell ANCIENT.$"
+
+HoennSeek_Text_JournalUnownRingsWhen::
+	.string "At night.$"
 
 HoennSeek_Text_JournalUnownSanctumHint::
 	.string "A split boulder?$"
@@ -133,6 +160,9 @@ HoennSeek_Text_JournalUnownSanctumRumor::
 HoennSeek_Text_JournalUnownSanctumFoundText::
 	.string "Under the boulder, a chamber with\na mural of every UNOWN, and an\linscription about SINJOH.$"
 
+HoennSeek_Text_JournalUnownSanctumWhen::
+	.string "At night.$"
+
 HoennSeek_Text_JournalSneaselThiefHint::
 	.string "An ice thief?$"
 
@@ -144,6 +174,9 @@ HoennSeek_Text_JournalSneaselThiefRumor::
 
 HoennSeek_Text_JournalSneaselThiefFoundText::
 	.string "A SNEASEL snatching items off the\nICE PATH's ice, three times over.\lIts hoard was in a nook all along.$"
+
+HoennSeek_Text_JournalSneaselThiefWhen::
+	.string "At night.$"
 
 HoennSeek_Text_JournalLanturnLightHint::
 	.string "A light at sea?$"
@@ -157,6 +190,9 @@ HoennSeek_Text_JournalLanturnLightRumor::
 HoennSeek_Text_JournalLanturnLightFoundText::
 	.string "A LANTURN's light led all the way\nto a lagoon behind the ridge, with\lan old stone in it.$"
 
+HoennSeek_Text_JournalLanturnLightWhen::
+	.string "At night.$"
+
 HoennSeek_Text_JournalAmpharosRescueHint::
 	.string "AMPHY at night?$"
 
@@ -168,6 +204,9 @@ HoennSeek_Text_JournalAmpharosRescueRumor::
 
 HoennSeek_Text_JournalAmpharosRescueFoundText::
 	.string "A second AMPHAROS, stranded on a\nsea rock off ROUTE 40. Three\lberries won it over, and it rode\lhome with you.$"
+
+HoennSeek_Text_JournalAmpharosRescueWhen::
+	.string "At night.$"
 
 HoennSeek_Text_JournalLugiaShrineHint::
 	.string "A silver song?$"
@@ -205,6 +244,9 @@ HoennSeek_Text_JournalHoohDawnRumor::
 HoennSeek_Text_JournalHoohDawnFoundText::
 	.string "HO-OH on the TIN TOWER's roof at\nsunrise. The whole sky turned the\lcolors of its wings.$"
 
+HoennSeek_Text_JournalHoohDawnWhen::
+	.string "In the morning.$"
+
 HoennSeek_Text_JournalCelebiOfferingsHint::
 	.string "Empty dishes?$"
 
@@ -229,6 +271,9 @@ HoennSeek_Text_JournalHoneyTrailRumor::
 HoennSeek_Text_JournalHoneyTrailFoundText::
 	.string "The URSARING mother led you up the\ncliff at night, to a hollow where\lthe bears watch the moon.$"
 
+HoennSeek_Text_JournalHoneyTrailWhen::
+	.string "In the morning or at night.$"
+
 HoennSeek_Text_JournalDunsparceBurrowHint::
 	.string "Holes that move?$"
 
@@ -241,6 +286,9 @@ HoennSeek_Text_JournalDunsparceBurrowRumor::
 HoennSeek_Text_JournalDunsparceBurrowFoundText::
 	.string "A DUNSPARCE that dug and dug until\nit had three segments. The burrow\lgoes deeper every visit.$"
 
+HoennSeek_Text_JournalDunsparceBurrowWhen::
+	.string "Its hole moves with the time\nof day.$"
+
 HoennSeek_Text_JournalRayquazaTowerHint::
 	.string "A JADE ORB?$"
 
@@ -252,6 +300,9 @@ HoennSeek_Text_JournalRayquazaTowerRumor::
 
 HoennSeek_Text_JournalRayquazaTowerFoundText::
 	.string "RAYQUAZA, coiled around the\nEMBEDDED TOWER at high noon.$"
+
+HoennSeek_Text_JournalRayquazaTowerWhen::
+	.string "At noon.$"
 
 HoennSeek_Text_JournalRegiDoorsHint::
 	.string "Sealed caves?$"
@@ -277,6 +328,9 @@ HoennSeek_Text_JournalBulbasaurGardenRumor::
 HoennSeek_Text_JournalBulbasaurGardenFoundText::
 	.string "A whole garden of BULBASAUR, and\nthree of them blooming into\lIVYSAUR at once.$"
 
+HoennSeek_Text_JournalBulbasaurGardenWhen::
+	.string "In the morning.$"
+
 HoennSeek_Text_JournalCharmanderRainHint::
 	.string "A flame in rain?$"
 
@@ -288,6 +342,9 @@ HoennSeek_Text_JournalCharmanderRainRumor::
 
 HoennSeek_Text_JournalCharmanderRainFoundText::
 	.string "A CHARMANDER still waiting for the\ntrainer who left it. It has a new\ltrainer now.$"
+
+HoennSeek_Text_JournalCharmanderRainWhen::
+	.string "In the evening.$"
 
 HoennSeek_Text_JournalSquirtleSquadHint::
 	.string "Shady SQUIRTLE?$"
@@ -301,6 +358,9 @@ HoennSeek_Text_JournalSquirtleSquadRumor::
 HoennSeek_Text_JournalSquirtleSquadFoundText::
 	.string "The SQUIRTLE SQUAD's pitfall,\ntheir hideout, and a night fire in\lVERMILION that they put out.$"
 
+HoennSeek_Text_JournalSquirtleSquadWhen::
+	.string "In the morning, by day or\nat night.$"
+
 HoennSeek_Text_JournalGengarShadowHint::
 	.string "A grinning shadow?$"
 
@@ -313,6 +373,9 @@ HoennSeek_Text_JournalGengarShadowRumor::
 HoennSeek_Text_JournalGengarShadowFoundText::
 	.string "A GENGAR hiding in your shadow,\nfrom LAVENDER all the way to the\lRADIO TOWER.$"
 
+HoennSeek_Text_JournalGengarShadowWhen::
+	.string "At night.$"
+
 HoennSeek_Text_JournalZapdosStormHint::
 	.string "A storm feather?$"
 
@@ -324,6 +387,9 @@ HoennSeek_Text_JournalZapdosStormRumor::
 
 HoennSeek_Text_JournalZapdosStormFoundText::
 	.string "ZAPDOS came down to its roost on\nROUTE 10 when the THUNDER FEATHER\lcalled it.$"
+
+HoennSeek_Text_JournalZapdosStormWhen::
+	.string "Thunderstorm day at ROUTE 10's\nPOWER PLANT.$"
 
 HoennSeek_Text_JournalArticunoRoostHint::
 	.string "An ice feather?$"
@@ -361,6 +427,9 @@ HoennSeek_Text_JournalOnixBoreRumor::
 HoennSeek_Text_JournalOnixBoreFoundText::
 	.string "A shining ONIX, deep in the\ntunnels it bores. It moves its\lhole every night.$"
 
+HoennSeek_Text_JournalOnixBoreWhen::
+	.string "At night.$"
+
 HoennSeek_Text_JournalTangelaVinesHint::
 	.string "Vines that move?$"
 
@@ -372,6 +441,9 @@ HoennSeek_Text_JournalTangelaVinesRumor::
 
 HoennSeek_Text_JournalTangelaVinesFoundText::
 	.string "A TANGELA living in the vines on\nROUTE 21's islet.$"
+
+HoennSeek_Text_JournalTangelaVinesWhen::
+	.string "In the morning.$"
 
 HoennSeek_Text_JournalKangaBabyHint::
 	.string "A lost baby?$"
@@ -385,6 +457,9 @@ HoennSeek_Text_JournalKangaBabyRumor::
 HoennSeek_Text_JournalKangaBabyFoundText::
 	.string "A baby KANGASKHAN, walked all the\nway back to its mother's pouch.$"
 
+HoennSeek_Text_JournalKangaBabyWhen::
+	.string "In the evening.$"
+
 HoennSeek_Text_JournalTaurosStampedeHint::
 	.string "A stampede?$"
 
@@ -397,6 +472,9 @@ HoennSeek_Text_JournalTaurosStampedeRumor::
 HoennSeek_Text_JournalTaurosStampedeFoundText::
 	.string "Through the stampede to the lead\nbull, a TAUROS from\lfar-off PALDEA.$"
 
+HoennSeek_Text_JournalTaurosStampedeWhen::
+	.string "In the morning.$"
+
 HoennSeek_Text_JournalSeafoamTitansHint::
 	.string "Fog into storm?$"
 
@@ -408,6 +486,9 @@ HoennSeek_Text_JournalSeafoamTitansRumor::
 
 HoennSeek_Text_JournalSeafoamTitansFoundText::
 	.string "KYOGRE and GROUDON, asleep under\nthe SEAFOAM ISLANDS, woken by\lthe ORBS.$"
+
+HoennSeek_Text_JournalSeafoamTitansWhen::
+	.string "Fog day on the SEAFOAM waters.$"
 
 HoennSeek_Text_JournalEnigmaLatiHint::
 	.string "Glowing sparks?$"
@@ -445,6 +526,9 @@ HoennSeek_Text_JournalMewBlurRumor::
 HoennSeek_Text_JournalMewBlurFoundText::
 	.string "A MEW at dawn, gone before you\ncould look twice. It left a scrap\lof an old sea map behind.$"
 
+HoennSeek_Text_JournalMewBlurWhen::
+	.string "At first light.$"
+
 HoennSeek_Text_JournalJirachiWishesHint::
 	.string "Three wishes?$"
 
@@ -456,6 +540,9 @@ HoennSeek_Text_JournalJirachiWishesRumor::
 
 HoennSeek_Text_JournalJirachiWishesFoundText::
 	.string "JIRACHI, woken by three wishes,\nlanding in MT. MOON's pond.$"
+
+HoennSeek_Text_JournalJirachiWishesWhen::
+	.string "At night.$"
 
 HoennSeek_Text_JournalMudkipPondHint::
 	.string "A pond at dawn?$"
@@ -469,6 +556,9 @@ HoennSeek_Text_JournalMudkipPondRumor::
 HoennSeek_Text_JournalMudkipPondFoundText::
 	.string "A SWAMPERT teaching its MUDKIP to\ndive. The rain came right after,\ljust like they said.$"
 
+HoennSeek_Text_JournalMudkipPondWhen::
+	.string "In the morning.$"
+
 HoennSeek_Text_JournalRaltsGuardHint::
 	.string "A guarded RALTS?$"
 
@@ -480,6 +570,9 @@ HoennSeek_Text_JournalRaltsGuardRumor::
 
 HoennSeek_Text_JournalRaltsGuardFoundText::
 	.string "Three slow, quiet mornings, and\nthe RALTS chose to come along.$"
+
+HoennSeek_Text_JournalRaltsGuardWhen::
+	.string "In the morning.$"
 
 HoennSeek_Text_JournalMunchlaxNapHint::
 	.string "A sleeper in ash?$"
@@ -505,6 +598,9 @@ HoennSeek_Text_JournalSpindaDanceRumor::
 HoennSeek_Text_JournalSpindaDanceFoundText::
 	.string "A SPINDA dancing in the ash. Every\nstep was different.$"
 
+HoennSeek_Text_JournalSpindaDanceWhen::
+	.string "Some morning this week.$"
+
 HoennSeek_Text_JournalSlakingNoonHint::
 	.string "A noon sleeper?$"
 
@@ -516,6 +612,9 @@ HoennSeek_Text_JournalSlakingNoonRumor::
 
 HoennSeek_Text_JournalSlakingNoonFoundText::
 	.string "The SLAKING woke at noon, and\nbehind it was NORMAN's old\ltraining clearing.$"
+
+HoennSeek_Text_JournalSlakingNoonWhen::
+	.string "At noon.$"
 
 HoennSeek_Text_JournalTropiusOrchardHint::
 	.string "Fruit at sunrise?$"
@@ -529,6 +628,9 @@ HoennSeek_Text_JournalTropiusOrchardRumor::
 HoennSeek_Text_JournalTropiusOrchardFoundText::
 	.string "A hidden orchard behind a tree\ntrunk on ROUTE 119, with a TROPIUS\land a tree full of fruit.$"
 
+HoennSeek_Text_JournalTropiusOrchardWhen::
+	.string "In the morning.$"
+
 HoennSeek_Text_JournalFeebasPondHint::
 	.string "A plain fish?$"
 
@@ -540,6 +642,9 @@ HoennSeek_Text_JournalFeebasPondRumor::
 
 HoennSeek_Text_JournalFeebasPondFoundText::
 	.string "A FEEBAS in the mirror pool. Its\nscales shine like a prism if you\llook closely.$"
+
+HoennSeek_Text_JournalFeebasPondWhen::
+	.string "In the evening or at night.$"
 
 HoennSeek_Text_JournalZangooseFeudHint::
 	.string "A Sunday fight?$"
@@ -553,6 +658,9 @@ HoennSeek_Text_JournalZangooseFeudRumor::
 HoennSeek_Text_JournalZangooseFeudFoundText::
 	.string "ZANGOOSE and SEVIPER, mid-fight on\nthe island. They turned on\lyou together!$"
 
+HoennSeek_Text_JournalZangooseFeudWhen::
+	.string "In the evening or at night.$"
+
 HoennSeek_Text_JournalAbsolRidgeHint::
 	.string "A white shape?$"
 
@@ -564,6 +672,9 @@ HoennSeek_Text_JournalAbsolRidgeRumor::
 
 HoennSeek_Text_JournalAbsolRidgeFoundText::
 	.string "ABSOL on the ridge in the storm.\nIt only roams ROUTE 120 on\lstormy nights.$"
+
+HoennSeek_Text_JournalAbsolRidgeWhen::
+	.string "Storm day on ROUTE 120! In the\nevening or at night.$"
 
 HoennSeek_Text_JournalWailordStraitHint::
 	.string "A sleeping whale?$"
@@ -589,6 +700,9 @@ HoennSeek_Text_JournalChimechoChimesRumor::
 HoennSeek_Text_JournalChimechoChimesFoundText::
 	.string "A CHIMECHO, ringing between the\ngraves. The sound led right to it.$"
 
+HoennSeek_Text_JournalChimechoChimesWhen::
+	.string "At night.$"
+
 HoennSeek_Text_JournalAltariaChorusHint::
 	.string "Singing on top?$"
 
@@ -600,6 +714,9 @@ HoennSeek_Text_JournalAltariaChorusRumor::
 
 HoennSeek_Text_JournalAltariaChorusFoundText::
 	.string "A whole chorus of ALTARIA on the\nclifftop, and one of them shone a\ldifferent color.$"
+
+HoennSeek_Text_JournalAltariaChorusWhen::
+	.string "In the morning.$"
 
 HoennSeek_Text_JournalBagonLeapHint::
 	.string "A leap at dawn?$"
@@ -613,6 +730,9 @@ HoennSeek_Text_JournalBagonLeapRumor::
 HoennSeek_Text_JournalBagonLeapFoundText::
 	.string "The BAGON's leap, again and again.\nIt hasn't flown yet, but it never\lgives up.$"
 
+HoennSeek_Text_JournalBagonLeapWhen::
+	.string "In the morning.$"
+
 HoennSeek_Text_JournalMetagrossFusionHint::
 	.string "Glowing stones?$"
 
@@ -624,6 +744,9 @@ HoennSeek_Text_JournalMetagrossFusionRumor::
 
 HoennSeek_Text_JournalMetagrossFusionFoundText::
 	.string "Two METANG fused into a METAGROSS\nin STEVEN's cave, in a flash\lof white.$"
+
+HoennSeek_Text_JournalMetagrossFusionWhen::
+	.string "One night this week.$"
 
 HoennSeek_Text_JournalDesertSongHint::
 	.string "A singing desert?$"
@@ -637,6 +760,9 @@ HoennSeek_Text_JournalDesertSongRumor::
 HoennSeek_Text_JournalDesertSongFoundText::
 	.string "A TRAPINCH's tracks, a hollow\nwhere the sand drains, and a\lVIBRAVA that gave you its\lSINGING SAND.$"
 
+HoennSeek_Text_JournalDesertSongWhen::
+	.string "In the evening.$"
+
 HoennSeek_Text_JournalMirageFlygonHint::
 	.string "A tower's song?$"
 
@@ -648,6 +774,9 @@ HoennSeek_Text_JournalMirageFlygonRumor::
 
 HoennSeek_Text_JournalMirageFlygonFoundText::
 	.string "The SAND CHIME raised the MIRAGE\nTOWER, and FLYGON was waiting at\lthe top.$"
+
+HoennSeek_Text_JournalMirageFlygonWhen::
+	.string "In the evening.$"
 
 HoennSeek_Text_JournalNightDiveHint::
 	.string "Deep-sea lights?$"
@@ -661,6 +790,9 @@ HoennSeek_Text_JournalNightDiveRumor::
 HoennSeek_Text_JournalNightDiveFoundText::
 	.string "The CHINCHOU lights led to a crack\nin the seabed, and a trench black\las ink.$"
 
+HoennSeek_Text_JournalNightDiveWhen::
+	.string "At night.$"
+
 HoennSeek_Text_JournalTrenchGuardiansHint::
 	.string "Trench guardians?$"
 
@@ -672,6 +804,9 @@ HoennSeek_Text_JournalTrenchGuardiansRumor::
 
 HoennSeek_Text_JournalTrenchGuardiansFoundText::
 	.string "All three guardians met, and the\nmound at the bottom of the\ltrench opened.$"
+
+HoennSeek_Text_JournalTrenchGuardiansWhen::
+	.string "A different guardian every day.$"
 
 HoennSeek_Text_JournalIceChamberHint::
 	.string "A hole in the ice?$"
@@ -685,6 +820,9 @@ HoennSeek_Text_JournalIceChamberRumor::
 HoennSeek_Text_JournalIceChamberFoundText::
 	.string "Down the hole at low tide, a\nsliding-ice chamber, and a GLALIE\lon a frozen pool.$"
 
+HoennSeek_Text_JournalIceChamberWhen::
+	.string "Any time but night, at low tide.$"
+
 HoennSeek_Text_JournalIceFroslassHint::
 	.string "A face in the ice?$"
 
@@ -696,6 +834,9 @@ HoennSeek_Text_JournalIceFroslassRumor::
 
 HoennSeek_Text_JournalIceFroslassFoundText::
 	.string "A FROSLASS hiding from pillar to\npillar, and a FROST FEATHER frozen\lbehind her.$"
+
+HoennSeek_Text_JournalIceFroslassWhen::
+	.string "At night, at low tide.$"
 
 HoennSeek_Text_JournalCastformHint::
 	.string "A weather rider?$"
@@ -709,6 +850,9 @@ HoennSeek_Text_JournalCastformRumor::
 HoennSeek_Text_JournalCastformFoundText::
 	.string "A CASTFORM, riding the weather\nnear the WEATHER INSTITUTE.$"
 
+HoennSeek_Text_JournalCastformWhen::
+	.string "The weather turns on ROUTE 119,\n120 or 123 today.$"
+
 HoennSeek_Text_JournalMasquerainHint::
 	.string "Rain on the pond?$"
 
@@ -720,6 +864,9 @@ HoennSeek_Text_JournalMasquerainRumor::
 
 HoennSeek_Text_JournalMasquerainFoundText::
 	.string "A MASQUERAIN, out in the rain. It\nonly comes when the sky opens.$"
+
+HoennSeek_Text_JournalMasquerainWhen::
+	.string "Rain is due on a HOENN\nroute today.$"
 
 HoennSeek_Text_JournalMoltresFlyoverHint::
 	.string "A burning shadow?$"
@@ -744,4 +891,7 @@ HoennSeek_Text_JournalDeoxysSignalRumor::
 
 HoennSeek_Text_JournalDeoxysSignalFoundText::
 	.string "The signal, logged night after\nnight. It came with a ticket to a\lfar island.$"
+
+HoennSeek_Text_JournalDeoxysSignalWhen::
+	.string "At night.$"
 

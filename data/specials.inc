@@ -817,6 +817,7 @@ gSpecials::
 	@ Hoenn & Seek 2.1, builder track A (systems and trainers): track A's specials go here
 	def_special HoennJournalPushPages @ 2.1-05
 	def_special HoennJournalPushEntries
+	def_special HoennJournalPageDone @ 2.1-06
 
 	@ (end of track A's specials)
 

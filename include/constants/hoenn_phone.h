@@ -81,6 +81,9 @@
 #define HOENN_CALL_TRACK_A_FIRST 100
 #define HOENN_CALL_TRACK_A_LAST  129
 // (track A's calls go here)
+#define HOENN_CALL_JOURNAL_JOHTO 100 // 2.1-06: Elm, the JOHTO page is all found
+#define HOENN_CALL_JOURNAL_KANTO 101 // Oak, KANTO
+#define HOENN_CALL_JOURNAL_HOENN 102 // Birch, HOENN
 
 // Track B: 130-159.
 #define HOENN_CALL_TRACK_B_FIRST 130
