@@ -27,6 +27,9 @@
 #define PALTAG_OPTIONS_PINK 6
 #define PALTAG_OPTIONS_BEIGE 7
 #define PALTAG_OPTIONS_RED 8
+#if IS_HNS
+#define PALTAG_OPTIONS_GOLD 9 // Hoenn & Seek 2.1-06b: the JOURNAL's square
+#endif
 
 #define PALTAG_OPTIONS_START PALTAG_OPTIONS_DEFAULT
 
@@ -169,7 +172,7 @@ static const struct CompressedSpriteSheet sPokenavOptionsSpriteSheets[] =
     {
         .data = gPokenavOptions_Gfx,
 #if IS_HNS
-        .size = 0x3800,
+        .size = 0x3C00, // + the JOURNAL label (2.1-06b)
 #else
         .size = 0x3400,
 #endif
@@ -189,6 +192,9 @@ static const struct SpritePalette sPokenavOptionsSpritePalettes[] =
     {&gPokenavOptions_Pal[0x20], PALTAG_OPTIONS_PINK},
     {&gPokenavOptions_Pal[0x30], PALTAG_OPTIONS_BEIGE},
     {&gPokenavOptions_Pal[0x40], PALTAG_OPTIONS_RED},
+#if IS_HNS
+    {&gPokenavOptions_Pal[0x50], PALTAG_OPTIONS_GOLD},
+#endif
     {sMatchCallBlueLightPal, PALTAG_BLUE_LIGHT},
     {}
 };
@@ -209,6 +215,30 @@ static const u16 sOptionsLabelGfx_Tough[]     = {0x160, PALTAG_OPTIONS_DEFAULT -
 static const u16 sOptionsLabelGfx_Cancel[]    = {0x180, PALTAG_OPTIONS_BEIGE - PALTAG_OPTIONS_START};
 #if IS_HNS
 static const u16 sOptionsLabelGfx_Radio[]     = {0x1A0, PALTAG_OPTIONS_DEFAULT - PALTAG_OPTIONS_START};
+static const u16 sOptionsLabelGfx_Journal[]   = {0x1C0, PALTAG_OPTIONS_GOLD - PALTAG_OPTIONS_START};
+
+// 2.1-06b: HnS's main menu is built from the flags (pokenav_menu_handler.c),
+// so its labels come from each button's item, and its spacing from how many
+// there are: HnS's own spacing for 2 to 6 buttons, the squeezed one for 7.
+static const u16 *const sHoennMainMenuLabels[] =
+{
+    [POKENAV_MENUITEM_MAP]        = sOptionsLabelGfx_RegionMap,
+    [POKENAV_MENUITEM_CONDITION]  = sOptionsLabelGfx_Condition,
+    [POKENAV_MENUITEM_MATCH_CALL] = sOptionsLabelGfx_MatchCall,
+    [POKENAV_MENUITEM_RIBBONS]    = sOptionsLabelGfx_Ribbons,
+    [POKENAV_MENUITEM_RADIO]      = sOptionsLabelGfx_Radio,
+    [POKENAV_MENUITEM_JOURNAL]    = sOptionsLabelGfx_Journal,
+    [POKENAV_MENUITEM_SWITCH_OFF] = sOptionsLabelGfx_SwitchOff,
+};
+
+static const u8 sHoennMainMenuSpacing[MAX_POKENAV_MENUITEMS + 1][2] =
+{
+    // yStart, deltaY by button count
+    [0 ... 2] = {56, 20},
+    [3 ... 5] = {42, 20},
+    [6]       = {40, 16},
+    [7]       = {38, 14},
+};
 #endif
 
 struct
@@ -346,6 +376,7 @@ static const u8 *const sPageDescriptions[] =
     [POKENAV_MENUITEM_RIBBONS]                 = COMPOUND_STRING("Check obtained RIBBONS."),
 #if IS_HNS
     [POKENAV_MENUITEM_RADIO]                   = COMPOUND_STRING("Listen to the radio."),
+    [POKENAV_MENUITEM_JOURNAL]                 = COMPOUND_STRING("Read your SEEKER'S JOURNAL."),
     [POKENAV_MENUITEM_SWITCH_OFF]              = COMPOUND_STRING("Put away the POKéGEAR."),
     [POKENAV_MENUITEM_CONDITION_CANCEL]        = COMPOUND_STRING("Return to the POKéGEAR menu."),
 #else
@@ -883,6 +914,9 @@ static void FreeAndDestroyMainMenuSprites(void)
     FreeSpritePaletteByTag(PALTAG_OPTIONS_PINK);
     FreeSpritePaletteByTag(PALTAG_OPTIONS_BEIGE);
     FreeSpritePaletteByTag(PALTAG_OPTIONS_RED);
+#if IS_HNS
+    FreeSpritePaletteByTag(PALTAG_OPTIONS_GOLD);
+#endif
     FreeSpritePaletteByTag(PALTAG_BLUE_LIGHT);
     DestroyMenuOptionSprites();
     DestroyRematchBlueLightSprite();
@@ -919,10 +953,41 @@ static void DestroyMenuOptionSprites(void)
     }
 }
 
+// The current menu's first button y and the step between buttons.
+static void GetMenuOptionSpacing(s32 *yStart, s32 *deltaY)
+{
+    s32 menuType = GetPokenavMenuType();
+#if IS_HNS
+    if (menuType == POKENAV_MENU_TYPE_HOENN_MAIN)
+    {
+        *yStart = sHoennMainMenuSpacing[GetPokenavMenuItemCount()][0];
+        *deltaY = sHoennMainMenuSpacing[GetPokenavMenuItemCount()][1];
+        return;
+    }
+#endif
+    *yStart = sPokenavMenuOptionLabelGfx[menuType].yStart;
+    *deltaY = sPokenavMenuOptionLabelGfx[menuType].deltaY;
+}
+
 static void DrawCurrentMenuOptionLabels(void)
 {
     s32 menuType = GetPokenavMenuType();
-    DrawOptionLabelGfx(sPokenavMenuOptionLabelGfx[menuType].gfx, sPokenavMenuOptionLabelGfx[menuType].yStart, sPokenavMenuOptionLabelGfx[menuType].deltaY);
+    s32 yStart, deltaY;
+
+    GetMenuOptionSpacing(&yStart, &deltaY);
+#if IS_HNS
+    if (menuType == POKENAV_MENU_TYPE_HOENN_MAIN)
+    {
+        const u16 *labels[MAX_POKENAV_MENUITEMS] = {NULL};
+        s32 i;
+
+        for (i = 0; i < GetPokenavMenuItemCount(); i++)
+            labels[i] = sHoennMainMenuLabels[GetPokenavMenuItemAt(i)];
+        DrawOptionLabelGfx(labels, yStart, deltaY);
+        return;
+    }
+#endif
+    DrawOptionLabelGfx(sPokenavMenuOptionLabelGfx[menuType].gfx, yStart, deltaY);
 }
 
 static void DrawOptionLabelGfx(const u16 *const *optionGfx, s32 yPos, s32 deltaY)
@@ -1449,9 +1514,12 @@ static void Task_CurrentMenuOptionGlow(u8 taskId)
 
 static void SetMenuOptionGlow(void)
 {
-    int menuType = GetPokenavMenuType();
     int cursorPos = GetPokenavCursorPos();
-    int r4 = sPokenavMenuOptionLabelGfx[menuType].deltaY * cursorPos + sPokenavMenuOptionLabelGfx[menuType].yStart - 8;
+    s32 yStart, deltaY;
+    int r4;
+
+    GetMenuOptionSpacing(&yStart, &deltaY);
+    r4 = deltaY * cursorPos + yStart - 8;
     CpuFill16(0, gScanlineEffectRegBuffers[0], DISPLAY_HEIGHT * 2);
     CpuFill16(0, gScanlineEffectRegBuffers[1], DISPLAY_HEIGHT * 2);
     CpuFill16(RGB(16, 23, 28), &gScanlineEffectRegBuffers[0][r4], 0x20);

@@ -13,6 +13,10 @@ struct Pokenav_Menu
     u16 helpBarIndex;
     u32 menuId;
     u32 (*callback)(struct Pokenav_Menu *);
+#if IS_HNS
+    u8 mainItems[MAX_POKENAV_MENUITEMS]; // POKENAV_MENU_TYPE_HOENN_MAIN's buttons (BuildHoennMainMenu)
+    u8 mainCount;
+#endif
 };
 
 static bool32 UpdateMenuCursorPos(struct Pokenav_Menu *);
@@ -118,15 +122,64 @@ static const u8 sMenuItems[][MAX_POKENAV_MENUITEMS] =
     },
 };
 
+#if IS_HNS
+// Hoenn & Seek 2.1-06b: HnS's main menu is built here, from the flags, in one
+// place, instead of one enumerated menu type per combination (the JOURNAL
+// button would have doubled them). Same order and conditions as HnS's types,
+// with the JOURNAL after RADIO once Elm's aide has given it.
+static void BuildHoennMainMenu(struct Pokenav_Menu *menu)
+{
+    u32 n = 0;
+    bool32 matchCall = FlagGet(FLAG_ADDED_MATCH_CALL_TO_POKENAV);
+
+    menu->mainItems[n++] = POKENAV_MENUITEM_MAP;
+    // HnS only dropped CONDITION from its map-only and map + CALL menus, so
+    // it still shows with RADIO or RIBBONS before FLAG_ENABLE_CONDITION.
+    if (FlagGet(FLAG_ENABLE_CONDITION)
+     || (matchCall && (FlagGet(FLAG_ENABLE_RADIO) || FlagGet(FLAG_SYS_RIBBON_GET))))
+        menu->mainItems[n++] = POKENAV_MENUITEM_CONDITION;
+    if (matchCall)
+        menu->mainItems[n++] = POKENAV_MENUITEM_MATCH_CALL;
+    if (matchCall && FlagGet(FLAG_ENABLE_RADIO))
+        menu->mainItems[n++] = POKENAV_MENUITEM_RADIO;
+    if (FlagGet(FLAG_HOENN_GOT_SEEKERS_JOURNAL))
+        menu->mainItems[n++] = POKENAV_MENUITEM_JOURNAL;
+    if (matchCall && FlagGet(FLAG_SYS_RIBBON_GET))
+        menu->mainItems[n++] = POKENAV_MENUITEM_RIBBONS;
+    menu->mainItems[n++] = POKENAV_MENUITEM_SWITCH_OFF;
+    menu->mainCount = n;
+}
+#endif
+
+// The item on row `pos` of the menu and its last row (the menu type's tables,
+// or the built list for HnS's main menu).
+static u8 MenuItemAt(struct Pokenav_Menu *menu, s32 pos)
+{
+#if IS_HNS
+    if (menu->menuType == POKENAV_MENU_TYPE_HOENN_MAIN)
+        return menu->mainItems[pos];
+#endif
+    return sMenuItems[menu->menuType][pos];
+}
+
+static s16 LastCursorPos(struct Pokenav_Menu *menu)
+{
+#if IS_HNS
+    if (menu->menuType == POKENAV_MENU_TYPE_HOENN_MAIN)
+        return menu->mainCount - 1;
+#endif
+    return LastCursorPos(menu);
+}
+
 // The cursor position is a row index into sMenuItems, which is not the same as
 // the menu item ID once optional entries (Radio, no-Condition) shift the rows.
-static s16 GetCursorPosOfMenuItem(u8 menuType, u8 menuItem)
+static s16 GetCursorPosOfMenuItem(struct Pokenav_Menu *menu, u8 menuItem)
 {
-    u32 i;
+    s32 i;
 
-    for (i = 0; i <= sLastCursorPositions[menuType]; i++)
+    for (i = 0; i <= LastCursorPos(menu); i++)
     {
-        if (sMenuItems[menuType][i] == menuItem)
+        if (MenuItemAt(menu, i) == menuItem)
             return i;
     }
 
@@ -136,6 +189,10 @@ static s16 GetCursorPosOfMenuItem(u8 menuType, u8 menuItem)
 static u8 GetPokenavMainMenuType(void)
 {
     u8 menuType = POKENAV_MENU_TYPE_DEFAULT;
+
+#if IS_HNS
+    return POKENAV_MENU_TYPE_HOENN_MAIN; // 2.1-06b: built from the flags (BuildHoennMainMenu)
+#endif
 
     if (FlagGet(FLAG_ADDED_MATCH_CALL_TO_POKENAV))
     {
@@ -166,14 +223,22 @@ static u8 GetPokenavMainMenuType(void)
     return menuType;
 }
 
+static void SetMainMenuType(struct Pokenav_Menu *menu)
+{
+    menu->menuType = GetPokenavMainMenuType();
+#if IS_HNS
+    BuildHoennMainMenu(menu);
+#endif
+}
+
 bool32 PokenavCallback_Init_MainMenuCursorOnMap(void)
 {
     struct Pokenav_Menu *menu = AllocSubstruct(POKENAV_SUBSTRUCT_MAIN_MENU_HANDLER, sizeof(struct Pokenav_Menu));
     if (!menu)
         return FALSE;
 
-    menu->menuType = GetPokenavMainMenuType();
-    menu->cursorPos = GetCursorPosOfMenuItem(menu->menuType, POKENAV_MENUITEM_MAP);
+    SetMainMenuType(menu);
+    menu->cursorPos = GetCursorPosOfMenuItem(menu, POKENAV_MENUITEM_MAP);
     menu->currMenuItem = POKENAV_MENUITEM_MAP;
     menu->helpBarIndex = HELPBAR_NONE;
     SetMenuInputHandler(menu);
@@ -186,8 +251,8 @@ bool32 PokenavCallback_Init_MainMenuCursorOnMatchCall(void)
     if (!menu)
         return FALSE;
 
-    menu->menuType = GetPokenavMainMenuType();
-    menu->cursorPos = GetCursorPosOfMenuItem(menu->menuType, POKENAV_MENUITEM_MATCH_CALL);
+    SetMainMenuType(menu);
+    menu->cursorPos = GetCursorPosOfMenuItem(menu, POKENAV_MENUITEM_MATCH_CALL);
     menu->currMenuItem = POKENAV_MENUITEM_MATCH_CALL;
     menu->helpBarIndex = HELPBAR_NONE;
     SetMenuInputHandler(menu);
@@ -200,8 +265,8 @@ bool32 PokenavCallback_Init_MainMenuCursorOnRibbons(void)
     if (!menu)
         return FALSE;
 
-    menu->menuType = GetPokenavMainMenuType();
-    menu->cursorPos = GetCursorPosOfMenuItem(menu->menuType, POKENAV_MENUITEM_RIBBONS);
+    SetMainMenuType(menu);
+    menu->cursorPos = GetCursorPosOfMenuItem(menu, POKENAV_MENUITEM_RIBBONS);
     menu->currMenuItem = POKENAV_MENUITEM_RIBBONS;
     SetMenuInputHandler(menu);
     return TRUE;
@@ -214,9 +279,25 @@ bool32 PokenavCallback_Init_MainMenuCursorOnRadio(void)
     if (!menu)
         return FALSE;
 
-    menu->menuType = GetPokenavMainMenuType();
-    menu->cursorPos = GetCursorPosOfMenuItem(menu->menuType, POKENAV_MENUITEM_RADIO);
+    SetMainMenuType(menu);
+    menu->cursorPos = GetCursorPosOfMenuItem(menu, POKENAV_MENUITEM_RADIO);
     menu->currMenuItem = POKENAV_MENUITEM_RADIO;
+    menu->helpBarIndex = HELPBAR_NONE;
+    SetMenuInputHandler(menu);
+    return TRUE;
+}
+#endif
+
+#if IS_HNS
+bool32 PokenavCallback_Init_MainMenuCursorOnJournal(void)
+{
+    struct Pokenav_Menu *menu = AllocSubstruct(POKENAV_SUBSTRUCT_MAIN_MENU_HANDLER, sizeof(struct Pokenav_Menu));
+    if (!menu)
+        return FALSE;
+
+    SetMainMenuType(menu);
+    menu->cursorPos = GetCursorPosOfMenuItem(menu, POKENAV_MENUITEM_JOURNAL);
+    menu->currMenuItem = POKENAV_MENUITEM_JOURNAL;
     menu->helpBarIndex = HELPBAR_NONE;
     SetMenuInputHandler(menu);
     return TRUE;
@@ -265,6 +346,7 @@ static void SetMenuInputHandler(struct Pokenav_Menu *menu)
     case POKENAV_MENU_TYPE_UNLOCK_MC_RIBBONS_RADIO:
     case POKENAV_MENU_TYPE_DEFAULT_NO_COND:
     case POKENAV_MENU_TYPE_UNLOCK_MC_NO_COND:
+    case POKENAV_MENU_TYPE_HOENN_MAIN:
 #endif
         menu->callback = GetMainMenuInputHandler();
         break;
@@ -309,7 +391,7 @@ static u32 HandleMainMenuInput(struct Pokenav_Menu *menu)
 
     if (JOY_NEW(A_BUTTON))
     {
-        switch (sMenuItems[menu->menuType][menu->cursorPos])
+        switch (MenuItemAt(menu, menu->cursorPos))
         {
         case POKENAV_MENUITEM_MAP:
             menu->helpBarIndex = gSaveBlock2Ptr->regionMapZoom ? HELPBAR_MAP_ZOOMED_IN : HELPBAR_MAP_ZOOMED_OUT;
@@ -342,6 +424,10 @@ static u32 HandleMainMenuInput(struct Pokenav_Menu *menu)
             menu->helpBarIndex = HELPBAR_NONE;
             SetMenuIdAndCB(menu, POKENAV_RADIO);
             return POKENAV_MENU_FUNC_OPEN_FEATURE;
+        case POKENAV_MENUITEM_JOURNAL:
+            menu->helpBarIndex = HELPBAR_JOURNAL;
+            SetMenuIdAndCB(menu, POKENAV_JOURNAL);
+            return POKENAV_MENU_FUNC_OPEN_FEATURE;
 #endif
         case POKENAV_MENUITEM_SWITCH_OFF:
             return POKENAV_MENU_FUNC_EXIT;
@@ -362,7 +448,7 @@ static u32 HandleMainMenuInputTutorial(struct Pokenav_Menu *menu)
 
     if (JOY_NEW(A_BUTTON))
     {
-        if (sMenuItems[menu->menuType][menu->cursorPos] == POKENAV_MENUITEM_MATCH_CALL)
+        if (MenuItemAt(menu, menu->cursorPos) == POKENAV_MENUITEM_MATCH_CALL)
         {
             menu->helpBarIndex = HELPBAR_MC_TRAINER_LIST;
             SetMenuIdAndCB(menu, POKENAV_MATCH_CALL);
@@ -392,7 +478,7 @@ static u32 HandleMainMenuInputEndTutorial(struct Pokenav_Menu *menu)
 
     if (JOY_NEW(A_BUTTON))
     {
-        u32 menuItem = sMenuItems[menu->menuType][menu->cursorPos];
+        u32 menuItem = MenuItemAt(menu, menu->cursorPos);
         if (menuItem != POKENAV_MENUITEM_MATCH_CALL && menuItem != POKENAV_MENUITEM_SWITCH_OFF)
         {
             PlaySE(SE_FAILURE);
@@ -442,7 +528,7 @@ static u32 HandleConditionMenuInput(struct Pokenav_Menu *menu)
 
     if (JOY_NEW(A_BUTTON))
     {
-        switch (sMenuItems[menu->menuType][menu->cursorPos])
+        switch (MenuItemAt(menu, menu->cursorPos))
         {
         case POKENAV_MENUITEM_CONDITION_SEARCH:
             menu->menuType = POKENAV_MENU_TYPE_CONDITION_SEARCH;
@@ -462,9 +548,9 @@ static u32 HandleConditionMenuInput(struct Pokenav_Menu *menu)
     }
     if (JOY_NEW(B_BUTTON))
     {
-        if (menu->cursorPos != sLastCursorPositions[menu->menuType])
+        if (menu->cursorPos != LastCursorPos(menu))
         {
-            menu->cursorPos = sLastCursorPositions[menu->menuType];
+            menu->cursorPos = LastCursorPos(menu);
             menu->callback = CB2_ReturnToMainMenu;
             return POKENAV_MENU_FUNC_MOVE_CURSOR;
         }
@@ -486,7 +572,7 @@ static u32 HandleConditionSearchMenuInput(struct Pokenav_Menu *menu)
 
     if (JOY_NEW(A_BUTTON))
     {
-        u8 menuItem = sMenuItems[menu->menuType][menu->cursorPos];
+        u8 menuItem = MenuItemAt(menu, menu->cursorPos);
         if (menuItem != POKENAV_MENUITEM_CONDITION_SEARCH_CANCEL)
         {
             SetSelectedConditionSearch(menuItem - POKENAV_MENUITEM_CONDITION_SEARCH_COOL);
@@ -503,9 +589,9 @@ static u32 HandleConditionSearchMenuInput(struct Pokenav_Menu *menu)
     }
     if (JOY_NEW(B_BUTTON))
     {
-        if (menu->cursorPos != sLastCursorPositions[menu->menuType])
+        if (menu->cursorPos != LastCursorPos(menu))
         {
-            menu->cursorPos = sLastCursorPositions[menu->menuType];
+            menu->cursorPos = LastCursorPos(menu);
             menu->callback = CB2_ReturnToConditionMenu;
             return POKENAV_MENU_FUNC_MOVE_CURSOR;
         }
@@ -544,9 +630,9 @@ static u32 GetMenuId(struct Pokenav_Menu *menu)
 
 static void ReturnToMainMenu(struct Pokenav_Menu *menu)
 {
-    menu->menuType = GetPokenavMainMenuType();
-    menu->cursorPos = GetCursorPosOfMenuItem(menu->menuType, POKENAV_MENUITEM_CONDITION);
-    menu->currMenuItem = sMenuItems[menu->menuType][menu->cursorPos];
+    SetMainMenuType(menu);
+    menu->cursorPos = GetCursorPosOfMenuItem(menu, POKENAV_MENUITEM_CONDITION);
+    menu->currMenuItem = MenuItemAt(menu, menu->cursorPos);
     menu->callback = HandleMainMenuInput;
 }
 
@@ -563,18 +649,18 @@ static bool32 UpdateMenuCursorPos(struct Pokenav_Menu *menu)
     if (JOY_NEW(DPAD_UP))
     {
         if (--menu->cursorPos < 0)
-            menu->cursorPos = sLastCursorPositions[menu->menuType];
+            menu->cursorPos = LastCursorPos(menu);
 
-        menu->currMenuItem = sMenuItems[menu->menuType][menu->cursorPos];
+        menu->currMenuItem = MenuItemAt(menu, menu->cursorPos);
         return TRUE;
     }
     else if (JOY_NEW(DPAD_DOWN))
     {
         menu->cursorPos++;
-        if (menu->cursorPos > sLastCursorPositions[menu->menuType])
+        if (menu->cursorPos > LastCursorPos(menu))
             menu->cursorPos = 0;
 
-        menu->currMenuItem = sMenuItems[menu->menuType][menu->cursorPos];
+        menu->currMenuItem = MenuItemAt(menu, menu->cursorPos);
         return TRUE;
     }
     else
@@ -602,6 +688,20 @@ int GetCurrentMenuItemId(void)
     struct Pokenav_Menu *menu = GetSubstructPtr(POKENAV_SUBSTRUCT_MAIN_MENU_HANDLER);
     return menu->currMenuItem;
 }
+
+#if IS_HNS
+// For the menu's graphics (pokenav_menu_handler_gfx.c): the item on row `pos`
+// of the current menu, and how many rows it has.
+int GetPokenavMenuItemAt(int pos)
+{
+    return MenuItemAt(GetSubstructPtr(POKENAV_SUBSTRUCT_MAIN_MENU_HANDLER), pos);
+}
+
+int GetPokenavMenuItemCount(void)
+{
+    return LastCursorPos(GetSubstructPtr(POKENAV_SUBSTRUCT_MAIN_MENU_HANDLER)) + 1;
+}
+#endif
 
 u16 GetHelpBarTextId(void)
 {

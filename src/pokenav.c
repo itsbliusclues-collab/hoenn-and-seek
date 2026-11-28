@@ -49,7 +49,7 @@ static void Task_RunLoopedTask(u8);
 static void Task_Pokenav(u8);
 static void CB2_InitPokenavForTutorial(void);
 
-const struct PokenavCallbacks PokenavMenuCallbacks[17] =
+const struct PokenavCallbacks PokenavMenuCallbacks[POKENAV_MENU_IDS_END - POKENAV_MENU_IDS_START] =
 {
     [POKENAV_MAIN_MENU - POKENAV_MENU_IDS_START] =
     {
@@ -215,6 +215,27 @@ const struct PokenavCallbacks PokenavMenuCallbacks[17] =
     [POKENAV_MAIN_MENU_CURSOR_ON_RADIO - POKENAV_MENU_IDS_START] =
     {
         .init = PokenavCallback_Init_MainMenuCursorOnRadio,
+        .callback = GetMenuHandlerCallback,
+        .open = OpenPokenavMenuNotInitial,
+        .createLoopTask = CreateMenuHandlerLoopedTask,
+        .isLoopTaskActive = IsMenuHandlerLoopedTaskActive,
+        .free1 = FreeMenuHandlerSubstruct1,
+        .free2 = FreeMenuHandlerSubstruct2,
+    },
+    // Hoenn & Seek 2.1-06b: the SEEKER'S JOURNAL page (src/hoenn_journal_page.c)
+    [POKENAV_JOURNAL - POKENAV_MENU_IDS_START] =
+    {
+        .init = PokenavCallback_Init_Journal,
+        .callback = GetJournalCallback,
+        .open = OpenPokenavJournal,
+        .createLoopTask = CreateJournalLoopedTask,
+        .isLoopTaskActive = IsJournalLoopedTaskActive,
+        .free1 = FreeJournalSubstruct1,
+        .free2 = FreeJournalSubstruct2,
+    },
+    [POKENAV_MAIN_MENU_CURSOR_ON_JOURNAL - POKENAV_MENU_IDS_START] =
+    {
+        .init = PokenavCallback_Init_MainMenuCursorOnJournal,
         .callback = GetMenuHandlerCallback,
         .open = OpenPokenavMenuNotInitial,
         .createLoopTask = CreateMenuHandlerLoopedTask,
