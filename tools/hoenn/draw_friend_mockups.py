@@ -17,8 +17,11 @@ sprites in the build, so they match the game's style and scale from the start:
 
 A repaint is palette changes, index swaps inside rectangles (to split
 colours one palette entry shares, e.g. a gi top from its trousers) and a few
-drawn pixels (Aidan's wing webbing and goggles). Once Bryan approves a look,
-the final sprites are drawn on top of these in their own part.
+drawn pixels (Aidan's wing webbing and goggles).
+
+PLACEHOLDERS (Bryan, Nov 28): Bryan is designing the real sprites himself.
+The friend-trainer parts use these until his designs arrive; look at them
+again before 2.1 ships.
 
 Usage: tools/hoenn/draw_friend_mockups.py OUT_DIR
 Writes each sprite as an indexed PNG plus friends_mockup.png, a sheet with

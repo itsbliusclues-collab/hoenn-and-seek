@@ -579,6 +579,9 @@ Lane B's `## 2.0 part NN` sections go below this line, at the end of the file.
 ## 2.1 lane A
 (2.1 lane A adds its sections here.)
 
+### 2.1-01 (friend sprite mockups)
+- **Placeholders:** Bridgette's, Aidan's and Brock's sprites are repaints of existing trainers. Bryan is designing the real ones; swap them in and look at them in game (front pic in battle, overworld walking all four ways) before 2.1 ships.
+
 ## 2.1 lane B
 
 ### 2.1-02 (foundations)
