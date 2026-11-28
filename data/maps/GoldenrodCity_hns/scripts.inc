@@ -1,4 +1,5 @@
 GoldenrodCity_hns_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, HoennSeek_EventScript_GoldenrodOnTransition @ Hoenn & Seek 2.1-16
 	.byte 0
 
 GoldenrodCity_EventScript_Trigger:: @flagheap

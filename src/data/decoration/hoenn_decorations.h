@@ -59,6 +59,27 @@ static const u8 DecorDesc_JIRACHI_DOLL[] = _(
         "full HOENN page.");
 static const u16 DecorGfx_JIRACHI_DOLL[] = {OBJ_EVENT_GFX_MON_BASE + SPECIES_JIRACHI};
 
+// 2.1-21: BROCK's reward at the end of his weekend chain.
+static const u8 DecorDesc_ONIX_DOLL[] = _(
+    "Stitched by\n"
+        "BROCK's brothers\n"
+        "and sisters.");
+static const u16 DecorGfx_ONIX_DOLL[] = {OBJ_EVENT_GFX_MON_BASE + SPECIES_ONIX};
+
+// 2.1-22: MISTY's reward at the end of her weekend chain.
+static const u8 DecorDesc_STARMIE_DOLL[] = _(
+    "Sewn by MISTY's\n"
+        "three sisters for\n"
+        "her water show.");
+static const u16 DecorGfx_STARMIE_DOLL[] = {OBJ_EVENT_GFX_MON_BASE + SPECIES_STARMIE};
+
+// 2.1-23: BLUE's reward at the end of his weekend chain.
+static const u8 DecorDesc_PIDGEOT_DOLL[] = _(
+    "Made by DAISY,\n"
+        "BLUE's sister.\n"
+        "Don't tell BLUE.");
+static const u16 DecorGfx_PIDGEOT_DOLL[] = {OBJ_EVENT_GFX_MON_BASE + SPECIES_PIDGEOT};
+
 #define HOENN_DECORATION_HEADERS \
     [DECOR_SUDOWOODO_DOLL] = {.id = DECOR_SUDOWOODO_DOLL, .name = _("SUDOWOODO DOLL"), .permission = DECORPERM_SPRITE, \
         .shape = DECORSHAPE_1x1, .category = DECORCAT_DOLL, .price = 6000, \
@@ -87,6 +108,15 @@ static const u16 DecorGfx_JIRACHI_DOLL[] = {OBJ_EVENT_GFX_MON_BASE + SPECIES_JIR
     [DECOR_JIRACHI_DOLL] = {.id = DECOR_JIRACHI_DOLL, .name = _("JIRACHI DOLL"), .permission = DECORPERM_SPRITE, \
         .shape = DECORSHAPE_1x1, .category = DECORCAT_DOLL, .price = 0, \
         .description = DecorDesc_JIRACHI_DOLL, .tiles = DecorGfx_JIRACHI_DOLL}, \
+    [DECOR_ONIX_DOLL] = {.id = DECOR_ONIX_DOLL, .name = _("ONIX DOLL"), .permission = DECORPERM_SPRITE, \
+        .shape = DECORSHAPE_1x1, .category = DECORCAT_DOLL, .price = 0, \
+        .description = DecorDesc_ONIX_DOLL, .tiles = DecorGfx_ONIX_DOLL}, \
+    [DECOR_STARMIE_DOLL] = {.id = DECOR_STARMIE_DOLL, .name = _("STARMIE DOLL"), .permission = DECORPERM_SPRITE, \
+        .shape = DECORSHAPE_1x1, .category = DECORCAT_DOLL, .price = 0, \
+        .description = DecorDesc_STARMIE_DOLL, .tiles = DecorGfx_STARMIE_DOLL}, \
+    [DECOR_PIDGEOT_DOLL] = {.id = DECOR_PIDGEOT_DOLL, .name = _("PIDGEOT DOLL"), .permission = DECORPERM_SPRITE, \
+        .shape = DECORSHAPE_1x1, .category = DECORCAT_DOLL, .price = 0, \
+        .description = DecorDesc_PIDGEOT_DOLL, .tiles = DecorGfx_PIDGEOT_DOLL}, \
 
 #define HOENN_DECORATION_ICONS \
     [DECOR_SUDOWOODO_DOLL] = {NULL, NULL}, \
@@ -98,3 +128,6 @@ static const u16 DecorGfx_JIRACHI_DOLL[] = {OBJ_EVENT_GFX_MON_BASE + SPECIES_JIR
     [DECOR_CELEBI_DOLL] = {NULL, NULL}, \
     [DECOR_MEW_DOLL] = {NULL, NULL}, \
     [DECOR_JIRACHI_DOLL] = {NULL, NULL}, \
+    [DECOR_ONIX_DOLL] = {NULL, NULL}, \
+    [DECOR_STARMIE_DOLL] = {NULL, NULL}, \
+    [DECOR_PIDGEOT_DOLL] = {NULL, NULL}, \

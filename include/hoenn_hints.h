@@ -21,6 +21,9 @@ enum HoennHintCondType
     HINT_IF_CAUGHT,       // Pokédex caught flag
     HINT_IF_NOT_CAUGHT,
     HINT_IF_LEVEL_CAP,    // HnS's LEVEL CAP challenge setting is on
+    HINT_IF_FOLLOWER,     // 2.1-21: the Pokémon following you is this species
+    HINT_IF_PARTY,        // 2.1-21: this species is in your party (not an egg)
+    HINT_IF_DEFEATED,     // 2.1-21: you've beaten this trainer (HasTrainerBeenFought)
 };
 
 struct HoennHintCond
