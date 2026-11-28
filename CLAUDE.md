@@ -12,6 +12,7 @@ Update them in the same PR as the code. 1.0 background (design decisions, audit,
 
 ## Starting a new session (after 1.0)
 Hoenn & Seek 1.0 is parts 1–20a (merged into `hoenn`). New work starts here:
+0. **2.1 (Nov 28 on) is built on the `hoenn-2.1` branch** (`v2.1-NN-<slug>` branches, PRs into `hoenn-2.1`); its lanes, split and ID ranges are in `hoenn-docs/lanes/2.1-lanes.md`. 2.0 fixes still go into `hoenn`.
 0. **Since Nov 27 there are two builder lanes and a reviewer** (three Claude accounts). Read `hoenn-docs/lanes/README.md` first and find your lane's file; it overrides the one-part-at-a-time flow below where they differ (the reviewer merges, builders never do).
 1. **Repo:** clone `itsbliusclues-collab/hoenn-and-seek`, `git checkout hoenn`, branch `v2-NN-<slug>` for 2.0 parts (`v1.1-<slug>` for 1.0 fixes). PRs go into `hoenn`; never commit to `master`. 1.0 is tag `1.0` (commit `c0c62f19`, PR #26's merge).
 2. **Docs:** `hoenn-docs/README.md`, then your part in `hoenn-docs/2.0-roadmap.md` and the matching section of `hoenn-docs/2.0-plan.md`.
