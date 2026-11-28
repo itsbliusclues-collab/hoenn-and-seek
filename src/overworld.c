@@ -86,6 +86,7 @@
 #include "constants/vars_hns.h"
 #include "nuzlocke.h"
 #include "pokemon_storage_system.h"
+#include "hoenn.h" // Hoenn & Seek 2.1-34
 
 STATIC_ASSERT((B_FLAG_FOLLOWERS_DISABLED == 0 || OW_FOLLOWERS_ENABLED), FollowersFlagAssignedWithoutEnablingThem);
 
@@ -802,6 +803,10 @@ void SetWarpDestinationToLastHealLocation(void)
 
 void SetWarpDestinationForTeleport(void)
 {
+#if IS_HNS
+    if (HoennTeleportBaseDestination()) // Hoenn & Seek 2.1-34: to your secret base
+        return;
+#endif
     sWarpDestination = gSaveBlock1Ptr->lastHealLocation;
 }
 
@@ -947,6 +952,9 @@ void LoadMapFromCameraTransition(u8 mapGroup, u8 mapNum)
     ChooseAmbientCrySpecies();
     SetDefaultFlashLevel();
     Overworld_ClearSavedMusic();
+#if IS_HNS
+    HoennUpdateLeaderWeekends(); // Hoenn & Seek 2.1-18: leaders away on weekends (before objects spawn)
+#endif
     RunOnTransitionMapScript();
     InitMap();
     CopySecondaryTilesetToVramUsingHeap(gMapHeader.mapLayout);
@@ -1017,6 +1025,9 @@ static void LoadMapFromWarp(bool32 a1)
         FlagClear(FLAG_SYS_USE_FLASH);
     SetDefaultFlashLevel();
     Overworld_ClearSavedMusic();
+#if IS_HNS
+    HoennUpdateLeaderWeekends(); // Hoenn & Seek 2.1-18: leaders away on weekends (before objects spawn)
+#endif
     RunOnTransitionMapScript();
     UpdateLocationHistoryForRoamer();
     MoveAllRoamersToOtherLocationSets();
