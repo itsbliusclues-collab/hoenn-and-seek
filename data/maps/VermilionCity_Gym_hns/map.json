@@ -25,7 +25,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "VermilionCity_Gym_EventScript_Surge",
-      "flag": "0"
+      "flag": "FLAG_HOENN_WEEKEND_GYM_SURGE"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN_HNS",
@@ -76,7 +76,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "VermilionCity_Gym_EventScript_GymGuy",
+      "script": "HoennSeek_EventScript_WeekendGuide_SURGE",
       "flag": "0"
     },
     {
@@ -90,7 +90,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "HoennSeek_EventScript_TrainerFollower",
-      "flag": "0"
+      "flag": "FLAG_HOENN_WEEKEND_GYM_SURGE"
     }
   ],
   "warp_events": [

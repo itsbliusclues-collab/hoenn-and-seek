@@ -24,7 +24,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ViridianCity_Gym_EventScript_GymGuy",
+      "script": "HoennSeek_EventScript_WeekendGuide_BLUE",
       "flag": "0"
     },
     {
@@ -38,7 +38,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ViridianCity_Gym_EventScript_Blue",
-      "flag": "FLAG_HIDE_VIRIDIAN_BLUE"
+      "flag": "FLAG_HOENN_WEEKEND_GYM_BLUE"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MON_BASE+SPECIES_RHYPERIOR",
@@ -51,7 +51,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "HoennSeek_EventScript_TrainerFollower",
-      "flag": "FLAG_HIDE_VIRIDIAN_BLUE"
+      "flag": "FLAG_HOENN_WEEKEND_GYM_BLUE"
     }
   ],
   "warp_events": [
