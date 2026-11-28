@@ -612,6 +612,7 @@ Lane B's `## 2.0 part NN` sections go below this line, at the end of the file.
 - [ ] **Its form:** it's the form he used in your last battle with him (base, then middle after your second battle, final from the fourth). After a battle where it evolved, it shows the new form straight away (not tested: the swap after a battle).
 - [ ] **Standing still:** at Indigo (and Ever Grande, Mt. Moon) it stands behind or beside him; talk to it (cry + a line). (Emulator-tested at Indigo: Meganium.)
 - [ ] **After a battle with him** in a scene, it's still there next to him (not tested).
+- [ ] **Busy maps (reviewer):** the starter takes an object slot. In Ecruteak (already over the screen budget in places) and Olivine, Silver himself is added by the scene's script; check that he, the starter and everyone else in view all show up. Also save next to the waiting Silver at Indigo and Continue: the starter should reappear beside him within a frame.
 
 ### 2.1-01 (friend sprite mockups)
 - **Placeholders:** Bridgette's, Aidan's and Brock's sprites are repaints of existing trainers. Bryan is designing the real ones; swap them in and look at them in game (front pic in battle, overworld walking all four ways) before 2.1 ships.
