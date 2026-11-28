@@ -699,3 +699,9 @@ Lane B's `## 2.0 part NN` sections go below this line, at the end of the file.
 - The gym on the rehearsal weekend: only the rehearsal MISTY shows (her gym object and STARMIE are away), and the gym's swimmers don't battle you on the way to her.
 - Her pool lines: STARMIE, PSYDUCK, GOLDUCK or LAPRAS following you (LAPRAS was tested), a GYARADOS in the party, the caught lines.
 - MAY's call after the doll.
+
+### 2.1-23 (Blue's weekend chain)
+- With BLUE's badge, on four weekends: ROUTE 22, DAISY's house in PALLET (SOOTHE BELL), OAK's lab (the question, a RARE CANDY), ROUTE 22 (PIDGEOT DOLL).
+- DAISY's own script still works with BLUE sitting across from her (grooming once a day), and OAK still gives the journal's Kanto doll.
+- His pool lines with PIDGEOT/RHYPERIOR/ARCANINE/EEVEE following and the two-chain line (BROCK's and MISTY's both done).
+- BRENDAN's call after the doll.
