@@ -103,6 +103,7 @@ HoennSeek_EventScript_WinonaRoute119::
 	playse SE_M_FLY
 	fadescreen FADE_TO_BLACK
 	removeobject VAR_LAST_TALKED
+	clearflag FLAG_HOENN_WINONA_GYM_HIDDEN @ 2.1-20: the gym's weekend flag reads it before Fortree Gym's OnTransition runs
 	fadescreen FADE_FROM_BLACK
 	release
 	end

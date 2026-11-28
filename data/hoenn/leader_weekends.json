@@ -11,6 +11,8 @@
     "cameo: HnS's flag for the leader's one-time cameo (where you meet them to open that rematch), or null. While",
     "the cameo is out (flag clear), the leader keeps their usual days, so they're never in two places at once.",
     "leader_script: only where gym trainers share the leader's graphics (Fuchsia): the gym object's script.",
+    "rematch: {if_set, script}: the spot jumps to the leader's own rematch once that flag is set (Hoenn: after WALLACE).",
+    "partner: {trainer, at}: a second trainer object that moves with the leader, at the spot + at (Tate & Liza).",
     "spot: where the leader spends Saturdays and Sundays: map, x, y, facing, elevation. The leader's follower there",
     "comes from data/hoenn/trainer_followers.json (the trainer graphics_id is unique on the spot map).",
     "line: what the leader says at the spot (before the rematch question). guide_line: the gym guide on a weekend."
@@ -251,6 +253,135 @@
       "guide_line": [
         "BLUE takes weekends off. He trains on ROUTE 22, west of town, on the way to the LEAGUE.",
         "He'll be back on MONDAY. Bragging, probably."
+      ]
+    },
+    {
+      "key": "ROXANNE", "slot": 16, "part": "2.1-20",
+      "gym": "RustboroCity_Gym", "trainer": "OBJ_EVENT_GFX_ROXANNE", "story_flag": "0",
+      "beaten": "FLAG_HOENN_STAMP_GYM_1", "guide": "RustboroCity_Gym_EventScript_GymGuide", "dojo": null, "cameo": null,
+      "rematch": {"if_set": "FLAG_HOENN_STAMP_WALLACE", "script": "HoennSeek_EventScript_RematchRoxanne"},
+      "spot": {"map": "Route114", "x": 28, "y": 9, "facing": "DOWN", "elevation": 3},
+      "line": [
+        "Oh! Hello, {PLAYER}. I'm on a field trip of my own today.",
+        "On weekends I visit the FOSSIL MANIAC here on ROUTE 114. He has dug up more than any textbook shows!",
+        "A GYM LEADER should never stop being a student."
+      ],
+      "guide_line": [
+        "ROXANNE spends her weekends on ROUTE 114, talking fossils with the FOSSIL MANIAC.",
+        "She'll be back on MONDAY with new notes."
+      ]
+    },
+    {
+      "key": "BRAWLY", "slot": 17, "part": "2.1-20",
+      "gym": "DewfordTown_Gym", "trainer": "OBJ_EVENT_GFX_BRAWLY", "story_flag": "0",
+      "beaten": "FLAG_HOENN_STAMP_GYM_2", "guide": "DewfordTown_Gym_EventScript_GymGuide", "dojo": null, "cameo": null,
+      "rematch": {"if_set": "FLAG_HOENN_STAMP_WALLACE", "script": "HoennSeek_EventScript_RematchBrawly"},
+      "spot": {"map": "Route109", "x": 10, "y": 10, "facing": "DOWN", "elevation": 3},
+      "line": [
+        "Yo, {PLAYER}! Check out these waves!",
+        "DEWFORD's swell is small on weekends, so I come over to SLATEPORT's beach to ride the big ones.",
+        "Getting knocked down and paddling back out. That's how you get tough!"
+      ],
+      "guide_line": [
+        "BRAWLY? He's riding the waves at SLATEPORT's beach on ROUTE 109 this weekend.",
+        "He'll be back on MONDAY. Probably still dripping."
+      ]
+    },
+    {
+      "key": "WATTSON", "slot": 18, "part": "2.1-20",
+      "gym": "MauvilleCity_Gym", "trainer": "OBJ_EVENT_GFX_WATTSON", "story_flag": "FLAG_HIDE_MAUVILLE_GYM_WATTSON",
+      "beaten": "FLAG_HOENN_STAMP_GYM_3", "guide": "MauvilleCity_Gym_EventScript_GymGuide", "dojo": null, "cameo": null,
+      "rematch": {"if_set": "FLAG_HOENN_STAMP_WALLACE", "script": "HoennSeek_EventScript_RematchWattson"},
+      "spot": {"map": "Route110", "x": 12, "y": 18, "facing": "RIGHT", "elevation": 3},
+      "line": [
+        "Wahahahah! Well, if it isn't {PLAYER}!",
+        "Every weekend I come out here to watch the young ones on the CYCLING ROAD. All that pedaling could power a city!",
+        "Don't tell anyone, but I've been sketching a bike that charges a battery."
+      ],
+      "guide_line": [
+        "WATTSON's out on ROUTE 110 by the CYCLING ROAD. He goes every weekend to watch the bikes.",
+        "He'll be back on MONDAY, laughing as loud as ever."
+      ]
+    },
+    {
+      "key": "FLANNERY", "slot": 19, "part": "2.1-20",
+      "gym": "LavaridgeTown_Gym_1F", "trainer": "OBJ_EVENT_GFX_FLANNERY", "story_flag": "0",
+      "beaten": "FLAG_HOENN_STAMP_GYM_4", "guide": "LavaridgeTown_Gym_1F_EventScript_GymGuide", "dojo": null, "cameo": null,
+      "rematch": {"if_set": "FLAG_HOENN_STAMP_WALLACE", "script": "HoennSeek_EventScript_RematchFlannery"},
+      "spot": {"map": "MtChimney", "x": 21, "y": 25, "facing": "UP", "elevation": 3},
+      "line": [
+        "{PLAYER}! You came all the way up MT. CHIMNEY? Wow!",
+        "My grandfather used to bring me up here on weekends. I still come to feel the heat.",
+        "Being near the crater reminds me why I love fire. And why I have to keep it under control!"
+      ],
+      "guide_line": [
+        "FLANNERY goes up MT. CHIMNEY every weekend. She says it's where her grandpa trained.",
+        "She'll be back on MONDAY, all fired up."
+      ]
+    },
+    {
+      "key": "NORMAN", "slot": 20, "part": "2.1-20",
+      "gym": "PetalburgCity_Gym", "trainer": "OBJ_EVENT_GFX_NORMAN", "story_flag": "FLAG_HIDE_PETALBURG_GYM_NORMAN",
+      "beaten": "FLAG_HOENN_STAMP_GYM_5", "guide": "PetalburgCity_Gym_EventScript_GymGuide", "dojo": null, "cameo": null,
+      "rematch": {"if_set": "FLAG_HOENN_STAMP_WALLACE", "script": "HoennSeek_EventScript_RematchNorman"},
+      "spot": {"map": "Route104", "x": 20, "y": 23, "facing": "UP", "elevation": 3},
+      "line": [
+        "Ah, {PLAYER}. Caught me on my day off.",
+        "On weekends I come out to fish on ROUTE 104. MAY always guesses that's where I'll be.",
+        "A fishing line teaches patience. So does raising POKéMON."
+      ],
+      "guide_line": [
+        "NORMAN goes fishing on ROUTE 104 every weekend. He says it clears his head.",
+        "He's back on MONDAY, ready for challengers."
+      ]
+    },
+    {
+      "key": "WINONA", "slot": 21, "part": "2.1-20",
+      "gym": "FortreeCity_Gym", "trainer": "OBJ_EVENT_GFX_WINONA", "story_flag": "FLAG_HOENN_WINONA_GYM_HIDDEN",
+      "beaten": "FLAG_HOENN_STAMP_GYM_6", "guide": "FortreeCity_Gym_EventScript_GymGuide", "dojo": null, "cameo": null,
+      "rematch": {"if_set": "FLAG_HOENN_STAMP_WALLACE", "script": "HoennSeek_EventScript_RematchWinona"},
+      "spot": {"map": "Route120", "x": 33, "y": 34, "facing": "UP", "elevation": 3},
+      "line": [
+        "Hello, {PLAYER}. Look up. Do you see them?",
+        "On weekends I come to ROUTE 120 to watch the wild bird POKéMON ride the storm winds.",
+        "Every flight is different. That's what makes the sky beautiful."
+      ],
+      "guide_line": [
+        "WINONA spends her weekends on ROUTE 120, watching the birds in the wind.",
+        "She'll be back on MONDAY."
+      ]
+    },
+    {
+      "key": "TATE_LIZA", "slot": 22, "part": "2.1-20",
+      "gym": "MossdeepCity_Gym", "trainer": "OBJ_EVENT_GFX_TATE", "story_flag": "0",
+      "partner": {"trainer": "OBJ_EVENT_GFX_LIZA", "at": [1, 0]},
+      "beaten": "FLAG_HOENN_STAMP_GYM_7", "guide": "MossdeepCity_Gym_EventScript_GymGuide", "dojo": null, "cameo": null,
+      "rematch": {"if_set": "FLAG_HOENN_STAMP_WALLACE", "script": "HoennSeek_EventScript_RematchTateAndLiza"},
+      "spot": {"map": "MossdeepCity_SpaceCenter_1F", "x": 7, "y": 5, "facing": "UP", "elevation": 3},
+      "line": [
+        "TATE: Hehehe… We knew you'd come here, {PLAYER}!",
+        "LIZA: Fufufu… On weekends we help at the SPACE CENTER. We count the rockets together.",
+        "TATE: The scientists say we're the only helpers who never disagree!"
+      ],
+      "guide_line": [
+        "TATE and LIZA are at the SPACE CENTER this weekend. They help count the launches.",
+        "They'll be back on MONDAY. Both of them, at the same time."
+      ]
+    },
+    {
+      "key": "JUAN", "slot": 23, "part": "2.1-20",
+      "gym": "SootopolisCity_Gym_1F", "trainer": "OBJ_EVENT_GFX_JUAN", "story_flag": "0",
+      "beaten": "FLAG_HOENN_STAMP_GYM_8", "guide": "SootopolisCity_Gym_1F_EventScript_GymGuide", "dojo": null, "cameo": null,
+      "rematch": {"if_set": "FLAG_HOENN_STAMP_WALLACE", "script": "HoennSeek_EventScript_RematchJuan"},
+      "spot": {"map": "LilycoveCity_ContestLobby_hoenn", "x": 2, "y": 8, "facing": "UP", "elevation": 3},
+      "line": [
+        "Ah, {PLAYER}. What a pleasant surprise.",
+        "On weekends I come to LILYCOVE to watch the CONTESTS. Beauty in battle is an art I still study.",
+        "My student WALLACE taught me a few things here, too. Don't tell him I said so."
+      ],
+      "guide_line": [
+        "JUAN is at the CONTEST HALL in LILYCOVE CITY this weekend. He never misses a show.",
+        "He'll be back on MONDAY."
       ]
     }
   ]

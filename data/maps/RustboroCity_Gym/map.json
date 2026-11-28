@@ -26,7 +26,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "RustboroCity_Gym_EventScript_Roxanne",
-      "flag": "0"
+      "flag": "FLAG_HOENN_WEEKEND_GYM_ROXANNE"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
@@ -64,7 +64,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "RustboroCity_Gym_EventScript_GymGuide",
+      "script": "HoennSeek_EventScript_WeekendGuide_ROXANNE",
       "flag": "0"
     },
     {
@@ -91,7 +91,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "HoennSeek_EventScript_TrainerFollower",
-      "flag": "0"
+      "flag": "FLAG_HOENN_WEEKEND_GYM_ROXANNE"
     }
   ],
   "warp_events": [

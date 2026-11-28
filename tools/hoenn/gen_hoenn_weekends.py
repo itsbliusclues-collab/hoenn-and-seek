@@ -22,6 +22,9 @@ Reads data/hoenn/leader_weekends.json (its comment explains the fields) and writ
     or with `leader_script` where gym trainers share them), the guide's script, the Dojo objects'
     flags (every object with the leader's FLAG_HIDE_DOJO_*, so their Pokémon too),
     and the spot object (found by its script name, so re-runs replace it).
+  Optional per leader: `rematch` ({if_set, script}: the spot jumps to the leader's own
+  rematch once that flag is set; Hoenn) and `partner` ({trainer, at}: a second trainer
+  object that moves with the leader, placed at the spot + `at`; Tate & Liza).
 The leaders' followers (gym and spot) come from gen_hoenn_followers.py, which copies
 the trainer's flag: run this first. Idempotent; regen_all.sh runs it in that order.
 """
@@ -98,12 +101,19 @@ def main():
 
     # ---- scripts ------------------------------------------------------------------
     s = [HEADER, "@ Hoenn & Seek 2.1 (parts 18-20): gym leaders' weekend spots and gym guides.", ""]
+    # The gym objects' old flags now live only in src/data/hoenn_leader_weekends.h, which
+    # gen_hoenn_ids.py doesn't read. Naming them here keeps each in the Hoenn flag remap
+    # (it scans data/scripts/hoenn_*.inc), so no Hoenn flag ID shifts when one leaves map.json.
+    old = sorted({l["story_flag"] for l in leaders if l["story_flag"] != "0"})
+    s += ["@ Story flags the gym objects had: " + ", ".join(old), ""]
     for l in leaders:
         k = l["key"]
         s += ["%s::" % spot_script(k), "\tlock", "\tfaceplayer",
               "\tmsgbox HoennSeek_Text_Weekend_%s, MSGBOX_DEFAULT" % k]
         if l["dojo"]:  # HnS's Dojo rematch, once it's open (it asks, battles and gives BP)
             s.append("\tgoto_if_unset %s, %s" % (l["dojo"], dojo_script(k)))
+        if l.get("rematch"):  # Hoenn: the leader's own rematch, once it's open
+            s.append("\tgoto_if_set %s, %s" % (l["rematch"]["if_set"], l["rematch"]["script"]))
         s += ["\tclosemessage", "\trelease", "\tend", ""]
         if l["guide"]:
             s += ["%s::" % guide_script(k),
@@ -130,6 +140,12 @@ def main():
             sys.exit("%s: %s has flag %s, expected %s (story_flag) or %s" % (
                 l["gym"], l["trainer"], found[0]["flag"], l["story_flag"], gym_flag))
         found[0]["flag"] = gym_flag
+        partner = l.get("partner")  # Tate & Liza: the second trainer object moves with the first
+        if partner:
+            pf = [o for o in g["object_events"] if o["graphics_id"] == partner["trainer"]]
+            if len(pf) != 1:
+                sys.exit("%s: expected one %s, found %d" % (l["gym"], partner["trainer"], len(pf)))
+            pf[0]["flag"] = gym_flag
         if l["guide"]:
             guides = [o for o in g["object_events"] if o["script"] in (l["guide"], guide_script(k))]
             if len(guides) != 1:
@@ -148,17 +164,23 @@ def main():
         sp = l["spot"]
         m = load(sp["map"])
         objs = [o for o in m["object_events"] if o["script"] != spot_script(k)]
+        partner = l.get("partner")
         if any(o["graphics_id"] == l["trainer"] for o in objs):
             sys.exit("%s: already has a %s (the follower generator needs it unique)" % (sp["map"], l["trainer"]))
-        if any(int(o["x"]) == sp["x"] and int(o["y"]) == sp["y"] for o in objs):
-            sys.exit("%s: an object already stands at %d,%d" % (sp["map"], sp["x"], sp["y"]))
-        objs.append({
-            "graphics_id": l["trainer"], "x": sp["x"], "y": sp["y"], "elevation": sp["elevation"],
-            "movement_type": "MOVEMENT_TYPE_FACE_" + sp["facing"],
-            "movement_range_x": 0, "movement_range_y": 0,
-            "trainer_type": "TRAINER_TYPE_NONE", "trainer_sight_or_berry_tree_id": "0",
-            "script": spot_script(k), "flag": "FLAG_HOENN_WEEKEND_SPOT_" + k,
-        })
+        people = [(l["trainer"], sp["x"], sp["y"])]
+        if partner:  # stands next to the leader, facing the same way, same script
+            people.append((partner["trainer"], sp["x"] + partner["at"][0], sp["y"] + partner["at"][1]))
+        for gfx, x, y in people:
+            if any(int(o["x"]) == x and int(o["y"]) == y for o in objs
+                   if o["script"] != "HoennSeek_EventScript_TrainerFollower"):  # re-placed after this
+                sys.exit("%s: an object already stands at %d,%d" % (sp["map"], x, y))
+            objs.append({
+                "graphics_id": gfx, "x": x, "y": y, "elevation": sp["elevation"],
+                "movement_type": "MOVEMENT_TYPE_FACE_" + sp["facing"],
+                "movement_range_x": 0, "movement_range_y": 0,
+                "trainer_type": "TRAINER_TYPE_NONE", "trainer_sight_or_berry_tree_id": "0",
+                "script": spot_script(k), "flag": "FLAG_HOENN_WEEKEND_SPOT_" + k,
+            })
         if len(objs) > 64:  # OBJECT_EVENT_TEMPLATES_COUNT (the follower adds one more)
             sys.exit("%s: more than 64 objects" % sp["map"])
         m["object_events"] = objs
