@@ -62,6 +62,8 @@
     "CASTFORM": 58,
     "MASQUERAIN": 59,
     "MOLTRES_FLYOVER": 60,
-    "DEOXYS_SIGNAL": 61
+    "DEOXYS_SIGNAL": 61,
+    "DAILY_SWARM": 62,
+    "CELEBI_MEMORY": 63
   }
 }

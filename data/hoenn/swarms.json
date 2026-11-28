@@ -1,0 +1,33 @@
+{
+  "_comment": [
+    "Hoenn & Seek 2.1-07: the daily swarm (HGSS style). One row is rolled each day (src/hoenn_swarm.c);",
+    "on that map, rate % of land encounters are the swarm's species, at a level from the map's own",
+    "land table (its lowest to highest level). Announced on every TV, on the PokéGear radio (the",
+    "'daily_swarm' segment, data/hoenn/radio_segments.json) and on the SEEKER'S JOURNAL's TODAY page.",
+    "tools/hoenn/gen_hoenn_swarms.py writes src/data/hoenn_swarms.h; tools/hoenn/living_dex.py counts",
+    "every row as a source. Land only: water and fishing swarms would need hooks in the surf and rod code.",
+    "  map      map folder (data/maps/<map>), any region; it must have a land table",
+    "  species  SPECIES_ name without the prefix",
+    "  rate     % of the map's land encounters (HGSS: 40)",
+    "  levels   optional [min, max]; default: the map's land table",
+    "  note     why this one (documentation)",
+    "Swarm-only species (2.1 plan section 3): the Galarian forms of Gen 1-3 species, which have no other",
+    "source. Rows are kept in order: the saved var holds a row's index + 1, so append new rows at the end",
+    "(a removed row would shift a saved day's swarm to its neighbour for the rest of that day, no worse)."
+  ],
+  "swarms": [
+    {"map": "Route35_hns", "species": "YANMA", "rate": 40, "note": "HGSS's Route 35 swarm"},
+    {"map": "Route38_hns", "species": "SNUBBULL", "rate": 40, "note": "HGSS's Route 38 swarm"},
+    {"map": "Route42_hns", "species": "MARILL", "rate": 40, "note": "Mt. Mortar's Marill come out (HGSS's Mt. Mortar swarm)"},
+    {"map": "Route33_hns", "species": "SLOWPOKE_GALAR", "rate": 40, "note": "swarm-only; down the road from the Slowpoke Well"},
+    {"map": "Route34_hns", "species": "ZIGZAGOON_GALAR", "rate": 40, "note": "swarm-only"},
+    {"map": "Route8_hns", "species": "MEOWTH_GALAR", "rate": 40, "note": "swarm-only; Kanto's Meowth routes"},
+    {"map": "Route11_hns", "species": "MR_MIME_GALAR", "rate": 40, "note": "swarm-only"},
+    {"map": "Route12_hns", "species": "FARFETCHD_GALAR", "rate": 40, "note": "swarm-only; FRLG's Farfetch'd coast"},
+    {"map": "Route16_hns", "species": "WEEZING_GALAR", "rate": 40, "note": "swarm-only"},
+    {"map": "Route17_hns", "species": "PONYTA_GALAR", "rate": 40, "note": "swarm-only; FRLG's Ponyta on Cycling Road"},
+    {"map": "Route116", "species": "SKITTY", "rate": 40, "note": "Emerald's Route 116 outbreak"},
+    {"map": "Route117", "species": "NUZLEAF", "rate": 40, "note": "Emerald's Seedot outbreak, at the band's level"},
+    {"map": "MtPyre_Exterior", "species": "CORSOLA_GALAR", "rate": 40, "note": "swarm-only; ghostly coral on the mountain of graves"}
+  ]
+}

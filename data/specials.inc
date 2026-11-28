@@ -821,6 +821,10 @@ gSpecials::
 	def_special HoennJournalPushPages @ 2.1-05
 	def_special HoennJournalPushEntries
 	def_special HoennJournalPageDone @ 2.1-06
+	def_special HoennSwarmBufferNames @ 2.1-07
+	def_special HoennPlantBerryInSoil @ 2.1-07
+	def_special HoennSilverTierForScript @ 2.1-08
+	def_special HoennSilverStarterForScript @ 2.1-09
 	@ (end of 2.1 lane A's specials)
 
 	@ Hoenn & Seek 2.1, builder lane B: lane B's 2.1 specials go here

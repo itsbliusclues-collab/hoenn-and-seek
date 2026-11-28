@@ -316,6 +316,21 @@ HoennSeek_Text_JournalRegiDoorsRumor::
 HoennSeek_Text_JournalRegiDoorsFoundText::
 	.string "All three boulders rolled aside.\nSomething big stirred behind\leach one.$"
 
+HoennSeek_Text_JournalDailySwarmHint::
+	.string "Today's swarm?$"
+
+HoennSeek_Text_JournalDailySwarmTitle::
+	.string "The daily swarm$"
+
+HoennSeek_Text_JournalDailySwarmRumor::
+	.string "Every day, one kind of POKéMON\nswarms on one route, in JOHTO,\lKANTO or HOENN. The TV news and\lPROF. OAK's show on the radio\lsay where.$"
+
+HoennSeek_Text_JournalDailySwarmFoundText::
+	.string "A whole route full of one kind of\nPOKéMON! A different one swarms\levery day, and some are found\lnowhere else.$"
+
+HoennSeek_Text_JournalDailySwarmWhen::
+	.string "Today: {STR_VAR_1} on {STR_VAR_2}.$"
+
 HoennSeek_Text_JournalBulbasaurGardenHint::
 	.string "A secret garden?$"
 
@@ -528,6 +543,18 @@ HoennSeek_Text_JournalMewBlurFoundText::
 
 HoennSeek_Text_JournalMewBlurWhen::
 	.string "At first light.$"
+
+HoennSeek_Text_JournalCelebiMemoryHint::
+	.string "A road remembered?$"
+
+HoennSeek_Text_JournalCelebiMemoryTitle::
+	.string "Celebi's memory$"
+
+HoennSeek_Text_JournalCelebiMemoryRumor::
+	.string "Walk ROUTE 22 with CELEBI\nfollowing you, healthy and happy.\lIt remembers that road, and a boy\lwho stood on it with his father.$"
+
+HoennSeek_Text_JournalCelebiMemoryFoundText::
+	.string "CELEBI showed you young SILVER and\nGIOVANNI on ROUTE 22, years ago.$"
 
 HoennSeek_Text_JournalJirachiWishesHint::
 	.string "Three wishes?$"

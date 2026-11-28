@@ -71,6 +71,23 @@ u32 HoennJournalCountFound(u32 *total);
 const u8 *HoennJournalFieldNote(void);
 bool32 HoennJournalPageComplete(u32 page);
 u16 HoennJournalPageDone(void); // specialvar, page in VAR_0x8004
+// 2.1-07: the daily swarm (src/hoenn_swarm.c) and soil planting (src/hoenn_2_1_lane_a.c)
+void HoennSwarmRoll(void);
+bool32 HoennSwarmHere(void);
+void HoennSwarmPick(u16 *species, u8 *level);
+void HoennSwarmMet(void);
+void HoennSwarmBufferNames(void); // special: STR_VAR_1 species, STR_VAR_2 map
+void HoennPlantBerryInSoil(void); // special: VAR_ITEM_ID into the soil patch you talked to
+// 2.1-08: SILVER's ladder and milestone teams (src/hoenn_silver.c)
+u32 HoennSilverTier(void);
+u16 HoennSilverTierForScript(void); // specialvar
+// 2.1-09: SILVER's starter walks behind him (src/hoenn_silver_starter.c)
+#define LOCALID_HOENN_SILVER_STARTER 250 // spawned, no template (IDs from 0xF0 need no map)
+void HoennSilverStarterUpdate(void);
+u16 HoennSilverStarterSpecies(void);
+u16 HoennSilverStarterForScript(void); // specialvar
+extern const u8 HoennSeek_EventScript_SilverStarter[];
+bool32 HoennIsSilverScaled(const struct Trainer *trainer);
 // The Kangaskhan baby as your follower (src/hoenn_lane_b.c, 2.0 part 30a)
 bool32 HoennIsKangaBabyGfx(u32 species);
 u32 HoennFollowerPaletteSpecies(u32 species);
