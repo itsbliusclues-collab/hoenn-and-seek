@@ -323,6 +323,10 @@ extern const u8 HoennSeek_Text_JournalDeoxysSignalTitle[];
 extern const u8 HoennSeek_Text_JournalDeoxysSignalRumor[];
 extern const u8 HoennSeek_Text_JournalDeoxysSignalFoundText[];
 extern const u8 HoennSeek_Text_JournalDeoxysSignalWhen[];
+extern const u8 HoennSeek_Text_JournalRyanRunsHint[];
+extern const u8 HoennSeek_Text_JournalRyanRunsTitle[];
+extern const u8 HoennSeek_Text_JournalRyanRunsRumor[];
+extern const u8 HoennSeek_Text_JournalRyanRunsFoundText[];
 
 static const u8 *const sJournalPageNames[] = {
     COMPOUND_STRING("JOHTO"),
@@ -398,6 +402,7 @@ static const struct HoennJournalEntry sJournalEntries[] = {
     { (const struct HoennHintCond[]){{HINT_IF_CAUGHT, SPECIES_MASQUERAIN, 0}}, 1, NULL, 0, &(const struct HoennJournalWhen){ (const u16[]){MAP_ROUTE104, MAP_ROUTE117, MAP_ROUTE114, MAP_ROUTE121}, 4, 0x00, 0x0, 255, 0, TRUE, HoennSeek_Text_JournalMasquerainWhen }, HoennSeek_Text_JournalMasquerainHint, HoennSeek_Text_JournalMasquerainTitle, HoennSeek_Text_JournalMasquerainRumor, HoennSeek_Text_JournalMasquerainFoundText, FLAG_HOENN_HEARD_MASQUERAIN, HOENN_JOURNAL_PAGE_HOENN }, // MASQUERAIN
     { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_MOLTRES_CAMEO, 0}}, 1, NULL, 0, NULL, HoennSeek_Text_JournalMoltresFlyoverHint, HoennSeek_Text_JournalMoltresFlyoverTitle, HoennSeek_Text_JournalMoltresFlyoverRumor, HoennSeek_Text_JournalMoltresFlyoverFoundText, FLAG_HOENN_HEARD_MOLTRES_FLYOVER, HOENN_JOURNAL_PAGE_HOENN }, // MOLTRES_FLYOVER
     { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_DEOXYS_TICKET, 0}}, 1, NULL, 0, &(const struct HoennJournalWhen){ NULL, 0, 0x00, 0x8, 255, 0, FALSE, HoennSeek_Text_JournalDeoxysSignalWhen }, HoennSeek_Text_JournalDeoxysSignalHint, HoennSeek_Text_JournalDeoxysSignalTitle, HoennSeek_Text_JournalDeoxysSignalRumor, HoennSeek_Text_JournalDeoxysSignalFoundText, FLAG_HOENN_HEARD_DEOXYS_SIGNAL, HOENN_JOURNAL_PAGE_HOENN }, // DEOXYS_SIGNAL
+    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_RYAN_MET, 0}}, 1, NULL, 0, NULL, HoennSeek_Text_JournalRyanRunsHint, HoennSeek_Text_JournalRyanRunsTitle, HoennSeek_Text_JournalRyanRunsRumor, HoennSeek_Text_JournalRyanRunsFoundText, FLAG_HOENN_HEARD_RYAN_RUNS, HOENN_JOURNAL_PAGE_HOENN }, // RYAN_RUNS
 };
 
 static const struct HoennJournalCall sJournalCalls[] = {

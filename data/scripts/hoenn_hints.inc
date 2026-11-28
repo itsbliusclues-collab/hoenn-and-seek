@@ -1163,6 +1163,12 @@ HoennSeek_Text_Hint_LineStoryCeruleanCharmander::
 HoennSeek_Text_Hint_LineStoryFerry::
 	.string "PROF. OAK is said to give TRAINERS\nwith all 16 BADGES a ticket for\lthe ship to HOENN.\pShips leave from VERMILION's port.$"
 
+HoennSeek_Text_Hint_LineStoryRyanJ::
+	.string "I once sailed a trainer out to the\nBATTLE FRONTIER who talked the\lwhole way. To an audience at home!\pSomeone sat next to him writing it\nall down. They say he battles in a\ldifferent building every day.$"
+
+HoennSeek_Text_Hint_LineStoryRyanH::
+	.string "The ferry to the BATTLE FRONTIER\nleaves from the harbor. There's a\ltrainer out there who narrates\levery battle out loud.\pHalf of it is in another language!\nA quiet person beside him writes\levery word down.$"
+
 HoennSeek_Text_Hint_LineStoryNorman::
 	.string "NORMAN of PETALBURG only battles\nTRAINERS who already have four\lHOENN BADGES.$"
 

@@ -749,6 +749,15 @@ Lane B's `## 2.0 part NN` sections go below this line, at the end of the file.
 - MT. SILVER summit by day and by night: Red and Pikachu side by side on the middle of the peak; battle Red; Pikachu disappears with him afterwards.
 - PEWTER MUSEUM 1F on a weekend after beating BROCK: Onix beside him.
 
+### 2.1-30 (Ryan + THE LIBRARIAN)
+- Take the ferry to the BATTLE FRONTIER on each weekday (or change the day at a wall clock) and find RYAN in that day's lobby: SUN TOWER, MON FACTORY, TUE PIKE, WED ARENA, THU PALACE, FRI DOME, SAT PYRAMID. THE LIBRARIAN stands next to him. No other lobby has them.
+- First talk: his introduction. Talk to THE LIBRARIAN: the translation of "Nǚshìmen, xiānshengmen, huānyíng!" with an entry number. Talk to RYAN again: today's run (it names tomorrow's building), then his other lines in turn.
+- After each RYAN line, THE LIBRARIAN translates that line's phrase once, then says one of their own lines.
+- Read every pinyin line on your screen: the 14 new toned vowels (ā ǎ ē ě ī ǐ ō ǒ ū ǔ ǖ ǘ ǚ ǜ) next to the old ones (á à é è í ì ó ò ú ù). Small font: not used by these texts yet, so nothing to check there.
+- The record lines: a FACTORY or PYRAMID streak of 21+, a PIKE record of 28+, 35+ in the TOWER, all seven SILVER SYMBOLS, any GOLD SYMBOL, 100+ BP. The "never done a run" line goes away after your first record.
+- MAY's call after meeting RYAN (BRENDAN found the broadcast).
+- The rumor lines: VERMILION Pokémon Center's sailor (with 16 badges) and SLATEPORT's Pokémon Center woman, until you've met RYAN; the journal's HOENN page then lists "A loud trainer?".
+
 ### 2.1-28 (people's Pokémon, Johto/Kanto)
 - Walk through towns and rooms: no pet blocks a door, a path, a counter or someone you want to talk to (the generator checks this, but cutscenes walk people around: watch the scenes in New Bark, Cherrygrove, Goldenrod and Ecruteak).
 - Talk to a few pets: each plays its cry and lets you go.

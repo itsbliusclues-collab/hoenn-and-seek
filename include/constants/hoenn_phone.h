@@ -97,5 +97,6 @@
 #define HOENN_CALL_BROCK_CHAIN (HOENN_CALL_21_LANE_B_FIRST + 1) // 2.1-21: Brendan, Brock's ONIX DOLL
 #define HOENN_CALL_MISTY_CHAIN (HOENN_CALL_21_LANE_B_FIRST + 2) // 2.1-22: May, Misty's water show
 #define HOENN_CALL_BLUE_CHAIN  (HOENN_CALL_21_LANE_B_FIRST + 3) // 2.1-23: Brendan, Blue went home
+#define HOENN_CALL_RYAN        (HOENN_CALL_21_LANE_B_FIRST + 4) // 2.1-30: May, you were on RYAN's broadcast
 
 #endif // GUARD_CONSTANTS_HOENN_PHONE_H

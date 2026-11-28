@@ -12,7 +12,7 @@
 #define HOENN_JOURNAL_PAGE_HOENN  2
 #define HOENN_JOURNAL_PAGE_COUNT  3
 #define HOENN_JOURNAL_PAGE_TODAY  3 // 2.1-06: the TODAY page (the first tab; its id comes after the regions)
-#define HOENN_JOURNAL_ENTRIES     67 // 2.1-06b: all entries; the POKéGEAR page keeps their ids in a u8
+#define HOENN_JOURNAL_ENTRIES     68 // 2.1-06b: all entries; the POKéGEAR page keeps their ids in a u8
 
 #define FLAG_HOENN_HEARD_CHIKORITA_MEADOW        (HOENN_JOURNAL_FLAGS + 0x00)
 #define FLAG_HOENN_HEARD_CYNDAQUIL_TOWER         (HOENN_JOURNAL_FLAGS + 0x01)
@@ -81,5 +81,6 @@
 #define FLAG_HOENN_HEARD_MASQUERAIN              (HOENN_JOURNAL_FLAGS + 0x3B)
 #define FLAG_HOENN_HEARD_MOLTRES_FLYOVER         (HOENN_JOURNAL_FLAGS + 0x3C)
 #define FLAG_HOENN_HEARD_DEOXYS_SIGNAL           (HOENN_JOURNAL_FLAGS + 0x3D)
+#define FLAG_HOENN_HEARD_RYAN_RUNS               (HOENN_JOURNAL_FLAGS + 0x43)
 
 #endif // GUARD_CONSTANTS_HOENN_JOURNAL_H
