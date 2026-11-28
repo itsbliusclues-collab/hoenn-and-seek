@@ -686,3 +686,12 @@ Lane B's `## 2.0 part NN` sections go below this line, at the end of the file.
 - After beating WALLACE, talking to a leader at their spot offers the same rematch as in their gym.
 - WINONA: talk to her on ROUTE 119, then go straight to FORTREE GYM: she must be there on the first visit (the weekend code reads her gym flag before the gym's own script runs; her ROUTE 119 script now clears it).
 - WATTSON before NEW MAUVILLE is finished is in MAUVILLE CITY, not his gym, weekends or not.
+
+### 2.1-25 (Johto gym rugs)
+- Each Johto leader with their Pokémon: VIOLET (Noctowl behind Falkner, both on the rug), AZALEA (trees symmetric around Bugsy and Scyther), GOLDENROD (Whitney and Miltank on a 4-wide bench), ECRUTEAK (Morty and Gengar on a 2-wide mat, the room's emblem and door centred), MAHOGANY (Pryce and Piloswine side by side on the platform), BLACKTHORN (Clair and Kingdra side by side). Talk to each leader and battle: nothing changed there.
+- AZALEA: ride each of the three top Ariados pads down and back up; the trees around them moved.
+- ECRUTEAK: leave the leader's room by its door's left tile (the hidden path); the right tile drops you into the pit like the tiles beside the path.
+- MAHOGANY: solve the ice from the door to Pryce (the room is one column wider; a solver and one emulator run found the route).
+- BLACKTHORN: raise all four bridges in order (each is a tile wider now) and reach Clair; reload the gym after each bridge (the map script redraws them).
+- Visit each gym on a weekend after beating its leader: the room is empty, no stray rug pieces or follower.
+

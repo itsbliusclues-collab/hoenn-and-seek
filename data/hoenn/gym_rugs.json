@@ -23,7 +23,8 @@
     {"map": "GoldenrodCity_Gym_hns", "_": "already even: the bench grows to 4 (x 14-17) under Whitney and Miltank, its left pot moves to its right end",
      "ops": [
        {"op": "put", "src": [14, 8, 1, 1], "dst": [18, 8]},
-       {"op": "nine", "src": [15, 8, 2, 1], "dst": [14, 8, 4, 1], "b": 5}
+       {"op": "nine", "src": [15, 8, 2, 1], "dst": [14, 8, 4, 1], "b": 5},
+       {"op": "set", "at": [17, 8], "collision": 1, "_": "both bench ends are solid (14,8 kept its pot's collision)"}
      ]},
     {"map": "AzaleaTown_Gym_hns", "_": "Bugsy (11,6) and Scyther (10,6) stay; the trees left of them (x 5-10) are mirrored onto x 11-16 (Bryan, 8:21 AM CT). Row 11 holds the three Ariados pads (x 6, 11, 16), whose triggers and Ariados objects stay where they are, so the pads are put back after the mirror. The room is 15 wide (x 4-18), so x 17-18 by the right wall keep their trees",
      "ops": [
