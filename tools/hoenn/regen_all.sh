@@ -73,6 +73,11 @@ done
 echo "== living_dex"
 python3 tools/hoenn/living_dex.py --report hoenn-docs/living-dex.md
 
+# Part 38: every Hoenn & Seek text fits the message box (216 px) and no box ends
+# on a one-word line. Stops the run if anything is found.
+echo "== text_audit"
+python3 tools/hoenn/text_audit.py
+
 # Also a check (2.1-03): no screen gets more objects or sprite palettes than
 # the engine can load (the generators above run it too). Rewrites
 # hoenn-docs/screens.md.
