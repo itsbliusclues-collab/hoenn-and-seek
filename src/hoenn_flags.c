@@ -187,6 +187,22 @@ void HoennClearKeyItemsExtra(void)
     memset(gSaveBlock3Ptr->hoennKeyItemsExtra, 0, sizeof(gSaveBlock3Ptr->hoennKeyItemsExtra));
 }
 
+// Link battles (2.1 review): LoadPlayerBag (src/load_save.c) copies SaveBlock1's
+// bag before a cable club or Union Room battle, and SavePlayerBag puts it back
+// afterwards, then re-keys every pocket from the key saved with the copy to the
+// current one (each battle start picks a new encryption key). The extra slots
+// live outside struct Bag, so they have to be copied and put back with it, or
+// the re-key garbles their quantities and removeitem stops working on them.
+static EWRAM_DATA u32 sKeyItemsExtraCopy[HOENN_KEY_ITEMS_EXTRA] = {0};
+
+void HoennCopyKeyItemsExtra(bool32 restore)
+{
+    if (restore)
+        memcpy(gSaveBlock3Ptr->hoennKeyItemsExtra, sKeyItemsExtraCopy, sizeof(sKeyItemsExtraCopy));
+    else
+        memcpy(sKeyItemsExtraCopy, gSaveBlock3Ptr->hoennKeyItemsExtra, sizeof(sKeyItemsExtraCopy));
+}
+
 // Daily flags of night events (41r, Bryan): "knocked out tonight, back
 // tomorrow night". Midnight falls in the middle of a night, so these skip the
 // midnight reset and clear at noon instead (HoennUpdatePerNight, src/hoenn_time.c):

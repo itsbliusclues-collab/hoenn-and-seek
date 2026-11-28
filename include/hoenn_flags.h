@@ -12,6 +12,7 @@ void HoennClearAllFlagsAndVars(void);
 void HoennClearEventFlagsAndVars(void);
 void Hoenn21ClearFlagsAndVars(void);
 void HoennClearKeyItemsExtra(void); // 2.1-04 (include/hoenn_bag.h)
+void HoennCopyKeyItemsExtra(bool32 restore); // LoadPlayerBag/SavePlayerBag (src/load_save.c)
 void HoennClearDailyFlags(void);
 void HoennClearWeeklyFlags(void);
 void HoennClearNightlyFlags(void);

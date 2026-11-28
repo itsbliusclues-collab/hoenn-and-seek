@@ -17,6 +17,7 @@
 #include "decoration_inventory.h"
 #include "agb_flash.h"
 #include "event_data.h"
+#include "hoenn_flags.h"
 #include "constants/event_objects.h"
 
 static void ApplyNewEncryptionKeyToAllEncryptedData(u32 encryptionKey);
@@ -257,6 +258,9 @@ void LoadPlayerBag(void)
 
     // load player bag.
     memcpy(&gLoadedSaveData.bag, &gSaveBlock1Ptr->bag, sizeof(struct Bag));
+#if IS_HNS
+    HoennCopyKeyItemsExtra(FALSE); // Hoenn & Seek 2.1-04: the key pocket's slots in SaveBlock3
+#endif
 
     // load mail.
     for (i = 0; i < MAIL_COUNT; i++)
@@ -272,6 +276,9 @@ void SavePlayerBag(void)
 
     // save player bag.
     memcpy(&gSaveBlock1Ptr->bag, &gLoadedSaveData.bag, sizeof(struct Bag));
+#if IS_HNS
+    HoennCopyKeyItemsExtra(TRUE); // Hoenn & Seek 2.1-04: the key pocket's slots in SaveBlock3
+#endif
 
     // save mail.
     for (i = 0; i < MAIL_COUNT; i++)
