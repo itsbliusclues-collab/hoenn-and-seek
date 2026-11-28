@@ -36,34 +36,12 @@
 
 #if IS_HNS
 
-enum HoennHintCondType
-{
-    HINT_IF_FLAG,
-    HINT_IF_NOT_FLAG,
-    HINT_IF_VAR_MIN,
-    HINT_IF_VAR_BELOW,
-    HINT_IF_STAMPS_MIN,   // Hoenn gym badges (stamp flags)
-    HINT_IF_STAMPS_BELOW,
-    HINT_IF_BADGES_MIN,   // HnS's 16 Johto + Kanto badges
-    HINT_IF_BADGES_BELOW,
-    HINT_IF_CAUGHT,       // Pokédex caught flag
-    HINT_IF_NOT_CAUGHT,
-    HINT_IF_LEVEL_CAP,    // HnS's LEVEL CAP challenge setting is on
-};
-
 enum HoennHintKind
 {
     HINT_TIP,
     HINT_STORY,
     HINT_RUMOR,
     HINT_FORECAST,
-};
-
-struct HoennHintCond
-{
-    u8 type;
-    u16 id;     // flag, var or species
-    u16 value;  // var / badge threshold
 };
 
 struct HoennHintRumor
@@ -139,7 +117,8 @@ static bool32 CondHolds(const struct HoennHintCond *cond)
     return FALSE;
 }
 
-static bool32 AllHold(const struct HoennHintCond *conds, u32 count)
+// Also used by the radio segments (src/hoenn_radio.c, 2.1-02).
+bool32 HoennHintConditionsHold(const struct HoennHintCond *conds, u32 count)
 {
     u32 i;
 
@@ -151,7 +130,7 @@ static bool32 AllHold(const struct HoennHintCond *conds, u32 count)
 
 static bool32 IsRumorFound(u32 rumor)
 {
-    return AllHold(sHintRumors[rumor].found, sHintRumors[rumor].foundCount);
+    return HoennHintConditionsHold(sHintRumors[rumor].found, sHintRumors[rumor].foundCount);
 }
 
 // The first forecast that applies in the player's region: a map whose special
@@ -168,7 +147,7 @@ static const u8 *FindForecast(void)
         {
             const struct HoennForecast *f = &sForecasts[i];
 
-            if (f->hoenn != inHoenn || !AllHold(f->conds, f->condCount))
+            if (f->hoenn != inHoenn || !HoennHintConditionsHold(f->conds, f->condCount))
                 continue;
             if (HoennIsSpecialWeatherInDays(f->map >> 8, f->map & 0xFF, days))
             {
@@ -183,7 +162,7 @@ static const u8 *FindForecast(void)
 // The text of one line, or NULL if its conditions don't hold.
 static const u8 *LineText(const struct HoennHintLine *line)
 {
-    if (!AllHold(line->conds, line->condCount))
+    if (!HoennHintConditionsHold(line->conds, line->condCount))
         return NULL;
     switch (line->kind)
     {

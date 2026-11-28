@@ -365,6 +365,10 @@ struct SaveBlock3
     // clears them on 1.0 saves (src/save.c), and the harness reads fixed offsets.
     u8 hoennEventFlags[HOENN_EVENT_FLAGS_BYTES];
     u16 hoennEventVars[HOENN_EVENT_VARS_COUNT];
+    // 2.1 flags and vars (2.1-02). After the 2.0 arrays for the same reasons:
+    // save version 7 clears them on 2.0 saves.
+    u8 hoenn21Flags[HOENN_21_FLAGS_BYTES];
+    u16 hoenn21Vars[HOENN_21_VARS_COUNT];
 #endif
 }; /* max size 1624 bytes */
 

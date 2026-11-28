@@ -33,6 +33,19 @@
 // Storage: gSaveBlock3Ptr->hoennEventFlags / hoennEventVars. They sit after the
 // 1.0 arrays so the 1.0 layout (and the emulator harness's offsets) don't move;
 // save version 6 clears them when a 1.0 save is loaded (src/save.c).
+//
+// ---- 2.1 range: hand-defined, one block per lane (2.1-02) ------------------
+// Flag 0x2400-0x26FF  2.1 flags (768). Sub-blocks (constants/hoenn_events_2_1.h):
+//                       0x2400-0x267F  event flags: shared, lane A, lane B,
+//                                      the Seeker's Journal (generated), spare
+//                       0x2680-0x26BF  daily flags, cleared with the 2.0 daily flags
+//                       0x26C0-0x26FF  weekly flags, cleared with the 2.0 weekly flags
+// Var  0x7100-0x713F  2.1 vars (64).
+// 2.1 hidden items can't live here (the 13-bit limit, 0x20E9): they take the
+// unused top of the 2.0 lanes' hidden-item ranges.
+//
+// Storage: gSaveBlock3Ptr->hoenn21Flags / hoenn21Vars, after the 2.0 arrays;
+// save version 7 clears them when a 2.0 save is loaded (src/save.c).
 
 // 1.0
 #define HOENN_FLAGS_START           0x1800
@@ -58,12 +71,28 @@
 #define HOENN_WEEKLY_FLAGS_START        0x2340 // 64 weekly flags
 #define HOENN_WEEKLY_FLAGS_END          0x237F
 
+// 2.1
+#define HOENN_21_FLAGS_START        0x2400
+#define HOENN_21_FLAGS_END          0x26FF
+#define HOENN_21_FLAGS_BYTES        ((HOENN_21_FLAGS_END - HOENN_21_FLAGS_START + 1) / 8)
+#define HOENN_21_VARS_START         (HOENN_EVENT_VARS_START + HOENN_EVENT_VARS_COUNT) // 0x7100
+#define HOENN_21_VARS_COUNT         0x40
+
+#define HOENN_21_DAILY_FLAGS_START  0x2680 // 64 daily flags
+#define HOENN_21_DAILY_FLAGS_END    0x26BF
+#define HOENN_21_WEEKLY_FLAGS_START 0x26C0 // 64 weekly flags
+#define HOENN_21_WEEKLY_FLAGS_END   0x26FF
+
 #define IS_HOENN_1_0_FLAG(id)  ((id) >= HOENN_FLAGS_START && (id) <= HOENN_FLAGS_END)
 #define IS_HOENN_EVENT_FLAG(id) ((id) >= HOENN_EVENT_FLAGS_START && (id) <= HOENN_EVENT_FLAGS_END)
-#define IS_HOENN_FLAG(id)      (IS_HOENN_1_0_FLAG(id) || IS_HOENN_EVENT_FLAG(id))
+#define IS_HOENN_21_FLAG(id)   ((id) >= HOENN_21_FLAGS_START && (id) <= HOENN_21_FLAGS_END)
+// The three generations sit end to end (src/hoenn_flags.c checks it), so one
+// range check covers them: GetFlagPointer/GetVarPointer are inlined widely.
+#define IS_HOENN_FLAG(id)      ((id) >= HOENN_FLAGS_START && (id) <= HOENN_21_FLAGS_END)
 #define IS_HOENN_1_0_VAR(id)   ((id) >= HOENN_VARS_START && (id) < HOENN_VARS_START + HOENN_VARS_COUNT)
 #define IS_HOENN_EVENT_VAR(id) ((id) >= HOENN_EVENT_VARS_START && (id) < HOENN_EVENT_VARS_START + HOENN_EVENT_VARS_COUNT)
-#define IS_HOENN_VAR(id)       (IS_HOENN_1_0_VAR(id) || IS_HOENN_EVENT_VAR(id))
+#define IS_HOENN_21_VAR(id)    ((id) >= HOENN_21_VARS_START && (id) < HOENN_21_VARS_START + HOENN_21_VARS_COUNT)
+#define IS_HOENN_VAR(id)       ((id) >= HOENN_VARS_START && (id) < HOENN_21_VARS_START + HOENN_21_VARS_COUNT)
 
 // The flag that records whether a trainer has been beaten.
 #if IS_HNS && defined(HOENN_TRAINERS_START)

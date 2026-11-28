@@ -80,6 +80,7 @@
 #include "constants/rtc.h"
 #include "constants/species.h"
 #include "hoenn.h"
+#include "hoenn_radio.h"
 
 #if IS_HNS
 #include "constants/hoenn_custom.h"
@@ -284,12 +285,14 @@ static void SpellWord(u8 *line, const u8 *word)
     *line = EOS;
 }
 
-// One hook line in the Unown station's case of the radio (src/pokenav_radio.c,
-// which only plays it at the Ruins of Alph). Nothing until the cipher opens,
-// then static until the Rosetta is read; after that a word, which changes each
-// week while you're looking for fragments and then follows the story.
-u32 HoennRadioUnownBroadcast(const u8 **lines, u8 *line)
+// The Unown station's segment (data/hoenn/radio_segments.json's UNOWN_SIGNAL,
+// played by src/hoenn_radio.c since 2.1-02; the station only tunes in at the
+// Ruins of Alph). Nothing until the cipher opens, then static until the Rosetta
+// is read; after that a word, which changes each week while you're looking for
+// fragments and then follows the story. Uses one text buffer.
+u32 HoennRadioUnownBroadcast(const u8 **lines, u8 *bufs)
 {
+    u8 *line = bufs;
     u32 week = VarGet(VAR_HOENN_WEEK_SEEN);
     const u8 *word = NULL;
     u32 i;

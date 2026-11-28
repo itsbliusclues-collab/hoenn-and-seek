@@ -10,6 +10,7 @@ u8 *HoennGetFlagPointer(u16 id);
 u16 *HoennGetVarPointer(u16 id);
 void HoennClearAllFlagsAndVars(void);
 void HoennClearEventFlagsAndVars(void);
+void Hoenn21ClearFlagsAndVars(void);
 void HoennClearDailyFlags(void);
 void HoennClearWeeklyFlags(void);
 void HoennClearNightlyFlags(void);

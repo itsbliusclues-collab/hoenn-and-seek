@@ -1,5 +1,6 @@
 #include "global.h"
 #include "hoenn.h"
+#include "hoenn_radio.h" // Hoenn & Seek 2.1-02
 #if IS_HNS
 #include "event_data.h"
 #include "pokenav.h"
@@ -448,6 +449,8 @@ static u16 PickWildSpeciesFromRoute(u8 mapGroup, u8 mapNum)
     return SPECIES_CHIKORITA;
 }
 
+HOENN_RADIO_STATION_CHECKS // Hoenn & Seek 2.1-02: include/hoenn_radio.h's station IDs match this file's
+
 static void GenerateOPTSegment(struct Pokenav_Radio *radio)
 {
     u32 n = 0;
@@ -459,7 +462,7 @@ static void GenerateOPTSegment(struct Pokenav_Radio *radio)
     case OPT_PHASE_INTRO:
         radio->lines[n++] = sRadioText_OPT_Intro;
         radio->lines[n++] = sRadioText_OPT_WithMeMary;
-        n += HoennRadioEusineReport(&radio->lines[n], radio->lineBuffers[0], radio->lineBuffers[1]); // Hoenn & Seek 2.0 part 35b: EUSINE's notes
+        n = HOENN_RADIO_SEGMENTS(RADIO_STATION_POKEMON_TALK, radio, n, n, buf); // Hoenn & Seek 2.1-02: radio segments (EUSINE's notes, ...)
         radio->optPhase = OPT_PHASE_POKEMON;
         break;
 
@@ -896,10 +899,6 @@ static void GenerateStationContent(struct Pokenav_Radio *radio, u8 station)
         radio->lines[n++] = sRadioText_Hoenn4;
         break;
 
-    case RADIO_STATION_UNOWN:
-        n += HoennRadioUnownBroadcast(&radio->lines[n], radio->lineBuffers[0]); // Hoenn & Seek 2.0 part 28: the cipher's signal
-        break;
-
     case RADIO_STATION_POKE_FLUTE:
     case RADIO_STATION_EVOLUTION:
         break;
@@ -908,6 +907,7 @@ static void GenerateStationContent(struct Pokenav_Radio *radio, u8 station)
         break;
     }
 
+    n = HOENN_RADIO_SEGMENTS(station, radio, n, 0, buf); // Hoenn & Seek 2.1-02: radio segments (the Unown signal, ...)
     radio->numLines = n;
     radio->currentLine = 0;
     radio->scrollTimer = RADIO_SCROLL_DELAY;

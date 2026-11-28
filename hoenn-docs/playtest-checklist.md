@@ -561,3 +561,15 @@ Lane B's `## 2.0 part NN` sections go below this line, at the end of the file.
 - Safari Zone Brush/Mountain/Cave: Roselia, Breloom, Kecleon, Grumpig, Gyarados instead of Tropius, Absol and Feebas. Johto Safari Low Right: Piloswine and Quagsire instead of Sneasel.
 - Hoenn: Route 102 has Nuzleaf where Gardevoir was, Routes 119/120 Breloom/Nuzleaf/Gloom/Mightyena where Tropius and Absol were, Route 117 has Roselia by day. Fortree's roof Pokémon is a Swellow. Absol only as the storm roamer, Tropius only in the orchard.
 - The Pokédex area pages for Absol, Tropius, Feebas, Sneasel and Ralts: do they still show stale spots?
+
+# Hoenn & Seek 2.1 (built on `hoenn-2.1`)
+
+## 2.1 lane A
+(2.1 lane A adds its sections here.)
+
+## 2.1 lane B
+
+### 2.1-02 (foundations)
+- Load a 2.0 save into a 2.1 build: it should carry on as before (save version 7 clears only 2.1's new space; tested in the emulator with a v6 save).
+- The Ruins of Alph's Unown station and EUSINE's notes on OAK's POKéMON TALK now come from the radio segment table: same lines as in 2.0, in the same places. Worth a listen.
+- DAMIAN (Cerulean Gym) and the shifting-tunnel Pokémon use the new ladder: their levels should be exactly what they were.

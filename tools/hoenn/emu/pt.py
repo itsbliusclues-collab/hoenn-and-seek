@@ -51,6 +51,8 @@ class Emu:
     # 2.0 event flags (0x2000-0x23FF) and vars (0x7080-0x70FF), after the 1.0
     # arrays in SaveBlock3. src/hoenn_flags.c asserts these offsets at build time.
     HOENN_EVENT_FLAGS_SB3, HOENN_EVENT_VARS_SB3 = 0x232, 0x2B2
+    # 2.1 flags (0x2400-0x26FF) and vars (0x7100-0x713F), after 2.0's (2.1-02).
+    HOENN_21_FLAGS_SB3, HOENN_21_VARS_SB3 = 0x3B2, 0x412
 
     def __init__(self, rom, elf, cwd=None):
         self.rom, self.elf, self.cwd = rom, elf, cwd or os.getcwd()
@@ -107,9 +109,12 @@ class Emu:
             o = flag - 0x1800; return sb3 + self.HOENN_FLAGS_SB3 + o // 8, 1 << (o % 8)
         if 0x2000 <= flag < 0x2400:
             o = flag - 0x2000; return sb3 + self.HOENN_EVENT_FLAGS_SB3 + o // 8, 1 << (o % 8)
+        if 0x2400 <= flag < 0x2700:
+            o = flag - 0x2400; return sb3 + self.HOENN_21_FLAGS_SB3 + o // 8, 1 << (o % 8)
         return sb1 + self.FLAGS_SB1 + flag // 8, 1 << (flag % 8)
 
     def _var_addr(self, var, sb1, sb3):
+        if 0x7100 <= var < 0x7140: return sb3 + self.HOENN_21_VARS_SB3 + (var - 0x7100) * 2
         if 0x7080 <= var < 0x7100: return sb3 + self.HOENN_EVENT_VARS_SB3 + (var - 0x7080) * 2
         if var >= 0x7000: return sb3 + self.HOENN_VARS_SB3 + (var - 0x7000) * 2
         return sb1 + self.VARS_SB1 + (var - 0x4000) * 2

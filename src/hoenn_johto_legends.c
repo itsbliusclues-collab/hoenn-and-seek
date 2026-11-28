@@ -27,6 +27,7 @@
 #include "global.h"
 #include "event_data.h"
 #include "hoenn.h"
+#include "hoenn_radio.h"
 
 #if IS_HNS
 #include "battle.h"
@@ -106,11 +107,12 @@ u16 HoennEusineState(void)
 static const u8 sText_RadioEusine[] = _("MARY: A tip from EUSINE!");
 static const u8 sText_RadioWasTracked[] = _("was tracked near ");
 
-// Hook in the intro of OAK's POKéMON TALK (src/pokenav_radio.c). Writes up to
-// three lines (one static, two into line1/line2, each a 40-byte buffer) and
-// returns how many.
-u32 HoennRadioEusineReport(const u8 **lines, u8 *line1, u8 *line2)
+// OAK's POKéMON TALK's segment (data/hoenn/radio_segments.json's EUSINE_NOTES,
+// played in its intro by src/hoenn_radio.c since 2.1-02). Writes up to three
+// lines (one static, two into its two text buffers) and returns how many.
+u32 HoennRadioEusineReport(const u8 **lines, u8 *bufs)
 {
+    u8 *line1 = bufs, *line2 = bufs + HOENN_RADIO_BUF_SIZE;
     u8 mapGroup, mapNum;
     u32 slot;
     u16 species;
