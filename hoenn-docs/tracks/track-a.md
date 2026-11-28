@@ -9,7 +9,7 @@ Only track A's builder edits this file (the reviewer may add a line when it merg
 ## Parts
 | Order | Part | State | Branch / PR | IDs and notes |
 |---|---|---|---|---|
-| A1 | **2.1-02** Foundations: 2.1 flag/var block + save v7, both tracks' ranges and files, radio segments (28's and 35b's hooks folded in), scaled-opponent ladder | PR open (Nov 28) | `claude/project-thread-b7lyt3` | no flags used; `HOENN_LADDER_*` constants. Also carries the 2.1 plan docs (#103, #108) |
+| A1 | **2.1-02** Foundations: 2.1 flag/var block + save v7, both tracks' ranges and files, radio segments (28's and 35b's hooks folded in), scaled-opponent ladder | PR #113 open (Nov 28) | `claude/project-thread-b7lyt3` | no flags used; `HOENN_LADDER_*` constants. Also carries the 2.1 plan docs (#103, #108) |
 | A2 | 2.1-04 Key-item pocket audit (+ 80 slots if needed) | next | | |
 | A3 | 2.1-05 Seeker's Journal A | | | the ~90 heard flags start at `HOENN_TRACK_A_FLAGS` + 0x00 |
 | A4 | 2.1-06 Seeker's Journal B | | | |
