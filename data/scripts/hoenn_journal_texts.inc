@@ -544,6 +544,18 @@ HoennSeek_Text_JournalMewBlurFoundText::
 HoennSeek_Text_JournalMewBlurWhen::
 	.string "At first light.$"
 
+HoennSeek_Text_JournalCelebiMemoryHint::
+	.string "A road remembered?$"
+
+HoennSeek_Text_JournalCelebiMemoryTitle::
+	.string "Celebi's memory$"
+
+HoennSeek_Text_JournalCelebiMemoryRumor::
+	.string "Walk ROUTE 22 with CELEBI\nfollowing you, healthy and happy.\lIt remembers that road, and a boy\lwho stood on it with his father.$"
+
+HoennSeek_Text_JournalCelebiMemoryFoundText::
+	.string "CELEBI showed you young SILVER and\nGIOVANNI on ROUTE 22, years ago.$"
+
 HoennSeek_Text_JournalJirachiWishesHint::
 	.string "Three wishes?$"
 

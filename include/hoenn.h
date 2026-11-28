@@ -78,6 +78,10 @@ void HoennSwarmPick(u16 *species, u8 *level);
 void HoennSwarmMet(void);
 void HoennSwarmBufferNames(void); // special: STR_VAR_1 species, STR_VAR_2 map
 void HoennPlantBerryInSoil(void); // special: VAR_ITEM_ID into the soil patch you talked to
+// 2.1-08: SILVER's ladder and milestone teams (src/hoenn_silver.c)
+u32 HoennSilverTier(void);
+u16 HoennSilverTierForScript(void); // specialvar
+bool32 HoennIsSilverScaled(const struct Trainer *trainer);
 // The Kangaskhan baby as your follower (src/hoenn_lane_b.c, 2.0 part 30a)
 bool32 HoennIsKangaBabyGfx(u32 species);
 u32 HoennFollowerPaletteSpecies(u32 species);

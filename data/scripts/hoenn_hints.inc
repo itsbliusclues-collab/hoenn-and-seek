@@ -212,9 +212,10 @@ HoennSeek_EventScript_HintNpc25::
 
 @ IndigoPlateau_PokemonCenter_hns
 HoennSeek_EventScript_HintNpc26::
+	call HoennSeek_EventScript_SilverCelebiLine
 	callnative HoennSeek_NpcHint
 	.2byte 26
-	goto_if_eq VAR_RESULT, FALSE, IndigoPlateau_EventScript_Silver
+	goto_if_eq VAR_RESULT, FALSE, HoennSeek_EventScript_IndigoSilver
 	callstd MSGBOX_NPC
 	end
 
@@ -996,6 +997,12 @@ HoennSeek_Text_Hint_RumorMew_BlurBefore::
 
 HoennSeek_Text_Hint_RumorMew_BlurAfter::
 	.string "Someone's been picking up the\nscraps that pink blur drops. I bet\lthey'd make a map!$"
+
+HoennSeek_Text_Hint_RumorCelebi_MemoryBefore::
+	.string "You caught the forest's time\ntraveller? Take it down ROUTE 22\lwith it following you, healthy\land happy.\pThey say it remembers that road,\nand a boy who stood on it with\lhis father.$"
+
+HoennSeek_Text_Hint_RumorCelebi_MemoryAfter::
+	.string "Someone saw a white flash on ROUTE\n22 and a man in a black suit,\lstanding where nobody was a\lsecond later.$"
 
 HoennSeek_Text_Hint_RumorLugia_SongBefore::
 	.string "Old sailors in OLIVINE say there's\na song under the sea near the\lWHIRL ISLANDS.\pFire, ice and thunder, it goes,\nand something silver to bring\lthem together.$"
