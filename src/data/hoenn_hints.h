@@ -210,6 +210,7 @@ extern const u8 HoennSeek_Text_Hint_LineStorySignal[];
 extern const u8 HoennSeek_Text_Hint_LineStoryRegiBraille[];
 extern const u8 HoennSeek_Text_Hint_LineStoryRegiSea[];
 extern const u8 HoennSeek_Text_Hint_LineStoryArceusWaits[];
+extern const u8 HoennSeek_Text_Hint_LineStorySquirtleSquad[];
 extern const u8 HoennSeek_Text_Hint_Forecast0[];
 extern const u8 HoennSeek_Text_Hint_Forecast1[];
 extern const u8 HoennSeek_Text_Hint_Forecast2[];
@@ -394,6 +395,7 @@ static const struct HoennHintLine sHintLines[] = {
     { (const struct HoennHintCond[]){{HINT_IF_VAR_MIN, VAR_PLATECOUNTER, 3}, {HINT_IF_FLAG, FLAG_HOENN_CIPHER_INSCRIPTION, 0}, {HINT_IF_NOT_FLAG, FLAG_HOENN_REGI_OPEN_STEEL, 0}}, 3, HoennSeek_Text_Hint_LineStoryRegiSea, HINT_STORY, 0 }, // STORY_REGI_SEA
     { (const struct HoennHintCond[]){{HINT_IF_VAR_MIN, VAR_SINJOH_STORYLINE, 12}, {HINT_IF_NOT_FLAG, FLAG_HOENN_CIPHER_INSCRIPTION, 0}, {HINT_IF_NOT_CAUGHT, SPECIES_ARCEUS, 0}}, 3, HoennSeek_Text_Hint_LineStoryArceusWaits, HINT_STORY, 0 }, // STORY_ARCEUS_WAITS
     { NULL, 0, NULL, HINT_RUMOR, 40 }, // RUMOR_REGI_DOORS
+    { (const struct HoennHintCond[]){{HINT_IF_NOT_FLAG, FLAG_HOENN_SQUIRTLE_DONE, 0}}, 1, HoennSeek_Text_Hint_LineStorySquirtleSquad, HINT_STORY, 0 }, // STORY_SQUIRTLE_SQUAD
     { NULL, 0, NULL, HINT_FORECAST, 0 }, // FORECAST
 };
 
@@ -411,7 +413,7 @@ static const struct HoennHintNpc sHintNpcs[] = {
     { (const u8[]){29, 4}, 2, FALSE }, // CeruleanCity_PokemonCenter_hns
     { (const u8[]){30, 2}, 2, FALSE }, // VermilionCity_PokemonCenter_hns
     { (const u8[]){42, 5}, 2, FALSE }, // LavenderTown_PokemonCenter_hns
-    { (const u8[]){6}, 1, FALSE }, // SaffronCity_PokemonCenter_hns
+    { (const u8[]){127, 6}, 2, FALSE }, // SaffronCity_PokemonCenter_hns
     { (const u8[]){30, 3, 2}, 3, FALSE }, // CeladonCity_PokemonCenter_hns
     { (const u8[]){37, 54}, 2, FALSE }, // OldaleTown_PokemonCenter_1F
     { (const u8[]){31, 8, 51}, 3, FALSE }, // SlateportCity_PokemonCenter_1F
@@ -420,7 +422,7 @@ static const struct HoennHintNpc sHintNpcs[] = {
     { (const u8[]){34, 36, 47, 52}, 4, FALSE }, // FortreeCity_PokemonCenter_1F
     { (const u8[]){36, 15, 49, 85}, 4, FALSE }, // LilycoveCity_PokemonCenter_1F
     { (const u8[]){33, 9, 3, 50, 82}, 5, FALSE }, // MossdeepCity_PokemonCenter_1F
-    { (const u8[]){127}, 1, TRUE }, // Route119_WeatherInstitute_1F
+    { (const u8[]){128}, 1, TRUE }, // Route119_WeatherInstitute_1F
     { (const u8[]){10, 11, 12}, 3, FALSE }, // CianwoodCity_hns
     { (const u8[]){10, 11, 12}, 3, FALSE }, // OlivineCity_hns
     { (const u8[]){13}, 1, FALSE }, // DewfordTown
@@ -455,7 +457,7 @@ static const struct HoennHintNpc sHintNpcs[] = {
     { (const u8[]){108, 88}, 2, FALSE }, // PacifidlogTown_PokemonCenter_1F
     { (const u8[]){110, 111, 109}, 3, FALSE }, // RuinsOfAlph_Lab_hns
     { (const u8[]){95}, 1, FALSE }, // BlackthornCity_Mart_hns
-    { (const u8[]){127, 96}, 2, FALSE }, // Route10_PowerPlantEntrance_hns
+    { (const u8[]){128, 96}, 2, FALSE }, // Route10_PowerPlantEntrance_hns
     { (const u8[]){97}, 1, FALSE }, // Route113_GlassWorkshop
     { (const u8[]){98}, 1, FALSE }, // LavenderTown_hns
     { (const u8[]){99}, 1, FALSE }, // VioletCity_hns

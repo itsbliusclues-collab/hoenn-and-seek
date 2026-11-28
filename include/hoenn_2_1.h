@@ -73,6 +73,13 @@ u16 Hoenn21ADueCall(void);
 // 2.1-04: save version 8 moves SaveBlock1's 60 key-item slots into SaveBlock3's 80.
 void HoennMoveKeyItemsToSaveBlock3(void);
 
+// 2.1-05: the SEEKER'S JOURNAL (src/hoenn_journal.c).
+void HoennJournalHeardCall(u16 call); // an event call rang (HoennTryEventCall)
+void HoennJournalPushPages(void);     // special
+void HoennJournalPushEntries(void);   // special, page in VAR_0x8004
+struct ScriptContext;
+void HoennSeek_JournalEntryText(struct ScriptContext *ctx);
+
 // (track A's declarations go here)
 
 // ============================================================================

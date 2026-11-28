@@ -293,7 +293,10 @@ HoennSeek_Text_CallElmChikorita::
 	.string "My aide saw it heading up ROUTE\n"
 	.string "46, following a sweet smell.\p"
 	.string "If you find it, it should know my\n"
-	.string "lab's scent on you. Good luck!$"
+	.string "lab's scent on you. Good luck!\p"
+	.string "Oh, and my aide has something for\n"
+	.string "you from PROF. BIRCH: a JOURNAL\l"
+	.string "for rumors like this one!$"
 
 HoennSeek_Text_CallElmCyndaquil::
 	.string "Hello, {PLAYER}! It's PROF. ELM!\p"
@@ -305,7 +308,10 @@ HoennSeek_Text_CallElmCyndaquil::
 	.string "Someone saw a little flame near\n"
 	.string "ECRUTEAK's BURNED TOWER, at night.\p"
 	.string "If you find it, it should know my\n"
-	.string "lab's scent on you. Good luck!$"
+	.string "lab's scent on you. Good luck!\p"
+	.string "Oh, and my aide has something for\n"
+	.string "you from PROF. BIRCH: a JOURNAL\l"
+	.string "for rumors like this one!$"
 
 HoennSeek_Text_CallElmTotodile::
 	.string "Hello, {PLAYER}! It's PROF. ELM!\p"
@@ -318,7 +324,10 @@ HoennSeek_Text_CallElmTotodile::
 	.string "says something keeps stealing\l"
 	.string "his bait. I bet it's our TOTODILE!\p"
 	.string "If you find it, it should know my\n"
-	.string "lab's scent on you. Good luck!$"
+	.string "lab's scent on you. Good luck!\p"
+	.string "Oh, and my aide has something for\n"
+	.string "you from PROF. BIRCH: a JOURNAL\l"
+	.string "for rumors like this one!$"
 
 HoennSeek_Text_CallStarterFound::
 	.string "{PLAYER}! It's PROF. ELM!\p"

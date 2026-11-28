@@ -82,6 +82,18 @@ struct HoennForecast
 };
 
 #include "data/hoenn_hints.h"
+#include "data/hoenn_journal_hints.h" // 2.1-05: each line's and rumor's journal heard flag
+
+STATIC_ASSERT(ARRAY_COUNT(sHintLineHeard) == ARRAY_COUNT(sHintLines), JournalHintLinesMatch);
+STATIC_ASSERT(ARRAY_COUNT(sHintRumorHeard) == ARRAY_COUNT(sHintRumors), JournalHintRumorsMatch);
+
+// 2.1-05: hearing a line (or a rumor, from the field notes) marks its
+// SEEKER'S JOURNAL entry as heard (data/hoenn/journal.json).
+static void NoteHeard(u16 flag)
+{
+    if (flag != 0)
+        FlagSet(flag);
+}
 
 static const u8 sText_Today[] = _("today");
 static const u8 sText_Tomorrow[] = _("tomorrow");
@@ -200,6 +212,7 @@ void HoennSeek_NpcHint(struct ScriptContext *ctx)
         text = LineText(&sHintLines[npc->lines[i]]);
     if (text == NULL)
         return;
+    NoteHeard(sHintLineHeard[npc->lines[i - 1]]);
     ctx->data[0] = (uintptr_t)text;
     gSpecialVar_Result = TRUE;
 }
@@ -228,6 +241,7 @@ void HoennSeek_FieldNotesHint(struct ScriptContext *ctx)
         if (!IsRumorFound(i))
         {
             ctx->data[0] = (uintptr_t)sHintRumors[i].notes;
+            NoteHeard(sHintRumorHeard[i]);
             return;
         }
     }

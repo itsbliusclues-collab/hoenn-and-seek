@@ -15,6 +15,7 @@ These docs live in the repo so any Claude session, on any account, sees the same
 | `2.1-plan.md` | **Hoenn & Seek 2.1**: Bryan's Nov 27 ideas and decisions (Seeker's Journal, swarms, Silver, friend trainers, second rival, leaders' weekends, gym redesign, homage NPCs) and the 2.1 order (2.1-01 on). **Being built since Nov 28** (Aidan: "go ahead and do 2.1") |
 | `2.1-tracks.md` | **Who builds which 2.1 part, in which order:** two builder tracks (A: systems and trainers, B: the world) + the reviewer; 2.2 (Pangea) numbered |
 | `tracks/` | **2.1's rules** (`README.md`: IDs, files, phone, radio, ladder) **and each track's status** (`track-a.md`, `track-b.md`). Read it before claiming a 2.1 part |
+| `../data/hoenn/journal.json` | The SEEKER'S JOURNAL's events (2.1-05): every event's page, rumor, found line and where you hear of it. Later parts add their entries here |
 | `key-items.md` | The key-item pocket audit (2.1-04): which key items a player can hold, why the pocket is 80 |
 | `review-notes.md` | Open items from Bryan's reviews (placement, look, unapproved choices) to adjust later. Mark them done when a part fixes one |
 | `../CLAUDE.md` | The technical memory: build commands, every subsystem's notes, conventions, ROM size table |

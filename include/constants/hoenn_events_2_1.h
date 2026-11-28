@@ -94,6 +94,13 @@
 #define HOENN_LADDER_ELITE     2 // the ~15 elite Hoenn trainers: the next leader's ace - 1
 #define HOENN_LADDER_COUNT     3
 
+// ---- 2.1-05: the SEEKER'S JOURNAL (src/hoenn_journal.c) -------------------
+// Its heard flags are generated (one per event, tools/hoenn/gen_hoenn_journal.py
+// from data/hoenn/journal.json): FLAG_HOENN_HEARD_<KEY> in the block
+// HOENN_TRACK_A_FLAGS + 0x00..0x5F. Later parts take track A's flags from 0x60.
+#include "constants/hoenn_journal.h"
+#define FLAG_HOENN_GOT_SEEKERS_JOURNAL (HOENN_TRACK_A_FLAGS + 0x60) // Elm's aide gave it
+
 // (track A's parts add their sections here, above track B's banner)
 
 // ============================================================================

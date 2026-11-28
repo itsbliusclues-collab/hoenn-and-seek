@@ -228,6 +228,7 @@ HoennSeek_EventScript_HintNpc27::
 
 @ NewBarkTown_Lab_hns
 HoennSeek_EventScript_HintNpc28::
+	call HoennSeek_EventScript_ElmAideJournal
 	callnative HoennSeek_NpcHint
 	.2byte 28
 	goto_if_eq VAR_RESULT, FALSE, NewBarkTown_EventScript_Aide2
@@ -1400,6 +1401,9 @@ HoennSeek_Text_Hint_LineStoryRegiSea::
 
 HoennSeek_Text_Hint_LineStoryArceusWaits::
 	.string "ARCEUS is still up in its chamber,\nwatching. It won't come with\lanyone yet.\pThe UNOWN wrote about SINJOH, long\nago. Their words are somewhere\lunder the RUINS OF ALPH.$"
+
+HoennSeek_Text_Hint_LineStorySquirtleSquad::
+	.string "Have you been down ROUTE 6? A gang\nof SQUIRTLE plays south of the\lpond, mornings and days.\pTheir leader wears sunglasses!\nWatch your step around\lthem, though.$"
 
 HoennSeek_Text_Hint_Forecast0::
 	.string "Fog is due over ROUTE 19 {STR_VAR_1}.\pOdd… the rain gauges out there\nkeep twitching anyway.$"

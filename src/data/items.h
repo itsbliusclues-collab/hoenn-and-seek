@@ -14575,6 +14575,26 @@ const struct ItemInfo gItemsInfo[] =
         .iconPic = gItemIcon_SoulDew,
         .iconPalette = gItemIconPalette_SoulDew,
     },
+
+    // Hoenn & Seek 2.1-05: Elm's aide gives it after your first Johto badge.
+    // It lists the hidden events by region: ??? until you hear of one, the
+    // rumor once you have, what you saw once found (src/hoenn_journal.c).
+    // Read from the bag or with SELECT (HoennSeek_EventScript_SeekersJournal).
+    [ITEM_SEEKERS_JOURNAL] =
+    {
+        .name = ITEM_NAME("SEEKER'S JOURNAL"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "A notebook of the\n"
+            "POKéMON rumors you\n"
+            "hear and find."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_FIELD,
+        .fieldUseFunc = ItemUseOutOfBattle_HoennSeekersJournal,
+        .iconPic = gItemIcon_FameChecker,
+        .iconPalette = gItemIconPalette_FameChecker,
+    },
 #endif
 
     [ITEM_EON_TICKET] =

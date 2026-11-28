@@ -20,7 +20,7 @@
 
 ## The table
 <!-- generated: key_item_audit.py -->
-63 of 109 key items are given by a built script.
+64 of 110 key items are given by a built script.
 
 | Item | Given by | Taken back by |
 |---|---|---|
@@ -75,6 +75,7 @@
 | `SAND_CHIME` | hoenn_hidden.inc |  |
 | `SCANNER` | AbandonedShip_HiddenFloorRooms | SlateportCity_Harbor, hoenn_teams.inc |
 | `SECRET_POTION` | CianwoodShop_hns | OlivineCity_Lighthouse_hns |
+| `SEEKERS_JOURNAL` | hoenn_2_1_a.inc |  |
 | `SHINY_CHARM` | LilycoveCity_CoveLilyMotel_2F |  |
 | `SILVER_WING` | GoldenrodCity_RadioTower_5F_hns, PewterCity_hns |  |
 | `SINGING_SAND` | hoenn_hidden.inc | hoenn_hidden.inc |

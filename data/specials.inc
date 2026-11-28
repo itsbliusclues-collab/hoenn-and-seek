@@ -815,6 +815,8 @@ gSpecials::
 	def_special HoennScaledAceFor
 	def_special HoennDebugBufferLadders
 	@ Hoenn & Seek 2.1, builder track A (systems and trainers): track A's specials go here
+	def_special HoennJournalPushPages @ 2.1-05
+	def_special HoennJournalPushEntries
 
 	@ (end of track A's specials)
 
