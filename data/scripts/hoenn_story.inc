@@ -108,6 +108,7 @@ HoennSeek_EventScript_TVNews::
 	releaseall
 	end
 HoennSeek_EventScript_TVNewsNone::
+	call HoennSeek_EventScript_TVSwarm @ 2.1-07: today's swarm (data/scripts/hoenn_2_1_a.inc)
 	goto HoennSeek_EventScript_TVForecast @ 2.0 part 7 (data/scripts/hoenn_hints.inc)
 
 HoennSeek_EventScript_TVNewsAutograph::

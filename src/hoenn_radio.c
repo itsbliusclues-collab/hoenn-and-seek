@@ -21,6 +21,7 @@
 // station never loses its own lines. Two hooks in src/pokenav_radio.c call
 // HoennRadioSegments (HOENN_RADIO_SEGMENTS, include/hoenn_radio.h).
 #include "global.h"
+#include "event_data.h"
 #include "hoenn.h"
 #include "hoenn_hints.h"
 #include "hoenn_radio.h"
@@ -35,6 +36,7 @@ struct HoennRadioSegment
     u8 station;
     u8 maxLines;                    // fixed lines, or the most a builder writes
     u8 buffers;                     // text buffers a builder needs
+    u16 heard;                      // 2.1-07: a journal heard flag set when it plays (0 = none)
     const struct HoennHintCond *conds;
     u8 condCount;
     const u8 *const *lines;         // fixed lines (NULL for a builder)
@@ -74,6 +76,8 @@ u32 HoennRadioSegments(u32 station, const u8 **lines, u32 n, u32 at, u32 maxLine
         if (count > s->maxLines)
             count = s->maxLines; // a builder must stay within its entry's "lines"
         *buf += s->buffers;
+        if (s->heard != 0)
+            FlagSet(s->heard); // the SEEKER'S JOURNAL heard it on the radio
 
         // Move the station's lines from `at` on down, then put the segment in.
         for (j = n; j > at; j--)
