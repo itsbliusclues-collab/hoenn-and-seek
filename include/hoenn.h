@@ -59,6 +59,12 @@ bool32 HoennLaneAFollowerOverride(u32 *species, bool32 *shiny, bool32 *female); 
 u16 HoennLaneBDueCall(void); // src/hoenn_lane_b.c
 u16 Hoenn21LaneADueCall(void); // src/hoenn_2_1_lane_a.c (2.1-02)
 u16 Hoenn21LaneBDueCall(void); // src/hoenn_2_1_lane_b.c (2.1-02)
+// 2.1-05: the SEEKER'S JOURNAL (src/hoenn_journal.c, lane A)
+void HoennJournalHeardCall(u16 call); // an event call rang (HoennTryEventCall)
+void HoennJournalPushPages(void);     // special
+void HoennJournalPushEntries(void);   // special, page in VAR_0x8004
+struct ScriptContext;
+void HoennSeek_JournalEntryText(struct ScriptContext *ctx);
 // The Kangaskhan baby as your follower (src/hoenn_lane_b.c, 2.0 part 30a)
 bool32 HoennIsKangaBabyGfx(u32 species);
 u32 HoennFollowerPaletteSpecies(u32 species);

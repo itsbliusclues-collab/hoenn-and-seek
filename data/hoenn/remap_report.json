@@ -2,6 +2,7 @@
  "flags": {
   "FLAG_ADDED_MATCH_CALL_TO_POKENAV": "kept 0x246",
   "FLAG_ADVENTURE_STARTED": "shared system flag 0x1d4",
+  "FLAG_BADGE01_GET": "shared system flag 0x880",
   "FLAG_BEAT_MAGMA_GRUNT_JAGGED_PASS": "remapped: was 0 (no-op)",
   "FLAG_BEAUTY_PAINTING_MADE": "remapped: was 0 (no-op)",
   "FLAG_BIRCH_AIDE_MET": "remapped: was 0 (no-op)",

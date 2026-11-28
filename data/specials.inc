@@ -818,6 +818,8 @@ gSpecials::
 	@ (end of 2.1's shared specials)
 
 	@ Hoenn & Seek 2.1, builder lane A: lane A's 2.1 specials go here
+	def_special HoennJournalPushPages @ 2.1-05
+	def_special HoennJournalPushEntries
 	@ (end of 2.1 lane A's specials)
 
 	@ Hoenn & Seek 2.1, builder lane B: lane B's 2.1 specials go here

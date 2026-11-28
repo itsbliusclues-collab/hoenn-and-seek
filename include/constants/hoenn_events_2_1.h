@@ -65,9 +65,16 @@
 #define HOENN_LADDER_ELITE      2 // next Hoenn leader's ace - 1; 83 with 8 badges, 84 after Wallace (elite trainers)
 
 // ==== Lane A (2.1) ==========================================================
-// (no definitions yet)
+
+// ---- 2.1-05: the SEEKER'S JOURNAL (src/hoenn_journal.c) -------------------
+// Its heard flags are generated (one per event, tools/hoenn/gen_hoenn_journal.py
+// from data/hoenn/journal.json): FLAG_HOENN_HEARD_<KEY> in HOENN_21_JOURNAL_FLAGS,
+// numbers locked in data/hoenn/journal_flags.json.
+#include "constants/hoenn_journal.h"
+#define FLAG_HOENN_GOT_SEEKERS_JOURNAL (HOENN_21_LANE_A_FLAGS + 0x00) // Elm's aide gave it
 
 // ==== Lane B (2.1) ==========================================================
 // (no definitions yet)
+
 
 #endif // GUARD_CONSTANTS_HOENN_EVENTS_2_1_H

@@ -186,8 +186,10 @@ def main():
         npc_rows.append("    { (const u8[]){%s}, %d, %s }, // %s" % (", ".join(map(str, ids)), len(ids),
                                                                    "TRUE" if npc.get("always") else "FALSE", npc["map"]))
         inc += ["@ %s" % npc["map"],
-                "%s::" % wrapper,
-                "\tcallnative HoennSeek_NpcHint",
+                "%s::" % wrapper]
+        if npc.get("first"):  # 2.1-05: a script that may take over the talk (ends) or return
+            inc.append("\tcall %s" % npc["first"])
+        inc += ["\tcallnative HoennSeek_NpcHint",
                 "\t.2byte %d" % n,
                 "\tgoto_if_eq VAR_RESULT, FALSE, %s" % npc["script"],
                 "\tcallstd MSGBOX_NPC",
