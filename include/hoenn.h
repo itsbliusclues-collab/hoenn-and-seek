@@ -88,6 +88,22 @@ void HoennSilverStarterUpdate(void);
 u16 HoennSilverStarterSpecies(void);
 u16 HoennSilverStarterForScript(void); // specialvar
 extern const u8 HoennSeek_EventScript_SilverStarter[];
+// 2.1-12: the friend trainers (src/hoenn_friends.c)
+struct Trainer;
+bool32 HoennIsFriendTrainer(const struct Trainer *trainer);
+bool32 HoennIsFriendBattle(void);
+#if IS_HNS
+#define HOENN_IS_FRIEND_BATTLE() HoennIsFriendBattle()
+#else
+#define HOENN_IS_FRIEND_BATTLE() FALSE
+#endif
+u32 HoennFriendHardLevel(void);   // MAX_LEVEL in a HARD friend battle, else 0
+u16 HoennFriendTalkState(void);   // specialvar
+u16 HoennFriendHardUnlocked(void); // specialvar
+void HoennFriendSetHard(void);    // special
+u16 HoennFriendBattleEnded(void); // specialvar
+u16 HoennFriendHasNameLine(void); // specialvar
+u16 HoennFriendTypeReaction(void); // specialvar
 bool32 HoennIsSilverScaled(const struct Trainer *trainer);
 // Teleport to your secret base (src/hoenn_2_1_lane_b.c, 2.1-34)
 void HoennRecordBaseEntrance(u32 secretBaseId);

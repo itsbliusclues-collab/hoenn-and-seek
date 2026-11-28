@@ -26,7 +26,7 @@
 #define HOENN_STRONG_GAP        6   // want the challenge: 62-72
 #define HOENN_HOPEFUL_GAP       14  // battle you anyway: 54-64
 
-enum { GYM_ROLE_NONE, GYM_ROLE_TRAINER, GYM_ROLE_LEADER, GYM_ROLE_STRONG, GYM_ROLE_HOPEFUL, GYM_ROLE_REMATCH, GYM_ROLE_PROGRESS, GYM_ROLE_SILVER, GYM_ROLE_ELITE };
+enum { GYM_ROLE_NONE, GYM_ROLE_TRAINER, GYM_ROLE_LEADER, GYM_ROLE_STRONG, GYM_ROLE_HOPEFUL, GYM_ROLE_REMATCH, GYM_ROLE_PROGRESS, GYM_ROLE_SILVER, GYM_ROLE_ELITE, GYM_ROLE_FRIEND };
 
 // 2.0 part 17r: DAMIAN, Charmander's old trainer outside the Cerulean Gym
 // (Emerald's unused TRAINER_LEROY slot). Kanto has no gate, so his ace follows
@@ -81,6 +81,8 @@ static u32 GetGymRole(const struct Trainer *trainer)
         return GYM_ROLE_PROGRESS;
     if (HoennIsSilverScaled(trainer)) // 2.1-08: SILVER's Indigo and Mt. Moon battles (src/hoenn_silver.c)
         return GYM_ROLE_SILVER;
+    if (HoennIsFriendTrainer(trainer)) // 2.1-12: the friend trainers (src/hoenn_friends.c)
+        return GYM_ROLE_FRIEND;
     // Part 16c: phone rematch teams top out at the gym-ace level (68-78, 85 after Wallace).
     for (i = 0; i < ARRAY_COUNT(sHoennRematchTrainers); i++)
         if (GetTrainerStructFromId(sHoennRematchTrainers[i]) == trainer)
@@ -96,6 +98,8 @@ u8 HoennScaleTrainerMonLevel(const struct Trainer *trainer, u8 level)
     role = GetGymRole(trainer);
     if (role == GYM_ROLE_NONE)
         return level;
+    if (role == GYM_ROLE_FRIEND && HoennFriendHardLevel() != 0) // 2.1-14: HARD, every Pokémon Lv 100
+        return HoennFriendHardLevel();
 
     count = trainer->poolSize ? trainer->poolSize : trainer->partySize;
     for (i = 0; i < count; i++)
@@ -106,6 +110,8 @@ u8 HoennScaleTrainerMonLevel(const struct Trainer *trainer, u8 level)
         ace = HoennScaledAce(HOENN_LADDER_PROGRESS);
     else if (role == GYM_ROLE_SILVER) // the top-90 ladder, never below HnS's own levels
         ace = max((s32)HoennScaledAce(HOENN_LADDER_TOP_90), (s32)maxLevel);
+    else if (role == GYM_ROLE_FRIEND) // the top-90 ladder
+        ace = HoennScaledAce(HOENN_LADDER_TOP_90);
     else if (role == GYM_ROLE_ELITE) // the next leader's ace - 1 (83 with 8 badges, 84 after Wallace)
         ace = HoennScaledAce(HOENN_LADDER_ELITE);
     else

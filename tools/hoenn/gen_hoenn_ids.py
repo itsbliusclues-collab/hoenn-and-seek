@@ -60,6 +60,14 @@ IGNORE_PREFIXES = ("FLAG_TEMP_", "VAR_TEMP_", "VAR_OBJ_GFX_ID_", "VAR_0x8", "VAR
                    "VAR_SPECIAL", "VAR_LAST_TALKED", "FLAG_HIDDEN_ITEMS_START")
 
 
+
+# 2.1-12: see "trainers" in main(): appended in this order, never sorted in.
+LATE_TRAINERS = [
+    "TRAINER_KAYLEE",   # 2.1-12: EXPLORER BRIDGETTE
+    "TRAINER_DUDLEY",   # 2.1-14: SKYDIVER AIDAN
+    "TRAINER_TERRY",    # 2.1-14: ATHLETE BROCK
+]
+
 def rd(p):
     with open(os.path.join(ROOT, p), errors="ignore") as f:
         return f.read()
@@ -225,7 +233,11 @@ def main():
     missing = sorted(t for t in trainers if t not in blocks)
     if missing:
         sys.exit(f"Hoenn scripts reference trainers with no Emerald party data: {missing}")
-    hoenn_trainers = sorted(trainers)
+    # 2.1-12: trainers added from 2.1 on (the friend trainers' renamed Emerald slots)
+    # take IDs after the sorted ones, in this order, so no earlier trainer's ID (and
+    # its defeated flag in a 2.0 save) moves. Add new ones at the end of the list.
+    late = [t for t in LATE_TRAINERS if t in trainers]
+    hoenn_trainers = sorted(trainers - set(late)) + late
     if len(hoenn_trainers) > HOENN_TRAINER_FLAGS_COUNT:
         sys.exit("too many Hoenn trainers for the trainer flag block")
     trainers_count = HNS_TRAINERS + len(hoenn_trainers)

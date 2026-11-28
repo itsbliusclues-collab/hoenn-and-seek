@@ -623,6 +623,25 @@ Lane B's `## 2.0 part NN` sections go below this line, at the end of the file.
 - [ ] **Victory Road 1F:** QUINCY and KATELYNN can both spot you at once and start a 6 + 6 double (seen in the emulator). Keep it, or move one of them?
 - [ ] **Teams:** drafts by Claude (no type theme). Swap anything you'd like in `data/hoenn/trainer_parties.party`.
 
+### 2.1-12 (friend trainers: EXPLORER BRIDGETTE)
+- [ ] **Finding her:** Route 111, by the Desert Ruins, at (31,88). Is that out of the way enough, or too hidden? (Her sprite and battle pic are **placeholders**, the PICNICKER and a POKéMON RANGER, until 2.1-13.)
+- [ ] **First meeting:** her introduction, then "How about a battle?" YES/NO; NO gets its own line. (Emulator-tested.)
+- [ ] **Name lines:** a player named AIDAN (any case) hears about her boyfriend; BRIDGET gets "that's my name!" Only at the first meeting. (Emulator-tested with AIDAN.)
+- [ ] **Levels:** her Garchomp is your progress level (85 after Wallace, 87 after Brendan & May, 90 after Red), the rest a level or two below. Is she a fair fight at each point? (Emulator-tested: Lv 54 lead on the debug save.)
+- [ ] **RUN:** asks "Would you like to forfeit the match?"; YES puts you back on the field with her line, no whiteout, no money lost, and you can battle her again the same day. (Emulator-tested.)
+- [ ] **Losing to her** whites out as usual (not tested).
+- [ ] **Winning:** prize money only, then "battled out for today" until tomorrow. (Emulator-tested, ₽9000 on the debug save.)
+- [ ] **"Gotten stronger":** after your progress level goes up, she opens with that line next time. (Emulator-tested by lowering the stored level.)
+- [ ] **Her team:** does the AI switch sensibly (Smart + Prediction)? Any set you'd change?
+
+### 2.1-14 (friend trainers: SKYDIVER AIDAN, ATHLETE BROCK, HARD mode)
+- [ ] **Finding them:** Aidan on Route 119's ledge above the Weather Institute (10,20); Brock at the north end of Route 115's beach (12,35). Out of the way enough? (Sprites and battle pics are **placeholders** until 2.1-13: Aidan uses an Emerald man / Bird Keeper, Brock a Black Belt.)
+- [ ] **Aidan:** meeting, battle, win, "battled out" (emulator-tested), and the BRIDGET name line (emulator-tested); the AIDAN name line ("that's my name!") wasn't tested.
+- [ ] **Brock:** meeting, the BROCK name line, the type question (FIGHTING → "My MACHAMP is going to love you!", NORMAL → "None of mine are…"), then the battle (emulator-tested). After your first win he calls you his BEST FRIEND (not tested in the emulator).
+- [ ] **Teams:** Aidan (Aerodactyl, Blastoise, Jolteon, Gardevoir, Scizor, Salamence) and Brock (Starmie, Breloom, Altaria, Rhyperior, Metagross, Machamp), sets as in the plan. Fair at Lv 85–90?
+- [ ] **HARD:** after the final Red (the Lv 100 Red), each friend asks NORMAL / HARD / NO; HARD is all Lv 100 (emulator-tested on Aidan) and the first HARD win has its own line (emulator-tested). Too hard, or about right for the last challenge before Pangea?
+- [ ] **Bridgette** still works the same after the scripts were merged into one (first meeting, battle and RUN re-checked on this build).
+
 ## 2.1 lane B
 
 ### 2.1-02 (foundations)
