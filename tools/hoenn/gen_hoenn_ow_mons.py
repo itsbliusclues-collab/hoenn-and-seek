@@ -20,7 +20,7 @@ never more than 9 objects (11 in towns) share a screen. Sea birds from a surf ta
 rocks when no water is out of reach. Generated objects run HoennSeek_EventScript_OWMon (cry);
 the script name is how re-runs find and replace them. Placement is deterministic per map.
 """
-import json, os, random, re, struct, zlib
+import json, os, random, re, struct, sys, zlib
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..")
 P = lambda *a: os.path.join(ROOT, *a)
@@ -315,3 +315,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+    # 2.1-03: stop if this run's objects crowd a screen past the sprite budget.
+    import check_screens
+    sys.exit(check_screens.main(["--quiet"]))

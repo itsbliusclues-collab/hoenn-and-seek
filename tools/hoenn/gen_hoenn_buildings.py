@@ -197,3 +197,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+    # 2.1-03: stop if this run's objects crowd a screen past the sprite budget.
+    import check_screens
+    sys.exit(check_screens.main(["--quiet"]))
