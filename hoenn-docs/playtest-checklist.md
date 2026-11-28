@@ -626,3 +626,17 @@ Lane B's `## 2.0 part NN` sections go below this line, at the end of the file.
 ### 2.1-04 (key-item pocket)
 - The KEY ITEMS pocket holds 80 now. Late in the game (lots of key items), scroll the pocket to the end, move an item (SELECT) across the 60th/61st place, register one past the 60th for SELECT and use it: everything should behave as in the first 60.
 - Load a 2.0 save: the key items are all there and nothing new appears at the end of the pocket.
+
+### 2.1-34 (teleport to base)
+- Make a real base, walk in once, then use Teleport from a route in another region: the menu should name your last healing town, SECRET BASE and CANCEL. SECRET BASE lands you inside; walking out puts you at the base's door.
+- A base full of decorations and dolls: everything should be there after teleporting in, as after walking in.
+- Move out (or use Secret Power somewhere new): Teleport goes back to HnS's YES/NO question until you walk into the new base.
+- Teleport in at night and in rain or fog: the base and the way back outside should look right.
+
+### 2.1-18 (Johto leaders' weekends)
+- On a Saturday or Sunday, after beating a Johto leader, their gym is empty and the gym guide says where they went. Visit each spot: Cherrygrove's beach (FALKNER), the NATIONAL PARK (BUGSY, not on contest days), MOOMOO FARM (WHITNEY), the DANCE THEATER (MORTY), MT. MORTAR's falls (CHUCK), ROUTE 40's beach (JASMINE), ROUTE 44's pond (PRYCE), LAKE OF RAGE's east shore (CLAIR). Each says a few lines; back in the gym on Monday.
+- A leader you haven't beaten yet stays in their gym on weekends (so a first challenge is never blocked).
+- After Kanto, when the Saffron Fighting Dojo has a leader's rematch: on a weekend that leader isn't at the Dojo, and talking to them at their spot offers the same rematch (and BP).
+- Change the day at a wall clock and go back outside: the leaders move with the calendar.
+- May calls once, the first weekend a leader is away (needs her number from BIRCH).
+- Load a save made inside a gym on a Friday and continue on Saturday: the leader is still there until you leave the map (expected; the next map load moves them).
