@@ -58,3 +58,8 @@ Each sprite is a 32×32 frame; the groups below go by the biggest side of the vi
   - Rooms with an odd width and a one-tile centre door get **one more column through the middle** (two-tile door, the wall emblem over the middle), so the 4-wide rug is centred in the room too: Ecruteak, Mahogany, Celadon, Lavaridge, Blackthorn, Cerulean, Vermilion, Saffron, Sootopolis, Viridian, Rustboro, Petalburg, Fortree. Most 3-wide rugs become 4 wide by themselves this way.
   - Already even: Goldenrod (the rug grows, pots re-spaced), Mauville, Dewford.
   - **Azalea unchanged** (Bryan likes Scyther where it is; a forest, no rug).
+
+**Approved (Bryan, Nov 28, 8:21 AM CT): "I love everything else"**, with two changes, both in the sheets now:
+- **Azalea:** the trees are rearranged to be symmetric around the pair (mirrored about the line between Scyther and Bugsy); the pair stays where it is.
+- **Cerulean:** the pedestal is one tile narrower on each side: 2 wide, just under Misty and Starmie (the pool still gets its extra middle column).
+This is the design 2.1-25 to 27 build.
