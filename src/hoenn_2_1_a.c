@@ -30,6 +30,11 @@
 #include "hoenn.h"
 #include "constants/hoenn_events_2_1.h"
 #include "constants/hoenn_phone.h"
+#include "berry.h"
+#include "event_object_movement.h"
+#include "item.h"
+#include "item_menu.h"
+#include "constants/berry.h"
 
 #if IS_HNS
 
@@ -52,6 +57,16 @@ u16 Hoenn21ADueCall(void)
                 return HOENN_CALL_JOURNAL_JOHTO + i;
     }
     return Hoenn21BDueCall();
+}
+
+// 2.1-07: plant VAR_ITEM_ID (a BERRY) in the empty soil patch you're talking
+// to (HoennSeek_EventScript_BerrySoil). HnS's own planting special replants
+// the last picked BERRY instead, so it can't be used for a first planting.
+void HoennPlantBerryInSoil(void)
+{
+    PlantBerryTree(GetObjectEventBerryTreeId(gSelectedObjectEvent), ItemIdToBerryType(gSpecialVar_ItemId), BERRY_STAGE_PLANTED, TRUE);
+    RemoveBagItem(gSpecialVar_ItemId, 1);
+    ObjectEventInteractionGetBerryTreeData();
 }
 
 STATIC_ASSERT(BAG_KEYITEMS_COUNT >= BAG_KEYITEMS_SB1_COUNT, KeyPocketGrows);

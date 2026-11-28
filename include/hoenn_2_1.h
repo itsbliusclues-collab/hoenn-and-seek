@@ -86,6 +86,15 @@ const u8 *HoennJournalFieldNote(void);
 bool32 HoennJournalPageComplete(u32 page);
 u16 HoennJournalPageDone(void); // specialvar, page in VAR_0x8004
 
+// 2.1-07: the daily swarm (src/hoenn_swarm.c)
+void HoennSwarmRoll(void);
+bool32 HoennSwarmHere(void);
+void HoennSwarmPick(u16 *species, u8 *level);
+void HoennSwarmMet(void);
+void HoennSwarmBufferNames(void); // special: STR_VAR_1 species, STR_VAR_2 map
+u32 HoennRadioSwarm(const u8 **lines, u8 *line1, u8 *line2);
+void HoennPlantBerryInSoil(void); // special: VAR_ITEM_ID into the soil patch you talked to
+
 // (track A's declarations go here)
 
 // ============================================================================

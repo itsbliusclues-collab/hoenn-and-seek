@@ -15,4 +15,6 @@ static const struct HoennRadioSegment sHoennRadioSegments[] =
     { HOENN_RADIO_UNOWN, NULL, 0, 0, NULL, HoennRadioUnownBroadcast, 0 },
     // news_hoenn_champion: 2.1 part 02: news after you beat Wallace, until Brendan & May
     { HOENN_RADIO_HOENN_SOUND, (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_STAMP_WALLACE, 0}, {HINT_IF_NOT_FLAG, FLAG_HOENN_BEAT_BM, 0}}, 2, 3, sRadioSeg_news_hoenn_champion, NULL, 0 },
+    // daily_swarm: 2.1-07: today's swarm, on PROF. OAK's POKéDEX show
+    { HOENN_RADIO_POKEDEX_SHOW, NULL, 0, 0, NULL, HoennRadioSwarm, FLAG_HOENN_HEARD_DAILY_SWARM },
 };

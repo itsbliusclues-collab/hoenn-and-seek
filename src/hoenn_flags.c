@@ -17,6 +17,7 @@
 #include "global.h"
 #include "event_data.h"
 #include "hoenn_flags.h"
+#include "hoenn.h"
 #include "constants/flags.h"
 #include "constants/vars.h"
 #include "constants/hoenn_events.h"
@@ -212,6 +213,7 @@ void HoennClearDailyFlags(void)
 {
     ClearDailyRange(HOENN_DAILY_FLAGS_START, HOENN_DAILY_FLAGS_END);
     ClearDailyRange(HOENN_21_DAILY_FLAGS_START, HOENN_21_DAILY_FLAGS_END);
+    HoennSwarmRoll(); // 2.1-07: a new day's swarm (src/hoenn_swarm.c)
 }
 
 // HoennUpdatePerNight (src/hoenn_time.c) calls this when a new night begins.

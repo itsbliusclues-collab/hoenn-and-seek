@@ -818,6 +818,8 @@ gSpecials::
 	def_special HoennJournalPushPages @ 2.1-05
 	def_special HoennJournalPushEntries
 	def_special HoennJournalPageDone @ 2.1-06
+	def_special HoennSwarmBufferNames @ 2.1-07
+	def_special HoennPlantBerryInSoil @ 2.1-07
 
 	@ (end of track A's specials)
 

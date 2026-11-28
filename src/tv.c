@@ -1656,6 +1656,7 @@ static void TryStartRandomMassOutbreak(void)
     u16 outbreakIdx;
     TVShow *show;
 
+    if (IS_HNS) return; // Hoenn & Seek 2.1-07: the daily swarm replaces Emerald's outbreaks (src/hoenn_swarm.c)
     if (FlagGet(FLAG_SYS_GAME_CLEAR))
     {
         for (i = 0; i < LAST_TVSHOW_IDX; i++)

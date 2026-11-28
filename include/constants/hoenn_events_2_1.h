@@ -109,6 +109,10 @@
 #define FLAG_HOENN_CALL_JOURNAL_KANTO  (HOENN_TRACK_A_FLAGS + 0x65) // Oak's
 #define FLAG_HOENN_CALL_JOURNAL_HOENN  (HOENN_TRACK_A_FLAGS + 0x66) // Birch's
 
+// ---- 2.1-07: the daily swarm (src/hoenn_swarm.c) ----------------------------
+#define FLAG_HOENN_SWARM_MET           (HOENN_TRACK_A_FLAGS + 0x67) // met a swarm Pokémon (the journal's found)
+#define VAR_HOENN_SWARM_TODAY          (HOENN_TRACK_A_VARS + 0x00)  // today's row in sHoennSwarms + 1 (0 = not rolled yet)
+
 // (track A's parts add their sections here, above track B's banner)
 
 // ============================================================================

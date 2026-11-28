@@ -4,7 +4,7 @@ BerryTreeScript::
 	special ObjectEventInteractionGetBerryTreeData
 	switch VAR_0x8004
 	case BERRY_STAGE_SPARKLING, BerryTree_EventScript_Hns_NotRipe
-	case BERRY_STAGE_NO_BERRY, BerryTree_EventScript_Hns_NotRipe
+	case BERRY_STAGE_NO_BERRY, HoennSeek_EventScript_BerrySoil @ Hoenn & Seek 2.1-07: plant in Hoenn's empty soil (hoenn_2_1_a.inc)
 	case BERRY_STAGE_PLANTED, BerryTree_EventScript_Hns_NotRipe
 	case BERRY_STAGE_SPROUTED, BerryTree_EventScript_Hns_NotRipe
 	case BERRY_STAGE_TALLER, BerryTree_EventScript_Hns_NotRipe

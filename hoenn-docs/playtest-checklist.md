@@ -595,5 +595,12 @@ No content of its own; these check the plumbing on a real cartridge/emulator sav
 - [ ] **The professors' calls and dolls:** when a page is all found, its professor calls (Elm, Oak, Birch, outdoors) and gives the doll at the lab: CELEBI (Elm, New Bark), MEW (Oak, Pallet), JIRACHI (Birch, after his MUDKIP). The doll goes to the PC; place it in a secret base on a desk or mat. (Calls and gifts emulator-tested with every found flag poked; placing the dolls wasn't.)
 - [ ] **Full PC:** with the decoration PC full, the professor says to make room and gives it next time.
 
+## 2.1-07 (the daily swarm, Hoenn soil)
+- [ ] **The swarm:** each new day a different swarm (13 in all: Yanma 35, Snubbull 38, Marill 42, Galarian Slowpoke 33, Galarian Zigzagoon 34, Galarian Meowth 8, Galarian Mr. Mime 11, Galarian Farfetch'd 12, Galarian Weezing 16, Galarian Ponyta 17, Skitty 116, Nuzleaf 117, Galarian Corsola on Mt. Pyre's slopes). About 4 in 10 grass encounters on that route are the swarm, at the route's own levels. (Emulator-tested: Yanma and Nuzleaf 5 of 12 each, Galarian Corsola Lv 56; the roll never repeats yesterday's.)
+- [ ] **The news:** every TV opens with today's swarm; PROF. OAK's POKéDEX show on the radio says it too (the radio wasn't checked in the emulator); the journal's TODAY page lists "Today's swarm?" once you've heard, with today's species and route.
+- [ ] **Emerald's old outbreaks are gone:** no "mass outbreak" TV show any more (it sent Lv 3 Seedot to Route 35).
+- [ ] **Galarian forms:** catch one of each swarm-only form and check it looks right in battle, the summary and the Pokédex, and evolves (Galarian Slowpoke needs a GALARICA CUFF or WREATH, which may not be obtainable: say if you want one placed).
+- [ ] **Hoenn soil patches:** the 8 empty patches (Routes 104, 118, 121, 123) now ask to plant a BERRY; it grows and replants like every HnS tree. The WAILMER PAIL still does nothing, as in HnS. (Emulator-tested on Route 104.)
+
 ## Track B parts (2.1: the world and its people)
 Track B's `## 2.1-NN` sections go below this line, at the end of the file.

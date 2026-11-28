@@ -24,6 +24,8 @@
      "note": "2.1 part 02: news after you beat Wallace, until Brendan & May"}
   ],
   "track_a": [
+    {"key": "daily_swarm", "station": "pokedex_show", "builder": "HoennRadioSwarm", "heard": "FLAG_HOENN_HEARD_DAILY_SWARM",
+     "note": "2.1-07: today's swarm, on PROF. OAK's POKéDEX show"}
   ],
   "track_b": [
   ]

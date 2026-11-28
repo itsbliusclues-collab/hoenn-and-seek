@@ -285,4 +285,47 @@ HoennSeek_Text_JournalDollNoRoom:
 	.string "Your PC has no room for it? Make\n"
 	.string "some space and come back!$"
 
+@ ==== 2.1-07: the daily swarm ====
+@ src/hoenn_swarm.c explains it. Every TV opens with today's swarm (before the
+@ forecast and the normal show; hoenn_story.inc's TV news calls this), which
+@ puts it in the SEEKER'S JOURNAL as heard.
+HoennSeek_EventScript_TVSwarm::
+	special HoennSwarmBufferNames
+	setflag FLAG_HOENN_HEARD_DAILY_SWARM
+	msgbox HoennSeek_Text_TVSwarm, MSGBOX_DEFAULT
+	return
+
+@ The berry check (2.1 plan section 2). HnS's berry tree script only picks
+@ (and replants the same berry): it has no planting, so Hoenn's 8 empty soil
+@ patches (Routes 104, 118, 121, 123) said "not ripe yet" forever. Empty soil
+@ now asks for a BERRY from the bag (berry_tree.inc's NO_BERRY case comes
+@ here); the tree then grows and replants like every HnS tree. Watering stays
+@ off, as in HnS (the WAILMER PAIL still has no use).
+HoennSeek_EventScript_BerrySoil::
+	lock
+	msgbox HoennSeek_Text_BerrySoil, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, HoennSeek_EventScript_BerrySoilEnd
+	special Bag_ChooseBerry
+	waitstate
+	goto_if_eq VAR_ITEM_ID, ITEM_NONE, HoennSeek_EventScript_BerrySoilEnd
+	special HoennPlantBerryInSoil @ removes the BERRY
+	bufferitemname STR_VAR_1, VAR_ITEM_ID
+	msgbox HoennSeek_Text_BerryPlanted, MSGBOX_DEFAULT
+HoennSeek_EventScript_BerrySoilEnd:
+	release
+	end
+
+HoennSeek_Text_BerrySoil:
+	.string "It's soft, loamy soil.\n"
+	.string "Want to plant a BERRY?$"
+
+HoennSeek_Text_BerryPlanted:
+	.string "{PLAYER} planted one {STR_VAR_1}\n"
+	.string "in the soil.$"
+
+HoennSeek_Text_TVSwarm:
+	.string "Today's POKéMON news: a swarm of\n"
+	.string "{STR_VAR_1} has been spotted\l"
+	.string "on {STR_VAR_2}!$"
+
 	.include "data/scripts/hoenn_journal_texts.inc"

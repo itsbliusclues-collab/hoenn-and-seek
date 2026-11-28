@@ -286,6 +286,7 @@ void HoennSeek_JournalWhenText(struct ScriptContext *ctx)
 {
     const struct HoennJournalEntry *e = EntryAt(HOENN_JOURNAL_PAGE_TODAY, gSpecialVar_0x8005);
 
+    HoennSwarmBufferNames(); // 2.1-07: the swarm's line names today's species and map
     ctx->data[0] = (uintptr_t)(e != NULL && e->when != NULL ? e->when->text : sText_NotHeard);
 }
 
