@@ -149,4 +149,30 @@
 #define HOENN_21_WEEKEND_FLAGS       (HOENN_21_LANE_B_FLAGS + 0x00) // 72 flags: +0x00-0x47
 #define FLAG_HOENN_CALL_WEEKENDS     (HOENN_21_LANE_B_FLAGS + 0x48) // May: the League's weekend memo
 #include "constants/hoenn_weekends.h"
+
+// 2.1-21 to 23: fan-favorite chains (Brock, Misty, Blue; data/hoenn/fan_chains.json,
+// src/hoenn_2_1_lane_b.c). Four flags and two vars per chain: the flags hide the chain's
+// own objects away from the weekend spot (one per place) and mark its phone call.
+#define HOENN_21_CHAIN_FLAGS         (HOENN_21_LANE_B_FLAGS + 0x49) // 12 flags: +0x49-0x54, 4 per chain
+#define VAR_HOENN_CHAIN_POOL_TURN    (HOENN_21_LANE_B_VARS + 3)     // counts pool lines said (they take turns)
+// Brock (2.1-21): MUSEUM → MT. MOON → the DAY CARE → MUSEUM, an ONIX DOLL.
+#define FLAG_HOENN_CHAIN_BROCK_MTMOON  (HOENN_21_CHAIN_FLAGS + 0) // hides Brock (and his GOLEM) in MT. MOON
+#define FLAG_HOENN_CHAIN_BROCK_DAYCARE (HOENN_21_CHAIN_FLAGS + 1) // hides Brock at ROUTE 34's DAY CARE
+#define FLAG_HOENN_CALL_BROCK_CHAIN    (HOENN_21_CHAIN_FLAGS + 3) // Brendan's call once the doll is yours
+#define VAR_HOENN_CHAIN_BROCK          (HOENN_21_LANE_B_VARS + 4) // steps done, 0-4 (HOENN_CHAIN_DONE = 4)
+#define VAR_HOENN_CHAIN_BROCK_WEEKEND  (HOENN_21_LANE_B_VARS + 5) // the weekend of the last step (HoennChainWeekendId)
+#define FLAG_HOENN_CHAIN_MISTY_SEAFOAM (HOENN_21_CHAIN_FLAGS + 4) // hides Misty (and her STARMIE) in SEAFOAM 1F
+#define FLAG_HOENN_CHAIN_MISTY_GYM     (HOENN_21_CHAIN_FLAGS + 5) // hides Misty's rehearsal in CERULEAN GYM
+#define FLAG_HOENN_CALL_MISTY_CHAIN    (HOENN_21_CHAIN_FLAGS + 7) // May's call once the doll is yours
+#define VAR_HOENN_CHAIN_MISTY          (HOENN_21_LANE_B_VARS + 6)
+#define VAR_HOENN_CHAIN_MISTY_WEEKEND  (HOENN_21_LANE_B_VARS + 7)
+#define HOENN_CHAIN_BROCK 0 // VAR_0x8004 for the chain specials (the order of fan_chains.json)
+#define HOENN_CHAIN_MISTY 1
+#define FLAG_HOENN_CHAIN_BLUE_DAISY    (HOENN_21_CHAIN_FLAGS + 8)  // hides Blue at DAISY's house
+#define FLAG_HOENN_CHAIN_BLUE_LAB      (HOENN_21_CHAIN_FLAGS + 9)  // hides Blue in OAK's lab
+#define FLAG_HOENN_CALL_BLUE_CHAIN     (HOENN_21_CHAIN_FLAGS + 11) // Brendan's call once the doll is yours
+#define VAR_HOENN_CHAIN_BLUE           (HOENN_21_LANE_B_VARS + 8)
+#define VAR_HOENN_CHAIN_BLUE_WEEKEND   (HOENN_21_LANE_B_VARS + 9)
+#define HOENN_CHAIN_BLUE  2
+#define HOENN_CHAIN_DONE  4 // every chain has four steps
 #endif // GUARD_CONSTANTS_HOENN_EVENTS_2_1_H

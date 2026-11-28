@@ -686,3 +686,22 @@ Lane B's `## 2.0 part NN` sections go below this line, at the end of the file.
 - After beating WALLACE, talking to a leader at their spot offers the same rematch as in their gym.
 - WINONA: talk to her on ROUTE 119, then go straight to FORTREE GYM: she must be there on the first visit (the weekend code reads her gym flag before the gym's own script runs; her ROUTE 119 script now clears it).
 - WATTSON before NEW MAUVILLE is finished is in MAUVILLE CITY, not his gym, weekends or not.
+
+### 2.1-21 (Brock's weekend chain)
+- With BROCK's badge, on four separate weekends: the PEWTER MUSEUM (he asks you to MT. MOON), MT. MOON's fossil dig (MOON STONE), the ROUTE 34 DAY CARE (the question, an EVERSTONE), the museum (ONIX DOLL in the PC). On each weekend after a step he stays where you left him; he's never in two places.
+- Real time: do a step on Saturday, come back Sunday (no wall clock): the next step must not be ready yet. Tested only with the debug weekday tools.
+- The ONIX DOLL with a full decoration PC: he keeps it until you make room (not emulator-tested).
+- His pool lines after the chain: ONIX or GEODUDE following you, a STEELIX in the party, LILEEP/ANORITH/OMANYTE/AERODACTYL/RELICANTH caught (the follower and party lines weren't tested in the emulator; the badge line was).
+- BRENDAN's call after the doll (needs his number). The SEEKER'S JOURNAL's Kanto page has BROCK's weekends, and it shows on TODAY on weekends.
+
+### 2.1-22 (Misty's weekend chain)
+- With MISTY's badge (and her ROUTE 25 cape date done), on four weekends: her ROUTE 20 beach, SEAFOAM 1F just inside the west entrance (MYSTIC WATER), CERULEAN GYM's pool (pick a finale, WATER STONE), the beach (STARMIE DOLL). Walk into SEAFOAM from ROUTE 20 to check she's in view from the entrance.
+- The gym on the rehearsal weekend: only the rehearsal MISTY shows (her gym object and STARMIE are away), and the gym's swimmers don't battle you on the way to her.
+- Her pool lines: STARMIE, PSYDUCK, GOLDUCK or LAPRAS following you (LAPRAS was tested), a GYARADOS in the party, the caught lines.
+- MAY's call after the doll.
+
+### 2.1-23 (Blue's weekend chain)
+- With BLUE's badge, on four weekends: ROUTE 22, DAISY's house in PALLET (SOOTHE BELL), OAK's lab (the question, a RARE CANDY), ROUTE 22 (PIDGEOT DOLL).
+- DAISY's own script still works with BLUE sitting across from her (grooming once a day), and OAK still gives the journal's Kanto doll.
+- His pool lines with PIDGEOT/RHYPERIOR/ARCANINE/EEVEE following and the two-chain line (BROCK's and MISTY's both done).
+- BRENDAN's call after the doll.

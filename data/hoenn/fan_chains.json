@@ -1,0 +1,95 @@
+{
+  "_comment": [
+    "Hoenn & Seek 2.1-21 to 23: fan-favorite chains (plan section 6). Read by tools/hoenn/gen_hoenn_chains.py,",
+    "which writes src/data/hoenn_fan_chains.h (the table src/hoenn_fan_chains.c reads; its header explains the",
+    "weekend rule) and data/scripts/hoenn_fan_chains.inc (the pool texts, word-wrapped like the hint lines).",
+    "",
+    "chains: in HOENN_CHAIN_* order (id names the constant). leader: the key of the leader's entry in",
+    "  leader_weekends.json; the chain only runs on that leader's weekends (beaten, cameo met), and that",
+    "  entry's `chain` names the script the weekend spot calls first. stage_var / weekend_var: the chain's",
+    "  two vars (constants/hoenn_events_2_1.h). steps: four places, one per step: spot (the leader's",
+    "  weekend spot) or the hide flag of a chain object of its own (placed by hand in that map's map.json).",
+    "  While a step is ready the leader waits at its place; after it, they stay there for the rest of",
+    "  that weekend; before the first and after the last they're at the weekend spot.",
+    "pool: lines the leader says once the chain is done, taking turns among those whose conditions hold",
+    "  ('if': the hint engine's conditions, data/hoenn/npc_hints.json's comment; all must hold). At most 32.",
+    "  Write them in the character's voice, about what the player has done; keep a few with no condition."
+  ],
+  "chains": [
+    {
+      "key": "BROCK", "id": "HOENN_CHAIN_BROCK", "leader": "BROCK", "part": "2.1-21",
+      "stage_var": "VAR_HOENN_CHAIN_BROCK", "weekend_var": "VAR_HOENN_CHAIN_BROCK_WEEKEND",
+      "steps": ["spot", "FLAG_HOENN_CHAIN_BROCK_MTMOON", "FLAG_HOENN_CHAIN_BROCK_DAYCARE", "spot"],
+      "pool": [
+        {"text": "My brothers and sisters each have a favorite fossil in this MUSEUM. There are ten of them. That's a lot of favorites."},
+        {"text": "A good BREEDER watches before acting. So does a good friend. So does a good GYM LEADER, come to think of it."},
+        {"text": ["Keep your POKéMON's bedding dry and their food warm.", "ROCK types too. Especially ROCK types."]},
+        {"text": "ROCK POKéMON can go a week without eating, you know. I still cook for mine every day. It's the principle."},
+        {"if": [{"follower": "ONIX"}], "text": "Your ONIX looks great! See how its rocks shine? Somebody's been polishing it. I can always tell."},
+        {"if": [{"follower": "GEODUDE"}], "text": "A GEODUDE following you! Rub it with a damp cloth now and then. It won't say so, but it likes that."},
+        {"if": [{"party": "STEELIX"}], "text": "You have a STEELIX! It started out as an ONIX, like my first partner. I wonder what it remembers."},
+        {"if": [{"caught": "LILEEP"}], "text": "You found a LILEEP in HOENN? Those fossils come from the sea floor. A plant that crawled out of the ocean!"},
+        {"if": [{"caught": "ANORITH"}], "text": "ANORITH! Its claws are built for the sea, but it walks on land like it was born there. Tough little thing."},
+        {"if": [{"caught": "AERODACTYL"}], "text": "Your AERODACTYL flew when the skies were empty. Mine still screeches at PIDGEY out of old habit."},
+        {"if": [{"caught": "OMANYTE"}], "text": "OMANYTE's shell spirals the same way every single time. Nature is very tidy, if you look closely."},
+        {"if": [{"caught": "RELICANTH"}], "text": "A RELICANTH! A living fossil. It hasn't changed in a hundred million years, and it doesn't need to."},
+        {"if": [{"flag": "FLAG_HOENN_STAMP_GYM_1"}], "text": "ROXANNE in RUSTBORO writes to this MUSEUM about fossils. Her letters have footnotes. I respect that."},
+        {"if": [{"flag": "FLAG_HOENN_STAMP_WALLACE"}], "text": "You beat WALLACE? All that grace on the outside, and solid as granite underneath. I'd like to try him myself."},
+        {"if": [{"defeated": "TRAINER_RED_HNS"}], "text": "You beat RED? He came through PEWTER once. He didn't say a word, just nodded at the fossils."},
+        {"if": [{"badges_min": 16}], "text": "Sixteen BADGES! When I started out, I thought eight was the whole world."},
+        {"if": [{"flag": "FLAG_HOENN_MET_BROCK"}], "text": "There's a trainer in HOENN named BROCK? An ATHLETE? Tell him the name comes with responsibilities."},
+        {"if": [{"flag": "FLAG_HOENN_BROCK_BEST_FRIEND"}], "text": "That other BROCK calls you his best friend? I'm not jealous. ROCKS don't get jealous."},
+        {"if": [{"flag": "FLAG_HOENN_STAMP_GYM_8"}], "text": "Eight BADGES in HOENN, too? Your POKéMON must eat well. That's half the work, you know."}
+      ]
+    },
+    {
+      "key": "MISTY", "id": "HOENN_CHAIN_MISTY", "leader": "MISTY", "part": "2.1-22",
+      "stage_var": "VAR_HOENN_CHAIN_MISTY", "weekend_var": "VAR_HOENN_CHAIN_MISTY_WEEKEND",
+      "steps": ["spot", "FLAG_HOENN_CHAIN_MISTY_SEAFOAM", "FLAG_HOENN_CHAIN_MISTY_GYM", "spot"],
+      "pool": [
+        {"text": "The show's over, but I still swim the SEAFOAM current every weekend. It's my thinking time."},
+        {"text": "My sisters think the show was all about them. I let them think it. That's what sisters are for."},
+        {"text": "PSYDUCK fell in the pool during the bows. The crowd thought it was planned. It was NOT planned."},
+        {"text": ["Water POKéMON aren't just pretty, you know.", "They're tough. Like me!"]},
+        {"if": [{"follower": "STARMIE"}], "text": "Your STARMIE's core is so bright! Somebody's been swimming it in clean water. Good."},
+        {"if": [{"follower": "PSYDUCK"}], "text": "A PSYDUCK! Does yours get headaches too? Mine gets one every time I raise my voice. So, often."},
+        {"if": [{"follower": "GOLDUCK"}], "text": "Your GOLDUCK swims like an arrow. Mine still floats on its back when it thinks nobody's looking."},
+        {"if": [{"follower": "LAPRAS"}], "text": "Your LAPRAS is humming! They sing when they're happy. Don't tell anyone, but I sang along once."},
+        {"if": [{"party": "GYARADOS"}], "text": "You have a GYARADOS! I used to be scared of them. Now I just think they're misunderstood."},
+        {"if": [{"caught": "MILOTIC"}], "text": "You raised a MILOTIC? I'd love to see it swim. They say it calms any storm it passes."},
+        {"if": [{"caught": "KINGDRA"}], "text": "KINGDRA! CLAIR has one too. Don't tell her I said hers looks grumpy."},
+        {"if": [{"caught": "KYOGRE"}], "text": "You caught the POKéMON that made the oceans? I'm a little jealous. Okay, a lot jealous."},
+        {"if": [{"caught": "ARTICUNO"}], "text": "ARTICUNO roosts deep in SEAFOAM. I've heard it sing over the water, but I've never seen it up close."},
+        {"if": [{"flag": "FLAG_HOENN_STAMP_GYM_8"}], "text": "You beat JUAN in SOOTOPOLIS? I hear his gym floor is made of ice. Mine's a pool. Mine's better."},
+        {"if": [{"flag": "FLAG_HOENN_STAMP_WALLACE"}], "text": "WALLACE won a contest with a water show once. I watched the tape a hundred times. For research!"},
+        {"if": [{"var": "VAR_HOENN_CHAIN_BROCK", "min": 4}], "text": "BROCK told me about your trip to MT. MOON. He wouldn't stop talking about CLEFAIRY eggs. For an hour."},
+        {"if": [{"defeated": "TRAINER_RED_HNS"}], "text": "You beat RED? He swam to the SEAFOAM ISLANDS once. In jeans. I still don't know how."},
+        {"if": [{"badges_min": 16}], "text": "Sixteen BADGES? You've seen more gyms than I have pools. Well, almost."}
+      ]
+    },
+    {
+      "key": "BLUE", "id": "HOENN_CHAIN_BLUE", "leader": "BLUE", "part": "2.1-23",
+      "stage_var": "VAR_HOENN_CHAIN_BLUE", "weekend_var": "VAR_HOENN_CHAIN_BLUE_WEEKEND",
+      "steps": ["spot", "FLAG_HOENN_CHAIN_BLUE_DAISY", "FLAG_HOENN_CHAIN_BLUE_LAB", "spot"],
+      "pool": [
+        {"text": "Gramps calls every Sunday now. Every Sunday! This is your fault, you know."},
+        {"text": "DAISY made a PIDGEOT DOLL for my GYM. I put it in the back. Way in the back."},
+        {"text": "This road goes to the LEAGUE. I was CHAMPION for about five minutes once. Best five minutes ever."},
+        {"text": ["Smell ya later!", "...What? It's a classic. You'll miss it when I'm gone."]},
+        {"if": [{"follower": "PIDGEOT"}], "text": "A PIDGEOT, huh? Mine was my first catch, back when it was a PIDGEY. Yours looks almost as fast."},
+        {"if": [{"follower": "RHYPERIOR"}], "text": "Your RHYPERIOR looks tough. Mine's tougher. Want to settle it at my GYM sometime?"},
+        {"if": [{"follower": "ARCANINE"}], "text": "An ARCANINE! Mine still chases its tail when it thinks I'm not looking. Don't tell anyone."},
+        {"if": [{"follower": "EEVEE"}], "text": "An EEVEE! Gramps gave me one once. I couldn't pick what to evolve it into for weeks."},
+        {"if": [{"party": "TYRANITAR"}], "text": "You've got a TYRANITAR too? Good. Now we're even. Almost."},
+        {"if": [{"caught": "MEW"}], "text": "You caught MEW?! Gramps would cry. Seriously, don't tell him, he'll make it a whole thing."},
+        {"if": [{"caught": "MEWTWO"}], "text": "MEWTWO... I heard it was in the cave by CERULEAN. You went in there? Okay, I'm impressed."},
+        {"if": [{"flag": "FLAG_HOENN_STAMP_GYM_5"}], "text": "You beat NORMAN in PETALBURG? A GYM LEADER whose kids are trainers too. Sounds exhausting."},
+        {"if": [{"flag": "FLAG_HOENN_STAMP_WALLACE"}], "text": "HOENN's CHAMPION is a contest star? Huh. I bet he never had to beat his own rival in his grandpa's lab."},
+        {"if": [{"flag": "FLAG_HOENN_BEAT_BM"}], "text": "BRENDAN and MAY say you beat them both at once. They talk about you a lot. It's annoying."},
+        {"if": [{"var": "VAR_HOENN_CHAIN_BROCK", "min": 4}, {"var": "VAR_HOENN_CHAIN_MISTY", "min": 4}], "text": "You helped BROCK and MISTY too? You're making the rest of us KANTO LEADERS look lazy."},
+        {"if": [{"defeated": "TRAINER_RED_HNS"}], "text": "You beat RED. I've never beaten him. Not once. ...Okay, not lately."},
+        {"if": [{"badges_min": 16}], "text": "Sixteen BADGES. Mine's one of them. Don't forget that."}
+      ]
+    }
+  ]
+}

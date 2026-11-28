@@ -835,4 +835,6 @@ gSpecials::
 
 	@ Hoenn & Seek 2.1, builder lane B: lane B's 2.1 specials go here
 	def_special HoennTeleportGo
+	def_special HoennChainStepReady @ 2.1-21
+	def_special HoennChainStepDone
 	@ (end of 2.1 lane B's specials)
