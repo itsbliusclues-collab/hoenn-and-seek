@@ -11,6 +11,8 @@
 # ace is the next Hoenn leader's ace - 1 (HOENN_LADDER_ELITE), gaps kept.
 # 2.1-12: TRAINER_KAYLEE (Emerald's unused slot) is EXPLORER BRIDGETTE, the first friend trainer
 # (src/hoenn_friends.c); her levels are placeholders for the top-90 ladder (Garchomp is the ace).
+# 2.1-14: TRAINER_DUDLEY is SKYDIVER AIDAN (Salamence is the ace), TRAINER_TERRY is ATHLETE BROCK
+# (Machamp is the ace). HARD battles put every Pokémon at Lv 100 instead.
 
 === TRAINER_ROXANNE_1 ===
 Items: Full Restore / Full Restore / Hyper Potion
@@ -2312,3 +2314,146 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Earthquake
 - Outrage
 - Stone Edge
+
+=== TRAINER_DUDLEY ===
+Name: AIDAN
+Class: Skydiver
+Pic: Bird Keeper
+Gender: Male
+Music: Cool
+Items: Full Restore / Full Restore
+AI: Smart Trainer / Prediction
+
+Aerodactyl @ Focus Sash
+Level: 88
+Nature: Jolly
+EVs: 252 Atk / 4 SpD / 252 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Stealth Rock
+- Stone Edge
+- Earthquake
+- Taunt
+
+Blastoise @ Leftovers
+Level: 88
+Nature: Bold
+EVs: 252 HP / 252 Def / 4 SpA
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Rapid Spin
+- Surf
+- Ice Beam
+- Toxic
+
+Jolteon @ Life Orb
+Level: 88
+Nature: Timid
+EVs: 252 SpA / 4 SpD / 252 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Thunderbolt
+- Shadow Ball
+- Hidden Power
+- Volt Switch
+
+Gardevoir @ Leftovers
+Level: 89
+Nature: Timid
+EVs: 252 SpA / 4 SpD / 252 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Calm Mind
+- Psychic
+- Thunderbolt
+- Focus Blast
+
+Scizor @ Life Orb
+Ability: Technician
+Level: 89
+Nature: Adamant
+EVs: 252 HP / 252 Atk / 4 SpD
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Bullet Punch
+- U-turn
+- Swords Dance
+- Superpower
+
+Salamence @ Lum Berry
+Level: 90
+Nature: Adamant
+EVs: 252 Atk / 4 SpD / 252 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Dragon Dance
+- Outrage
+- Earthquake
+- Fire Fang
+
+=== TRAINER_TERRY ===
+Name: BROCK
+Class: Athlete
+Pic: Black Belt
+Gender: Male
+Music: Cool
+Items: Full Restore / Full Restore
+AI: Smart Trainer / Prediction
+
+Starmie @ Life Orb
+Ability: Natural Cure
+Level: 88
+Nature: Timid
+EVs: 252 SpA / 4 SpD / 252 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Hydro Pump
+- Thunderbolt
+- Ice Beam
+- Rapid Spin
+
+Breloom @ Toxic Orb
+Ability: Poison Heal
+Level: 88
+Nature: Adamant
+EVs: 252 Atk / 4 SpD / 252 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Spore
+- Seed Bomb
+- Mach Punch
+- Swords Dance
+
+Altaria @ Leftovers
+Level: 88
+Nature: Adamant
+EVs: 252 HP / 252 Atk / 4 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Dragon Dance
+- Dragon Claw
+- Earthquake
+- Roost
+
+Rhyperior @ Leftovers
+Ability: Solid Rock
+Level: 89
+Nature: Adamant
+EVs: 252 HP / 252 Atk / 4 SpD
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Stone Edge
+- Earthquake
+- Megahorn
+- Ice Punch
+
+Metagross @ Life Orb
+Level: 89
+Nature: Adamant
+EVs: 252 HP / 252 Atk / 4 SpD
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Meteor Mash
+- Earthquake
+- Zen Headbutt
+- Bullet Punch
+
+Machamp @ Expert Belt
+Ability: No Guard
+Level: 90
+Nature: Adamant
+EVs: 252 HP / 252 Atk / 4 SpD
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Dynamic Punch
+- Stone Edge
+- Ice Punch
+- Bullet Punch

@@ -630,6 +630,14 @@ Lane B's `## 2.0 part NN` sections go below this line, at the end of the file.
 - [ ] **"Gotten stronger":** after your progress level goes up, she opens with that line next time. (Emulator-tested by lowering the stored level.)
 - [ ] **Her team:** does the AI switch sensibly (Smart + Prediction)? Any set you'd change?
 
+### 2.1-14 (friend trainers: SKYDIVER AIDAN, ATHLETE BROCK, HARD mode)
+- [ ] **Finding them:** Aidan on Route 119's ledge above the Weather Institute (10,20); Brock at the north end of Route 115's beach (12,35). Out of the way enough? (Sprites and battle pics are **placeholders** until 2.1-13: Aidan uses an Emerald man / Bird Keeper, Brock a Black Belt.)
+- [ ] **Aidan:** meeting, battle, win, "battled out" (emulator-tested), and the BRIDGET name line (emulator-tested); the AIDAN name line ("that's my name!") wasn't tested.
+- [ ] **Brock:** meeting, the BROCK name line, the type question (FIGHTING → "My MACHAMP is going to love you!", NORMAL → "None of mine are…"), then the battle (emulator-tested). After your first win he calls you his BEST FRIEND (not tested in the emulator).
+- [ ] **Teams:** Aidan (Aerodactyl, Blastoise, Jolteon, Gardevoir, Scizor, Salamence) and Brock (Starmie, Breloom, Altaria, Rhyperior, Metagross, Machamp), sets as in the plan. Fair at Lv 85–90?
+- [ ] **HARD:** after the final Red (the Lv 100 Red), each friend asks NORMAL / HARD / NO; HARD is all Lv 100 (emulator-tested on Aidan) and the first HARD win has its own line (emulator-tested). Too hard, or about right for the last challenge before Pangea?
+- [ ] **Bridgette** still works the same after the scripts were merged into one (first meeting, battle and RUN re-checked on this build).
+
 ## 2.1 lane B
 
 ### 2.1-02 (foundations)

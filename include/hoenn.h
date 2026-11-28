@@ -96,9 +96,13 @@ bool32 HoennIsFriendBattle(void);
 #else
 #define HOENN_IS_FRIEND_BATTLE() FALSE
 #endif
-u16 HoennFriendStronger(void);    // specialvar
+u32 HoennFriendHardLevel(void);   // MAX_LEVEL in a HARD friend battle, else 0
+u16 HoennFriendTalkState(void);   // specialvar
+u16 HoennFriendHardUnlocked(void); // specialvar
+void HoennFriendSetHard(void);    // special
 u16 HoennFriendBattleEnded(void); // specialvar
-u16 HoennFriendNameLine(void);    // specialvar
+u16 HoennFriendHasNameLine(void); // specialvar
+u16 HoennFriendTypeReaction(void); // specialvar
 bool32 HoennIsSilverScaled(const struct Trainer *trainer);
 // The Kangaskhan baby as your follower (src/hoenn_lane_b.c, 2.0 part 30a)
 bool32 HoennIsKangaBabyGfx(u32 species);
