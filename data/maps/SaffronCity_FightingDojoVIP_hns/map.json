@@ -25,7 +25,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SaffronCity_FightingDojoVIP_EventScript_Misty",
-      "flag": "FLAG_HIDE_DOJO_MISTY"
+      "flag": "FLAG_HOENN_WEEKEND_DOJO_MISTY"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BROCK_HNS",
@@ -38,7 +38,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SaffronCity_FightingDojoVIP_EventScript_Brock",
-      "flag": "FLAG_HIDE_DOJO_BROCK"
+      "flag": "FLAG_HOENN_WEEKEND_DOJO_BROCK"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SURGE_HNS",
@@ -51,7 +51,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SaffronCity_FightingDojoVIP_EventScript_Surge",
-      "flag": "FLAG_HIDE_DOJO_SURGE"
+      "flag": "FLAG_HOENN_WEEKEND_DOJO_SURGE"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ERIKA_HNS",
@@ -64,7 +64,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SaffronCity_FightingDojoVIP_EventScript_Erika",
-      "flag": "FLAG_HIDE_DOJO_ERIKA"
+      "flag": "FLAG_HOENN_WEEKEND_DOJO_ERIKA"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_JANINE_HNS",
@@ -77,7 +77,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SaffronCity_FightingDojoVIP_EventScript_Janine",
-      "flag": "FLAG_HIDE_DOJO_JANINE"
+      "flag": "FLAG_HOENN_WEEKEND_DOJO_JANINE"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SABRINA_HNS",
@@ -90,7 +90,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SaffronCity_FightingDojoVIP_EventScript_Sabrina",
-      "flag": "FLAG_HIDE_DOJO_SABRINA"
+      "flag": "FLAG_HOENN_WEEKEND_DOJO_SABRINA"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BLAINE_HNS",
@@ -103,7 +103,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SaffronCity_FightingDojoVIP_EventScript_Blaine",
-      "flag": "FLAG_HIDE_DOJO_BLAINE"
+      "flag": "FLAG_HOENN_WEEKEND_DOJO_BLAINE"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BLUE_HNS",
@@ -116,7 +116,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SaffronCity_FightingDojoVIP_EventScript_Blue",
-      "flag": "FLAG_HIDE_DOJO_BLUE"
+      "flag": "FLAG_HOENN_WEEKEND_DOJO_BLUE"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WHITNEY_HNS",
@@ -233,7 +233,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SaffronCity_FightingDojoVIP_EventScript_Machamp",
-      "flag": "FLAG_HIDE_DOJO_BLUE"
+      "flag": "FLAG_HOENN_WEEKEND_DOJO_BLUE"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MON_BASE+SPECIES_POLIWHIRL",
@@ -259,7 +259,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SaffronCity_FightingDojoVIP_EventScript_Raichu",
-      "flag": "FLAG_HIDE_DOJO_SURGE"
+      "flag": "FLAG_HOENN_WEEKEND_DOJO_SURGE"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MON_BASE+SPECIES_KINGDRA",
@@ -311,7 +311,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SaffronCity_FightingDojoVIP_EventScript_Starmie",
-      "flag": "FLAG_HIDE_DOJO_MISTY"
+      "flag": "FLAG_HOENN_WEEKEND_DOJO_MISTY"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MON_BASE+SPECIES_VICTREEBEL",
@@ -324,7 +324,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SaffronCity_FightingDojoVIP_EventScript_Victreebel",
-      "flag": "FLAG_HIDE_DOJO_ERIKA"
+      "flag": "FLAG_HOENN_WEEKEND_DOJO_ERIKA"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MON_BASE+SPECIES_SCIZOR",
@@ -363,7 +363,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SaffronCity_FightingDojoVIP_EventScript_Kadabra",
-      "flag": "FLAG_HIDE_DOJO_SABRINA"
+      "flag": "FLAG_HOENN_WEEKEND_DOJO_SABRINA"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MON_BASE+SPECIES_ONIX",
@@ -376,7 +376,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SaffronCity_FightingDojoVIP_EventScript_Onix",
-      "flag": "FLAG_HIDE_DOJO_BROCK"
+      "flag": "FLAG_HOENN_WEEKEND_DOJO_BROCK"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MON_BASE+SPECIES_MILTANK",
@@ -402,7 +402,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SaffronCity_FightingDojoVIP_EventScript_Muk",
-      "flag": "FLAG_HIDE_DOJO_JANINE"
+      "flag": "FLAG_HOENN_WEEKEND_DOJO_JANINE"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MART_EMPLOYEE_HNS",
@@ -441,7 +441,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SaffronCity_FightingDojo_EventScript_Chased",
-      "flag": "FLAG_HIDE_DOJO_BLAINE"
+      "flag": "FLAG_HOENN_WEEKEND_DOJO_BLAINE"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MON_BASE+SPECIES_MAGMAR",
@@ -454,7 +454,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SaffronCity_FightingDojoVIP_EventScript_Magmar",
-      "flag": "FLAG_HIDE_DOJO_BLAINE"
+      "flag": "FLAG_HOENN_WEEKEND_DOJO_BLAINE"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MON_BASE+SPECIES_DEWGONG",

@@ -2,35 +2,67 @@
 // Read by HoennUpdateLeaderWeekends (src/hoenn_2_1_lane_b.c).
 static const struct HoennLeaderWeekend sLeaderWeekends[] = {
     { // FALKNER
-        .beaten = FLAG_DEFEATED_VIOLET_GYM, .storyHide = FLAG_HIDE_JOHTO_GYM_LEADERS, .dojoHide = FLAG_HIDE_DOJO_FALKNER,
+        .beaten = FLAG_DEFEATED_VIOLET_GYM, .storyHide = FLAG_HIDE_JOHTO_GYM_LEADERS, .dojoHide = FLAG_HIDE_DOJO_FALKNER, .cameo = FLAG_HIDE_CELADON_FALKNER,
         .gymFlag = FLAG_HOENN_WEEKEND_GYM_FALKNER, .spotFlag = FLAG_HOENN_WEEKEND_SPOT_FALKNER, .dojoFlag = FLAG_HOENN_WEEKEND_DOJO_FALKNER,
     },
     { // BUGSY
-        .beaten = FLAG_DEFEATED_AZALEA_TOWN_GYM, .storyHide = 0, .dojoHide = FLAG_HIDE_DOJO_BUGSY,
+        .beaten = FLAG_DEFEATED_AZALEA_TOWN_GYM, .storyHide = 0, .dojoHide = FLAG_HIDE_DOJO_BUGSY, .cameo = FLAG_HIDE_VIRIDIAN_BUGSY,
         .gymFlag = FLAG_HOENN_WEEKEND_GYM_BUGSY, .spotFlag = FLAG_HOENN_WEEKEND_SPOT_BUGSY, .dojoFlag = FLAG_HOENN_WEEKEND_DOJO_BUGSY,
     },
     { // WHITNEY
-        .beaten = FLAG_DEFEATED_GOLDENROD_CITY_GYM, .storyHide = 0, .dojoHide = FLAG_HIDE_DOJO_WHITNEY,
+        .beaten = FLAG_DEFEATED_GOLDENROD_CITY_GYM, .storyHide = 0, .dojoHide = FLAG_HIDE_DOJO_WHITNEY, .cameo = FLAG_HIDE_DEPTSTORE_WHITNEY,
         .gymFlag = FLAG_HOENN_WEEKEND_GYM_WHITNEY, .spotFlag = FLAG_HOENN_WEEKEND_SPOT_WHITNEY, .dojoFlag = FLAG_HOENN_WEEKEND_DOJO_WHITNEY,
     },
     { // MORTY
-        .beaten = FLAG_DEFEATED_ECRUTEAK_CITY_GYM, .storyHide = 0, .dojoHide = FLAG_HIDE_DOJO_MORTY,
+        .beaten = FLAG_DEFEATED_ECRUTEAK_CITY_GYM, .storyHide = 0, .dojoHide = FLAG_HIDE_DOJO_MORTY, .cameo = FLAG_HIDE_BELLCHIME_MORTY,
         .gymFlag = FLAG_HOENN_WEEKEND_GYM_MORTY, .spotFlag = FLAG_HOENN_WEEKEND_SPOT_MORTY, .dojoFlag = FLAG_HOENN_WEEKEND_DOJO_MORTY,
     },
     { // CHUCK
-        .beaten = FLAG_DEFEATED_CIANWOOD_GYM, .storyHide = 0, .dojoHide = FLAG_HIDE_DOJO_CHUCK,
+        .beaten = FLAG_DEFEATED_CIANWOOD_GYM, .storyHide = 0, .dojoHide = FLAG_HIDE_DOJO_CHUCK, .cameo = 0,
         .gymFlag = FLAG_HOENN_WEEKEND_GYM_CHUCK, .spotFlag = FLAG_HOENN_WEEKEND_SPOT_CHUCK, .dojoFlag = FLAG_HOENN_WEEKEND_DOJO_CHUCK,
     },
     { // JASMINE
-        .beaten = FLAG_DEFEATED_OLIVINE_CITY_GYM, .storyHide = FLAG_HIDE_OLIVINE_CITY_GYM_JASMINE, .dojoHide = FLAG_HIDE_DOJO_JASMINE,
+        .beaten = FLAG_DEFEATED_OLIVINE_CITY_GYM, .storyHide = FLAG_HIDE_OLIVINE_CITY_GYM_JASMINE, .dojoHide = FLAG_HIDE_DOJO_JASMINE, .cameo = FLAG_HIDE_CAFE_JASMINE,
         .gymFlag = FLAG_HOENN_WEEKEND_GYM_JASMINE, .spotFlag = FLAG_HOENN_WEEKEND_SPOT_JASMINE, .dojoFlag = FLAG_HOENN_WEEKEND_DOJO_JASMINE,
     },
     { // PRYCE
-        .beaten = FLAG_DEFEATED_MAHOGANY_TOWN_GYM, .storyHide = 0, .dojoHide = FLAG_HIDE_DOJO_PRYCE,
+        .beaten = FLAG_DEFEATED_MAHOGANY_TOWN_GYM, .storyHide = 0, .dojoHide = FLAG_HIDE_DOJO_PRYCE, .cameo = FLAG_HIDE_LAKE_PRYCE,
         .gymFlag = FLAG_HOENN_WEEKEND_GYM_PRYCE, .spotFlag = FLAG_HOENN_WEEKEND_SPOT_PRYCE, .dojoFlag = FLAG_HOENN_WEEKEND_DOJO_PRYCE,
     },
     { // CLAIR
-        .beaten = FLAG_DEFEATED_BLACKTHORN_GYM, .storyHide = 0, .dojoHide = FLAG_HIDE_DOJO_CLAIR,
+        .beaten = FLAG_DEFEATED_BLACKTHORN_GYM, .storyHide = 0, .dojoHide = FLAG_HIDE_DOJO_CLAIR, .cameo = FLAG_HIDE_DEN_CLAIR,
         .gymFlag = FLAG_HOENN_WEEKEND_GYM_CLAIR, .spotFlag = FLAG_HOENN_WEEKEND_SPOT_CLAIR, .dojoFlag = FLAG_HOENN_WEEKEND_DOJO_CLAIR,
+    },
+    { // BROCK
+        .beaten = FLAG_DEFEATED_PEWTER_GYM, .storyHide = 0, .dojoHide = FLAG_HIDE_DOJO_BROCK, .cameo = FLAG_HIDE_DIGLETT_BROCK,
+        .gymFlag = FLAG_HOENN_WEEKEND_GYM_BROCK, .spotFlag = FLAG_HOENN_WEEKEND_SPOT_BROCK, .dojoFlag = FLAG_HOENN_WEEKEND_DOJO_BROCK,
+    },
+    { // MISTY
+        .beaten = FLAG_DEFEATED_CERULEAN_GYM, .storyHide = FLAG_HIDE_CERULEAN_GYM_TRAINERS, .dojoHide = FLAG_HIDE_DOJO_MISTY, .cameo = FLAG_HIDE_CAPE_MISTY,
+        .gymFlag = FLAG_HOENN_WEEKEND_GYM_MISTY, .spotFlag = FLAG_HOENN_WEEKEND_SPOT_MISTY, .dojoFlag = FLAG_HOENN_WEEKEND_DOJO_MISTY,
+    },
+    { // SURGE
+        .beaten = FLAG_DEFEATED_VERMILION_GYM, .storyHide = 0, .dojoHide = FLAG_HIDE_DOJO_SURGE, .cameo = FLAG_HIDE_PLANT_SURGE,
+        .gymFlag = FLAG_HOENN_WEEKEND_GYM_SURGE, .spotFlag = FLAG_HOENN_WEEKEND_SPOT_SURGE, .dojoFlag = FLAG_HOENN_WEEKEND_DOJO_SURGE,
+    },
+    { // ERIKA
+        .beaten = FLAG_DEFEATED_CELADON_GYM, .storyHide = 0, .dojoHide = FLAG_HIDE_DOJO_ERIKA, .cameo = FLAG_HIDE_FOUNTAIN_ERIKA,
+        .gymFlag = FLAG_HOENN_WEEKEND_GYM_ERIKA, .spotFlag = FLAG_HOENN_WEEKEND_SPOT_ERIKA, .dojoFlag = FLAG_HOENN_WEEKEND_DOJO_ERIKA,
+    },
+    { // JANINE
+        .beaten = FLAG_DEFEATED_FUCHSIA_GYM, .storyHide = 0, .dojoHide = FLAG_HIDE_DOJO_JANINE, .cameo = FLAG_HIDE_ROUTE22_JANINE,
+        .gymFlag = FLAG_HOENN_WEEKEND_GYM_JANINE, .spotFlag = FLAG_HOENN_WEEKEND_SPOT_JANINE, .dojoFlag = FLAG_HOENN_WEEKEND_DOJO_JANINE,
+    },
+    { // SABRINA
+        .beaten = FLAG_DEFEATED_SAFFRON_GYM, .storyHide = 0, .dojoHide = FLAG_HIDE_DOJO_SABRINA, .cameo = FLAG_HIDE_OLIVINE_SABRINA,
+        .gymFlag = FLAG_HOENN_WEEKEND_GYM_SABRINA, .spotFlag = FLAG_HOENN_WEEKEND_SPOT_SABRINA, .dojoFlag = FLAG_HOENN_WEEKEND_DOJO_SABRINA,
+    },
+    { // BLAINE
+        .beaten = FLAG_DEFEATED_CINNABAR_ISLAND_GYM, .storyHide = FLAG_HIDE_SEAFOAM_BLAINE, .dojoHide = FLAG_HIDE_DOJO_BLAINE, .cameo = FLAG_HIDE_CINNABAR_BLAINE,
+        .gymFlag = FLAG_HOENN_WEEKEND_GYM_BLAINE, .spotFlag = FLAG_HOENN_WEEKEND_SPOT_BLAINE, .dojoFlag = FLAG_HOENN_WEEKEND_DOJO_BLAINE,
+    },
+    { // BLUE
+        .beaten = FLAG_DEFEATED_VIRIDIAN_GYM, .storyHide = FLAG_HIDE_VIRIDIAN_BLUE, .dojoHide = FLAG_HIDE_DOJO_BLUE, .cameo = 0,
+        .gymFlag = FLAG_HOENN_WEEKEND_GYM_BLUE, .spotFlag = FLAG_HOENN_WEEKEND_SPOT_BLUE, .dojoFlag = FLAG_HOENN_WEEKEND_DOJO_BLUE,
     },
 };

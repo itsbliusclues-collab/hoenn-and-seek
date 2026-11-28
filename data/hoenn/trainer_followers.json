@@ -14,7 +14,7 @@
     "rooms and people as Johto's).",
     "2.1-18 on: the leaders' weekend spots (data/hoenn/leader_weekends.json) list their followers here too, after",
     "gen_hoenn_weekends.py has placed the leader (it runs first in regen_all.sh). Morty has none at the Dance Theater:",
-    "a Gengar would put that room past the sprite budget (tools/hoenn/check_screens.py)."
+    "a Gengar would put that room past the sprite budget (tools/hoenn/check_screens.py). Janine has one at hers:", "her gym's no-follower reason (the trick) doesn't apply on a weekend; Blaine's Camerupt is his ace (tied with Torkoal)."
   ],
   "followers": [
     {"map": "VioletCity_Gym_hns",          "trainer": "OBJ_EVENT_GFX_FALKNER_HNS",  "species": "NOCTOWL"},
@@ -59,6 +59,14 @@
     {"map": "MtMortar_1F_South_hns",       "trainer": "OBJ_EVENT_GFX_CHUCK_HNS",    "species": "POLIWRATH", "_": "2.1-18 weekend spot"},
     {"map": "Route40_hns",                 "trainer": "OBJ_EVENT_GFX_JASMINE_HNS",  "species": "STEELIX",   "_": "2.1-18 weekend spot"},
     {"map": "Route44_hns",                 "trainer": "OBJ_EVENT_GFX_PRYCE_HNS",    "species": "PILOSWINE", "_": "2.1-18 weekend spot"},
-    {"map": "LakeOfRage_hns",              "trainer": "OBJ_EVENT_GFX_CLAIR_HNS",    "species": "KINGDRA",   "_": "2.1-18 weekend spot"}
+    {"map": "LakeOfRage_hns",              "trainer": "OBJ_EVENT_GFX_CLAIR_HNS",    "species": "KINGDRA",   "_": "2.1-18 weekend spot"},
+    {"map": "PewterCity_Museum_1F_hns",      "trainer": "OBJ_EVENT_GFX_BROCK_HNS",   "species": "GOLEM",     "_": "2.1-19 weekend spot"},
+    {"map": "Route20_hns",                   "trainer": "OBJ_EVENT_GFX_MISTY_HNS",   "species": "STARMIE",   "_": "2.1-19 weekend spot"},
+    {"map": "VermilionCity_PortOutside_hns", "trainer": "OBJ_EVENT_GFX_SURGE_HNS",   "species": "RAICHU",    "_": "2.1-19 weekend spot"},
+    {"map": "PalletTown_hns",                "trainer": "OBJ_EVENT_GFX_ERIKA_HNS",   "species": "BELLOSSOM", "_": "2.1-19 weekend spot"},
+    {"map": "Route15_hns",                   "trainer": "OBJ_EVENT_GFX_JANINE_HNS",  "species": "VENOMOTH",  "_": "2.1-19 weekend spot"},
+    {"map": "LavenderTown_SoulHouse_hns",    "trainer": "OBJ_EVENT_GFX_SABRINA_HNS", "species": "ALAKAZAM",  "_": "2.1-19 weekend spot"},
+    {"map": "CinnabarIsland_PokemonCenter_hns", "trainer": "OBJ_EVENT_GFX_BLAINE_HNS",  "species": "CAMERUPT",  "_": "2.1-19 weekend spot"},
+    {"map": "Route22_hns",                   "trainer": "OBJ_EVENT_GFX_BLUE_HNS",    "species": "RHYPERIOR", "_": "2.1-19 weekend spot"}
   ]
 }

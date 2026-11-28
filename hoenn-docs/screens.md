@@ -88,9 +88,9 @@ Maps checked: 876. Over budget: 61 (all recorded in `data/hoenn/screen_baseline.
 | LakeOfRage_hns | 9 | 9 | (37, 29) |
 | NewSinjoh_HotSprings_hns | 9 | 9 | (25, 18) |
 | NewSinjoh_House4_hns | 9 | 9 | (12, 4) |
+| Route15_hns | 9 | 9 | (38, 5) |
 | UnionRoom_hns | 9 | 9 | (2, 2) |
 | Route39_hns | 13 | 8 | (21, 24) |
 | WhirlIslands_B1F_hns | 13 | 8 | (19, 57) |
 | Route37_hns | 12 | 8 | (23, 20) |
 | BellchimeTrail_hns | 11 | 8 | (16, 49) |
-| OlivineCity_hns | 11 | 8 | (16, 25) |

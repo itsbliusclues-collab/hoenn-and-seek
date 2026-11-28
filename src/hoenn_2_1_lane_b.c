@@ -52,6 +52,7 @@ struct HoennLeaderWeekend
     u16 gymFlag;
     u16 spotFlag;
     u16 dojoFlag;  // 0 if the leader has no Dojo copy
+    u16 cameo;     // HnS's flag for the leader's one-time cameo (clear while it's out), or 0
 };
 
 #include "data/hoenn_leader_weekends.h"
@@ -79,7 +80,10 @@ void HoennUpdateLeaderWeekends(void)
     {
         const struct HoennLeaderWeekend *l = &sLeaderWeekends[i];
         bool32 storyHidden = l->storyHide != 0 && FlagGet(l->storyHide);
-        bool32 away = weekend && FlagGet(l->beaten) && !storyHidden;
+        // While HnS's cameo is out (the leader waits somewhere to open their Dojo
+        // rematch), they keep their usual days, so they're never in two places.
+        bool32 cameoOut = l->cameo != 0 && !FlagGet(l->cameo);
+        bool32 away = weekend && FlagGet(l->beaten) && !storyHidden && !cameoOut;
 
         FlagSetTo(l->gymFlag, storyHidden || away);
         FlagSetTo(l->spotFlag, !away);

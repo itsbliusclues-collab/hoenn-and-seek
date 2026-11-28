@@ -18,7 +18,8 @@ Reads data/hoenn/leader_weekends.json (its comment explains the fields) and writ
   - src/data/hoenn_leader_weekends.h: that table.
   - data/scripts/hoenn_weekends.inc: each spot's script, each gym guide's wrapper
     (the weekend line, else the guide's own script) and the texts (word-wrapped here).
-  - map.json edits: the gym leader's flag, the guide's script, the Dojo objects'
+  - map.json edits: the gym leader's flag (the object with the leader's graphics,
+    or with `leader_script` where gym trainers share them), the guide's script, the Dojo objects'
     flags (every object with the leader's FLAG_HIDE_DOJO_*, so their Pokémon too),
     and the spot object (found by its script name, so re-runs replace it).
 The leaders' followers (gym and spot) come from gen_hoenn_followers.py, which copies
@@ -87,7 +88,8 @@ def main():
          "static const struct HoennLeaderWeekend sLeaderWeekends[] = {"]
     for l in leaders:
         c.append("    { // %s" % l["key"])
-        c.append("        .beaten = %s, .storyHide = %s, .dojoHide = %s," % (l["beaten"], l["story_flag"], l["dojo"] or "0"))
+        c.append("        .beaten = %s, .storyHide = %s, .dojoHide = %s, .cameo = %s," % (
+            l["beaten"], l["story_flag"], l["dojo"] or "0", l["cameo"] or "0"))
         c.append("        .gymFlag = FLAG_HOENN_WEEKEND_GYM_%s, .spotFlag = FLAG_HOENN_WEEKEND_SPOT_%s, .dojoFlag = %s," % (
             l["key"], l["key"], ("FLAG_HOENN_WEEKEND_DOJO_" + l["key"]) if l["dojo"] else "0"))
         c.append("    },")
@@ -120,7 +122,8 @@ def main():
         k = l["key"]
         gym_flag = "FLAG_HOENN_WEEKEND_GYM_" + k
         g = load(l["gym"])
-        found = [o for o in g["object_events"] if o["graphics_id"] == l["trainer"]]
+        found = [o for o in g["object_events"] if o["graphics_id"] == l["trainer"]
+                 and o["script"] == l.get("leader_script", o["script"])]  # Fuchsia: every trainer looks like Janine
         if len(found) != 1:
             sys.exit("%s: expected one %s, found %d" % (l["gym"], l["trainer"], len(found)))
         if found[0]["flag"] not in (l["story_flag"], gym_flag):

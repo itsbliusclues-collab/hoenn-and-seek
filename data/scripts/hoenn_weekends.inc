@@ -109,6 +109,113 @@ HoennSeek_EventScript_WeekendGuide_CLAIR::
 	msgbox HoennSeek_Text_WeekendGuide_CLAIR, MSGBOX_NPC
 	end
 
+HoennSeek_EventScript_Weekend_BROCK::
+	lock
+	faceplayer
+	msgbox HoennSeek_Text_Weekend_BROCK, MSGBOX_DEFAULT
+	goto_if_unset FLAG_HIDE_DOJO_BROCK, SaffronCity_FightingDojoVIP_EventScript_Brock
+	closemessage
+	release
+	end
+
+HoennSeek_EventScript_WeekendGuide_BROCK::
+	goto_if_set FLAG_HOENN_WEEKEND_SPOT_BROCK, PewterCity_Gym_EventScript_GymGuy
+	msgbox HoennSeek_Text_WeekendGuide_BROCK, MSGBOX_NPC
+	end
+
+HoennSeek_EventScript_Weekend_MISTY::
+	lock
+	faceplayer
+	msgbox HoennSeek_Text_Weekend_MISTY, MSGBOX_DEFAULT
+	goto_if_unset FLAG_HIDE_DOJO_MISTY, SaffronCity_FightingDojoVIP_EventScript_Misty
+	closemessage
+	release
+	end
+
+HoennSeek_EventScript_WeekendGuide_MISTY::
+	goto_if_set FLAG_HOENN_WEEKEND_SPOT_MISTY, CeruleanCity_Gym_EventScript_GymGuy
+	msgbox HoennSeek_Text_WeekendGuide_MISTY, MSGBOX_NPC
+	end
+
+HoennSeek_EventScript_Weekend_SURGE::
+	lock
+	faceplayer
+	msgbox HoennSeek_Text_Weekend_SURGE, MSGBOX_DEFAULT
+	goto_if_unset FLAG_HIDE_DOJO_SURGE, SaffronCity_FightingDojoVIP_EventScript_Surge
+	closemessage
+	release
+	end
+
+HoennSeek_EventScript_WeekendGuide_SURGE::
+	goto_if_set FLAG_HOENN_WEEKEND_SPOT_SURGE, VermilionCity_Gym_EventScript_GymGuy
+	msgbox HoennSeek_Text_WeekendGuide_SURGE, MSGBOX_NPC
+	end
+
+HoennSeek_EventScript_Weekend_ERIKA::
+	lock
+	faceplayer
+	msgbox HoennSeek_Text_Weekend_ERIKA, MSGBOX_DEFAULT
+	goto_if_unset FLAG_HIDE_DOJO_ERIKA, SaffronCity_FightingDojoVIP_EventScript_Erika
+	closemessage
+	release
+	end
+
+HoennSeek_EventScript_Weekend_JANINE::
+	lock
+	faceplayer
+	msgbox HoennSeek_Text_Weekend_JANINE, MSGBOX_DEFAULT
+	goto_if_unset FLAG_HIDE_DOJO_JANINE, SaffronCity_FightingDojoVIP_EventScript_Janine
+	closemessage
+	release
+	end
+
+HoennSeek_EventScript_WeekendGuide_JANINE::
+	goto_if_set FLAG_HOENN_WEEKEND_SPOT_JANINE, FuchsiaCity_Gym_EventScript_GymGuy
+	msgbox HoennSeek_Text_WeekendGuide_JANINE, MSGBOX_NPC
+	end
+
+HoennSeek_EventScript_Weekend_SABRINA::
+	lock
+	faceplayer
+	msgbox HoennSeek_Text_Weekend_SABRINA, MSGBOX_DEFAULT
+	goto_if_unset FLAG_HIDE_DOJO_SABRINA, SaffronCity_FightingDojoVIP_EventScript_Sabrina
+	closemessage
+	release
+	end
+
+HoennSeek_EventScript_WeekendGuide_SABRINA::
+	goto_if_set FLAG_HOENN_WEEKEND_SPOT_SABRINA, SaffronCity_Gym_EventScript_GymGuy
+	msgbox HoennSeek_Text_WeekendGuide_SABRINA, MSGBOX_NPC
+	end
+
+HoennSeek_EventScript_Weekend_BLAINE::
+	lock
+	faceplayer
+	msgbox HoennSeek_Text_Weekend_BLAINE, MSGBOX_DEFAULT
+	goto_if_unset FLAG_HIDE_DOJO_BLAINE, SaffronCity_FightingDojoVIP_EventScript_Blaine
+	closemessage
+	release
+	end
+
+HoennSeek_EventScript_WeekendGuide_BLAINE::
+	goto_if_set FLAG_HOENN_WEEKEND_SPOT_BLAINE, SeafomIslands2_EventScript_GymGuide
+	msgbox HoennSeek_Text_WeekendGuide_BLAINE, MSGBOX_NPC
+	end
+
+HoennSeek_EventScript_Weekend_BLUE::
+	lock
+	faceplayer
+	msgbox HoennSeek_Text_Weekend_BLUE, MSGBOX_DEFAULT
+	goto_if_unset FLAG_HIDE_DOJO_BLUE, SaffronCity_FightingDojoVIP_EventScript_Blue
+	closemessage
+	release
+	end
+
+HoennSeek_EventScript_WeekendGuide_BLUE::
+	goto_if_set FLAG_HOENN_WEEKEND_SPOT_BLUE, ViridianCity_Gym_EventScript_GymGuy
+	msgbox HoennSeek_Text_WeekendGuide_BLUE, MSGBOX_NPC
+	end
+
 HoennSeek_Text_Weekend_FALKNER:
 	.string "Oh, {PLAYER}! Weekends are my day\noff from the GYM.\pI come down to the beach to watch\nthe sea birds ride the wind off\lthe bay. My father used to bring\lme here.\pYou can learn a lot about flying\njust by watching.$"
 
@@ -153,3 +260,48 @@ HoennSeek_Text_Weekend_CLAIR:
 
 HoennSeek_Text_WeekendGuide_CLAIR:
 	.string "CLAIR's at the LAKE OF RAGE this\nweekend. She's hunting for\ldragons. Of course she is.\pShe'll be back on MONDAY, ready\nto battle.$"
+
+HoennSeek_Text_Weekend_BROCK:
+	.string "Hey, {PLAYER}! Weekends are when I\nhelp out here at the MUSEUM.\pThese fossils are millions of\nyears old, and the team here still\lfinds new ones.\pRocks remember everything. You\njust have to know how to listen\lto them.$"
+
+HoennSeek_Text_WeekendGuide_BROCK:
+	.string "BROCK? He spends his weekends at\nthe PEWTER MUSEUM, staring\lat fossils.\pHe'll be back on MONDAY, solid as\na rock.$"
+
+HoennSeek_Text_Weekend_MISTY:
+	.string "Oh, it's you! Don't stare, I'm on\nmy day off!\pEvery weekend I swim out to the\nSEAFOAM ISLANDS. It's the best\ltraining there is.\pA GYM pool is nice, but nothing\nbeats the real ocean!$"
+
+HoennSeek_Text_WeekendGuide_MISTY:
+	.string "MISTY's gone swimming! On weekends\nshe swims out to the SEAFOAM\lISLANDS on ROUTE 20.\pShe'll be back on MONDAY.\nProbably sunburned.$"
+
+HoennSeek_Text_Weekend_SURGE:
+	.string "Hey, kid! At ease! It's\nthe weekend!\pI come down to the docks to watch\nthe big ships come in. Reminds me\lof my navy days.\pOne of these days I'll ship out\nagain. Just not this weekend!$"
+
+HoennSeek_Text_WeekendGuide_SURGE:
+	.string "LT. SURGE is down at the VERMILION\ndocks this weekend, watching\lthe ships.\pHe's back on MONDAY, loud as ever.$"
+
+HoennSeek_Text_Weekend_ERIKA:
+	.string "Oh, hello… I'm sorry, I was\nnearly asleep.\pOn weekends I visit PALLET TOWN.\nThe flowers here grow so freely,\lwith no one to tend them.\pIt's very calming. I may take a\nlittle nap.$"
+
+HoennSeek_Text_Weekend_JANINE:
+	.string "Fufufu! You spotted me! My\ndisguise needs work.\pI practice my ninja arts out here\non weekends. Hiding in the trees,\lmoving without a sound…\pFather trained me the same way.\nDon't tell him you found me!$"
+
+HoennSeek_Text_WeekendGuide_JANINE:
+	.string "The real JANINE's not here. On\nweekends she trains on ROUTE 15,\least of town.\pShe'll be back on MONDAY. Or maybe\nshe's here already, in disguise!$"
+
+HoennSeek_Text_Weekend_SABRINA:
+	.string "…I knew you would come here\ntoday, {PLAYER}.\pOn weekends I sit with MR. FUJI's\nspirits. The POKéMON who rest here\lhave a lot to say.\pTheir voices are quiet. Most\npeople never stop to hear them.$"
+
+HoennSeek_Text_WeekendGuide_SABRINA:
+	.string "SABRINA's not here. She told me\nyou'd ask. On weekends she goes to\lthe SOUL HOUSE in LAVENDER TOWN.\pShe'll be back on MONDAY. She knew\nthat before I did.$"
+
+HoennSeek_Text_Weekend_BLAINE:
+	.string "Hah! {PLAYER}! Here's a quiz: where\ndoes a fire GYM LEADER go on a\lweekend off?\pAnswer: right back home to\nCINNABAR! The volcano took my GYM,\lbut not my island.\pI sit here, drink my coffee, and\nthink up new riddles!$"
+
+HoennSeek_Text_WeekendGuide_BLAINE:
+	.string "BLAINE goes home to CINNABAR\nISLAND on weekends. He sits in the\lPOKéMON CENTER there.\pHe'll be back on MONDAY with a\nnew riddle.$"
+
+HoennSeek_Text_Weekend_BLUE:
+	.string "Hey! What, you think a GYM LEADER\ncan't take a weekend?\pI come out to ROUTE 22 to train.\nThis is the road to the POKéMON\lLEAGUE. I walked it as\lCHAMPION once.\pSomeday I'll walk it again. Smell\nya later!$"
+
+HoennSeek_Text_WeekendGuide_BLUE:
+	.string "BLUE takes weekends off. He trains\non ROUTE 22, west of town, on the\lway to the LEAGUE.\pHe'll be back on MONDAY.\nBragging, probably.$"
