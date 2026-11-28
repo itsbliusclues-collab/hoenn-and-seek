@@ -36,6 +36,7 @@
 #include "window.h"
 #include "constants/event_bg.h"
 #include "constants/hoenn_base_entrances.h" // Hoenn & Seek
+#include "hoenn.h" // Hoenn & Seek 2.1-34
 #include "constants/decorations.h"
 #include "constants/event_objects.h"
 #include "constants/field_specials.h"
@@ -450,7 +451,21 @@ void EnterSecretBase(void)
     CreateTask(Task_EnterSecretBase, 0);
     FadeScreen(FADE_TO_BLACK, 0);
     SetDynamicWarp(0, gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum, WARP_ID_NONE);
+#if IS_HNS
+    HoennRecordBaseEntrance(sCurSecretBaseId); // Hoenn & Seek 2.1-34: Teleport's way back in
+#endif
 }
+
+#if IS_HNS
+// Hoenn & Seek 2.1-34 (src/hoenn_2_1_lane_b.c): Teleport into your own base.
+// What walking in does: your base becomes the current one, then its warp.
+void HoennPrepareOwnSecretBaseWarp(void)
+{
+    sCurSecretBaseId = gSaveBlock1Ptr->secretBases[0].secretBaseId;
+    VarSet(VAR_CURRENT_SECRET_BASE, 0);
+    SetSecretBaseWarpDestination();
+}
+#endif
 
 bool8 SecretBaseMapPopupEnabled(void)
 {

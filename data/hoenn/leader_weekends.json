@@ -1,0 +1,134 @@
+{
+  "_comment": [
+    "Hoenn & Seek 2.1 (parts 18-20): gym leaders take weekends off once you've beaten them (2.1-plan section 6).",
+    "Read by tools/hoenn/gen_hoenn_weekends.py (its header explains what it writes). Re-run tools/hoenn/regen_all.sh after editing.",
+    "slot: the leader's place in the flag block (3 flags each: gym, spot, dojo). Saved: never change or reuse one.",
+    "gym / trainer: the gym map and the leader's graphics_id there. story_flag: the flag the leader's object had before",
+    "2.1 (HnS's own story hide), or 0; the generated flag keeps hiding the leader whenever that one is set.",
+    "beaten: the flag set when you win the badge. guide: the gym guide's own script (null: the gym has no guide).",
+    "dojo: HnS's FLAG_HIDE_DOJO_* for the leader's Fighting Dojo rematch (Saffron), or null. The Dojo copy takes",
+    "the weekend off too, and the weekend spot offers the same rematch once that flag is clear.",
+    "spot: where the leader spends Saturdays and Sundays: map, x, y, facing, elevation. The leader's follower there",
+    "comes from data/hoenn/trainer_followers.json (the trainer graphics_id is unique on the spot map).",
+    "line: what the leader says at the spot (before the rematch question). guide_line: the gym guide on a weekend."
+  ],
+  "leaders": [
+    {
+      "key": "FALKNER", "slot": 0, "part": "2.1-18",
+      "gym": "VioletCity_Gym_hns", "trainer": "OBJ_EVENT_GFX_FALKNER_HNS", "story_flag": "FLAG_HIDE_JOHTO_GYM_LEADERS",
+      "beaten": "FLAG_DEFEATED_VIOLET_GYM", "guide": "VioletCity_Gym_EventScript_GymGuy", "dojo": "FLAG_HIDE_DOJO_FALKNER",
+      "spot": {"map": "CherrygroveCity_hns", "x": 27, "y": 13, "facing": "LEFT", "elevation": 3},
+      "line": [
+        "Oh, {PLAYER}! Weekends are my day off from the GYM.",
+        "I come down to the beach to watch the sea birds ride the wind off the bay. My father used to bring me here.",
+        "You can learn a lot about flying just by watching."
+      ],
+      "guide_line": [
+        "FALKNER's out today! On weekends he goes down to the beach at CHERRYGROVE CITY to watch the birds.",
+        "He's back on MONDAY, same as always."
+      ]
+    },
+    {
+      "key": "BUGSY", "slot": 1, "part": "2.1-18",
+      "gym": "AzaleaTown_Gym_hns", "trainer": "OBJ_EVENT_GFX_BUGSY_HNS", "story_flag": "0",
+      "beaten": "FLAG_DEFEATED_AZALEA_TOWN_GYM", "guide": "AzaleaTown_Gym_EventScript_GymGuy", "dojo": "FLAG_HIDE_DOJO_BUGSY",
+      "spot": {"map": "NationalPark_Normal_hns", "x": 35, "y": 20, "facing": "LEFT", "elevation": 3},
+      "line": [
+        "Hi, {PLAYER}! Shh… There's a SCYTHER molting in that grass!",
+        "I spend my weekends in the NATIONAL PARK. The bugs here are different on a quiet day.",
+        "I've filled three notebooks already!"
+      ],
+      "guide_line": [
+        "BUGSY? On weekends he's at the NATIONAL PARK with his notebooks.",
+        "He'll be back on MONDAY, probably covered in leaves."
+      ]
+    },
+    {
+      "key": "WHITNEY", "slot": 2, "part": "2.1-18",
+      "gym": "GoldenrodCity_Gym_hns", "trainer": "OBJ_EVENT_GFX_WHITNEY_HNS", "story_flag": "0",
+      "beaten": "FLAG_DEFEATED_GOLDENROD_CITY_GYM", "guide": "GoldenrodCity_Gym_EventScript_Gym_Guy", "dojo": "FLAG_HIDE_DOJO_WHITNEY",
+      "spot": {"map": "Route39_hns", "x": 14, "y": 18, "facing": "DOWN", "elevation": 3},
+      "line": [
+        "Oh! It's you! What're you doing at MOOMOO FARM?",
+        "Me? I help out here every weekend! MILTANK just loves the farm, and the milk is SO good.",
+        "Don't tell anyone, but I used to cry when I lost. Now I just come here and feel better!"
+      ],
+      "guide_line": [
+        "WHITNEY's at MOOMOO FARM on ROUTE 39 this weekend. She helps out with the MILTANK.",
+        "Come back on MONDAY if you want her here."
+      ]
+    },
+    {
+      "key": "MORTY", "slot": 3, "part": "2.1-18",
+      "gym": "EcruteakCity_Gym_hns", "trainer": "OBJ_EVENT_GFX_MORTY_HNS", "story_flag": "0",
+      "beaten": "FLAG_DEFEATED_ECRUTEAK_CITY_GYM", "guide": "EcruteakCity_Gym_EventScript_GymGuy", "dojo": "FLAG_HIDE_DOJO_MORTY",
+      "spot": {"map": "EcruteakCity_Theater_hns", "x": 12, "y": 12, "facing": "UP", "elevation": 3},
+      "line": [
+        "{PLAYER}… You found me.",
+        "I watch the KIMONO GIRLS dance on weekends. Their steps tell old stories, if you know how to see them.",
+        "Some of those stories are about the bird of rainbow colors. I'm still learning to read them."
+      ],
+      "guide_line": [
+        "MORTY's not here. On weekends he watches the KIMONO GIRLS at the DANCE THEATER.",
+        "He says he's studying. He's back on MONDAY."
+      ]
+    },
+    {
+      "key": "CHUCK", "slot": 4, "part": "2.1-18",
+      "gym": "CianwoodGym_hns", "trainer": "OBJ_EVENT_GFX_CHUCK_HNS", "story_flag": "0",
+      "beaten": "FLAG_DEFEATED_CIANWOOD_GYM", "guide": null, "dojo": "FLAG_HIDE_DOJO_CHUCK",
+      "spot": {"map": "MtMortar_1F_South_hns", "x": 27, "y": 43, "facing": "RIGHT", "elevation": 4},
+      "line": [
+        "WAHAHAH! {PLAYER}! You came all the way into MT. MORTAR?",
+        "Every weekend I train by these waterfalls! My wife says I need a day off. THIS is my day off!",
+        "KIYO the KARATE KING trains deeper in. One day I'll beat him!"
+      ],
+      "guide_line": []
+    },
+    {
+      "key": "JASMINE", "slot": 5, "part": "2.1-18",
+      "gym": "OlivineCity_Gym_hns", "trainer": "OBJ_EVENT_GFX_JASMINE_HNS", "story_flag": "FLAG_HIDE_OLIVINE_CITY_GYM_JASMINE",
+      "beaten": "FLAG_DEFEATED_OLIVINE_CITY_GYM", "guide": "OlivineCity_Gym_EventScript_GymGuide", "dojo": "FLAG_HIDE_DOJO_JASMINE",
+      "spot": {"map": "Route40_hns", "x": 30, "y": 19, "facing": "DOWN", "elevation": 3},
+      "line": [
+        "Oh… {PLAYER}. Hello.",
+        "I like the beach on weekends. STEELIX likes the warm sand, and I can still see AMPHY's light from here.",
+        "Everyone thinks steel is cold. But it's warm here in the sun."
+      ],
+      "guide_line": [
+        "JASMINE spends her weekends on the beach on ROUTE 40, just west of town.",
+        "She'll be back on MONDAY. Quiet as ever."
+      ]
+    },
+    {
+      "key": "PRYCE", "slot": 6, "part": "2.1-18",
+      "gym": "MahoganyTown_Gym_hns", "trainer": "OBJ_EVENT_GFX_PRYCE_HNS", "story_flag": "0",
+      "beaten": "FLAG_DEFEATED_MAHOGANY_TOWN_GYM", "guide": "MahoganyTown_GymEventScript_GymGuy", "dojo": "FLAG_HIDE_DOJO_PRYCE",
+      "spot": {"map": "Route44_hns", "x": 10, "y": 18, "facing": "DOWN", "elevation": 3},
+      "line": [
+        "Ah, the young one who melted my ice.",
+        "I sit by this pond on weekends. In winter it freezes over, and my old friend and I would skate on it.",
+        "At my age, a quiet pond is better company than most."
+      ],
+      "guide_line": [
+        "PRYCE is out by the pond on ROUTE 44 this weekend. He's been going there for fifty years.",
+        "He'll be back on MONDAY."
+      ]
+    },
+    {
+      "key": "CLAIR", "slot": 7, "part": "2.1-18",
+      "gym": "BlackthornCity_Gym_hns", "trainer": "OBJ_EVENT_GFX_CLAIR_HNS", "story_flag": "0",
+      "beaten": "FLAG_DEFEATED_BLACKTHORN_GYM", "guide": "BlackthornGym_EventScript_GymGuy", "dojo": "FLAG_HIDE_DOJO_CLAIR",
+      "spot": {"map": "LakeOfRage_hns", "x": 46, "y": 34, "facing": "LEFT", "elevation": 3},
+      "line": [
+        "Hmph. {PLAYER}. Don't think I'm resting.",
+        "LANCE once found a red GYARADOS in this lake. I come here on weekends to see what else it hides.",
+        "A dragon tamer never stops looking for dragons."
+      ],
+      "guide_line": [
+        "CLAIR's at the LAKE OF RAGE this weekend. She's hunting for dragons. Of course she is.",
+        "She'll be back on MONDAY, ready to battle."
+      ]
+    }
+  ]
+}
