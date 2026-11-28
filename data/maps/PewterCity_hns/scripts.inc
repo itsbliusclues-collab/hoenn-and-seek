@@ -3,6 +3,7 @@ PewterCity_hns_MapScripts::
 	.byte 0
 
 PewterCity_EventScript_CityEnter::
+	call HoennSeek_EventScript_NeighborTownArmPewter @ Hoenn & Seek 2.1-16
 	setflag FLAG_VISITED_PEWTER_CITY
 	end
 

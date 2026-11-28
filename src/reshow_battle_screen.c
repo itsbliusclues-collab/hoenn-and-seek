@@ -1,4 +1,5 @@
 #include "global.h"
+#include "hoenn.h"
 #include "reshow_battle_screen.h"
 #include "battle.h"
 #include "palette.h"
@@ -24,7 +25,11 @@ static void CreateHealthboxSprite(enum BattlerId battler);
 static void ClearBattleBgCntBaseBlocks(void);
 static void CreateCaughtMonSprite(void);
 
+#if IS_HNS // Hoenn & Seek 2.1-15: your friend's catching demo
+#define CATCH_TUTORIAL_TRAINER_PIC_BACK HoennCatchTutorialBackPic()
+#else
 #define CATCH_TUTORIAL_TRAINER_PIC_BACK (IS_FRLG ? TRAINER_PIC_BACK_OLD_MAN : TRAINER_PIC_BACK_WALLY)
+#endif
 
 void ReshowBattleScreenDummy(void)
 {

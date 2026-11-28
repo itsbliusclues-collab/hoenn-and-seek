@@ -654,6 +654,20 @@ Lane B's `## 2.0 part NN` sections go below this line, at the end of the file.
 - [ ] **Long texts:** read the longest rumors and found texts (the SEAFOAM titans, the Unown sanctum) and check none run past the box.
 - [ ] **Old saves:** a save made with the 2.1-05/06 build that has the JOURNAL key item still shows the button (same flag); the item just sits in the bag doing nothing. Fine for testers only.
 
+### 2.1-16 (ETHAN or LYRA in person)
+- [ ] **Johto towns:** VIOLET (east road by the ROUTE 31 gate, before FALKNER), AZALEA (before your 2nd badge), GOLDENROD (main street, before your 3rd), ECRUTEAK (by the ROUTE 37 gate, before your 4th), OLIVINE (north road, before your 6th). They should spot you and walk over, give their tip and walk off. All five talked to in the emulator; the walk-up was tested in PEWTER. Do the tips help at that point, and does anyone stand in an awkward place?
+- [ ] **Kanto towns** (after the Johto title, before all 8 Kanto badges): VERMILION's dock, CERULEAN's main street, PEWTER (all tested). Arriving from a different side than the one tested (e.g. CERULEAN from ROUTE 4) may mean you only see them when you pass.
+- [ ] **Oak's lab** after all 8 Kanto badges: the scene plays on the way in (walks you up to OAK), they stay; talk to them afterwards (tested). Check it doesn't clash with OAK's own 16-badge talk and the TIDAL TICKET.
+- [ ] **POKéGEAR:** their contact line after the lab scene ("I'm PROF. OAK's field aide now!"). Not checked in the emulator.
+
+### 2.1-15 (second rival: your childhood friend ETHAN or LYRA)
+- [ ] **Elm's lab, first visit:** LYRA (a boy's game) or ETHAN (a girl's) is by the starter table. Before you pick, they explain the type triangle (emulator-tested); right after, "go show PROF. ELM". Does it feel like a friend you grew up with?
+- [ ] **After Elm's errand scene:** they call "Before you go, come here for a second!" (tested). Walk toward the exit: they come over, tell you about running and talking to your Pokémon, and register their number, then walk out ahead of you (tested from the middle tile; the left/right tiles step you to the middle first). Talking to them first works too.
+- [ ] **Route 29 catching demo:** on the way back from Mr. Pokémon, they run up behind you on Route 29 (column 19, on every row you can cross), their MARILL weakens a SENTRET (a HOOTHOOT at night) and they catch it, then give you 5 POKé BALLS (both emulator-tested from row 20). Check: their back pic and name in the battle, that your own party is back afterwards (tested), and that the battle music and ending look right. Rows 15–17 and 19/21 not walked in the emulator.
+- [ ] **Calls (every other badge since Aidan's cut):** Johto badges 2/4/6/8, Johto champion, Kanto badges 2/4/6, WALLACE; only the highest reached rings (2 Johto, 8 Johto, champion, 4 and 6 Kanto, WALLACE tested). No call at 16 badges (their decision is a scene in Oak's lab, 2.1-16). Does the story feel right with only the WALLACE call in Hoenn? Kanto 2 not heard in the emulator.
+- [ ] **Contact:** OLD FRIEND in the POKéGEAR list, NEW BARK TOWN; 11 lines by stage (Kanto lines at Oak's lab, a Hoenn line once you've been to Slateport). Not re-tested after the rework (the list itself was tested before it).
+- [ ] **Elm's journal calls** (2.1-06) now ring in Johto before you have Brendan & May's numbers (they couldn't before). Untested in the emulator on this part.
+
 ## 2.1 lane B
 
 ### 2.1-02 (foundations)

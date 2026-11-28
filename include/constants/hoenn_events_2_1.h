@@ -99,6 +99,35 @@
 #define FLAG_HOENN_HARD_BEAT_AIDAN     (HOENN_21_LANE_A_FLAGS + 0x10)
 #define FLAG_HOENN_HARD_BEAT_BROCK     (HOENN_21_LANE_A_FLAGS + 0x11)
 #define FLAG_HOENN_BROCK_BEST_FRIEND   (HOENN_21_LANE_A_FLAGS + 0x12) // 2.1-14: you've beaten ATHLETE BROCK once (he calls you his best friend)
+// 2.1-15: the second rival, ETHAN or LYRA (Elm's neighbor; the other gender from the player)
+#define FLAG_HOENN_HIDE_LAB_NEIGHBOR       (HOENN_21_LANE_A_FLAGS + 0x13) // 2.1-15: ETHAN/LYRA in Elm's lab (decided on every arrival)
+#define FLAG_HOENN_NEIGHBOR_PHONE_ETHAN    (HOENN_21_LANE_A_FLAGS + 0x14) // number registered (a female player's neighbor)
+#define FLAG_HOENN_NEIGHBOR_PHONE_LYRA     (HOENN_21_LANE_A_FLAGS + 0x15) // (a male player's neighbor)
+#define FLAG_HOENN_HIDE_ROUTE29_NEIGHBOR   (HOENN_21_LANE_A_FLAGS + 0x16) // their object on Route 29 (only out during the catching demo)
+#define FLAG_HOENN_CALL_NEIGHBOR_FIRST     (HOENN_21_LANE_A_FLAGS + 0x17) // their milestone calls, one flag each, in
+#define FLAG_HOENN_CALL_NEIGHBOR_LAST      (HOENN_21_LANE_A_FLAGS + 0x1F) //   HOENN_CALL_NEIGHBOR_* order (9 flags)
+#define FLAG_HOENN_NEIGHBOR_TOWN_FIRST     (HOENN_21_LANE_A_FLAGS + 0x20) // 2.1-16: their in-person scenes done, one flag
+#define FLAG_HOENN_NEIGHBOR_TOWN_LAST      (HOENN_21_LANE_A_FLAGS + 0x28) //   per HOENN_NEIGHBOR_TOWN_* below (9 flags)
+#define FLAG_HOENN_NEIGHBOR_STAYED         (FLAG_HOENN_NEIGHBOR_TOWN_FIRST + 8) // the Oak's-lab scene: they stay in Kanto as Oak's field aide
+#define FLAG_HOENN_HIDE_NEIGHBOR_TOWN      (HOENN_21_LANE_A_FLAGS + 0x29) // their object in each scene's map (decided on every arrival)
+#define VAR_HOENN_NEIGHBOR_STATE           (HOENN_21_LANE_A_VARS + 0x04)  // HOENN_NEIGHBOR_* below
+// VAR_HOENN_NEIGHBOR_STATE
+#define HOENN_NEIGHBOR_NOT_MET   0 // in Elm's lab from your first visit
+#define HOENN_NEIGHBOR_WAITING   1 // you have your starter: they want a word before you leave the lab
+#define HOENN_NEIGHBOR_PHONE     2 // number given; the catching demo waits on Route 29
+#define HOENN_NEIGHBOR_DEMO_DONE 3 // they showed you how to catch and gave you POKé BALLS
+// 2.1-16: their in-person scenes (VAR_0x8004 for the specials). Each town's is
+// out while you're short of the badge that's next there; the lab's after 16.
+#define HOENN_NEIGHBOR_TOWN_VIOLET    0 // before FALKNER
+#define HOENN_NEIGHBOR_TOWN_AZALEA    1 // before your 2nd Johto badge
+#define HOENN_NEIGHBOR_TOWN_GOLDENROD 2 // before your 3rd
+#define HOENN_NEIGHBOR_TOWN_ECRUTEAK  3 // before your 4th
+#define HOENN_NEIGHBOR_TOWN_OLIVINE   4 // before your 6th
+#define HOENN_NEIGHBOR_TOWN_VERMILION 5 // Johto champion, before all 8 Kanto badges
+#define HOENN_NEIGHBOR_TOWN_CERULEAN  6 // same
+#define HOENN_NEIGHBOR_TOWN_PEWTER    7 // same
+#define HOENN_NEIGHBOR_TOWN_OAKS_LAB  8 // all 8 Kanto badges: they tell OAK they'll stay
+#define HOENN_NEIGHBOR_TOWN_COUNT     9
 #define FLAG_HOENN_DAILY_BRIDGETTE     (HOENN_21_LANE_A_DAILY + 0)    // battled today
 #define FLAG_HOENN_DAILY_AIDAN         (HOENN_21_LANE_A_DAILY + 1)
 #define FLAG_HOENN_DAILY_BROCK         (HOENN_21_LANE_A_DAILY + 2)
