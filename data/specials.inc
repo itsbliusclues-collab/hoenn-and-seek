@@ -835,6 +835,12 @@ gSpecials::
 	def_special HoennLoadNeighborMarill
 	def_special HoennStartNeighborDemo
 	def_special HoennEndNeighborDemo
+	def_special HoennOrganizeBoxes @ 2.1-32
+	def_special HoennDanState @ 2.1-31
+	def_special HoennDanPartDone
+	def_special HoennDanFinishedCount
+	def_special HoennDanPushEpisodes
+	def_special HoennDanReplayNext
 	@ (end of 2.1 lane A's specials)
 
 	@ Hoenn & Seek 2.1, builder lane B: lane B's 2.1 specials go here

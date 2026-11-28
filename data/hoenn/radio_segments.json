@@ -23,6 +23,9 @@
      "_note": "2.0 part 35b: where the uncaught beast was last tracked (src/hoenn_johto_legends.c)"},
     {"key": "DAILY_SWARM", "station": "pokedex", "native": "HoennRadioSwarm", "lines": 3, "buffers": 2,
      "heard": "FLAG_HOENN_HEARD_DAILY_SWARM",
-     "_note": "2.1-07: today's swarm, on PROF. OAK's POKéDEX show (src/hoenn_swarm.c)"}
+     "_note": "2.1-07: today's swarm, on PROF. OAK's POKéDEX show (src/hoenn_swarm.c)"},
+    {"key": "DAN_SHOW", "station": "places", "native": "HoennRadioDan", "lines": 8,
+     "heard": "FLAG_HOENN_HEARD_DAN_SHOW",
+     "_note": "2.1-31: DAN's history show THE DEEP PAST, this week's episode (src/hoenn_dan.c)"}
   ]
 }

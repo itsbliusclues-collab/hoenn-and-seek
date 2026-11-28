@@ -1,0 +1,147 @@
+{
+  "_comment": [
+    "Hoenn & Seek 2.1-31: DAN's episodes (the history broadcaster at the PEWTER MUSEUM, 2F).",
+    "Read by tools/hoenn/gen_hoenn_dan.py, which writes data/scripts/hoenn_dan_texts.inc (the",
+    "message texts, word-wrapped like the hint lines) and src/data/hoenn_dan.h (the table",
+    "src/hoenn_dan.c reads). Design: src/hoenn_dan.c.",
+    "",
+    "episodes: in the order he tells them, one new episode a week. Never reorder or remove one:",
+    "  VAR_HOENN_DAN_EPISODE saves an index. Append only.",
+    "  title: the episode's name (menus and the radio), at most 18 characters.",
+    "  parts: the installments, one per talk (at most 4). Each is a list of strings, one message",
+    "    box each (wrapped at 34 characters; keep a box to three lines or so).",
+    "  teaser: what he says at the end of the episode before this one ('Next week...'). The first",
+    "    episode's teaser is never shown.",
+    "  radio: his PokéGear show's lines about it (PLACES AND PEOPLE), wrapped at 30 characters,",
+    "    at most 4 lines.",
+    "lines: his fixed lines (see its own _comment). outro: what he says after the last episode, instead of a teaser.",
+    "These lines are drafts until the 2.1-36c dialogue pass with Bryan."
+  ],
+
+  "episodes": [
+    {
+      "title": "WORDS IN STONE",
+      "teaser": [],
+      "parts": [
+        ["Picture a valley in JOHTO. Three thousand years ago, maybe more. No roads. No POKé BALLS.",
+         "People come to the RUINS with chisels and lamps, and they carve the same strange shapes into the walls. Over and over.",
+         "Why? You don't spend a whole life in the dark on decoration.",
+         "They were writing something down. Something they were afraid the world would forget."],
+        ["Here's what keeps me up at night. The shapes on those walls... move.",
+         "The UNOWN. Twenty-six of them, then two more. Each one looks exactly like a letter on the wall.",
+         "Did the people copy the POKéMON? Or did the POKéMON climb out of the writing?",
+         "Think about being the first person to watch a word peel itself off a stone and float away."],
+        ["Scholars spent a century on those walls. The answer came from somewhere nobody looked: the radio.",
+         "Tune in near the RUINS and you hear a signal. It's the UNOWN. Talking. Or reading aloud.",
+         "Some say the walls are a library, and the UNOWN are librarians who never went home.",
+         "And if they're still reading... who are they reading to?"]
+      ],
+      "radio": "The UNOWN, and the people who carved them into the walls."
+    },
+    {
+      "title": "THE TOWER BURNS",
+      "teaser": ["Next week: a tower, a storm, and three POKéMON nobody would ever have remembered."],
+      "parts": [
+        ["ECRUTEAK. Two towers, built to face each other across the town. The BRASS TOWER and the TIN TOWER.",
+         "They weren't built for show. They were meant as a meeting place between people and POKéMON.",
+         "For about a hundred and fifty years, it worked. A great rainbow bird roosted on the BRASS TOWER."],
+        ["Then one night, lightning. Some say it was only a storm. Some say it wasn't.",
+         "The tower burned for three days. Imagine standing in the street, watching the beams come down.",
+         "Three POKéMON were caught inside. No names. Nobody would ever have remembered them."],
+        ["When the rain finally came, a rainbow-colored POKéMON came down out of it.",
+         "It brought the three back. Not as they were. As something new: thunder, fire and the north wind.",
+         "Then it flew off, and it never came back to the BRASS TOWER. Who could blame it?",
+         "We call the three RAIKOU, ENTEI and SUICUNE. They're still running. Maybe they're still looking for it."]
+      ],
+      "radio": "The night the BRASS TOWER burned, and what came out of the fire."
+    },
+    {
+      "title": "WHEN SEAS ROSE",
+      "teaser": ["Next week we go further back than anyone was there to see. Land against sea."],
+      "parts": [
+        ["Go back further. Before towns. Before people. HOENN was only land and sea, and each had a master.",
+         "GROUDON raised the land. KYOGRE filled the sea.",
+         "And neither one thought the other had any business existing."],
+        ["So they fought. Not like a POKéMON battle. Like weather.",
+         "Drought that split the rock in two. Rain that never, ever stopped.",
+         "Say you're alive back then, on some little ledge of land. Which one do you pray for?",
+         "Think about it. Either answer drowns somebody."],
+        ["It ended from above. A green serpent came down out of the sky and roared until both of them stopped.",
+         "RAYQUAZA. It didn't win. It just ended the fight. The two of them went to sleep, under the earth and under the sea.",
+         "Look at a map of HOENN, {PLAYER}. Every coastline is the place they stopped. It's a map of a truce."]
+      ],
+      "radio": "GROUDON, KYOGRE, and the day the sky told them both to stop."
+    },
+    {
+      "title": "THE KING'S WEAPON",
+      "teaser": ["Next week: a land far from here, a king, and a grief so big it ended a war."],
+      "parts": [
+        ["Far from here there's a land called KALOS. Three thousand years ago, it was at war.",
+         "A king there had a POKéMON he loved more than anything.",
+         "It was taken from him to fight. It never came home."],
+        ["The king couldn't accept it. He built a machine to bring it back to life. And it worked.",
+         "But grief is never satisfied. He turned the machine into a weapon. And he used it.",
+         "It ended the war. It ended everyone on both sides of the war."],
+        ["The story says the POKéMON he saved left him once it saw what he'd done.",
+         "Think about that. To save one life you love, you burn a whole country. And the one you saved can't look at you.",
+         "The king, they say, is still alive somewhere. Still waiting. I hope that part isn't true."]
+      ],
+      "radio": "KALOS, a king who lost his POKéMON, and the weapon he built."
+    },
+    {
+      "title": "THE FIRST DAY",
+      "teaser": ["Next week we start before anything started at all. Bring a snack."],
+      "parts": [
+        ["Every people has a story of how the world began. JOHTO's oldest one is carved at the SINJOH RUINS.",
+         "Before anything, there was an egg. Out of the egg came one POKéMON. The carvings give it a thousand arms."],
+        ["It made time, and space. And a third thing nobody likes to talk about: whatever is on the other side.",
+         "Three dragons. Then the spirits of the lakes, of knowledge and feeling and will.",
+         "Then it went to sleep. Its work was done."],
+        ["But read the carvings closely and they say something more. It made people a promise.",
+         "It would come back one day, to see what the world had made of itself.",
+         "Imagine being the one standing there when it opens its eyes. What do you say to the one who made everything?"]
+      ],
+      "radio": "The SINJOH RUINS, an egg, and the POKéMON that made the world."
+    },
+    {
+      "title": "THE ROCKET YEARS",
+      "teaser": ["Next week, the last one: a story you might know better than I do."],
+      "parts": [
+        ["Let's come closer to home. Living memory. TEAM ROCKET.",
+         "It started under the GAME CORNER in CELADON. A boss with a big plan, and an even bigger organization behind him.",
+         "Stolen POKéMON. Experiments. They even took SILPH CO. by force."],
+        ["And who stopped them? Not the police. Not the LEAGUE. A kid from PALLET TOWN with a POKéDEX.",
+         "The boss was a GYM LEADER, if you can believe it. He lost, and he walked away.",
+         "His team didn't. Years later they took over the RADIO TOWER in GOLDENROD and called for him on the air."],
+        ["He never answered. Some say he heard and chose not to.",
+         "Then another kid stopped them all over again. A kid from NEW BARK TOWN. Sound familiar, {PLAYER}?",
+         "History isn't only old stones. Someday somebody will tell your story on the radio.",
+         "What do you want them to say?"]
+      ],
+      "radio": "TEAM ROCKET, from the GAME CORNER to the RADIO TOWER."
+    }
+  ],
+
+  "lines": {
+    "_comment": "His fixed lines, as HoennSeek_Text_Dan_<Key> (data/scripts/hoenn_dan.inc uses them). STR_VAR_1 = episode number, STR_VAR_2 = title, STR_VAR_3 = installment number.",
+    "Intro": ["Oh! A visitor. Come in, come in. The name's DAN.",
+              "I tell stories. Old ones. The kind that happened to real people and real POKéMON, who had no idea anyone would ever remember them.",
+              "I do a show on the radio, THE DEEP PAST. But I like telling it to somebody's face better.",
+              "One story a week, a piece at a time. Ready? Let's begin."],
+    "NewEpisode": ["THE DEEP PAST, episode {STR_VAR_1}: {STR_VAR_2}."],
+    "Continue": ["Back for more? Good. {STR_VAR_2}, part {STR_VAR_3}. Now, where were we..."],
+    "Pause": ["Let's stop there. A story like this needs room to breathe.", "Come back and I'll tell you what happened next."],
+    "EpisodeEnd": ["And that's the end of {STR_VAR_2}."],
+    "Wait": ["You've heard everything I've got ready, {PLAYER}. The next episode needs another week of work.", "Want to hear an old one again?"],
+    "Done": ["{PLAYER}! My most loyal listener.", "Want to hear one of the old ones again?"],
+    "Which": ["Which one?"],
+    "ReplayEnd": ["Funny. Every time I tell it, I notice something new."],
+    "Bye": ["Then go make some history of your own. I'll be here."],
+    "CallBrendan": ["{PLAYER}! It's BRENDAN.", "Do you ever listen to THE DEEP PAST? The history show, on the radio here in KANTO.",
+                    "MAY and I had it on in PEWTER, and the host, DAN, said a trainer from JOHTO comes by the MUSEUM every week to hear his stories.",
+                    "That's you, right? I knew it! Tell him to do one about HOENN's gyms next. Bye!"]
+  },
+
+  "outro": ["That's every story I've got. For now.",
+            "History keeps happening, {PLAYER}. Mostly to people like you. I'll be here when there's more to tell."]
+}

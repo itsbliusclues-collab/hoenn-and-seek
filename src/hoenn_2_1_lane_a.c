@@ -194,6 +194,9 @@ u16 Hoenn21LaneADueCall(void)
              && HoennJournalPageComplete(sJournalCalls[i][0]))
                 return HOENN_CALL_JOURNAL_JOHTO + i;
     }
+    // 2.1-31: Brendan caught DAN's show in PEWTER (Brendan & May train in Kanto).
+    if (FlagGet(FLAG_HOENN_BM_PHONE) && !FlagGet(FLAG_HOENN_CALL_DAN) && HoennDanCallDue())
+        return HOENN_CALL_DAN;
     return Hoenn21LaneBDueCall(); // lane B's 2.1 calls come next
 }
 

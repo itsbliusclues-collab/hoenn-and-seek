@@ -128,6 +128,7 @@ void HoennFriendSetHard(void);    // special
 u16 HoennFriendBattleEnded(void); // specialvar
 u16 HoennFriendHasNameLine(void); // specialvar
 u16 HoennFriendTypeReaction(void); // specialvar
+bool32 HoennDanCallDue(void);      // 2.1-31 (src/hoenn_dan.c): Brendan's call about DAN's show
 const u8 *const *HoennFriendSlides(u32 trainerId); // the friend's trainer slides, or NULL
 bool32 HoennFriendSwitchFunc(u32 battler);         // setdynamicswitchaifunc
 void BS_HoennFriendSwitchTaunt(void);              // battle script callnative

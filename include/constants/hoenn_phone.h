@@ -90,6 +90,7 @@
 #define HOENN_CALL_NEIGHBOR_KANTO6    110 // sixth (PROF. OAK asks them to stay)
 #define HOENN_CALL_NEIGHBOR_WALLACE   111 // Wallace beaten (their only Hoenn call; at 8 Kanto badges there's
                                           // no call: they decide to stay with OAK in a lab scene, 2.1-16)
+#define HOENN_CALL_DAN                112 // 2.1-31: Brendan heard DAN's radio show in PEWTER and that you listen at the museum
 
 #define HOENN_CALL_21_LANE_B_FIRST 130
 #define HOENN_CALL_21_LANE_B_LAST  159

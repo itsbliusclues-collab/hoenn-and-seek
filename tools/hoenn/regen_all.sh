@@ -51,6 +51,7 @@ GENERATORS=(
     gen_hoenn_journal        # SEEKER'S JOURNAL table (2.1-05; after hints, reads their order)
     gen_hoenn_lights         # follow-the-lights paths (after layouts and objects)
     gen_hoenn_unown_tiles    # Ruins of Alph braille + glowing Unown blocks (2.0 part 27a)
+    gen_hoenn_dan            # DAN's episodes: table and texts (2.1-31)
     gen_hoenn_radio          # radio segments (2.1-02)
 )
 

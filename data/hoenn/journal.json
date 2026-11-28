@@ -274,6 +274,11 @@
      "found": [{"var": "VAR_HOENN_CHAIN_BLUE", "min": 4}],
      "heard": {"if": [{"var": "VAR_HOENN_CHAIN_BLUE", "min": 1}]},
      "when": {"days": ["SAT", "SUN"]}},
+    {"key": "DAN_SHOW", "page": "kanto", "hint": "History on air?", "title": "THE DEEP PAST",
+     "rumor": "A historian named DAN tells the old stories of POKéMON on the radio in KANTO. In person, he tells them on the PEWTER MUSEUM's second floor.",
+     "found_text": "DAN, at the PEWTER MUSEUM. One story a week, told a piece at a time, and he never rushes the ending.",
+     "found": [{"flag": "FLAG_HOENN_MET_DAN"}],
+     "heard": {"lines": ["STORY_DAN"], "calls": ["HOENN_CALL_DAN"]}},
 
     {"key": "MUDKIP_POND", "page": "hoenn", "hint": "A pond at dawn?", "title": "The MUDKIP pond",
      "rumor": "Every morning, a SWAMPERT brings two MUDKIP to a pond on ROUTE 102 to practice. When they all dive, rain is coming.",

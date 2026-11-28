@@ -18,4 +18,9 @@ static const struct HoennRadioSegment sRadioSegments[] =
         .heard = FLAG_HOENN_HEARD_DAILY_SWARM, .conds = NULL, .condCount = 0,
         .lines = NULL, .builder = HoennRadioSwarm,
     },
+    { // DAN_SHOW
+        .station = HOENN_RADIO_PLACES, .maxLines = 8, .buffers = 0,
+        .heard = FLAG_HOENN_HEARD_DAN_SHOW, .conds = NULL, .condCount = 0,
+        .lines = NULL, .builder = HoennRadioDan,
+    },
 };

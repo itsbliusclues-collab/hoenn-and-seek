@@ -616,6 +616,18 @@ HoennSeek_Text_JournalBlueWeekendsFoundText::
 HoennSeek_Text_JournalBlueWeekendsWhen::
 	.string "All day.$"
 
+HoennSeek_Text_JournalDanShowHint::
+	.string "History on air?$"
+
+HoennSeek_Text_JournalDanShowTitle::
+	.string "THE DEEP PAST$"
+
+HoennSeek_Text_JournalDanShowRumor::
+	.string "A historian named DAN tells the\nold stories of POKéMON on the\lradio in KANTO. In person, he\ltells them on the PEWTER MUSEUM's\lsecond floor.$"
+
+HoennSeek_Text_JournalDanShowFoundText::
+	.string "DAN, at the PEWTER MUSEUM. One\nstory a week, told a piece at a\ltime, and he never rushes\lthe ending.$"
+
 HoennSeek_Text_JournalMudkipPondHint::
 	.string "A pond at dawn?$"
 
