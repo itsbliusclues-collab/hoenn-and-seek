@@ -5660,7 +5660,7 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 === TRAINER_KAYLEE ===
 Name: BRIDGETTE
 Class: Explorer
-Pic: Pokemon Ranger F
+Pic: Explorer Bridgette
 Gender: Female
 Music: Cool
 Double Battle: No
@@ -5730,7 +5730,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 === TRAINER_DUDLEY ===
 Name: AIDAN
 Class: Skydiver
-Pic: Bird Keeper
+Pic: Skydiver Aidan
 Gender: Male
 Music: Cool
 Double Battle: No
@@ -5801,7 +5801,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 === TRAINER_TERRY ===
 Name: BROCK
 Class: Athlete
-Pic: Black Belt
+Pic: Athlete Brock
 Gender: Male
 Music: Cool
 Double Battle: No

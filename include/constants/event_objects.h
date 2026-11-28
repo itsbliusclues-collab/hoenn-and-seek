@@ -583,7 +583,11 @@
 #define OBJ_EVENT_GFX_SKIER_F_HNS               545
 #define OBJ_EVENT_GFX_SKIER_M_HNS               546
 #define OBJ_EVENT_GFX_ALOLA_OAK_HNS             547
-#define NUM_OBJ_EVENT_GFX                        548
+// Hoenn & Seek 2.1-13: the friend trainers (src/data/object_events/hoenn_friend_*.h)
+#define OBJ_EVENT_GFX_EXPLORER_BRIDGETTE        548
+#define OBJ_EVENT_GFX_SKYDIVER_AIDAN            549
+#define OBJ_EVENT_GFX_ATHLETE_BROCK             550
+#define NUM_OBJ_EVENT_GFX                        551
 
 
 // These are dynamic object gfx ids.
@@ -779,6 +783,10 @@
 #define OBJ_EVENT_PAL_TAG_KRIS_HNS                0x119A
 #define OBJ_EVENT_PAL_TAG_KRIS_REFLECTION_HNS     0x119B
 #define OBJ_EVENT_PAL_TAG_ALOLA_OAK_HNS           0x119C
+// Hoenn & Seek 2.1-13
+#define OBJ_EVENT_PAL_TAG_EXPLORER_BRIDGETTE      0x119D
+#define OBJ_EVENT_PAL_TAG_SKYDIVER_AIDAN          0x119E
+#define OBJ_EVENT_PAL_TAG_ATHLETE_BROCK           0x119F
 
 #if OW_FOLLOWERS_POKEBALLS
 // Vanilla

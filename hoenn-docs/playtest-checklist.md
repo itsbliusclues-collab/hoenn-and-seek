@@ -625,7 +625,7 @@ Lane B's `## 2.0 part NN` sections go below this line, at the end of the file.
 - [ ] **Teams:** drafts by Claude (no type theme). Swap anything you'd like in `data/hoenn/trainer_parties.party`.
 
 ### 2.1-12 (friend trainers: EXPLORER BRIDGETTE)
-- [ ] **Finding her:** Route 111, by the Desert Ruins, at (31,88). Is that out of the way enough, or too hidden? (Her sprite and battle pic are **placeholders**, the PICNICKER and a POKéMON RANGER, until 2.1-13.)
+- [ ] **Finding her:** Route 111, by the Desert Ruins, at (31,88). Is that out of the way enough, or too hidden? (Her sprite and battle pic are 2.1-01's placeholder repaints since 2.1-13.)
 - [ ] **First meeting:** her introduction, then "How about a battle?" YES/NO; NO gets its own line. (Emulator-tested.)
 - [ ] **Name lines:** a player named AIDAN (any case) hears about her boyfriend; BRIDGET gets "that's my name!" Only at the first meeting. (Emulator-tested with AIDAN.)
 - [ ] **Levels:** her Garchomp is your progress level (85 after Wallace, 87 after Brendan & May, 90 after Red), the rest a level or two below. Is she a fair fight at each point? (Emulator-tested: Lv 54 lead on the debug save.)
@@ -636,7 +636,7 @@ Lane B's `## 2.0 part NN` sections go below this line, at the end of the file.
 - [ ] **Her team:** does the AI switch sensibly (Smart + Prediction)? Any set you'd change?
 
 ### 2.1-14 (friend trainers: SKYDIVER AIDAN, ATHLETE BROCK, HARD mode)
-- [ ] **Finding them:** Aidan on Route 119's ledge above the Weather Institute (10,20); Brock at the north end of Route 115's beach (12,35). Out of the way enough? (Sprites and battle pics are **placeholders** until 2.1-13: Aidan uses an Emerald man / Bird Keeper, Brock a Black Belt.)
+- [ ] **Finding them:** Aidan on Route 119's ledge above the Weather Institute (10,20); Brock at the north end of Route 115's beach (12,35). Out of the way enough? (Sprites and battle pics are 2.1-01's placeholder repaints since 2.1-13.)
 - [ ] **Aidan:** meeting, battle, win, "battled out" (emulator-tested), and the BRIDGET name line (emulator-tested); the AIDAN name line ("that's my name!") wasn't tested.
 - [ ] **Brock:** meeting, the BROCK name line, the type question (FIGHTING → "My MACHAMP is going to love you!", NORMAL → "None of mine are…"), then the battle (emulator-tested). After your first win he calls you his BEST FRIEND (not tested in the emulator).
 - [ ] **Teams:** Aidan (Aerodactyl, Blastoise, Jolteon, Gardevoir, Scizor, Salamence) and Brock (Starmie, Breloom, Altaria, Rhyperior, Metagross, Machamp), sets as in the plan. Fair at Lv 85–90?
@@ -654,6 +654,10 @@ Lane B's `## 2.0 part NN` sections go below this line, at the end of the file.
 - [ ] **Reading:** A opens the entry in the box; on TODAY the when line comes first in green. A or B closes it; B leaves and the cursor is back on JOURNAL. (Emulator-tested.)
 - [ ] **Long texts:** read the longest rumors and found texts (the SEAFOAM titans, the Unown sanctum) and check none run past the box.
 - [ ] **Old saves:** a save made with the 2.1-05/06 build that has the JOURNAL key item still shows the button (same flag); the item just sits in the bag doing nothing. Fine for testers only.
+
+### 2.1-13 (friend trainers' sprites, still placeholders)
+- [ ] **Look:** Bridgette (Route 111), Aidan (Route 119) and Brock (Route 115) walk and turn with their own sprites, and their battle pics slide in. These are 2.1-01's repaints; swap in Bryan's real designs before 2.1 ships (`tools/hoenn/install_friend_sprites.py`).
+- [ ] **Colours by night:** each sprite has its own palette; check none looks off under the day/night tint.
 
 ### 2.1-16 (ETHAN or LYRA in person)
 - [ ] **Johto towns:** VIOLET (east road by the ROUTE 31 gate, before FALKNER), AZALEA (before your 2nd badge), GOLDENROD (main street, before your 3rd), ECRUTEAK (by the ROUTE 37 gate, before your 4th), OLIVINE (north road, before your 6th). They should spot you and walk over, give their tip and walk off. All five talked to in the emulator; the walk-up was tested in PEWTER. Do the tips help at that point, and does anyone stand in an awkward place?
