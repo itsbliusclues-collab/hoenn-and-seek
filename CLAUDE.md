@@ -165,6 +165,7 @@ Phase G sizes (38 on, one part at a time; measured on `hoenn` with every lane pa
 | 2.1-15 (childhood friend ETHAN or LYRA: Elm's lab from the first visit, Route 29 catching demo with their MARILL, 9 calls (every other badge up to the sixth Kanto one, WALLACE), 11 contact lines; on `hoenn-2.1` with lane B's 18–20: +7,984 B release, +7,520 B debug) | 32,863,220 / 675 KB | 33,011,060 / 530 KB |
 | 2.1-16 (ETHAN or LYRA in person: walk-up tips in Violet, Azalea, Goldenrod, Ecruteak, Olivine, Vermilion, Cerulean and Pewter, and the Oak's-lab scene where they stay in Kanto; on top of 2.1-15: +4,704 B release, +4,560 B debug) | 32,867,924 / 670 KB | 33,015,620 / 526 KB |
 | 2.1-32 (ANAMARIA, a lane B part built by lane A: Cherrygrove House 3 is hers, PC boxes sorted BY NUMBER, BY TYPE (box names + wallpapers) or BY LEVEL past the boxes you leave alone; on `hoenn-2.1` at #153 (32,892,756 / 33,038,676): +5,456 B release, +4,944 B debug) | 32,898,212 / 640 KB | 33,043,620 / 498 KB |
+| 2.1-31 (DAN, a lane B part built by lane A: six weekly history episodes in installments at the PEWTER MUSEUM, replay menu, THE DEEP PAST on PLACES AND PEOPLE, Brendan's call; on top of 2.1-32: +9,872 B release, +9,488 B debug, mostly text) | 32,908,084 / 631 KB | 33,053,108 / 489 KB |
 
 2.1 lane B sizes:
 
