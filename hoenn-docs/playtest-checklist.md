@@ -642,6 +642,10 @@ Lane B's `## 2.0 part NN` sections go below this line, at the end of the file.
 - [ ] **HARD:** after the final Red (the Lv 100 Red), each friend asks NORMAL / HARD / NO; HARD is all Lv 100 (emulator-tested on Aidan) and the first HARD win has its own line (emulator-tested). Too hard, or about right for the last challenge before Pangea?
 - [ ] **Bridgette** still works the same after the scripts were merged into one (first meeting, battle and RUN re-checked on this build).
 
+### 2.1-14b (friends' battle tricks)
+- [ ] **Switching:** when your Pokémon is about to hit theirs super effectively, a friend switches to one that resists it (up to three times a battle). Emulator-tested: Aidan's AERODACTYL switched to SALAMENCE against LAPRAS's SURF. Does it feel clever, or too much?
+- [ ] **Lines:** Aidan's "Mid-air swap!" on his switch and "Pull the cord!" for his last Pokémon (emulator-tested). Not tested: Bridgette's PURSUIT jab (TYRANITAR switching in against a Pokémon weak to Dark), her super-effective and last-Pokémon lines, Brock's clap-and-swap and his lines, Aidan's low-HP line.
+
 ## 2.1 lane B
 
 ### 2.1-02 (foundations)

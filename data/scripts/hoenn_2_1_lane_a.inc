@@ -540,6 +540,7 @@ HoennSeek_EventScript_FriendBattle::
 	friendmsg HOENN_FRIEND_TEXT_GO
 	closemessage
 	special HoennFriendSetHard
+	setdynamicswitchaifunc HoennFriendSwitchFunc
 	goto_if_eq VAR_0x8004, HOENN_FRIEND_AIDAN, HoennSeek_EventScript_FriendBattleAidan
 	goto_if_eq VAR_0x8004, HOENN_FRIEND_BROCK, HoennSeek_EventScript_FriendBattleBrock
 	cleartrainerflag TRAINER_KAYLEE
