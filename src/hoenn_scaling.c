@@ -26,7 +26,7 @@
 #define HOENN_STRONG_GAP        6   // want the challenge: 62-72
 #define HOENN_HOPEFUL_GAP       14  // battle you anyway: 54-64
 
-enum { GYM_ROLE_NONE, GYM_ROLE_TRAINER, GYM_ROLE_LEADER, GYM_ROLE_STRONG, GYM_ROLE_HOPEFUL, GYM_ROLE_REMATCH, GYM_ROLE_PROGRESS, GYM_ROLE_SILVER };
+enum { GYM_ROLE_NONE, GYM_ROLE_TRAINER, GYM_ROLE_LEADER, GYM_ROLE_STRONG, GYM_ROLE_HOPEFUL, GYM_ROLE_REMATCH, GYM_ROLE_PROGRESS, GYM_ROLE_SILVER, GYM_ROLE_ELITE };
 
 // 2.0 part 17r: DAMIAN, Charmander's old trainer outside the Cerulean Gym
 // (Emerald's unused TRAINER_LEROY slot). Kanto has no gate, so his ace follows
@@ -74,6 +74,9 @@ static u32 GetGymRole(const struct Trainer *trainer)
     for (i = 0; i < ARRAY_COUNT(sHoennHopefulTrainers); i++)
         if (GetTrainerStructFromId(sHoennHopefulTrainers[i]) == trainer)
             return GYM_ROLE_HOPEFUL;
+    for (i = 0; i < ARRAY_COUNT(sHoennEliteTrainers); i++) // 2.1-10: the elite (plan section 9)
+        if (GetTrainerStructFromId(sHoennEliteTrainers[i]) == trainer)
+            return GYM_ROLE_ELITE;
     if (GetTrainerStructFromId(HOENN_DAMIAN) == trainer)
         return GYM_ROLE_PROGRESS;
     if (HoennIsSilverScaled(trainer)) // 2.1-08: SILVER's Indigo and Mt. Moon battles (src/hoenn_silver.c)
@@ -103,6 +106,8 @@ u8 HoennScaleTrainerMonLevel(const struct Trainer *trainer, u8 level)
         ace = HoennScaledAce(HOENN_LADDER_PROGRESS);
     else if (role == GYM_ROLE_SILVER) // the top-90 ladder, never below HnS's own levels
         ace = max((s32)HoennScaledAce(HOENN_LADDER_TOP_90), (s32)maxLevel);
+    else if (role == GYM_ROLE_ELITE) // the next leader's ace - 1 (83 with 8 badges, 84 after Wallace)
+        ace = HoennScaledAce(HOENN_LADDER_ELITE);
     else
         ace = HoennGymAceLevel();
     if (role == GYM_ROLE_TRAINER)

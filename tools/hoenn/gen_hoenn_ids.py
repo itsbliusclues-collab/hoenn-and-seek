@@ -217,8 +217,8 @@ def main():
         overridden = set(re.findall(r"^=== (TRAINER_\w+) ===", rd("data/hoenn/trainer_parties.party"), re.M)) if os.path.exists(over_path) else set()
         evo = species_evolutions()
         for t, r in roles.items():
-            if r in ("hopeful", "strong") and t in blocks and t not in overridden:
-                blocks[t] = evolve_block(blocks[t], evo, 24 if r == "strong" else 12)
+            if r in ("hopeful", "strong", "elite") and t in blocks and t not in overridden:
+                blocks[t] = evolve_block(blocks[t], evo, 12 if r == "hopeful" else 24)
         for t in json.load(open(roles_path)).get("rematch", {}).values():
             if t in blocks and t not in overridden:
                 blocks[t] = evolve_block(blocks[t], evo, 28)

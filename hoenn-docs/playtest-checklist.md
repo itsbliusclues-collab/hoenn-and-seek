@@ -613,6 +613,12 @@ Lane B's `## 2.0 part NN` sections go below this line, at the end of the file.
 - [ ] **Standing still:** at Indigo (and Ever Grande, Mt. Moon) it stands behind or beside him; talk to it (cry + a line). (Emulator-tested at Indigo: Meganium.)
 - [ ] **After a battle with him** in a scene, it's still there next to him (not tested).
 
+### 2.1-10–11 (elite Hoenn trainers)
+- [ ] **The 15:** CAROLINA (Route 108), LEONEL (120), MARCEL (121), BRAXTON and FREDRICK (123), AURON (125), ATHENA (127), RUBEN (128), PAXTON (132), CONOR (133), AARON (134), QUINCY, KATELYNN, SAMUEL and VITO (Victory Road). Each greets you by name and brings 6 Pokémon with held items. Are they gym-level fights? Too hard or too easy for where you meet them?
+- [ ] **Levels:** their strongest is one below the next leader's ace (emulator-tested on CAROLINA: lead Lv 65 at 0 badges, 71 at 4, 81 at 8, 82 after Wallace).
+- [ ] **Victory Road 1F:** QUINCY and KATELYNN can both spot you at once and start a 6 + 6 double (seen in the emulator). Keep it, or move one of them?
+- [ ] **Teams:** drafts by Claude (no type theme). Swap anything you'd like in `data/hoenn/trainer_parties.party`.
+
 ## 2.1 lane B
 
 ### 2.1-02 (foundations)
