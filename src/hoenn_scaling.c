@@ -98,6 +98,8 @@ u8 HoennScaleTrainerMonLevel(const struct Trainer *trainer, u8 level)
     role = GetGymRole(trainer);
     if (role == GYM_ROLE_NONE)
         return level;
+    if (role == GYM_ROLE_FRIEND && HoennFriendHardLevel() != 0) // 2.1-14: HARD, every Pokémon Lv 100
+        return HoennFriendHardLevel();
 
     count = trainer->poolSize ? trainer->poolSize : trainer->partySize;
     for (i = 0; i < count; i++)

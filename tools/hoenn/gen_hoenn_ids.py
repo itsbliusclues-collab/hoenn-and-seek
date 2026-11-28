@@ -64,6 +64,8 @@ IGNORE_PREFIXES = ("FLAG_TEMP_", "VAR_TEMP_", "VAR_OBJ_GFX_ID_", "VAR_0x8", "VAR
 # 2.1-12: see "trainers" in main(): appended in this order, never sorted in.
 LATE_TRAINERS = [
     "TRAINER_KAYLEE",   # 2.1-12: EXPLORER BRIDGETTE
+    "TRAINER_DUDLEY",   # 2.1-14: SKYDIVER AIDAN
+    "TRAINER_TERRY",    # 2.1-14: ATHLETE BROCK
 ]
 
 def rd(p):
