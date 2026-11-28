@@ -12,6 +12,12 @@ Reads data/hoenn/gym_rugs.json. Each entry names a map and a list of ops, applie
                             Events right of x (in those rows) move with it; warps and coord
                             events on column x get a copy on x+1 (a door gets two tiles, a row
                             of triggers stays unbroken). Objects never get copies.
+    widen {}                one more column on the right, a copy of the last column, for a room
+                            whose walls are the map's edges (then a partial insert_col has a
+                            column to lose).
+    add_event {kind, index, at: [x, y], fields?}  append a copy of an event, with some fields
+                            changed (Celadon's fourth cut tree, with its own flag).
+    move_event {kind, index, x}  move an event to another column.
     mirror {x0, x1, y0, y1, axis}  block (x, y) is copied to (axis - x, y) for x0 <= x <= x1
                             (the art isn't flipped: trees stay trees).
     put {src: [x, y, w, h], dst: [x, y]}  copy blocks.
@@ -32,7 +38,8 @@ result is re-tiled exactly: every changed block gets a metatile with the same at
 the block it replaces (behavior, layer type), made of existing tiles where one matches (with
 flips) and new tiles otherwise. New tiles go into blank tiles of the secondary tileset that no
 metatile uses; new metatiles go into blank metatile slots that no layout using that tileset
-draws. Every 8x8 tile of a layer must keep one palette (the generator stops if an op mixes two).
+draws, then into new slots after the tileset's last metatile (its metatile and attribute files
+grow; up to 384). Every 8x8 tile of a layer must keep one palette (the generator stops if an op mixes two).
 
 Undo: data/hoenn/gym_rug_slots.json records what each run changed (the tileset slots and their
 old contents, the events it moved or added) and data/hoenn/gym_originals/<LAYOUT>.bin keeps each
@@ -56,6 +63,7 @@ SLOTS = "data/hoenn/gym_rug_slots.json"
 ORIG = "data/hoenn/gym_originals"
 NUM_PRIMARY = 640        # HnS primary tilesets: 640 tiles, 640 metatiles, 7 palettes
 NUM_PRIMARY_PALS = 7
+NUM_SECONDARY_METATILES = 384
 FOLLOWER = "HoennSeek_EventScript_TrainerFollower"
 
 
@@ -131,6 +139,13 @@ class Tileset:
 
     def set_metatile(self, mid, ents, attr):
         i = mid - NUM_PRIMARY
+        if ents is None:  # undo of an appended slot: drop it (and anything after it)
+            del self.mt[i * 8:], self.attr[i:]
+            self.changed = True
+            return
+        while self.count() <= i:  # a slot past the end: the tileset grows (up to 384 metatiles)
+            self.mt += [0] * 8
+            self.attr.append(0)
         self.mt[i * 8:i * 8 + 8] = ents
         self.attr[i] = attr
         self.changed = True
@@ -307,7 +322,9 @@ class Tiler:
             if not self.free_mts:
                 sys.exit(f"gen_hoenn_gym_rugs: {self.ts.name} has no free metatile slots left")
             mid = self.free_mts.pop(0)
-            self.record["metatiles"].append({"slot": mid, "old": self.ts.entries(mid), "old_attr": self.ts.attribute(mid)})
+            grown = mid - NUM_PRIMARY >= self.ts.count()
+            self.record["metatiles"].append({"slot": mid, "old": None if grown else self.ts.entries(mid),
+                                             "old_attr": 0 if grown else self.ts.attribute(mid)})
             self.ts.set_metatile(mid, ents, attr)
             self.mt_index[key] = mid
         return self.mt_index[key]
@@ -328,9 +345,12 @@ def undo(slots, layouts_by_id, tilesets):
     for mapname, rec in slots.get("maps", {}).items():
         path = f"data/maps/{mapname}/map.json"
         m = load(path)
-        for kind, n in rec["added"].items():  # copies were appended: drop them
-            if n:
-                m[kind] = m[kind][:-n]
+        for kind, added in rec["added"].items():  # events this tool added: drop them
+            if isinstance(added, int):  # older records: a count of events at the end of the list
+                m[kind] = m[kind][:len(m[kind]) - added]
+                continue
+            for e in added:  # by content: other generators append after these (the followers)
+                m[kind].remove(next(x for x in m[kind] if x == e))
         for kind, i, x in rec["moved"]:
             if i < len(m[kind]):
                 m[kind][i]["x"] = x
@@ -406,7 +426,25 @@ def main():
                             c["x"] = x + 1
                             copies.append(c)
                     events += copies
-                    mrec["added"][ek] = mrec["added"].get(ek, 0) + len(copies)
+                    mrec["added"].setdefault(ek, []).extend(copies)
+            elif kind == "widen":
+                # one more column on the right, a copy of the last one (a room whose walls are the
+                # map's edges, so a partial insert_col afterwards has a column to drop)
+                blocks = [b for y in range(H) for b in blocks[y * W:(y + 1) * W] + [blocks[y * W + W - 1]]]
+                W += 1
+            elif kind == "add_event":
+                # a copy of an event at another x (a third cut tree where insert_col left a gap)
+                ek = op["kind"]
+                c = dict(m[ek][op["index"]])
+                c["x"], c["y"] = op["at"]
+                c.update(op.get("fields", {}))
+                m[ek].append(c)
+                mrec["added"].setdefault(ek, []).append(c)
+            elif kind == "move_event":
+                # an event to another column (Celadon's twins, centred on the wider path)
+                e = m[op["kind"]][op["index"]]
+                moved.setdefault((op["kind"], op["index"]), e["x"])
+                e["x"] = op["x"]
             elif kind == "mirror":
                 for y in range(op["y0"], op["y1"] + 1):
                     for x in range(op["x0"], op["x1"] + 1):
@@ -460,6 +498,8 @@ def main():
             free_mts = [NUM_PRIMARY + i for i in range(ts.count())
                         if NUM_PRIMARY + i not in used and all(e & 0x3FF == 0 for e in ts.entries(NUM_PRIMARY + i))
                         and NUM_PRIMARY + i not in cfg.get("reserved_metatiles", {}).get(ts.name, [])]
+            # then slots past the end of the tileset's metatile list (Vermilion's has 78 of 384)
+            free_mts += [NUM_PRIMARY + i for i in range(ts.count(), NUM_SECONDARY_METATILES)]
             free_tiles = [i for i in range(ts.n_sheet)
                           if NUM_PRIMARY + i not in referenced and not any(any(r) for r in ts.sheet_tile(i))]
             free_tiles.reverse()  # take from the end of the sheet
@@ -485,5 +525,34 @@ def main():
     save(SLOTS, new_slots)
 
 
+def touched_files():
+    """Every file a run may write, so a run that stops half-way can put them all back (otherwise a
+    second run would undo from a record that doesn't match the files)."""
+    cfg = load(CFG)
+    slots = load(SLOTS) if os.path.exists(P(SLOTS)) else {}
+    layouts = {l["id"]: l for l in load("data/layouts/layouts.json")["layouts"] if "id" in l}
+    sets = R.tileset_sources()
+    maps = {g["map"] for g in cfg["gyms"]} | set(slots.get("maps", {}))
+    files = {CFG, SLOTS, "data/layouts/layouts.json"}
+    names = set(slots.get("tilesets", {}))
+    for mp in maps:
+        files.add(f"data/maps/{mp}/map.json")
+        lay = layouts[load(f"data/maps/{mp}/map.json")["layout"]]
+        files.add(lay["blockdata_filepath"])
+        names.add(lay["secondary_tileset"])
+    for n in names:
+        src = sets[n]
+        files |= {sheet_path(src["tiles"]), src["metatiles"],
+                  re.sub(r"metatiles\.bin$", "metatile_attributes.bin", src["metatiles"])}
+    return {f: open(P(f), "rb").read() for f in files if os.path.exists(P(f))}
+
+
 if __name__ == "__main__":
-    main()
+    before = touched_files()
+    try:
+        main()
+    except SystemExit as e:
+        if e.code:  # an error: leave every file as it was
+            for f, data in before.items():
+                open(P(f), "wb").write(data)
+        raise

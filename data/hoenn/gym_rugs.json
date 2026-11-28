@@ -42,6 +42,49 @@
      "ops": [
        {"op": "insert_col", "x": 20},
        {"op": "orn", "x": 20, "y": 1, "h": 2}
+     ]},
+    {"map": "CeladonCity_Gym_hns", "_": "a garden, so no rug: a middle column (6), Erika at 6, Bellossom at 7; the cut-tree row gets a fourth tree (its own flag) so the gap stays closed",
+     "ops": [
+       {"op": "insert_col", "x": 6},
+       {"op": "orn", "x": 6, "y": 0},
+       {"op": "add_event", "kind": "object_events", "index": 8, "at": [7, 14], "fields": {"flag": "FLAG_TEMP_4"}},
+       {"op": "move_event", "kind": "object_events", "index": 1, "x": 6, "_": "the twins JO and ZOE, centred on the path"},
+       {"op": "move_event", "kind": "object_events", "index": 2, "x": 7}
+     ]},
+    {"map": "CeruleanCity_Gym_hns", "_": "a middle column (7) through the pool; the pedestal is 2 wide, just under Misty and Starmie, its plate centred (Bryan, 8:21 AM CT)",
+     "ops": [
+       {"op": "insert_col", "x": 7},
+       {"op": "orn", "x": 7, "y": 0},
+       {"op": "put", "src": [8, 15, 1, 1], "dst": [8, 14], "_": "the copied (7,14) has the walkway's left edge: plain walkway there"},
+       {"op": "nine", "from": "orig", "src": [7, 5, 1, 2], "dst": [7, 5, 2, 2], "b": 4},
+       {"op": "paste", "px": true, "from": "orig", "src": [112, 112, 4, 16], "dst": [112, 112], "_": "the pedestal's foot: left edge"},
+       {"op": "nine", "px": true, "from": "orig", "src": [115, 112, 1, 16], "dst": [116, 112, 24, 16], "b": 0, "_": "its plain middle"},
+       {"op": "paste", "px": true, "from": "orig", "src": [124, 112, 4, 16], "dst": [140, 112], "_": "right edge"},
+       {"op": "paste", "px": true, "from": "orig", "src": [116, 112, 8, 16], "dst": [124, 112], "_": "the plate, centred"}
+     ]},
+    {"map": "VermilionCity_Gym_hns", "_": "the leader's room and the beam (rows 0-7) get a middle column (5), so the rug is 4 wide; the trash-can room below keeps its grid and gains a floor column on the right (the map's edge is its wall). The beam's setmetatile lines were moved by hand (x > 5 + 1, x = 5 doubled)",
+     "ops": [
+       {"op": "widen"},
+       {"op": "insert_col", "x": 5, "rows": [0, 7]},
+       {"op": "orn", "x": 5, "y": 0}
+     ]},
+    {"map": "SaffronCity_Gym_hns", "_": "a middle column (14) through the middle rooms; Sabrina at 14, Alakazam beside her at 15 on the diamonds",
+     "ops": [
+       {"op": "insert_col", "x": 14},
+       {"op": "orn", "x": 14, "y": 8}
+     ]},
+    {"map": "ViridianCity_Gym_hns", "_": "a middle column (5); the rug grows to 4 with it, Blue at 5, Rhyperior at 6",
+     "ops": [
+       {"op": "insert_col", "x": 5},
+       {"op": "orn", "x": 5, "y": 0}
+     ]},
+    {"map": "MtSilver_SummitDay_hns", "_": "Red and Pikachu centred on the peak: the summit path gets a middle column (10) (Bryan, 8:27 AM CT)",
+     "ops": [
+       {"op": "insert_col", "x": 10}
+     ]},
+    {"map": "MtSilver_SummitNight_hns", "_": "the night summit, the same change",
+     "ops": [
+       {"op": "insert_col", "x": 10}
      ]}
   ]
 }

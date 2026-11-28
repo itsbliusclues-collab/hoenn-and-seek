@@ -695,3 +695,10 @@ Lane B's `## 2.0 part NN` sections go below this line, at the end of the file.
 - BLACKTHORN: raise all four bridges in order (each is a tile wider now) and reach Clair; reload the gym after each bridge (the map script redraws them).
 - Visit each gym on a weekend after beating its leader: the room is empty, no stray rug pieces or follower.
 
+### 2.1-26 (Kanto gym rugs, Red's summit)
+- Each Kanto leader with their Pokémon: PEWTER (Onix behind Brock), CERULEAN (Misty and Starmie on a 2-wide pedestal, the plate centred), VERMILION (Surge and Raichu on a 4-wide rug), CELADON (Erika and Bellossom centred in the garden), SAFFRON (Sabrina and Alakazam side by side on the diamonds), VIRIDIAN (Blue and Rhyperior on a 4-wide rug). Talk to each leader and battle.
+- CELADON: the cut-tree row has four trees now: you can't pass without CUT, and all four stay cut until you leave.
+- VERMILION: the trash-can puzzle (unchanged grid), then both beam states: half on after the first switch, off after the second (the beam is a tile wider now).
+- SAFFRON: try a few teleport pads in the middle rooms (those rooms are a tile wider; the pads moved with them).
+- MT. SILVER summit by day and by night: Red and Pikachu side by side on the middle of the peak; battle Red; Pikachu disappears with him afterwards.
+- PEWTER MUSEUM 1F on a weekend after beating BROCK: Onix beside him.
