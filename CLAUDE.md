@@ -156,7 +156,7 @@ Phase G sizes (38 on, one part at a time; measured on `hoenn` with every lane pa
 
 | Part | Release | Debug |
 |---|---|---|
-| 2.1-02 (foundations: 2.1 flag/var block + save version 7, radio segment table, scaled-opponent ladders, 2.1 lane files; on `hoenn-2.1` at #103, same code as the 37 row: +3,904 B release, +816 B debug) | 32,792,692 / 743 KB | 32,946,948 / 593 KB |
+| 2.1-02 (foundations: 2.1 flag/var block + save version 7, radio segment table, scaled-opponent ladders, 2.1 lane files; re-measured by the reviewer after merging `hoenn-2.1` with 2.0 parts 38–39: +3,952 B release, +848 B debug over 38) | 32,796,900 / 739 KB | 32,951,188 / 589 KB |
 
 ¹ Release got 12.5 KB *smaller*: flag/var lookups now go through `HoennGetFlagPointer`/`HoennGetVarPointer`, so LTO stops inlining `GetVarPointer` into ~100 callers (`ScrCmd_createmon` alone −1.6 KB). Same behavior. Measured against a fresh 1.0 release build, which matched the 20a row byte for byte.
 
