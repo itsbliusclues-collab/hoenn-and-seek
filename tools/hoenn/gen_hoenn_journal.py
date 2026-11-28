@@ -150,11 +150,10 @@ def main():
     for i, p in enumerate(pages):
         hdr.append("#define HOENN_JOURNAL_PAGE_%-6s %d" % (p.upper(), i))
     hdr += ["#define HOENN_JOURNAL_PAGE_COUNT  %d" % len(pages),
-            "#define HOENN_JOURNAL_PAGE_TODAY  %d // 2.1-06: the TODAY page (listed first; its id comes after the regions)" % len(pages),
-            "#define HOENN_JOURNAL_MENU_BACK   126 // the BACK row's id in an entry list (MULTI_B_PRESSED is 127)", ""]
-    for p in pages:  # an entry's id in the list is its place on its page
-        if sum(e["page"] == p for e in cfg["entries"]) >= 126:
-            sys.exit(f"journal.json: page {p} needs fewer than 126 entries (HOENN_JOURNAL_MENU_BACK)")
+            "#define HOENN_JOURNAL_PAGE_TODAY  %d // 2.1-06: the TODAY page (the first tab; its id comes after the regions)" % len(pages),
+            "#define HOENN_JOURNAL_ENTRIES     %d // 2.1-06b: all entries; the POKéGEAR page keeps their ids in a u8" % len(cfg["entries"]), ""]
+    if len(cfg["entries"]) > 255:  # src/hoenn_journal_page.c lists entry ids as u8
+        sys.exit("journal.json: at most 255 entries (the POKéGEAR page's ids are u8)")
     for e in cfg["entries"]:
         hdr.append("#define %-40s (HOENN_JOURNAL_FLAGS + 0x%02X)" % ("FLAG_HOENN_HEARD_" + e["key"], flags[e["key"]]))
     hdr += ["", "#endif // GUARD_CONSTANTS_HOENN_JOURNAL_H"]

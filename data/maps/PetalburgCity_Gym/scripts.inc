@@ -44,7 +44,7 @@ PetalburgCity_Gym_OnTransition:
 	end
 
 PetalburgCity_Gym_EventScript_MoveWallyToEntrance::
-	setobjectxyperm LOCALID_PETALBURG_GYM_WALLY, 5, 108
+	setobjectxyperm LOCALID_PETALBURG_GYM_WALLY, 6, 108
 	return
 
 PetalburgCity_Gym_EventScript_MoveNormanToEntrance::
@@ -1043,22 +1043,22 @@ PetalburgCity_Gym_EventScript_OpenOHKORoomDoors::
 	return
 
 PetalburgCity_Gym_EventScript_SetEntranceRoomDoorMetatiles::
-	setmetatile 6, 85, METATILE_PetalburgGym_RoomEntrance_Left, FALSE
-	setmetatile 7, 85, METATILE_PetalburgGym_RoomEntrance_Right, FALSE
+	setmetatile 7, 85, METATILE_PetalburgGym_RoomEntrance_Left, FALSE
+	setmetatile 8, 85, METATILE_PetalburgGym_RoomEntrance_Right, FALSE
 	setmetatile 1, 98, METATILE_PetalburgGym_RoomEntrance_Left, FALSE
 	setmetatile 2, 98, METATILE_PetalburgGym_RoomEntrance_Right, FALSE
 	return
 
 PetalburgCity_Gym_EventScript_SetSpeedRoomDoorMetatiles::
-	setmetatile 6, 46, METATILE_PetalburgGym_RoomEntrance_Left, FALSE
-	setmetatile 7, 46, METATILE_PetalburgGym_RoomEntrance_Right, FALSE
+	setmetatile 7, 46, METATILE_PetalburgGym_RoomEntrance_Left, FALSE
+	setmetatile 8, 46, METATILE_PetalburgGym_RoomEntrance_Right, FALSE
 	setmetatile 1, 59, METATILE_PetalburgGym_RoomEntrance_Left, FALSE
 	setmetatile 2, 59, METATILE_PetalburgGym_RoomEntrance_Right, FALSE
 	return
 
 PetalburgCity_Gym_EventScript_SetAccuracyRoomDoorMetatiles::
-	setmetatile 6, 59, METATILE_PetalburgGym_RoomEntrance_Left, FALSE
-	setmetatile 7, 59, METATILE_PetalburgGym_RoomEntrance_Right, FALSE
+	setmetatile 7, 59, METATILE_PetalburgGym_RoomEntrance_Left, FALSE
+	setmetatile 8, 59, METATILE_PetalburgGym_RoomEntrance_Right, FALSE
 	setmetatile 1, 72, METATILE_PetalburgGym_RoomEntrance_Left, FALSE
 	setmetatile 2, 72, METATILE_PetalburgGym_RoomEntrance_Right, FALSE
 	return
@@ -1069,15 +1069,15 @@ PetalburgCity_Gym_EventScript_SetConfusionRoomDoorMetatiles::
 	return
 
 PetalburgCity_Gym_EventScript_SetDefenseRoomDoorMetatiles::
-	setmetatile 6, 20, METATILE_PetalburgGym_RoomEntrance_Left, FALSE
-	setmetatile 7, 20, METATILE_PetalburgGym_RoomEntrance_Right, FALSE
+	setmetatile 7, 20, METATILE_PetalburgGym_RoomEntrance_Left, FALSE
+	setmetatile 8, 20, METATILE_PetalburgGym_RoomEntrance_Right, FALSE
 	setmetatile 1, 33, METATILE_PetalburgGym_RoomEntrance_Left, FALSE
 	setmetatile 2, 33, METATILE_PetalburgGym_RoomEntrance_Right, FALSE
 	return
 
 PetalburgCity_Gym_EventScript_SetRecoveryRoomDoorMetatiles::
-	setmetatile 6, 33, METATILE_PetalburgGym_RoomEntrance_Left, FALSE
-	setmetatile 7, 33, METATILE_PetalburgGym_RoomEntrance_Right, FALSE
+	setmetatile 7, 33, METATILE_PetalburgGym_RoomEntrance_Left, FALSE
+	setmetatile 8, 33, METATILE_PetalburgGym_RoomEntrance_Right, FALSE
 	return
 
 PetalburgCity_Gym_EventScript_SetStrengthRoomDoorMetatiles::
@@ -1086,8 +1086,8 @@ PetalburgCity_Gym_EventScript_SetStrengthRoomDoorMetatiles::
 	return
 
 PetalburgCity_Gym_EventScript_SetOHKORoomDoorMetatiles::
-	setmetatile 6, 7, METATILE_PetalburgGym_RoomEntrance_Left, FALSE
-	setmetatile 7, 7, METATILE_PetalburgGym_RoomEntrance_Right, FALSE
+	setmetatile 7, 7, METATILE_PetalburgGym_RoomEntrance_Left, FALSE
+	setmetatile 8, 7, METATILE_PetalburgGym_RoomEntrance_Right, FALSE
 	return
 
 PetalburgCity_Gym_EventScript_SlideOpenRoomDoors::

@@ -45,8 +45,11 @@ u16 HoennSpeciesDueCall(void)
 {
     if (FlagGet(FLAG_HOENN_WALLY_PHONE) && FlagGet(FLAG_HOENN_RALTS_DONE) && !FlagGet(FLAG_HOENN_CALL_RALTS))
         return HOENN_CALL_RALTS;
+    // Every 2.0 call after this one is Brendan's or May's. 2.1's calls (Elm, Oak,
+    // the second rival) can come before you have their numbers, so skip to them
+    // (2.1-15 fix: this used to end the chain, and 2.1-06's journal calls with it).
     if (!FlagGet(FLAG_HOENN_BM_PHONE))
-        return HOENN_CALL_NONE;
+        return Hoenn21LaneADueCall();
     if (FlagGet(FLAG_HOENN_POND_SEEN) && !FlagGet(FLAG_HOENN_CALL_POND))
         return HOENN_CALL_POND;
     if (FlagGet(FLAG_HOENN_KIYO_BLACK_BELT) && !FlagGet(FLAG_HOENN_CALL_KIYO))

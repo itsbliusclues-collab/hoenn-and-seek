@@ -11,6 +11,7 @@ Things each part couldn't check in the emulator, so Bryan's real playthrough cov
 - [ ] The E4 and Wallace with **real** battles: are Lv 76–84 fair?
 - [ ] Leader rematches after Wallace: the prompt, the Lv 85 teams, and that the leader stays rematchable.
 - [ ] No real Hall of Fame screen yet (only the machine animation) — decide whether that's fine.
+- [ ] **Petalburg Gym's room doors (1.1 fix, Nov 28):** until this fix, walking up into an open room door did nothing, so Norman's room couldn't be reached without the debug menu. Emulator: both lobby doors now open into their rooms. Walk the whole gym once (each room's door opens after its trainer) and check you can leave every room the way you came.
 
 ## Part 16a — Teams and rivals
 - [x] Maxie, Archie and the Maxie + Archie double played to the end, with after-scenes (pre-pass).
@@ -580,7 +581,7 @@ Lane B's `## 2.0 part NN` sections go below this line, at the end of the file.
 
 ### 2.1-05 (the SEEKER'S JOURNAL, pages and rumors)
 - [ ] **Getting it:** after your first Johto badge, Elm's call ends by mentioning the JOURNAL; his aide in the lab gives it before anything else she says. On an old 2.0 save that already had Elm's call, talking to her still gives it. (Emulator-tested on the debug save.)
-- [ ] **Reading it on a real screen:** from the bag and from SELECT. Pages show "JOHTO 3/22"; long entry names (DUNSPARCE's burrow, The SEAFOAM titans) fit the list; the text boxes read well. Check a few rumor and found texts for anything that reads wrong for your save (e.g. Ho-Oh's entry counts as found if you caught Ho-Oh in the story).
+- [ ] **Reading it on a real screen:** (since 2.1-06b in the POKéGEAR, see below). Pages show "JOHTO 3/22"; long entry names (DUNSPARCE's burrow, The SEAFOAM titans) fit the list; the text boxes read well. Check a few rumor and found texts for anything that reads wrong for your save (e.g. Ho-Oh's entry counts as found if you caught Ho-Oh in the story).
 - [ ] **Hearing as you play:** talk to hint NPCs (their lines take turns since 2.0 part 38), take event calls and read the field notes; each event they mention turns from ??? into its question. Events you've already done show as found. (Emulator-tested: Elm's aide's starter line, the Saffron PC teacher, Brendan's pond call, the field notes.)
 - [ ] **Every entry reachable:** over the playthrough, every entry on all three pages should get past ??? before or when you find it. Note any that stays ??? until found: it needs a hint line.
 
@@ -646,6 +647,28 @@ Lane B's `## 2.0 part NN` sections go below this line, at the end of the file.
 - [ ] **Switching:** when your Pokémon is about to hit theirs super effectively, a friend switches to one that resists it (up to three times a battle). Emulator-tested: Aidan's AERODACTYL switched to SALAMENCE against LAPRAS's SURF. Does it feel clever, or too much?
 - [ ] **Lines:** Aidan's "Mid-air swap!" on his switch and "Pull the cord!" for his last Pokémon (emulator-tested). Not tested: Bridgette's PURSUIT jab (TYRANITAR switching in against a Pokémon weak to Dark), her super-effective and last-Pokémon lines, Brock's clap-and-swap and his lines, Aidan's low-HP line.
 
+### 2.1-06b (the journal as a POKéGEAR page)
+- [ ] **Getting it:** Elm's aide says she adds the JOURNAL to your POKéGEAR (key-item fanfare); nothing goes in the bag. Open the POKéGEAR: JOURNAL sits between RADIO and RIBBONS with a gold square, and its description is "Read your SEEKER'S JOURNAL." (Emulator-tested with the flags poked, not through her scene.)
+- [ ] **The squeezed menu:** with all seven buttons the menu matches the mockup; with fewer (no RADIO yet, no RIBBONS) it keeps HnS's spacing. Moving up and down and the glow on the chosen button look right. (Emulator-tested: 7, 6, 4 and 3 buttons.)
+- [ ] **The page:** TODAY opens first, with the weekday and how many are on; L/R go TODAY → JOHTO → KANTO → HOENN and wrap; each region says "Found X of Y"; found rows have a check; a long page scrolls (UP/DOWN) and pages (LEFT/RIGHT). (Emulator-tested.)
+- [ ] **Reading:** A opens the entry in the box; on TODAY the when line comes first in green. A or B closes it; B leaves and the cursor is back on JOURNAL. (Emulator-tested.)
+- [ ] **Long texts:** read the longest rumors and found texts (the SEAFOAM titans, the Unown sanctum) and check none run past the box.
+- [ ] **Old saves:** a save made with the 2.1-05/06 build that has the JOURNAL key item still shows the button (same flag); the item just sits in the bag doing nothing. Fine for testers only.
+
+### 2.1-16 (ETHAN or LYRA in person)
+- [ ] **Johto towns:** VIOLET (east road by the ROUTE 31 gate, before FALKNER), AZALEA (before your 2nd badge), GOLDENROD (main street, before your 3rd), ECRUTEAK (by the ROUTE 37 gate, before your 4th), OLIVINE (north road, before your 6th). They should spot you and walk over, give their tip and walk off. All five talked to in the emulator; the walk-up was tested in PEWTER. Do the tips help at that point, and does anyone stand in an awkward place?
+- [ ] **Kanto towns** (after the Johto title, before all 8 Kanto badges): VERMILION's dock, CERULEAN's main street, PEWTER (all tested). Arriving from a different side than the one tested (e.g. CERULEAN from ROUTE 4) may mean you only see them when you pass.
+- [ ] **Oak's lab** after all 8 Kanto badges: the scene plays on the way in (walks you up to OAK), they stay; talk to them afterwards (tested). Check it doesn't clash with OAK's own 16-badge talk and the TIDAL TICKET.
+- [ ] **POKéGEAR:** their contact line after the lab scene ("I'm PROF. OAK's field aide now!"). Not checked in the emulator.
+
+### 2.1-15 (second rival: your childhood friend ETHAN or LYRA)
+- [ ] **Elm's lab, first visit:** LYRA (a boy's game) or ETHAN (a girl's) is by the starter table. Before you pick, they explain the type triangle (emulator-tested); right after, "go show PROF. ELM". Does it feel like a friend you grew up with?
+- [ ] **After Elm's errand scene:** they call "Before you go, come here for a second!" (tested). Walk toward the exit: they come over, tell you about running and talking to your Pokémon, and register their number, then walk out ahead of you (tested from the middle tile; the left/right tiles step you to the middle first). Talking to them first works too.
+- [ ] **Route 29 catching demo:** on the way back from Mr. Pokémon, they run up behind you on Route 29 (column 19, on every row you can cross), their MARILL weakens a SENTRET (a HOOTHOOT at night) and they catch it, then give you 5 POKé BALLS (both emulator-tested from row 20). Check: their back pic and name in the battle, that your own party is back afterwards (tested), and that the battle music and ending look right. Rows 15–17 and 19/21 not walked in the emulator.
+- [ ] **Calls (every other badge since Aidan's cut):** Johto badges 2/4/6/8, Johto champion, Kanto badges 2/4/6, WALLACE; only the highest reached rings (2 Johto, 8 Johto, champion, 4 and 6 Kanto, WALLACE tested). No call at 16 badges (their decision is a scene in Oak's lab, 2.1-16). Does the story feel right with only the WALLACE call in Hoenn? Kanto 2 not heard in the emulator.
+- [ ] **Contact:** OLD FRIEND in the POKéGEAR list, NEW BARK TOWN; 11 lines by stage (Kanto lines at Oak's lab, a Hoenn line once you've been to Slateport). Not re-tested after the rework (the list itself was tested before it).
+- [ ] **Elm's journal calls** (2.1-06) now ring in Johto before you have Brendan & May's numbers (they couldn't before). Untested in the emulator on this part.
+
 ## 2.1 lane B
 
 ### 2.1-02 (foundations)
@@ -686,3 +709,46 @@ Lane B's `## 2.0 part NN` sections go below this line, at the end of the file.
 - After beating WALLACE, talking to a leader at their spot offers the same rematch as in their gym.
 - WINONA: talk to her on ROUTE 119, then go straight to FORTREE GYM: she must be there on the first visit (the weekend code reads her gym flag before the gym's own script runs; her ROUTE 119 script now clears it).
 - WATTSON before NEW MAUVILLE is finished is in MAUVILLE CITY, not his gym, weekends or not.
+
+### 2.1-21 (Brock's weekend chain)
+- With BROCK's badge, on four separate weekends: the PEWTER MUSEUM (he asks you to MT. MOON), MT. MOON's fossil dig (MOON STONE), the ROUTE 34 DAY CARE (the question, an EVERSTONE), the museum (ONIX DOLL in the PC). On each weekend after a step he stays where you left him; he's never in two places.
+- Real time: do a step on Saturday, come back Sunday (no wall clock): the next step must not be ready yet. Tested only with the debug weekday tools.
+- The ONIX DOLL with a full decoration PC: he keeps it until you make room (not emulator-tested).
+- His pool lines after the chain: ONIX or GEODUDE following you, a STEELIX in the party, LILEEP/ANORITH/OMANYTE/AERODACTYL/RELICANTH caught (the follower and party lines weren't tested in the emulator; the badge line was).
+- BRENDAN's call after the doll (needs his number). The SEEKER'S JOURNAL's Kanto page has BROCK's weekends, and it shows on TODAY on weekends.
+
+### 2.1-22 (Misty's weekend chain)
+- With MISTY's badge (and her ROUTE 25 cape date done), on four weekends: her ROUTE 20 beach, SEAFOAM 1F just inside the west entrance (MYSTIC WATER), CERULEAN GYM's pool (pick a finale, WATER STONE), the beach (STARMIE DOLL). Walk into SEAFOAM from ROUTE 20 to check she's in view from the entrance.
+- The gym on the rehearsal weekend: only the rehearsal MISTY shows (her gym object and STARMIE are away), and the gym's swimmers don't battle you on the way to her.
+- Her pool lines: STARMIE, PSYDUCK, GOLDUCK or LAPRAS following you (LAPRAS was tested), a GYARADOS in the party, the caught lines.
+- MAY's call after the doll.
+
+### 2.1-23 (Blue's weekend chain)
+- With BLUE's badge, on four weekends: ROUTE 22, DAISY's house in PALLET (SOOTHE BELL), OAK's lab (the question, a RARE CANDY), ROUTE 22 (PIDGEOT DOLL).
+- DAISY's own script still works with BLUE sitting across from her (grooming once a day), and OAK still gives the journal's Kanto doll.
+- His pool lines with PIDGEOT/RHYPERIOR/ARCANINE/EEVEE following and the two-chain line (BROCK's and MISTY's both done).
+- BRENDAN's call after the doll.
+
+### 2.1-25 (Johto gym rugs)
+- Each Johto leader with their Pokémon: VIOLET (Noctowl behind Falkner, both on the rug), AZALEA (trees symmetric around Bugsy and Scyther), GOLDENROD (Whitney and Miltank on a 4-wide bench), ECRUTEAK (Morty and Gengar on a 2-wide mat, the room's emblem and door centred), MAHOGANY (Pryce and Piloswine side by side on the platform), BLACKTHORN (Clair and Kingdra side by side). Talk to each leader and battle: nothing changed there.
+- AZALEA: ride each of the three top Ariados pads down and back up; the trees around them moved.
+- ECRUTEAK: leave the leader's room by its door's left tile (the hidden path); the right tile drops you into the pit like the tiles beside the path.
+- MAHOGANY: solve the ice from the door to Pryce (the room is one column wider; a solver and one emulator run found the route).
+- BLACKTHORN: raise all four bridges in order (each is a tile wider now) and reach Clair; reload the gym after each bridge (the map script redraws them).
+- Visit each gym on a weekend after beating its leader: the room is empty, no stray rug pieces or follower.
+
+### 2.1-26 (Kanto gym rugs, Red's summit)
+- Each Kanto leader with their Pokémon: PEWTER (Onix behind Brock), CERULEAN (Misty and Starmie on a 2-wide pedestal, the plate centred), VERMILION (Surge and Raichu on a 4-wide rug), CELADON (Erika and Bellossom centred in the garden), SAFFRON (Sabrina and Alakazam side by side on the diamonds), VIRIDIAN (Blue and Rhyperior on a 4-wide rug). Talk to each leader and battle.
+- CELADON: the cut-tree row has four trees now: you can't pass without CUT, and all four stay cut until you leave.
+- VERMILION: the trash-can puzzle (unchanged grid), then both beam states: half on after the first switch, off after the second (the beam is a tile wider now).
+- SAFFRON: try a few teleport pads in the middle rooms (those rooms are a tile wider; the pads moved with them).
+- MT. SILVER summit by day and by night: Red and Pikachu side by side on the middle of the peak; battle Red; Pikachu disappears with him afterwards.
+- PEWTER MUSEUM 1F on a weekend after beating BROCK: Onix beside him.
+
+### 2.1-27 (Hoenn gym rugs)
+- Each Hoenn leader with their Pokémon side by side on a 4-wide rug: RUSTBORO (Probopass), DEWFORD (Hariyama; the gym is dark, use FLASH), MAUVILLE (Manectric), LAVARIDGE (Torkoal), PETALBURG (Slaking), FORTREE (Altaria), SOOTOPOLIS (Kingdra). Talk to each leader and battle.
+- PETALBURG: go through the gym room by room; each sliding door you open after a win is drawn in the right place (the rooms are a tile wider) and leads on.
+- SOOTOPOLIS: the ice puzzle on all three floors (each staircase opens once every ice tile is cracked; the top floor has one more rock), and fall through once on purpose: you land on B1F and can climb back.
+- FORTREE: the turnstiles still turn and block as before; the entrance door is 3 wide.
+- LAVARIDGE: walk the steam path to Flannery (the room is a tile wider at the top).
+- RUSTBORO: walk the maze to Roxanne (the top rows are a tile wider).

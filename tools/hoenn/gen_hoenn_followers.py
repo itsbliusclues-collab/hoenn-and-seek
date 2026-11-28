@@ -208,7 +208,8 @@ def main():
         objs = [o for o in m.get("object_events", []) if o.get("script") != SCRIPT]
         added = []
         for f in by_map.get(name, []):
-            trainers = [o for o in objs if o["graphics_id"] == f["trainer"]]
+            trainers = [o for o in objs if o["graphics_id"] == f["trainer"]
+                        and o["script"] == f.get("script", o["script"])]  # 2.1-22: a chain's second Misty
             if len(trainers) != 1:
                 sys.exit("%s: expected one %s, found %d" % (name, f["trainer"], len(trainers)))
             t = trainers[0]
