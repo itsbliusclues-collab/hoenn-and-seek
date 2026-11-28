@@ -477,6 +477,7 @@ Phase G runs one part at a time after both lanes (`hoenn-docs/lanes/README.md`).
 
 ## 2.1 lane A notes
 2.1's lane A (`hoenn-docs/lanes/2.1-lane-a.md`) adds a bullet per part here. Its code lives in `src/hoenn_2_1_lane_a.c` and `data/scripts/hoenn_2_1_lane_a.inc` unless a note says otherwise.
+- **Friend sprite mockups (2.1-01):** `tools/hoenn/draw_friend_mockups.py OUT_DIR` repaints existing sprites (palette changes, index swaps inside rectangles, a few drawn pixels) into Bridgette's, Aidan's and Brock's front pics (64×64) and overworld sheets (10 frames of 16×32), plus a sheet with SILVER and LEADER BROCK for scale; output committed in `hoenn-docs/2.1-mockups/friends/`. No game files changed, so no size row. Bryan's changes go into the script; the final sprites come with the friend-trainer parts.
 
 ## 2.1 lane B notes
 2.1's lane B (`hoenn-docs/lanes/2.1-lane-b.md`) adds a bullet per part here. Its code lives in `src/hoenn_2_1_lane_b.c` and `data/scripts/hoenn_2_1_lane_b.inc` unless a note says otherwise.
