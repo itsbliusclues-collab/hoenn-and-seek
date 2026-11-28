@@ -1,4 +1,5 @@
 #include "global.h"
+#include "hoenn.h"
 #include "battle.h"
 #include "battle_anim.h"
 #include "battle_ai_util.h"
@@ -2856,6 +2857,9 @@ void BufferStringBattle(enum StringID stringID, enum BattlerId battler)
         else
         {
             stringPtr = gBattleStringsTable[stringID];
+#if IS_HNS
+            stringPtr = HoennCatchTutorialString(stringID, stringPtr); // Hoenn & Seek 2.1-15
+#endif
         }
         break;
     }

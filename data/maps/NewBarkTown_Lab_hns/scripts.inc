@@ -309,6 +309,7 @@ NewBarkTown_Lab_EventScript_MrPokemon::
 	clearflag FLAG_RECEIVED_FIRST_POTION
 	setvar VAR_NEWBARK_TOWN_STATE, 3
 	setflag FLAG_ENABLE_CONDITION
+	call HoennSeek_EventScript_NeighborAfterElm @ Hoenn & Seek 2.1-15
 	release
 	end
 
@@ -318,6 +319,7 @@ NewBarkTown_Lab_EventScript_MrPokemonMovementSafe::
 	clearflag FLAG_RECEIVED_FIRST_BALLS
 	clearflag FLAG_RECEIVED_FIRST_POTION
 	setvar VAR_NEWBARK_TOWN_STATE, 3
+	call HoennSeek_EventScript_NeighborAfterElm @ Hoenn & Seek 2.1-15
 	release
 	end
 

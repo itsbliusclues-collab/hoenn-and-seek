@@ -646,12 +646,13 @@ Lane B's `## 2.0 part NN` sections go below this line, at the end of the file.
 - [ ] **Switching:** when your Pokémon is about to hit theirs super effectively, a friend switches to one that resists it (up to three times a battle). Emulator-tested: Aidan's AERODACTYL switched to SALAMENCE against LAPRAS's SURF. Does it feel clever, or too much?
 - [ ] **Lines:** Aidan's "Mid-air swap!" on his switch and "Pull the cord!" for his last Pokémon (emulator-tested). Not tested: Bridgette's PURSUIT jab (TYRANITAR switching in against a Pokémon weak to Dark), her super-effective and last-Pokémon lines, Brock's clap-and-swap and his lines, Aidan's low-HP line.
 
-### 2.1-15 (second rival: ETHAN or LYRA, intro, phone, calls)
-- [ ] **Intro:** after the police visit at Elm's lab, go back in: LYRA (a boy's game) or ETHAN (a girl's) stands by the starter table, introduces themself and gives you their number (both genders emulator-tested). Next time you walk in they're gone. Does the scene feel right that early, and is the spot good?
-- [ ] **Calls:** 1st, 3rd, 4th, 7th, 8th badge and Johto champion, only the highest reached ringing (1st, 8th and champion emulator-tested; 3rd, 4th, 7th not heard in the emulator). Are the right things said at the right time on a real playthrough (e.g. the 7th mentions the Lake of Rage)?
-- [ ] **Contact:** ELM'S NEIGHBOR in the POKéGEAR call list, map NEW BARK TOWN; calling them gives the line for your stage (4th-badge line emulator-tested). Untested: the 8th-badge, champion and Brendan & May lines.
+### 2.1-15 (second rival: your childhood friend ETHAN or LYRA)
+- [ ] **Elm's lab, first visit:** LYRA (a boy's game) or ETHAN (a girl's) is by the starter table. Before you pick, they explain the type triangle (emulator-tested); right after, "go show PROF. ELM". Does it feel like a friend you grew up with?
+- [ ] **After Elm's errand scene:** they call "Before you go, come here for a second!" (tested). Walk toward the exit: they come over, tell you about running and talking to your Pokémon, and register their number, then walk out ahead of you (tested from the middle tile; the left/right tiles step you to the middle first). Talking to them first works too.
+- [ ] **Route 29 catching demo:** on the way back from Mr. Pokémon, they run up behind you on Route 29 (column 19, on every row you can cross), their MARILL weakens a SENTRET (a HOOTHOOT at night) and they catch it, then give you 5 POKé BALLS (both emulator-tested from row 20). Check: their back pic and name in the battle, that your own party is back afterwards (tested), and that the battle music and ending look right. Rows 15–17 and 19/21 not walked in the emulator.
+- [ ] **Calls:** every Johto badge, Johto champion, first Kanto badge, all 16, first time in Hoenn, 8 Hoenn badges, Wallace; only the highest reached rings (1st and 8th badge tested). Tips: Azalea, HEADBUTT, SURF tested; Goldenrod's not heard. Do the tips come at a useful moment on a real playthrough?
+- [ ] **Contact:** OLD FRIEND in the POKéGEAR list, NEW BARK TOWN; 11 lines by stage. Not re-tested after the rework (the list itself was tested before it).
 - [ ] **Elm's journal calls** (2.1-06) now ring in Johto before you have Brendan & May's numbers (they couldn't before). Untested in the emulator on this part.
-
 
 ### 2.1-02 (foundations)
 - Load a 2.0 save into a 2.1 build: it should carry on as before (save version 7 clears only 2.1's new space; tested in the emulator with a v6 save).

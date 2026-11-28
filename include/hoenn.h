@@ -58,6 +58,10 @@ bool32 HoennLaneAOnStep(void); // src/hoenn_lane_a.c (part 32: the Ampharos ride
 bool32 HoennLaneAFollowerOverride(u32 *species, bool32 *shiny, bool32 *female); // src/hoenn_lane_a.c (part 32)
 u16 HoennLaneBDueCall(void); // src/hoenn_lane_b.c
 u16 Hoenn21LaneADueCall(void); // src/hoenn_2_1_lane_a.c (2.1-02)
+u16 HoennNeighborStage(void);                // 2.1-15: specialvar, your progress stage for ETHAN/LYRA's lines
+u16 HoennCatchTutorialBackPic(void);         // 2.1-15: the catch-tutorial back pic (WALLY's unless it's your friend's demo)
+const u8 *HoennCatchTutorialString(u32 stringId, const u8 *str);
+const u8 *HoennCatchTutorialWhatWill(const u8 *str);
 void HoennUpdateLeaderWeekends(void); // 2.1-18: leaders' weekends (src/hoenn_2_1_lane_b.c)
 u16 Hoenn21LaneBDueCall(void); // src/hoenn_2_1_lane_b.c (2.1-02)
 // 2.1-05: the SEEKER'S JOURNAL (src/hoenn_journal.c, lane A)

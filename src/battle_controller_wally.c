@@ -1,4 +1,12 @@
 #include "global.h"
+#include "hoenn.h"
+#if IS_HNS // Hoenn & Seek 2.1-15: your friend's catching demo borrows this controller
+#define WALLY_BACK_PIC HoennCatchTutorialBackPic()
+#define WALLY_WHAT_WILL HoennCatchTutorialWhatWill(gText_WhatWillWallyDo)
+#else
+#define WALLY_BACK_PIC TRAINER_PIC_BACK_WALLY
+#define WALLY_WHAT_WILL gText_WhatWillWallyDo
+#endif
 #include "battle.h"
 #include "battle_anim.h"
 #include "battle_controllers.h"
@@ -282,14 +290,14 @@ void WallyBufferExecCompleted(enum BattlerId battler)
 
 static void WallyHandleDrawTrainerPic(enum BattlerId battler)
 {
-    BtlController_HandleDrawTrainerPic(battler, TRAINER_PIC_BACK_WALLY, FALSE,
-                                       80, 80 + 4 * (8 - gTrainerBacksprites[TRAINER_PIC_BACK_WALLY].coordinates.size),
+    BtlController_HandleDrawTrainerPic(battler, WALLY_BACK_PIC, FALSE,
+                                       80, 80 + 4 * (8 - gTrainerBacksprites[WALLY_BACK_PIC].coordinates.size),
                                        30);
 }
 
 static void WallyHandleTrainerSlide(enum BattlerId battler)
 {
-    BtlController_HandleTrainerSlide(battler, TRAINER_PIC_BACK_WALLY);
+    BtlController_HandleTrainerSlide(battler, WALLY_BACK_PIC);
 }
 
 #undef sSpeedX
@@ -315,7 +323,7 @@ static void WallyHandleChooseAction(enum BattlerId battler)
         ActionSelectionDestroyCursorAt(i);
 
     ActionSelectionCreateCursorAt(gActionSelectionCursor[battler], 0);
-    BattleStringExpandPlaceholdersToDisplayedString(gText_WhatWillWallyDo);
+    BattleStringExpandPlaceholdersToDisplayedString(WALLY_WHAT_WILL);
     BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_ACTION_PROMPT);
 }
 
@@ -366,7 +374,7 @@ static void WallyHandleFaintingCry(enum BattlerId battler)
 
 static void WallyHandleIntroTrainerBallThrow(enum BattlerId battler)
 {
-    const u16 *trainerPal = gTrainerBacksprites[TRAINER_PIC_BACK_WALLY].palette.data;
+    const u16 *trainerPal = gTrainerBacksprites[WALLY_BACK_PIC].palette.data;
     BtlController_HandleIntroTrainerBallThrow(battler, 0xD6F8, trainerPal, 31, Intro_TryShinyAnimShowHealthbox);
 }
 
