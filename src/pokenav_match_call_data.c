@@ -590,6 +590,46 @@ static const struct MatchCallStructTrainer sWallaceMatchCallHeader =
     .textData = sWallaceTextScripts
 };
 
+// Hoenn & Seek (2.1-15): ETHAN or LYRA, Elm's neighbor; only the one of the other
+// gender from the player gives you a number (data/scripts/hoenn_2_1_lane_a.inc).
+static const match_call_text_data_t sEthanTextScripts[] = {
+    { HoennSeek_Text_EthanPhone0, ALWAYS_AVAILABLE                  , NO_FLAG_TO_SET },
+    { HoennSeek_Text_EthanPhone1, FLAG_HOENN_CALL_NEIGHBOR_BADGE4   , NO_FLAG_TO_SET },
+    { HoennSeek_Text_EthanPhone2, FLAG_HOENN_CALL_NEIGHBOR_BADGE8   , NO_FLAG_TO_SET },
+    { HoennSeek_Text_EthanPhone3, FLAG_HOENN_CALL_NEIGHBOR_CHAMPION , NO_FLAG_TO_SET },
+    { HoennSeek_Text_EthanPhone4, FLAG_HOENN_BM_PHONE               , NO_FLAG_TO_SET },
+    MATCH_CALL_TEXT_END
+};
+
+static const struct MatchCallStructNPC sEthanMatchCallHeader =
+{
+    .type = MC_TYPE_NPC,
+    .mapSec = MAPSEC_NEW_BARK_TOWN,
+    .flag = FLAG_HOENN_NEIGHBOR_PHONE_ETHAN,
+    .desc = COMPOUND_STRING("ELM'S NEIGHBOR"),
+    .name = COMPOUND_STRING("ETHAN"),
+    .textData = sEthanTextScripts
+};
+
+static const match_call_text_data_t sLyraTextScripts[] = {
+    { HoennSeek_Text_LyraPhone0, ALWAYS_AVAILABLE                  , NO_FLAG_TO_SET },
+    { HoennSeek_Text_LyraPhone1, FLAG_HOENN_CALL_NEIGHBOR_BADGE4   , NO_FLAG_TO_SET },
+    { HoennSeek_Text_LyraPhone2, FLAG_HOENN_CALL_NEIGHBOR_BADGE8   , NO_FLAG_TO_SET },
+    { HoennSeek_Text_LyraPhone3, FLAG_HOENN_CALL_NEIGHBOR_CHAMPION , NO_FLAG_TO_SET },
+    { HoennSeek_Text_LyraPhone4, FLAG_HOENN_BM_PHONE               , NO_FLAG_TO_SET },
+    MATCH_CALL_TEXT_END
+};
+
+static const struct MatchCallStructNPC sLyraMatchCallHeader =
+{
+    .type = MC_TYPE_NPC,
+    .mapSec = MAPSEC_NEW_BARK_TOWN,
+    .flag = FLAG_HOENN_NEIGHBOR_PHONE_LYRA,
+    .desc = COMPOUND_STRING("ELM'S NEIGHBOR"),
+    .name = COMPOUND_STRING("LYRA"),
+    .textData = sLyraTextScripts
+};
+
 static const match_call_t sMatchCallHeaders[] = {
     [MC_HEADER_MR_STONE]   = {.npc    = &sMrStoneMatchCallHeader},
     [MC_HEADER_PROF_BIRCH] = {.birch  = &sProfBirchMatchCallHeader},
@@ -612,7 +652,9 @@ static const match_call_t sMatchCallHeaders[] = {
     [MC_HEADER_PHOEBE]     = {.leader = &sPhoebeMatchCallHeader},
     [MC_HEADER_GLACIA]     = {.leader = &sGlaciaMatchCallHeader},
     [MC_HEADER_DRAKE]      = {.leader = &sDrakeMatchCallHeader},
-    [MC_HEADER_WALLACE]    = {.leader = &sWallaceMatchCallHeader}
+    [MC_HEADER_WALLACE]    = {.leader = &sWallaceMatchCallHeader},
+    [MC_HEADER_ETHAN]      = {.npc    = &sEthanMatchCallHeader}, // 2.1-15
+    [MC_HEADER_LYRA]       = {.npc    = &sLyraMatchCallHeader}
 };
 
 #else // Emerald

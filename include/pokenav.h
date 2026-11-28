@@ -224,6 +224,8 @@ enum
     MC_HEADER_GLACIA,
     MC_HEADER_DRAKE,
     MC_HEADER_WALLACE,
+    MC_HEADER_ETHAN, // Hoenn & Seek 2.1-15: Elm's neighbor (a female player's)
+    MC_HEADER_LYRA,  // (a male player's)
     MC_HEADER_COUNT
 };
 #else

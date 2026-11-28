@@ -80,6 +80,12 @@
 #define HOENN_CALL_JOURNAL_JOHTO 100 // 2.1-06: Elm, the JOHTO page is all found
 #define HOENN_CALL_JOURNAL_KANTO 101 // Oak, KANTO
 #define HOENN_CALL_JOURNAL_HOENN 102 // Birch, HOENN
+#define HOENN_CALL_NEIGHBOR_BADGE1   103 // 2.1-15: ETHAN or LYRA, your first Johto badge
+#define HOENN_CALL_NEIGHBOR_BADGE3   104 // third (Goldenrod)
+#define HOENN_CALL_NEIGHBOR_BADGE4   105 // fourth (Ecruteak)
+#define HOENN_CALL_NEIGHBOR_BADGE7   106 // seventh (Mahogany: Lake of Rage and the hideout done)
+#define HOENN_CALL_NEIGHBOR_BADGE8   107 // eighth (Blackthorn; the Radio Tower is behind you)
+#define HOENN_CALL_NEIGHBOR_CHAMPION 108 // Johto champion
 
 #define HOENN_CALL_21_LANE_B_FIRST 130
 #define HOENN_CALL_21_LANE_B_LAST  159

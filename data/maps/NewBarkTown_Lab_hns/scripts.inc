@@ -6,6 +6,7 @@ NewBarkTown_Lab_hns_MapScripts::
 	.byte 0
 
 NewBarkTown_Lab_OnTransition::
+	call HoennSeek_EventScript_LabNeighborArm @ Hoenn & Seek 2.1-15
 	goto_if_eq VAR_NEWBARKTOWN_LABSTATE, 6, NewBarkTown_Lab_EventScript_ElmAtComputer
 	goto_if_eq VAR_NEWBARKTOWN_LABSTATE, 2, NewBarkTown_Lab_EventScript_ElmAtComputer
 	goto_if_eq VAR_NEWBARKTOWN_LABSTATE, 3, NewBarkTown_Lab_EventScript_ElmAtComputer

@@ -22,8 +22,48 @@
 
 #if IS_HNS
 
+// 2.1-15: ETHAN or LYRA calls at Johto milestones once you have their number.
+// Only the highest milestone reached rings; the ones below it are marked done,
+// as Brendan & May's badge calls are (src/hoenn_phone.c).
+static u16 NeighborDueCall(void)
+{
+    static const u16 sCalls[][2] = { // badges needed (9 = Johto champion), call flag; highest first
+        {9, FLAG_HOENN_CALL_NEIGHBOR_CHAMPION},
+        {8, FLAG_HOENN_CALL_NEIGHBOR_BADGE8},
+        {7, FLAG_HOENN_CALL_NEIGHBOR_BADGE7},
+        {4, FLAG_HOENN_CALL_NEIGHBOR_BADGE4},
+        {3, FLAG_HOENN_CALL_NEIGHBOR_BADGE3},
+        {1, FLAG_HOENN_CALL_NEIGHBOR_BADGE1},
+    };
+    u32 i, j, reached = 0;
+
+    if (!FlagGet(FLAG_HOENN_NEIGHBOR_PHONE_ETHAN) && !FlagGet(FLAG_HOENN_NEIGHBOR_PHONE_LYRA))
+        return HOENN_CALL_NONE;
+    for (i = 0; i < 8; i++)
+        if (FlagGet(FLAG_BADGE01_GET + i))
+            reached++;
+    if (FlagGet(FLAG_SYS_GAME_CLEAR))
+        reached = 9;
+    for (i = 0; i < ARRAY_COUNT(sCalls); i++)
+    {
+        if (reached < sCalls[i][0])
+            continue;
+        if (FlagGet(sCalls[i][1]))
+            return HOENN_CALL_NONE; // the highest reached already rang
+        for (j = i + 1; j < ARRAY_COUNT(sCalls); j++)
+            FlagSet(sCalls[j][1]);
+        return HOENN_CALL_NEIGHBOR_CHAMPION - i;
+    }
+    return HOENN_CALL_NONE;
+}
+
 u16 Hoenn21LaneADueCall(void)
 {
+    u16 call = NeighborDueCall();
+
+    if (call != HOENN_CALL_NONE)
+        return call;
+
     // 2.1-06: a region's journal page is all found, and its doll not given yet.
     if (FlagGet(FLAG_HOENN_GOT_SEEKERS_JOURNAL))
     {
