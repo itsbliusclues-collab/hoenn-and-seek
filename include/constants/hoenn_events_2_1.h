@@ -68,6 +68,14 @@
 // (no definitions yet)
 
 // ==== Lane B (2.1) ==========================================================
-// (no definitions yet)
+
+// 2.1-34: Teleport to your secret base. Your own base's entrance, recorded each
+// time you walk into it (HoennRecordBaseEntrance, src/hoenn_2_1_lane_b.c).
+#define VAR_HOENN_BASE_TELEPORT_ID   (HOENN_21_LANE_B_VARS + 0) // the base's secretBaseId; 0 = none recorded
+#define VAR_HOENN_BASE_TELEPORT_MAP  (HOENN_21_LANE_B_VARS + 1) // mapGroup << 8 | mapNum of the map outside
+#define VAR_HOENN_BASE_TELEPORT_XY   (HOENN_21_LANE_B_VARS + 2) // x | y << 8: the tile you walked in from
+// HoennTeleportGo's choice (VAR_RESULT): the menu's order.
+#define HOENN_TELEPORT_TO_CENTER 0
+#define HOENN_TELEPORT_TO_BASE   1
 
 #endif // GUARD_CONSTANTS_HOENN_EVENTS_2_1_H

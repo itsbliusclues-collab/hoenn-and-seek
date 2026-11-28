@@ -592,3 +592,9 @@ Lane B's `## 2.0 part NN` sections go below this line, at the end of the file.
 ### 2.1-04 (key-item pocket)
 - The KEY ITEMS pocket holds 80 now. Late in the game (lots of key items), scroll the pocket to the end, move an item (SELECT) across the 60th/61st place, register one past the 60th for SELECT and use it: everything should behave as in the first 60.
 - Load a 2.0 save: the key items are all there and nothing new appears at the end of the pocket.
+
+### 2.1-34 (teleport to base)
+- Make a real base, walk in once, then use Teleport from a route in another region: the menu should name your last healing town, SECRET BASE and CANCEL. SECRET BASE lands you inside; walking out puts you at the base's door.
+- A base full of decorations and dolls: everything should be there after teleporting in, as after walking in.
+- Move out (or use Secret Power somewhere new): Teleport goes back to HnS's YES/NO question until you walk into the new base.
+- Teleport in at night and in rain or fog: the base and the way back outside should look right.

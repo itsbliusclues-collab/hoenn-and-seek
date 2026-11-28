@@ -59,6 +59,12 @@ bool32 HoennLaneAFollowerOverride(u32 *species, bool32 *shiny, bool32 *female); 
 u16 HoennLaneBDueCall(void); // src/hoenn_lane_b.c
 u16 Hoenn21LaneADueCall(void); // src/hoenn_2_1_lane_a.c (2.1-02)
 u16 Hoenn21LaneBDueCall(void); // src/hoenn_2_1_lane_b.c (2.1-02)
+// Teleport to your secret base (src/hoenn_2_1_lane_b.c, 2.1-34)
+void HoennRecordBaseEntrance(u32 secretBaseId);
+bool32 HoennCanTeleportToBase(void);
+bool32 HoennTeleportOffersBase(void);
+bool32 HoennTeleportBaseDestination(void);
+void HoennPrepareOwnSecretBaseWarp(void); // src/secret_base.c
 // The Kangaskhan baby as your follower (src/hoenn_lane_b.c, 2.0 part 30a)
 bool32 HoennIsKangaBabyGfx(u32 species);
 u32 HoennFollowerPaletteSpecies(u32 species);

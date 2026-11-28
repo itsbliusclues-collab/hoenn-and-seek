@@ -85,6 +85,7 @@
 #include "constants/vars_hns.h"
 #include "nuzlocke.h"
 #include "pokemon_storage_system.h"
+#include "hoenn.h" // Hoenn & Seek 2.1-34
 
 STATIC_ASSERT((B_FLAG_FOLLOWERS_DISABLED == 0 || OW_FOLLOWERS_ENABLED), FollowersFlagAssignedWithoutEnablingThem);
 
@@ -801,6 +802,10 @@ void SetWarpDestinationToLastHealLocation(void)
 
 void SetWarpDestinationForTeleport(void)
 {
+#if IS_HNS
+    if (HoennTeleportBaseDestination()) // Hoenn & Seek 2.1-34: to your secret base
+        return;
+#endif
     sWarpDestination = gSaveBlock1Ptr->lastHealLocation;
 }
 
