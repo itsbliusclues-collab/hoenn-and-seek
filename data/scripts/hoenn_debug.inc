@@ -24,12 +24,13 @@ HoennDebug_EventScript_TimeWeatherMenu:
 	special HoennDebugBufferStatus
 	message gStringVar4
 	waitmessage
-	dynmultichoice 17, 0, FALSE, 5, 0, DYN_MULTICHOICE_CB_NONE, HoennDebug_Text_SetWeekday, HoennDebug_Text_SetHour, HoennDebug_Text_NextWeek, HoennDebug_Text_WeatherStage, HoennDebug_Text_Exit
+	dynmultichoice 17, 0, FALSE, 6, 0, DYN_MULTICHOICE_CB_NONE, HoennDebug_Text_SetWeekday, HoennDebug_Text_SetHour, HoennDebug_Text_NextWeek, HoennDebug_Text_WeatherStage, HoennDebug_Text_Ladders, HoennDebug_Text_Exit
 	switch VAR_RESULT
 	case 0, HoennDebug_EventScript_PickWeekday
 	case 1, HoennDebug_EventScript_PickHour
 	case 2, HoennDebug_EventScript_NextWeek
 	case 3, HoennDebug_EventScript_WeatherStage
+	case 4, HoennDebug_EventScript_Ladders
 	closemessage
 	releaseall
 	end
@@ -57,6 +58,15 @@ HoennDebug_EventScript_WeatherStage:
 	doweather
 	goto HoennDebug_EventScript_TimeWeatherMenu
 
+@ 2.1 part 02: the scaled-opponent ladder's aces right now (src/hoenn_scaling.c),
+@ so a part can check an opponent's level without fighting it.
+HoennDebug_EventScript_Ladders:
+	special HoennDebugBufferLadders
+	message gStringVar4
+	waitmessage
+	waitbuttonpress
+	goto HoennDebug_EventScript_TimeWeatherMenu
+
 @ Reload the map in place. The time check on arrival runs the daily and weekly
 @ resets if the change crossed a day or a week.
 HoennDebug_EventScript_Reload:
@@ -78,6 +88,8 @@ HoennDebug_Text_NextWeek:
 	.string "NEXT WEEK$"
 HoennDebug_Text_WeatherStage:
 	.string "WEATHER +1$"
+HoennDebug_Text_Ladders:
+	.string "LADDERS$"
 HoennDebug_Text_Exit:
 	.string "EXIT$"
 HoennDebug_Text_Hour00:

@@ -11,7 +11,8 @@
 //   battle hook in src/hoenn_roamer.c) notes each beast you've met and caught.
 //   Once one is caught, EUSINE (Celadon Pokémon Center) sends his tracking
 //   notes to OAK's POKéMON TALK, and the show's intro says where the other one
-//   is right now (HoennRadioEusineReport, hooked into src/pokenav_radio.c).
+//   is right now (HoennRadioEusineReport, a radio news segment since 2.1 part 02:
+//   data/hoenn/radio_segments.json).
 // - Ho-Oh: on the roof only at dawn (TIME_MORNING), once the Ruins of Alph
 //   Ho-Oh panel is solved, all three beasts have met you (Raikou and Entei in
 //   battle, Suicune at the end of its chase) and the CLEAR BELL is in the bag
@@ -106,7 +107,8 @@ u16 HoennEusineState(void)
 static const u8 sText_RadioEusine[] = _("MARY: A tip from EUSINE!");
 static const u8 sText_RadioWasTracked[] = _("was tracked near ");
 
-// Hook in the intro of OAK's POKéMON TALK (src/pokenav_radio.c). Writes up to
+// In the intro of OAK's POKéMON TALK: a radio segment builder (src/hoenn_radio.c,
+// data/hoenn/radio_segments.json; it was a hook line of its own in 2.0). Writes up to
 // three lines (one static, two into line1/line2, each a 40-byte buffer) and
 // returns how many.
 u32 HoennRadioEusineReport(const u8 **lines, u8 *line1, u8 *line2)

@@ -561,3 +561,20 @@ Lane B's `## 2.0 part NN` sections go below this line, at the end of the file.
 - Safari Zone Brush/Mountain/Cave: Roselia, Breloom, Kecleon, Grumpig, Gyarados instead of Tropius, Absol and Feebas. Johto Safari Low Right: Piloswine and Quagsire instead of Sneasel.
 - Hoenn: Route 102 has Nuzleaf where Gardevoir was, Routes 119/120 Breloom/Nuzleaf/Gloom/Mightyena where Tropius and Absol were, Route 117 has Roselia by day. Fortree's roof Pokémon is a Swellow. Absol only as the storm roamer, Tropius only in the orchard.
 - The Pokédex area pages for Absol, Tropius, Feebas, Sneasel and Ralts: do they still show stale spots?
+
+# Hoenn & Seek 2.1
+
+## Track A parts (2.1: systems and trainers)
+Since Nov 28 2.1 is built in two tracks (`tracks/README.md`). Track A adds its `## 2.1-NN` sections directly above "Track B parts"; track B adds its own at the end of the file.
+
+## 2.1-02 (foundations: 2.1 flags, radio segments, the ladder)
+No content of its own; these check the plumbing on a real cartridge/emulator save.
+- **Old save into 2.1:** load a 2.0 save (save version 6) and play a few minutes: every 2.0 event's state is kept (a caught legendary stays caught, a Cipher fragment stays found), nothing new appears done. Save, reload: still fine. (Emulator-tested with a forced version-6 save; Bryan starts a new game for 2.1 anyway.)
+- **Radio, OAK's POKéMON TALK:** with EUSINE's notes on (2.0 part 35b) the intro still names where the other beast was tracked, now from the segment table.
+- **Radio, Ruins of Alph:** the Unown station still spells its word (2.0 part 28).
+- **Radio, HOENN SOUND (dial 5):** after you beat Wallace and before Brendan & May, three lines of news ("WALLACE has been dethroned / by a trainer from JOHTO!") play before the station's usual four; after Brendan & May they're gone. Read them on a real screen: each line fits the box.
+- **DAMIAN** (outside the Cerulean Gym once Charmander joined you): his ace is still your progress cap (e.g. 64 with 3 Kanto badges), 85 after Wallace.
+- **Debug menu:** Utilities → "H&S time & weather…" → LADDERS shows three aces and the cap; they rise with badges.
+
+## Track B parts (2.1: the world and its people)
+Track B's `## 2.1-NN` sections go below this line, at the end of the file.

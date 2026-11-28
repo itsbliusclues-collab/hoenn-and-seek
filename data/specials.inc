@@ -809,3 +809,13 @@ gSpecials::
 	def_special HoennMewtwoBattleEnded
 	def_special HoennSeaMapPieceCount
 	def_special HoennMewBlurState
+	@ (end of lane B's specials)
+
+	@ Hoenn & Seek 2.1, shared systems (part 02, track A)
+	def_special HoennScaledAceFor
+	def_special HoennDebugBufferLadders
+	@ Hoenn & Seek 2.1, builder track A (systems and trainers): track A's specials go here
+
+	@ (end of track A's specials)
+
+	@ Hoenn & Seek 2.1, builder track B (the world): track B's specials go here

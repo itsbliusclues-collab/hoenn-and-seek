@@ -73,4 +73,18 @@
 #define HOENN_CALL_MEWTWO       77 // Brendan: you caught Mewtwo (part 35a)
 #define HOENN_CALL_MEW          78 // May: your OLD SEA MAP is whole (part 35a)
 
+// ---- 2.1: two builder tracks (hoenn-docs/2.1-tracks.md, part 02) ----
+// Track A's due checks are in src/hoenn_2_1_a.c, track B's in src/hoenn_2_1_b.c;
+// their switch cases in data/scripts/hoenn_2_1_a/b.inc. 100-159 only: 2.0 used
+// 1-99 (its lane B's range ends at 99).
+// Track A: 100-129.
+#define HOENN_CALL_TRACK_A_FIRST 100
+#define HOENN_CALL_TRACK_A_LAST  129
+// (track A's calls go here)
+
+// Track B: 130-159.
+#define HOENN_CALL_TRACK_B_FIRST 130
+#define HOENN_CALL_TRACK_B_LAST  159
+// (track B's calls go here, at the end of the file)
+
 #endif // GUARD_CONSTANTS_HOENN_PHONE_H

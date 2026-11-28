@@ -1,0 +1,30 @@
+{
+  "_comment": [
+    "Hoenn & Seek 2.1 (part 02): news segments on the PokéGear radio.",
+    "tools/hoenn/gen_hoenn_radio.py turns this into src/data/hoenn_radio_segments.h; src/hoenn_radio.c plays it.",
+    "Each segment plays before its station's own broadcast (in the intro of oak_talk), in this order, when every condition in 'if' holds.",
+    "  key      unique name (letters, digits, _)",
+    "  station  oak_talk, pokedex_show, pokemon_music, lucky_channel, buenas_password, unown, places_and_people, lets_all_sing, poke_flute, rocket, hoenn_sound",
+    "  if       conditions, the hint engine's format (npc_hints.json): {flag}, {not_flag}, {var, min|below}, {stamps_min}, {badges_min}, {caught}, {not_caught}, ...",
+    "  lines    1-3 fixed lines, at most 31 characters each (the radio box); or",
+    "  builder  a C function (HoennRadioBuilder, include/hoenn_2_1.h) that writes its own lines and returns how many (0 = nothing today)",
+    "  heard    optional FLAG_HOENN_ flag set the first time it plays (the Seeker's Journal reads these)",
+    "  note     who added it and why (copied into the generated table)",
+    "Limits: at most 6 segment lines per broadcast, fewer on stations whose own show is long (lucky_channel leaves 2); one builder per broadcast. Rows that don't fit wait.",
+    "Two builder tracks add rows in parallel (hoenn-docs/2.1-tracks.md): track A appends to 'track_a', track B to 'track_b'. They play after 'segments' (2.0's and part 02's), A before B."
+  ],
+  "segments": [
+    {"key": "eusine_beasts", "station": "oak_talk", "builder": "HoennRadioEusineReport",
+     "note": "2.0 part 35b: EUSINE's tracking notes say where the uncaught beast is"},
+    {"key": "unown_cipher", "station": "unown", "builder": "HoennRadioUnownBroadcast",
+     "note": "2.0 part 28: the Unown Cipher's signal at the Ruins of Alph"},
+    {"key": "news_hoenn_champion", "station": "hoenn_sound",
+     "if": [{"flag": "FLAG_HOENN_STAMP_WALLACE"}, {"not_flag": "FLAG_HOENN_BEAT_BM"}],
+     "lines": ["News from faraway HOENN:", "WALLACE has been dethroned", "by a trainer from JOHTO!"],
+     "note": "2.1 part 02: news after you beat Wallace, until Brendan & May"}
+  ],
+  "track_a": [
+  ],
+  "track_b": [
+  ]
+}

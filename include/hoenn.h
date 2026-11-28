@@ -53,7 +53,7 @@ u16 HoennSpeciesDueCall(void);
 u16 HoennHiddenDueCall(void);
 u16 HoennLaneADueCall(void); // src/hoenn_lane_a.c (lane setup, Nov 27)
 u32 HoennObjectPaletteSpecies(u32 species); // src/hoenn_lane_a.c (part 27b)
-u32 HoennRadioUnownBroadcast(const u8 **lines, u8 *line); // src/hoenn_lane_a.c (part 28): the Ruins' Unown station
+u32 HoennRadioUnownBroadcast(const u8 **lines, u8 *line, u8 *line2); // src/hoenn_lane_a.c (part 28): the Ruins' Unown station (a radio segment builder since 2.1 part 02)
 bool32 HoennLaneAOnStep(void); // src/hoenn_lane_a.c (part 32: the Ampharos ride)
 bool32 HoennLaneAFollowerOverride(u32 *species, bool32 *shiny, bool32 *female); // src/hoenn_lane_a.c (part 32)
 u16 HoennLaneBDueCall(void); // src/hoenn_lane_b.c
@@ -109,5 +109,7 @@ static inline void HoennTuneRoamerMon(u32 roamerIndex, struct Pokemon *mon) { }
 static inline void HoennRoamerBattleEnded(u32 roamerIndex) { }
 #define HOENN_TRAINER_MON_LEVEL(trainer, level) (level)
 #endif
+
+#include "hoenn_2_1.h" // Hoenn & Seek 2.1's declarations, by track
 
 #endif // GUARD_HOENN_H

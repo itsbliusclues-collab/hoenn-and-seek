@@ -8,7 +8,8 @@
 //
 // - HoennLaneBDueCall(): lane B's PokéGear event calls. The chain is
 //   GetDueEventCall (src/hoenn_phone.c) → HoennSpeciesDueCall → HoennHiddenDueCall
-//   → HoennLaneADueCall → HoennLaneBDueCall. Add one `if` per call, in the order
+//   → HoennLaneADueCall → HoennLaneBDueCall (→ 2.1: Hoenn21ADueCall → Hoenn21BDueCall).
+//   Add one `if` per call, in the order
 //   they should ring; IDs come from lane B's range in constants/hoenn_phone.h.
 #include "global.h"
 #include "battle.h"
@@ -74,7 +75,7 @@ u16 HoennLaneBDueCall(void)
     // Part 35a: May, once the OLD SEA MAP is whole (a Vermilion sailor saw it).
     if (HoennSeaMapPieceCount() == HOENN_MEW_SIGHTINGS && !FlagGet(FLAG_HOENN_CALL_MEW))
         return HOENN_CALL_MEW;
-    return HOENN_CALL_NONE; // the end of the chain
+    return Hoenn21ADueCall(); // 2.1's two tracks (src/hoenn_2_1_a.c, then _b.c)
 }
 
 // ---------------------------------------------------------------------------

@@ -74,6 +74,13 @@ enum RadioStation
     NUM_RADIO_STATIONS,
 };
 
+#if IS_HNS // Hoenn & Seek 2.1: src/hoenn_radio.c names the stations by these numbers
+STATIC_ASSERT(HOENN_RADIO_POKEMON_TALK == RADIO_STATION_POKEMON_TALK && HOENN_RADIO_UNOWN == RADIO_STATION_UNOWN
+           && HOENN_RADIO_HOENN_SOUND == RADIO_STATION_HOENN_SOUND && HOENN_RADIO_STATION_COUNT == NUM_RADIO_STATIONS
+           && HOENN_RADIO_MAX_LINES == MAX_RADIO_LINES && HOENN_RADIO_LINE_BUF_SIZE == RADIO_LINE_BUF_SIZE
+           && HOENN_RADIO_SEGMENT_BUFFERS <= NUM_RADIO_LINE_BUFS, HoennRadioStationsMatch);
+#endif
+
 struct RadioChannelEntry
 {
     s32 tuningPos;
@@ -459,7 +466,9 @@ static void GenerateOPTSegment(struct Pokenav_Radio *radio)
     case OPT_PHASE_INTRO:
         radio->lines[n++] = sRadioText_OPT_Intro;
         radio->lines[n++] = sRadioText_OPT_WithMeMary;
-        n += HoennRadioEusineReport(&radio->lines[n], radio->lineBuffers[0], radio->lineBuffers[1]); // Hoenn & Seek 2.0 part 35b: EUSINE's notes
+#if IS_HNS // Hoenn & Seek 2.1: news segments (src/hoenn_radio.c; 2.0's EUSINE notes are one)
+        n += HoennRadioSegments(RADIO_STATION_POKEMON_TALK, &radio->lines[n], radio->lineBuffers[0], radio->lineBuffers[1], &buf);
+#endif
         radio->optPhase = OPT_PHASE_POKEMON;
         break;
 
@@ -693,6 +702,11 @@ static void GenerateStationContent(struct Pokenav_Radio *radio, u8 station)
     u32 buf = 0;
     u8 *dst;
 
+#if IS_HNS // Hoenn & Seek 2.1: news segments before the broadcast (src/hoenn_radio.c); OAK's show has them in its intro
+    if (station != RADIO_STATION_POKEMON_TALK)
+        n = HoennRadioSegments(station, radio->lines, radio->lineBuffers[0], radio->lineBuffers[1], &buf);
+#endif
+
     switch (station)
     {
     case RADIO_STATION_POKEMON_TALK:
@@ -897,7 +911,8 @@ static void GenerateStationContent(struct Pokenav_Radio *radio, u8 station)
         break;
 
     case RADIO_STATION_UNOWN:
-        n += HoennRadioUnownBroadcast(&radio->lines[n], radio->lineBuffers[0]); // Hoenn & Seek 2.0 part 28: the cipher's signal
+        // Hoenn & Seek: the cipher's signal (2.0 part 28) is a news segment now,
+        // added above with the others (src/hoenn_radio.c).
         break;
 
     case RADIO_STATION_POKE_FLUTE:

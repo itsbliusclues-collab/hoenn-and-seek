@@ -43,6 +43,20 @@ static const u8 sLevelCapTable_Hard[] =
     [8] = 54,
 };
 
+#if IS_HNS
+// Hoenn & Seek 2.1 (part 02): the Normal LEVEL CAP for your badges whatever the
+// challenge setting says, for opponents who follow your progress (the
+// scaled-opponent ladder, src/hoenn_scaling.c). The same tables as below.
+u32 HoennNormalLevelCap(void)
+{
+    u8 badgeCount = GetCurrentBadgeCount();
+
+    if (badgeCount >= 8)
+        return HoennGetPostJohtoLevelCap(sLevelCapTable_Normal[8], FALSE);
+    return sLevelCapTable_Normal[badgeCount];
+}
+#endif
+
 u32 GetCurrentLevelCap(void)
 {
     static const u32 sLevelCapFlagMap[][2] =

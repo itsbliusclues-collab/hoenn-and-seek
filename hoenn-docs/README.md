@@ -12,7 +12,9 @@ These docs live in the repo so any Claude session, on any account, sees the same
 | `2.0-plan.md` | Every 2.0 design decision, the repo check results and a master to-do list |
 | `playtest-checklist.md` | Things the emulator couldn't test, for Bryan's real playthrough. Add to it at the end of every part |
 | `lanes/` | **Two builder lanes + a reviewer (Nov 27):** the rules (`README.md`) and each lane's status. Read it before claiming a part |
-| `2.1-plan.md` | **Hoenn & Seek 2.1** (after 2.0 ships): Bryan's Nov 27 ideas and decisions (Seeker's Journal, swarms, Silver, friend trainers, second rival, leaders' weekends, gym redesign, homage NPCs) and the 2.1 order (2.1-01 on). **Nothing built yet** |
+| `2.1-plan.md` | **Hoenn & Seek 2.1**: Bryan's Nov 27 ideas and decisions (Seeker's Journal, swarms, Silver, friend trainers, second rival, leaders' weekends, gym redesign, homage NPCs) and the 2.1 order (2.1-01 on). **Being built since Nov 28** (Aidan: "go ahead and do 2.1") |
+| `2.1-tracks.md` | **Who builds which 2.1 part, in which order:** two builder tracks (A: systems and trainers, B: the world) + the reviewer; 2.2 (Pangea) numbered |
+| `tracks/` | **2.1's rules** (`README.md`: IDs, files, phone, radio, ladder) **and each track's status** (`track-a.md`, `track-b.md`). Read it before claiming a 2.1 part |
 | `review-notes.md` | Open items from Bryan's reviews (placement, look, unapproved choices) to adjust later. Mark them done when a part fixes one |
 | `../CLAUDE.md` | The technical memory: build commands, every subsystem's notes, conventions, ROM size table |
 
@@ -33,7 +35,7 @@ Older 1.0 background (design decisions, teams, the Aqua/Magma quests, world deta
 - emulator tests, with screenshots sent to him as a labeled grid
 - an edge-case pass for every event (wrong time/day/weather, coming back after, caught vs. knocked out vs. ran, full party and boxes, save and reload mid-chain, every text box read)
 - `CLAUDE.md` notes, the part's status in `2.0-roadmap.md`, untested items in `playtest-checklist.md`
-- a PR into `hoenn` from a `v2-NN-<slug>` branch (fixes to 1.0: `v1.1-<slug>`). Never commit to `master`; no force pushes
+- a PR into `hoenn` from a `v2-NN-<slug>` branch (2.1: `v2.1-NN-<slug>`; fixes to 1.0: `v1.1-<slug>`). Never commit to `master`; no force pushes
 
 ## How Bryan likes to work
 - **Quality over speed.** It's a hobby with no deadline. He'd rather a part take longer and be done well. Don't cut scope or testing to save time.
@@ -47,6 +49,8 @@ Older 1.0 background (design decisions, teams, the Aqua/Magma quests, world deta
 - **No Megas.**
 
 ## Working from three Claude accounts (since Nov 27)
+**2.1 (since Nov 28) works the same way in two *tracks*: `tracks/README.md` has its rules, which follow the lanes' below.**
+
 Aidan runs **two builders and a reviewer**, each on its own Claude account. They share nothing except GitHub, so the rules are in **`lanes/README.md`**; read it before starting anything. In short:
 - Each builder owns a **lane** (A or B) of parts, maps and ID ranges; status per lane in `lanes/lane-a.md` and `lanes/lane-b.md`. If you don't know which lane you are, ask Aidan.
 - Work on **one part at a time** in your lane. Open the PR as a draft, merge `hoenn` into your branch (no rebase, no force push), run `tools/hoenn/regen_all.sh`, rebuild, then mark it ready.

@@ -284,11 +284,13 @@ static void SpellWord(u8 *line, const u8 *word)
     *line = EOS;
 }
 
-// One hook line in the Unown station's case of the radio (src/pokenav_radio.c,
-// which only plays it at the Ruins of Alph). Nothing until the cipher opens,
-// then static until the Rosetta is read; after that a word, which changes each
-// week while you're looking for fragments and then follows the story.
-u32 HoennRadioUnownBroadcast(const u8 **lines, u8 *line)
+// The Unown station's broadcast (the radio only plays it at the Ruins of Alph).
+// Since 2.1 part 02 it's a news segment with a builder (data/hoenn/
+// radio_segments.json, src/hoenn_radio.c) instead of its own hook line in
+// src/pokenav_radio.c; line2 is unused. Nothing until the cipher opens, then
+// static until the Rosetta is read; after that a word, which changes each week
+// while you're looking for fragments and then follows the story.
+u32 HoennRadioUnownBroadcast(const u8 **lines, u8 *line, u8 *line2)
 {
     u32 week = VarGet(VAR_HOENN_WEEK_SEEN);
     const u8 *word = NULL;
