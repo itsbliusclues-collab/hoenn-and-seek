@@ -23,6 +23,8 @@ extern const u8 HoennSeek_Text_WallyPhone1[];
 // 2.1-15: ETHAN and LYRA, in data/scripts/hoenn_2_1_lane_a.inc.
 
 extern const u8 HoennSeek_Text_EthanPhone0[];
+extern const u8 HoennSeek_Text_EthanPhoneAnamaria[]; // 2.1-32 (data/scripts/hoenn_organizer.inc)
+extern const u8 HoennSeek_Text_LyraPhoneAnamaria[];
 extern const u8 HoennSeek_Text_EthanPhone1[];
 extern const u8 HoennSeek_Text_EthanPhone2[];
 extern const u8 HoennSeek_Text_EthanPhone3[];

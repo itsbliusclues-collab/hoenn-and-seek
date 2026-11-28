@@ -835,6 +835,7 @@ gSpecials::
 	def_special HoennLoadNeighborMarill
 	def_special HoennStartNeighborDemo
 	def_special HoennEndNeighborDemo
+	def_special HoennOrganizeBoxes @ 2.1-32
 	@ (end of 2.1 lane A's specials)
 
 	@ Hoenn & Seek 2.1, builder lane B: lane B's 2.1 specials go here

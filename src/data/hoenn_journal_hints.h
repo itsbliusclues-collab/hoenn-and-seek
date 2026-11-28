@@ -7,6 +7,7 @@ static const u16 sHintLineHeard[] = {
     0, // TIP_DAYCARE
     0, // TIP_BUG_CONTEST
     0, // TIP_CLOCK
+    0, // STORY_ANAMARIA
     0, // TIP_LEVEL_CAP
     0, // TIP_WEATHER
     0, // TIP_REMINDER_JK
