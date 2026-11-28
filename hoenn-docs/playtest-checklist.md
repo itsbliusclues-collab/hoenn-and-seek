@@ -693,3 +693,9 @@ Lane B's `## 2.0 part NN` sections go below this line, at the end of the file.
 - The ONIX DOLL with a full decoration PC: he keeps it until you make room (not emulator-tested).
 - His pool lines after the chain: ONIX or GEODUDE following you, a STEELIX in the party, LILEEP/ANORITH/OMANYTE/AERODACTYL/RELICANTH caught (the follower and party lines weren't tested in the emulator; the badge line was).
 - BRENDAN's call after the doll (needs his number). The SEEKER'S JOURNAL's Kanto page has BROCK's weekends, and it shows on TODAY on weekends.
+
+### 2.1-22 (Misty's weekend chain)
+- With MISTY's badge (and her ROUTE 25 cape date done), on four weekends: her ROUTE 20 beach, SEAFOAM 1F just inside the west entrance (MYSTIC WATER), CERULEAN GYM's pool (pick a finale, WATER STONE), the beach (STARMIE DOLL). Walk into SEAFOAM from ROUTE 20 to check she's in view from the entrance.
+- The gym on the rehearsal weekend: only the rehearsal MISTY shows (her gym object and STARMIE are away), and the gym's swimmers don't battle you on the way to her.
+- Her pool lines: STARMIE, PSYDUCK, GOLDUCK or LAPRAS following you (LAPRAS was tested), a GYARADOS in the party, the caught lines.
+- MAY's call after the doll.
