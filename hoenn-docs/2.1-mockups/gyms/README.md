@@ -28,3 +28,9 @@ Each sprite is a 32×32 frame; the groups below go by the biggest side of the vi
 | Medium | Azalea (Scyther 23×24), Blackthorn (Kingdra 22×24), Cerulean (Starmie 24×22), Vermilion (Raichu 24×22), Saffron (Alakazam 24×22), Mauville (Manectric 17×23), Sootopolis (Kingdra 22×24) |
 | Large | Violet (Noctowl 29×22), Olivine (Steelix 32×32), Pewter (Onix 22×29), Viridian (Rhyperior 27×21), Rustboro (Probopass 25×27), Dewford (Hariyama 29×25), Petalburg (Slaking 23×27), Fortree (Altaria 30×25) |
 | None | Cianwood, Cinnabar, Fuchsia, Mossdeep (no room, or the follower would give the gym's trick away) |
+
+### Rough mockup of each group (Nov 28)
+`gym_groups_mockup.png`: one gym per group, now vs. mockup, painted over the real layouts with the real sprites (rough: tiles copied and stretched, not final art).
+- **Small (Goldenrod):** a 4-wide rug with Whitney and Miltank side by side; the pot row above shrinks to 4 and a pot closes the gap on the right, so the rug reads as the middle.
+- **Medium (Cerulean):** the pedestal grows to 5 wide (platform widened to match): Misty, a gap, Starmie.
+- **Large (Pewter):** Onix behind Brock on the dais, replacing Golem.
