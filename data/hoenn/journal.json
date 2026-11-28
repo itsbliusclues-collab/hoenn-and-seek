@@ -268,6 +268,12 @@
      "found": [{"var": "VAR_HOENN_CHAIN_MISTY", "min": 4}],
      "heard": {"if": [{"var": "VAR_HOENN_CHAIN_MISTY", "min": 1}]},
      "when": {"days": ["SAT", "SUN"]}},
+    {"key": "BLUE_WEEKENDS", "page": "kanto", "hint": "BLUE's weekends?", "title": "BLUE goes home",
+     "rumor": "BLUE trains on ROUTE 22 every weekend. His grandpa and his sister say he never visits PALLET TOWN. Maybe he needs someone to come along.",
+     "found_text": "BLUE went home to PALLET TOWN: DAISY's stories, a talk in OAK's lab, and a PIDGEOT DOLL.",
+     "found": [{"var": "VAR_HOENN_CHAIN_BLUE", "min": 4}],
+     "heard": {"if": [{"var": "VAR_HOENN_CHAIN_BLUE", "min": 1}]},
+     "when": {"days": ["SAT", "SUN"]}},
 
     {"key": "MUDKIP_POND", "page": "hoenn", "hint": "A pond at dawn?", "title": "The MUDKIP pond",
      "rumor": "Every morning, a SWAMPERT brings two MUDKIP to a pond on ROUTE 102 to practice. When they all dive, rain is coming.",

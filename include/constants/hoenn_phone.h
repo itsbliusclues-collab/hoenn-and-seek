@@ -86,5 +86,6 @@
 #define HOENN_CALL_WEEKENDS (HOENN_CALL_21_LANE_B_FIRST + 0) // 2.1-18: May, the leaders' weekends
 #define HOENN_CALL_BROCK_CHAIN (HOENN_CALL_21_LANE_B_FIRST + 1) // 2.1-21: Brendan, Brock's ONIX DOLL
 #define HOENN_CALL_MISTY_CHAIN (HOENN_CALL_21_LANE_B_FIRST + 2) // 2.1-22: May, Misty's water show
+#define HOENN_CALL_BLUE_CHAIN  (HOENN_CALL_21_LANE_B_FIRST + 3) // 2.1-23: Brendan, Blue went home
 
 #endif // GUARD_CONSTANTS_HOENN_PHONE_H

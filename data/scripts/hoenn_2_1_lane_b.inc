@@ -12,6 +12,7 @@ HoennSeek_EventScript_PhoneEvent21LaneB::
 	case HOENN_CALL_WEEKENDS, HoennSeek_EventScript_CallWeekends @ 2.1-18
 	case HOENN_CALL_BROCK_CHAIN, HoennSeek_EventScript_CallBrockChain @ 2.1-21
 	case HOENN_CALL_MISTY_CHAIN, HoennSeek_EventScript_CallMistyChain @ 2.1-22
+	case HOENN_CALL_BLUE_CHAIN, HoennSeek_EventScript_CallBlueChain @ 2.1-23
 	releaseall @ no call matched: the end of the chain
 	end
 
@@ -543,5 +544,227 @@ HoennSeek_Text_CallMistyChain:
 	.string "You have to introduce me. I want\n"
 	.string "to put on a show like that in a\l"
 	.string "CONTEST someday!$"
+
+@ ---------------------------------------------------------------- 2.1-23: BLUE's weekend chain
+@ Same engine as BROCK's (src/hoenn_fan_chains.c). Four weekends: ROUTE 22 (his
+@ grandpa and sister say he never visits; he'll go if you come), DAISY's house
+@ in PALLET (her stories about him; a SOOTHE BELL), OAK's lab (OAK's question
+@ about great trainers; a RARE CANDY), ROUTE 22 again (DAISY's PIDGEOT DOLL).
+
+HoennSeek_EventScript_ChainSpot_BLUE::
+	goto_if_ge VAR_HOENN_CHAIN_BLUE, HOENN_CHAIN_DONE, HoennSeek_EventScript_ChainBluePool
+	setvar VAR_0x8004, HOENN_CHAIN_BLUE
+	specialvar VAR_RESULT, HoennChainStepReady
+	goto_if_eq VAR_RESULT, FALSE, HoennSeek_EventScript_ChainBlueSpotWait
+	goto_if_eq VAR_HOENN_CHAIN_BLUE, 0, HoennSeek_EventScript_ChainBlueStep1
+	goto_if_eq VAR_HOENN_CHAIN_BLUE, 3, HoennSeek_EventScript_ChainBlueStep4
+	setvar VAR_RESULT, FALSE
+	return
+
+HoennSeek_EventScript_ChainBluePool:
+	callnative HoennSeek_ChainPoolLine
+	.2byte HOENN_CHAIN_BLUE
+	goto_if_eq VAR_RESULT, FALSE, HoennSeek_EventScript_ChainBlueReturn
+	callstd MSGBOX_DEFAULT
+	setvar VAR_RESULT, TRUE
+HoennSeek_EventScript_ChainBlueReturn:
+	return
+
+HoennSeek_EventScript_ChainBlueSpotWait:
+	goto_if_ne VAR_HOENN_CHAIN_BLUE, 1, HoennSeek_EventScript_ChainBrockFalse
+	msgbox HoennSeek_Text_ChainBlueWaitDaisy, MSGBOX_DEFAULT
+	setvar VAR_RESULT, TRUE
+	return
+
+HoennSeek_EventScript_ChainBlueStep1:
+	msgbox HoennSeek_Text_ChainBlueStep1, MSGBOX_DEFAULT
+	setvar VAR_0x8004, HOENN_CHAIN_BLUE
+	special HoennChainStepDone
+	setvar VAR_RESULT, TRUE
+	return
+
+HoennSeek_EventScript_ChainBlueStep4:
+	msgbox HoennSeek_Text_ChainBlueStep4, MSGBOX_DEFAULT
+	givedecoration DECOR_PIDGEOT_DOLL
+	goto_if_eq VAR_RESULT, FALSE, HoennSeek_EventScript_ChainBlueNoRoom
+	setvar VAR_0x8004, HOENN_CHAIN_BLUE
+	special HoennChainStepDone
+	msgbox HoennSeek_Text_ChainBlueStep4After, MSGBOX_DEFAULT
+	setvar VAR_RESULT, TRUE
+	return
+
+HoennSeek_EventScript_ChainBlueNoRoom:
+	msgbox HoennSeek_Text_ChainBlueNoRoom, MSGBOX_DEFAULT
+	setvar VAR_RESULT, TRUE
+	return
+
+@ DAISY's house in PALLET TOWN: step 2 (stage 1), then the rest of that weekend.
+HoennSeek_EventScript_ChainBlueDaisy::
+	lock
+	faceplayer
+	setvar VAR_0x8004, HOENN_CHAIN_BLUE
+	specialvar VAR_RESULT, HoennChainStepReady
+	goto_if_eq VAR_RESULT, FALSE, HoennSeek_EventScript_ChainBlueDaisyAfter
+	msgbox HoennSeek_Text_ChainBlueDaisy1, MSGBOX_DEFAULT
+	giveitem ITEM_SOOTHE_BELL
+	msgbox HoennSeek_Text_ChainBlueDaisy2, MSGBOX_DEFAULT
+	setvar VAR_0x8004, HOENN_CHAIN_BLUE
+	special HoennChainStepDone
+	release
+	end
+
+HoennSeek_EventScript_ChainBlueDaisyAfter:
+	msgbox HoennSeek_Text_ChainBlueWaitLab, MSGBOX_DEFAULT
+	release
+	end
+
+@ OAK's lab: step 3 (stage 2), then the rest of that weekend.
+HoennSeek_EventScript_ChainBlueLab::
+	lock
+	faceplayer
+	setvar VAR_0x8004, HOENN_CHAIN_BLUE
+	specialvar VAR_RESULT, HoennChainStepReady
+	goto_if_eq VAR_RESULT, FALSE, HoennSeek_EventScript_ChainBlueLabAfter
+	msgbox HoennSeek_Text_ChainBlueLab1, MSGBOX_DEFAULT
+	message HoennSeek_Text_ChainBlueQuestion
+	waitmessage
+	dynmultichoice 18, 6, FALSE, 3, 0, DYN_MULTICHOICE_CB_NONE, HoennSeek_Text_ChainBluePower, HoennSeek_Text_ChainBlueFriends, HoennSeek_Text_ChainBlueRivals
+	goto_if_eq VAR_RESULT, 1, HoennSeek_EventScript_ChainBlueFriends
+	goto_if_eq VAR_RESULT, 2, HoennSeek_EventScript_ChainBlueRivals
+	msgbox HoennSeek_Text_ChainBluePowerReply, MSGBOX_DEFAULT
+	goto HoennSeek_EventScript_ChainBlueLabGift
+HoennSeek_EventScript_ChainBlueFriends:
+	msgbox HoennSeek_Text_ChainBlueFriendsReply, MSGBOX_DEFAULT
+	goto HoennSeek_EventScript_ChainBlueLabGift
+HoennSeek_EventScript_ChainBlueRivals:
+	msgbox HoennSeek_Text_ChainBlueRivalsReply, MSGBOX_DEFAULT
+HoennSeek_EventScript_ChainBlueLabGift:
+	msgbox HoennSeek_Text_ChainBlueLab2, MSGBOX_DEFAULT
+	giveitem ITEM_RARE_CANDY
+	msgbox HoennSeek_Text_ChainBlueLab3, MSGBOX_DEFAULT
+	setvar VAR_0x8004, HOENN_CHAIN_BLUE
+	special HoennChainStepDone
+	release
+	end
+
+HoennSeek_EventScript_ChainBlueLabAfter:
+	msgbox HoennSeek_Text_ChainBlueWaitRoute22, MSGBOX_DEFAULT
+	release
+	end
+
+HoennSeek_EventScript_CallBlueChain::
+	setflag FLAG_HOENN_CALL_BLUE_CHAIN
+	setspeaker HoennSeek_Text_NameBrendan
+	pokenavcall HoennSeek_Text_CallBlueChain
+	goto HoennSeek_EventScript_CallEnd
+
+HoennSeek_Text_ChainBlueStep1:
+	.string "Hey. You got a minute?\p"
+	.string "Gramps says I never visit. DAISY\n"
+	.string "says it too. Every time she calls.\p"
+	.string "Fine. I'll go home next weekend.\p"
+	.string "…Come with me? If you're there,\n"
+	.string "they'll ask you questions instead\l"
+	.string "of me. It's a good plan.\p"
+	.string "DAISY's house, in PALLET TOWN.\n"
+	.string "Don't make me wait!$"
+
+HoennSeek_Text_ChainBlueWaitDaisy:
+	.string "Next weekend, DAISY's house in\n"
+	.string "PALLET TOWN. Don't bail on me.$"
+
+HoennSeek_Text_ChainBlueDaisy1:
+	.string "You came. Good. DAISY's been telling\n"
+	.string "stories since I walked in.\p"
+	.string "The one where my PIDGEY flew off\n"
+	.string "and I cried for a whole day? Not\l"
+	.string "true. It was half a day.\p"
+	.string "She wants you to have this. She\n"
+	.string "says it's for putting up with me.$"
+
+HoennSeek_Text_ChainBlueDaisy2:
+	.string "Gramps wants to see my team at\n"
+	.string "the lab next weekend.\p"
+	.string "You're coming to that too. That's\n"
+	.string "not a question.$"
+
+HoennSeek_Text_ChainBlueWaitLab:
+	.string "Next weekend, Gramps's lab. Don't\n"
+	.string "be late, he notices.$"
+
+HoennSeek_Text_ChainBlueLab1:
+	.string "Gramps looked over my whole team.\n"
+	.string "He said they're in great shape.\p"
+	.string "Then he asked me something I\n"
+	.string "couldn't answer. So I'll ask you.$"
+
+HoennSeek_Text_ChainBlueQuestion:
+	.string "What makes a great trainer?$"
+
+HoennSeek_Text_ChainBluePower:
+	.string "Strong POKéMON$"
+
+HoennSeek_Text_ChainBlueFriends:
+	.string "Caring for them$"
+
+HoennSeek_Text_ChainBlueRivals:
+	.string "A good rival$"
+
+HoennSeek_Text_ChainBluePowerReply:
+	.string "Strong POKéMON. That's what I\n"
+	.string "said when I was ten. Gramps just\l"
+	.string "laughed. Now I get why.$"
+
+HoennSeek_Text_ChainBlueFriendsReply:
+	.string "Caring for them… That's what\n"
+	.string "Gramps told me, way back when I\l"
+	.string "lost to RED. I didn't listen then.$"
+
+HoennSeek_Text_ChainBlueRivalsReply:
+	.string "A good rival, huh? Ha! Then I'm\n"
+	.string "a great trainer, because I've\l"
+	.string "got the best one.$"
+
+HoennSeek_Text_ChainBlueLab2:
+	.string "Gramps said to give you this. He\n"
+	.string "says you're a good influence.$"
+
+HoennSeek_Text_ChainBlueLab3:
+	.string "I'm back on ROUTE 22 next weekend.\n"
+	.string "DAISY said she's got something\l"
+	.string "for you. Come and get it.$"
+
+HoennSeek_Text_ChainBlueWaitRoute22:
+	.string "Next weekend, ROUTE 22. DAISY's\n"
+	.string "sending something for you.$"
+
+HoennSeek_Text_ChainBlueStep4:
+	.string "There you are. DAISY made this\n"
+	.string "for you. She made me carry it all\l"
+	.string "the way here.\p"
+	.string "It's a PIDGEOT. Like mine. Not as\n"
+	.string "cool as mine, obviously.$"
+
+HoennSeek_Text_ChainBlueStep4After:
+	.string "It's in your PC.\p"
+	.string "…Hey. Thanks for coming home with\n"
+	.string "me. Don't make it weird. Smell ya\l"
+	.string "later, {PLAYER}!$"
+
+HoennSeek_Text_ChainBlueNoRoom:
+	.string "Your PC's full? Of course it is.\n"
+	.string "Clear some space. I'll hold on to\l"
+	.string "it, but only because DAISY said so.$"
+
+HoennSeek_Text_CallBlueChain:
+	.string "{PLAYER}! It's BRENDAN.\p"
+	.string "I went to challenge BLUE at the\n"
+	.string "VIRIDIAN GYM, and he spent the\l"
+	.string "whole time bragging about you!\p"
+	.string "He said you went home to PALLET\n"
+	.string "TOWN with him to see PROF. OAK.\p"
+	.string "Then he said, “Don't tell anyone\n"
+	.string "I said that.” So, uh, I didn't!\l"
+	.string "Except you. Bye!$"
 
 	.include "data/scripts/hoenn_fan_chains.inc"

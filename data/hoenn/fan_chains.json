@@ -66,6 +66,30 @@
         {"if": [{"defeated": "TRAINER_RED_HNS"}], "text": "You beat RED? He swam to the SEAFOAM ISLANDS once. In jeans. I still don't know how."},
         {"if": [{"badges_min": 16}], "text": "Sixteen BADGES? You've seen more gyms than I have pools. Well, almost."}
       ]
+    },
+    {
+      "key": "BLUE", "id": "HOENN_CHAIN_BLUE", "leader": "BLUE", "part": "2.1-23",
+      "stage_var": "VAR_HOENN_CHAIN_BLUE", "weekend_var": "VAR_HOENN_CHAIN_BLUE_WEEKEND",
+      "steps": ["spot", "FLAG_HOENN_CHAIN_BLUE_DAISY", "FLAG_HOENN_CHAIN_BLUE_LAB", "spot"],
+      "pool": [
+        {"text": "Gramps calls every Sunday now. Every Sunday! This is your fault, you know."},
+        {"text": "DAISY made a PIDGEOT DOLL for my GYM. I put it in the back. Way in the back."},
+        {"text": "This road goes to the LEAGUE. I was CHAMPION for about five minutes once. Best five minutes ever."},
+        {"text": ["Smell ya later!", "...What? It's a classic. You'll miss it when I'm gone."]},
+        {"if": [{"follower": "PIDGEOT"}], "text": "A PIDGEOT, huh? Mine was my first catch, back when it was a PIDGEY. Yours looks almost as fast."},
+        {"if": [{"follower": "RHYPERIOR"}], "text": "Your RHYPERIOR looks tough. Mine's tougher. Want to settle it at my GYM sometime?"},
+        {"if": [{"follower": "ARCANINE"}], "text": "An ARCANINE! Mine still chases its tail when it thinks I'm not looking. Don't tell anyone."},
+        {"if": [{"follower": "EEVEE"}], "text": "An EEVEE! Gramps gave me one once. I couldn't pick what to evolve it into for weeks."},
+        {"if": [{"party": "TYRANITAR"}], "text": "You've got a TYRANITAR too? Good. Now we're even. Almost."},
+        {"if": [{"caught": "MEW"}], "text": "You caught MEW?! Gramps would cry. Seriously, don't tell him, he'll make it a whole thing."},
+        {"if": [{"caught": "MEWTWO"}], "text": "MEWTWO... I heard it was in the cave by CERULEAN. You went in there? Okay, I'm impressed."},
+        {"if": [{"flag": "FLAG_HOENN_STAMP_GYM_5"}], "text": "You beat NORMAN in PETALBURG? A GYM LEADER whose kids are trainers too. Sounds exhausting."},
+        {"if": [{"flag": "FLAG_HOENN_STAMP_WALLACE"}], "text": "HOENN's CHAMPION is a contest star? Huh. I bet he never had to beat his own rival in his grandpa's lab."},
+        {"if": [{"flag": "FLAG_HOENN_BEAT_BM"}], "text": "BRENDAN and MAY say you beat them both at once. They talk about you a lot. It's annoying."},
+        {"if": [{"var": "VAR_HOENN_CHAIN_BROCK", "min": 4}, {"var": "VAR_HOENN_CHAIN_MISTY", "min": 4}], "text": "You helped BROCK and MISTY too? You're making the rest of us KANTO LEADERS look lazy."},
+        {"if": [{"defeated": "TRAINER_RED_HNS"}], "text": "You beat RED. I've never beaten him. Not once. ...Okay, not lately."},
+        {"if": [{"badges_min": 16}], "text": "Sixteen BADGES. Mine's one of them. Don't forget that."}
+      ]
     }
   ]
 }

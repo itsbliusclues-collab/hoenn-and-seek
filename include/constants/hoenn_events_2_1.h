@@ -168,5 +168,11 @@
 #define VAR_HOENN_CHAIN_MISTY_WEEKEND  (HOENN_21_LANE_B_VARS + 7)
 #define HOENN_CHAIN_BROCK 0 // VAR_0x8004 for the chain specials (the order of fan_chains.json)
 #define HOENN_CHAIN_MISTY 1
+#define FLAG_HOENN_CHAIN_BLUE_DAISY    (HOENN_21_CHAIN_FLAGS + 8)  // hides Blue at DAISY's house
+#define FLAG_HOENN_CHAIN_BLUE_LAB      (HOENN_21_CHAIN_FLAGS + 9)  // hides Blue in OAK's lab
+#define FLAG_HOENN_CALL_BLUE_CHAIN     (HOENN_21_CHAIN_FLAGS + 11) // Brendan's call once the doll is yours
+#define VAR_HOENN_CHAIN_BLUE           (HOENN_21_LANE_B_VARS + 8)
+#define VAR_HOENN_CHAIN_BLUE_WEEKEND   (HOENN_21_LANE_B_VARS + 9)
+#define HOENN_CHAIN_BLUE  2
 #define HOENN_CHAIN_DONE  4 // every chain has four steps
 #endif // GUARD_CONSTANTS_HOENN_EVENTS_2_1_H

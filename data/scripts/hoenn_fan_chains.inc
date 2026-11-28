@@ -111,3 +111,54 @@ HoennSeek_Text_ChainPool_MISTY_16::
 
 HoennSeek_Text_ChainPool_MISTY_17::
 	.string "Sixteen BADGES? You've seen more\ngyms than I have pools.\lWell, almost.$"
+
+HoennSeek_Text_ChainPool_BLUE_0::
+	.string "Gramps calls every Sunday now.\nEvery Sunday! This is your fault,\lyou know.$"
+
+HoennSeek_Text_ChainPool_BLUE_1::
+	.string "DAISY made a PIDGEOT DOLL for my\nGYM. I put it in the back. Way in\lthe back.$"
+
+HoennSeek_Text_ChainPool_BLUE_2::
+	.string "This road goes to the LEAGUE. I\nwas CHAMPION for about five\lminutes once. Best five\lminutes ever.$"
+
+HoennSeek_Text_ChainPool_BLUE_3::
+	.string "Smell ya later!\p...What? It's a classic. You'll\nmiss it when I'm gone.$"
+
+HoennSeek_Text_ChainPool_BLUE_4::
+	.string "A PIDGEOT, huh? Mine was my first\ncatch, back when it was a PIDGEY.\lYours looks almost as fast.$"
+
+HoennSeek_Text_ChainPool_BLUE_5::
+	.string "Your RHYPERIOR looks tough. Mine's\ntougher. Want to settle it at my\lGYM sometime?$"
+
+HoennSeek_Text_ChainPool_BLUE_6::
+	.string "An ARCANINE! Mine still chases its\ntail when it thinks I'm not\llooking. Don't tell anyone.$"
+
+HoennSeek_Text_ChainPool_BLUE_7::
+	.string "An EEVEE! Gramps gave me one once.\nI couldn't pick what to evolve it\linto for weeks.$"
+
+HoennSeek_Text_ChainPool_BLUE_8::
+	.string "You've got a TYRANITAR too? Good.\nNow we're even. Almost.$"
+
+HoennSeek_Text_ChainPool_BLUE_9::
+	.string "You caught MEW?! Gramps would cry.\nSeriously, don't tell him, he'll\lmake it a whole thing.$"
+
+HoennSeek_Text_ChainPool_BLUE_10::
+	.string "MEWTWO... I heard it was in the\ncave by CERULEAN. You went in\lthere? Okay, I'm impressed.$"
+
+HoennSeek_Text_ChainPool_BLUE_11::
+	.string "You beat NORMAN in PETALBURG? A\nGYM LEADER whose kids are trainers\ltoo. Sounds exhausting.$"
+
+HoennSeek_Text_ChainPool_BLUE_12::
+	.string "HOENN's CHAMPION is a contest\nstar? Huh. I bet he never had to\lbeat his own rival in his\lgrandpa's lab.$"
+
+HoennSeek_Text_ChainPool_BLUE_13::
+	.string "BRENDAN and MAY say you beat them\nboth at once. They talk about you\la lot. It's annoying.$"
+
+HoennSeek_Text_ChainPool_BLUE_14::
+	.string "You helped BROCK and MISTY too?\nYou're making the rest of us KANTO\lLEADERS look lazy.$"
+
+HoennSeek_Text_ChainPool_BLUE_15::
+	.string "You beat RED. I've never beaten\nhim. Not once. ...Okay,\lnot lately.$"
+
+HoennSeek_Text_ChainPool_BLUE_16::
+	.string "Sixteen BADGES. Mine's one of\nthem. Don't forget that.$"

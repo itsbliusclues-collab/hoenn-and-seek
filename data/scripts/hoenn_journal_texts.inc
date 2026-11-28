@@ -601,6 +601,21 @@ HoennSeek_Text_JournalMistyWeekendsFoundText::
 HoennSeek_Text_JournalMistyWeekendsWhen::
 	.string "All day.$"
 
+HoennSeek_Text_JournalBlueWeekendsHint::
+	.string "BLUE's weekends?$"
+
+HoennSeek_Text_JournalBlueWeekendsTitle::
+	.string "BLUE goes home$"
+
+HoennSeek_Text_JournalBlueWeekendsRumor::
+	.string "BLUE trains on ROUTE 22 every\nweekend. His grandpa and his\lsister say he never visits PALLET\lTOWN. Maybe he needs someone to\lcome along.$"
+
+HoennSeek_Text_JournalBlueWeekendsFoundText::
+	.string "BLUE went home to PALLET TOWN:\nDAISY's stories, a talk in OAK's\llab, and a PIDGEOT DOLL.$"
+
+HoennSeek_Text_JournalBlueWeekendsWhen::
+	.string "All day.$"
+
 HoennSeek_Text_JournalMudkipPondHint::
 	.string "A pond at dawn?$"
 

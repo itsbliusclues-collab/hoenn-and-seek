@@ -119,6 +119,9 @@ u16 Hoenn21LaneBDueCall(void)
     // 2.1-22: May saw MISTY's water show on TV.
     if (FlagGet(FLAG_HOENN_BM_PHONE) && HoennChainCallDue(HOENN_CHAIN_MISTY, FLAG_HOENN_CALL_MISTY_CHAIN))
         return HOENN_CALL_MISTY_CHAIN;
+    // 2.1-23: BLUE told Brendan himself, at the VIRIDIAN GYM.
+    if (FlagGet(FLAG_HOENN_BM_PHONE) && HoennChainCallDue(HOENN_CHAIN_BLUE, FLAG_HOENN_CALL_BLUE_CHAIN))
+        return HOENN_CALL_BLUE_CHAIN;
     return HOENN_CALL_NONE; // the end of the chain
 }
 

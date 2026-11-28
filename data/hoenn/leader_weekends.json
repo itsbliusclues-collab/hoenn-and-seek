@@ -245,7 +245,7 @@
     {
       "key": "BLUE", "slot": 15, "part": "2.1-19",
       "gym": "ViridianCity_Gym_hns", "trainer": "OBJ_EVENT_GFX_BLUE_HNS", "story_flag": "FLAG_HIDE_VIRIDIAN_BLUE",
-      "beaten": "FLAG_DEFEATED_VIRIDIAN_GYM", "guide": "ViridianCity_Gym_EventScript_GymGuy", "dojo": "FLAG_HIDE_DOJO_BLUE", "cameo": null,
+      "beaten": "FLAG_DEFEATED_VIRIDIAN_GYM", "guide": "ViridianCity_Gym_EventScript_GymGuy", "dojo": "FLAG_HIDE_DOJO_BLUE", "cameo": null, "chain": "HoennSeek_EventScript_ChainSpot_BLUE",
       "spot": {"map": "Route22_hns", "x": 30, "y": 10, "facing": "LEFT", "elevation": 3},
       "line": [
         "Hey! What, you think a GYM LEADER can't take a weekend?",
