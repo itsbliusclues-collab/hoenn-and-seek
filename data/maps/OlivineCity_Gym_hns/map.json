@@ -25,7 +25,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "OlivineCity_Gym_EventScript_Jasmine",
-      "flag": "FLAG_HIDE_OLIVINE_CITY_GYM_JASMINE"
+      "flag": "FLAG_HOENN_WEEKEND_GYM_JASMINE"
     },
     {
       "local_id": "LOCALID_OLIVINE_CITY_GYM_NPC2",
@@ -65,7 +65,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "OlivineCity_Gym_EventScript_GymGuide",
+      "script": "HoennSeek_EventScript_WeekendGuide_JASMINE",
       "flag": "0"
     },
     {
@@ -79,7 +79,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "HoennSeek_EventScript_TrainerFollower",
-      "flag": "FLAG_HIDE_OLIVINE_CITY_GYM_JASMINE"
+      "flag": "FLAG_HOENN_WEEKEND_GYM_JASMINE"
     }
   ],
   "warp_events": [

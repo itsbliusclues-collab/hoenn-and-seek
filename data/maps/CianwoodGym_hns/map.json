@@ -25,7 +25,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "CianwoodGym_EventScript_Chuck",
-      "flag": "0",
+      "flag": "FLAG_HOENN_WEEKEND_GYM_CHUCK",
       "local_id": "LOCALID_CIANWOOD_CHUCK"
     },
     {
