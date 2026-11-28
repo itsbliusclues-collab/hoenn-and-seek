@@ -152,8 +152,9 @@ def main():
         r = rumors[rid]
         b = text_label("Rumor%sBefore" % rid.title(), r["before"])
         a = text_label("Rumor%sAfter" % rid.title(), r["after"])
-        n = text_label("Rumor%sNotes" % rid.title(), r["notes"])
-        rumor_rows.append("    { %s, %s, %s, %s }, // %s" % (conds_c(r["found"]), b, a, n, rid))
+        # "notes" (the field notes' vague hints) are unused since 2.1-06: the
+        # field notes read the SEEKER'S JOURNAL's rumors (src/hoenn_journal.c).
+        rumor_rows.append("    { %s, %s, %s }, // %s" % (conds_c(r["found"]), b, a, rid))
     # Lines
     line_rows = []
     for lid in line_ids:
@@ -186,8 +187,10 @@ def main():
         npc_rows.append("    { (const u8[]){%s}, %d, %s }, // %s" % (", ".join(map(str, ids)), len(ids),
                                                                    "TRUE" if npc.get("always") else "FALSE", npc["map"]))
         inc += ["@ %s" % npc["map"],
-                "%s::" % wrapper,
-                "\tcallnative HoennSeek_NpcHint",
+                "%s::" % wrapper]
+        if npc.get("first"):  # 2.1-05: a script that may take over the talk (ends) or return
+            inc.append("\tcall %s" % npc["first"])
+        inc += ["\tcallnative HoennSeek_NpcHint",
                 "\t.2byte %d" % n,
                 "\tgoto_if_eq VAR_RESULT, FALSE, %s" % npc["script"],
                 "\tcallstd MSGBOX_NPC",
@@ -220,7 +223,8 @@ def main():
             "\tend", ""]
     texts.append(("HoennSeek_Text_FieldNotesIntro", wrap([
         "Oh, hello! I keep PROF. BIRCH's field notes on POKéMON rumors from all over.",
-        "You've confirmed {STR_VAR_1} of the {STR_VAR_2} rumors in my notes so far!"])))
+        "You've confirmed {STR_VAR_1} of the {STR_VAR_2} rumors in my notes so far!",
+        "They're in your SEEKER'S JOURNAL too, once you've heard of them."])))
     texts.append(("HoennSeek_Text_FieldNotesNext", wrap("Here's one nobody has confirmed yet…")))
     texts.append(("HoennSeek_Text_FieldNotesAllFound", wrap([
         "Every rumor in my notes, confirmed! You're a better field researcher than I am.",

@@ -577,7 +577,41 @@ Lane B's `## 2.0 part NN` sections go below this line, at the end of the file.
 # Hoenn & Seek 2.1 (built on `hoenn-2.1`)
 
 ## 2.1 lane A
-(2.1 lane A adds its sections here.)
+
+### 2.1-05 (the SEEKER'S JOURNAL, pages and rumors)
+- [ ] **Getting it:** after your first Johto badge, Elm's call ends by mentioning the JOURNAL; his aide in the lab gives it before anything else she says. On an old 2.0 save that already had Elm's call, talking to her still gives it. (Emulator-tested on the debug save.)
+- [ ] **Reading it on a real screen:** from the bag and from SELECT. Pages show "JOHTO 3/22"; long entry names (DUNSPARCE's burrow, The SEAFOAM titans) fit the list; the text boxes read well. Check a few rumor and found texts for anything that reads wrong for your save (e.g. Ho-Oh's entry counts as found if you caught Ho-Oh in the story).
+- [ ] **Hearing as you play:** talk to hint NPCs (their lines take turns since 2.0 part 38), take event calls and read the field notes; each event they mention turns from ??? into its question. Events you've already done show as found. (Emulator-tested: Elm's aide's starter line, the Saffron PC teacher, Brendan's pond call, the field notes.)
+- [ ] **Every entry reachable:** over the playthrough, every entry on all three pages should get past ??? before or when you find it. Note any that stays ??? until found: it needs a hint line.
+
+### 2.1-06 (the SEEKER'S JOURNAL: TODAY page, field notes, the professors' dolls)
+- [ ] **TODAY page:** it's listed first and the journal opens on it. It lists the events you've heard of that are on today or tonight (weekday events only on their day; night events by the night's weekday, so after midnight it still shows last night's); found ones drop off unless they come back (repeat). Picking one shows when ("In the morning or by day.") and then its rumor. (Emulator-tested on a Sunday with every entry heard: 40 listed.)
+- [ ] **Weather entries on TODAY:** Absol, Zapdos, the SEAFOAM titans, Castform and Masquerain only show on their route's special-weather day. Not tested in the emulator: check one on a storm/fog day.
+- [ ] **Is TODAY useful?** With everything heard it lists most events (about 40), because only weekday and weather rules filter it; times of day are shown, not filtered. If it reads like a second copy of the pages, say so and it can filter by the hour instead.
+- [ ] **Field notes:** Birch's aide counts found events out of all 62, then reads the first one you haven't heard of (Hoenn's page first, then Johto, Kanto), and it turns from ??? into its question in the journal. (Emulator-tested.)
+- [ ] **The professors' calls and dolls:** when a page is all found, its professor calls (Elm, Oak, Birch, outdoors, a few hundred steps apart) and gives the doll at the lab: CELEBI (Elm, New Bark), MEW (Oak, Pallet), JIRACHI (Birch, after his MUDKIP). The doll goes to the PC; place it in a secret base on a desk or mat. (Calls and gifts emulator-tested with every found flag poked; placing the dolls wasn't.)
+- [ ] **Full PC:** with the decoration PC full, the professor says to make room and gives it next time.
+
+### 2.1-07 (the daily swarm, Hoenn soil)
+- [ ] **The swarm:** each new day a different swarm (13 in all: Yanma 35, Snubbull 38, Marill 42, Galarian Slowpoke 33, Galarian Zigzagoon 34, Galarian Meowth 8, Galarian Mr. Mime 11, Galarian Farfetch'd 12, Galarian Weezing 16, Galarian Ponyta 17, Skitty 116, Nuzleaf 117, Galarian Corsola on Mt. Pyre's slopes). About 4 in 10 grass encounters on that route are the swarm, at the route's own levels. (Emulator-tested: Yanma and Nuzleaf 5 of 12 each; the roll never repeats yesterday's.)
+- [ ] **The news:** every TV opens with today's swarm; PROF. OAK's POKéDEX show on the radio says it too (the radio wasn't checked in the emulator); the journal's TODAY page lists "Today's swarm?" once you've heard, with today's species and route.
+- [ ] **Emerald's old outbreaks are gone:** no "mass outbreak" TV show any more (it sent Lv 3 Seedot to Route 35).
+- [ ] **Galarian forms:** catch one of each swarm-only form and check it looks right in battle, the summary and the Pokédex, and evolves (Galarian Slowpoke needs a GALARICA CUFF or WREATH, which may not be obtainable: say if you want one placed).
+- [ ] **Hoenn soil patches:** the 8 empty patches (Routes 104, 118, 121, 123) now ask to plant a BERRY; it grows and replants like every HnS tree. The WAILMER PAIL still does nothing, as in HnS. (Emulator-tested on Route 104.)
+
+### 2.1-08 (Silver keeps up)
+- [ ] **Indigo levels:** his rematch lead is your progress level: 68 before the Kanto League (HnS's own), then it rises with Kanto/Hoenn badges, 84 after Wallace, 86 after Brendan & May, 89 after Red (the ace is one higher). (Emulator-tested: 68, 69, 73, 84, 86 for tiers 0–4.)
+- [ ] **His teams:** after the Kanto League, after 4 Hoenn badges, after Wallace and after Brendan & May he brings a new team with a new intro (Weavile, then Magnezone, then Metagross, then Gengar). Is each tier a real step up? Is the last one too hard, or not hard enough, at your level?
+- [ ] **Mt. Moon:** if you meet him there late, he's scaled too (not tested in the emulator).
+- [ ] **Ever Grande:** after beating Wallace, Silver waits in the Pokémon League lobby; battling him there counts as the day's Indigo rematch too. (Emulator-tested: meet line, YES/NO, Metagross Lv 84.)
+- [ ] **Brendan & May:** the first time you talk to either at home after the League, they mention the red-haired trainer. (Emulator-tested.)
+- [ ] **Celebi:** with Celebi caught, the Viridian Pokémon Center bug catcher tells you to walk Route 22 with it following you (it must lead, follow, and be at full HP). After the scene, Silver at Indigo says his one-time line before his usual talk. (The line was emulator-tested; the rumor and the scene weren't.)
+
+### 2.1-09 (Silver's starter)
+- [ ] **His scenes:** in every Silver scene (Cherrygrove, Azalea, Burned Tower, Goldenrod Underground, Mahogany's hideout, Victory Road, Dragon's Den, Mt. Moon, Olivine, Ecruteak, Sprout Tower), his starter walks in behind him and leaves with him. Watch for scenes where it gets in the way or looks odd. (Emulator-tested: Rocket Hideout B3F, walking in and out.)
+- [ ] **Its form:** it's the form he used in your last battle with him (base, then middle after your second battle, final from the fourth). After a battle where it evolved, it shows the new form straight away (not tested: the swap after a battle).
+- [ ] **Standing still:** at Indigo (and Ever Grande, Mt. Moon) it stands behind or beside him; talk to it (cry + a line). (Emulator-tested at Indigo: Meganium.)
+- [ ] **After a battle with him** in a scene, it's still there next to him (not tested).
 
 ### 2.1-01 (friend sprite mockups)
 - **Placeholders:** Bridgette's, Aidan's and Brock's sprites are repaints of existing trainers. Bryan is designing the real ones; swap them in and look at them in game (front pic in battle, overworld walking all four ways) before 2.1 ships.
@@ -595,3 +629,17 @@ Lane B's `## 2.0 part NN` sections go below this line, at the end of the file.
 ### 2.1-04 (key-item pocket)
 - The KEY ITEMS pocket holds 80 now. Late in the game (lots of key items), scroll the pocket to the end, move an item (SELECT) across the 60th/61st place, register one past the 60th for SELECT and use it: everything should behave as in the first 60.
 - Load a 2.0 save: the key items are all there and nothing new appears at the end of the pocket.
+
+### 2.1-34 (teleport to base)
+- Make a real base, walk in once, then use Teleport from a route in another region: the menu should name your last healing town, SECRET BASE and CANCEL. SECRET BASE lands you inside; walking out puts you at the base's door.
+- A base full of decorations and dolls: everything should be there after teleporting in, as after walking in.
+- Move out (or use Secret Power somewhere new): Teleport goes back to HnS's YES/NO question until you walk into the new base.
+- Teleport in at night and in rain or fog: the base and the way back outside should look right.
+
+### 2.1-18 (Johto leaders' weekends)
+- On a Saturday or Sunday, after beating a Johto leader, their gym is empty and the gym guide says where they went. Visit each spot: Cherrygrove's beach (FALKNER), the NATIONAL PARK (BUGSY, not on contest days), MOOMOO FARM (WHITNEY), the DANCE THEATER (MORTY), MT. MORTAR's falls (CHUCK), ROUTE 40's beach (JASMINE), ROUTE 44's pond (PRYCE), LAKE OF RAGE's east shore (CLAIR). Each says a few lines; back in the gym on Monday.
+- A leader you haven't beaten yet stays in their gym on weekends (so a first challenge is never blocked).
+- After Kanto, when the Saffron Fighting Dojo has a leader's rematch: on a weekend that leader isn't at the Dojo, and talking to them at their spot offers the same rematch (and BP).
+- Change the day at a wall clock and go back outside: the leaders move with the calendar.
+- May calls once, the first weekend a leader is away (needs her number from BIRCH).
+- Load a save made inside a gym on a Friday and continue on Saturday: the leader is still there until you leave the map (expected; the next map load moves them).

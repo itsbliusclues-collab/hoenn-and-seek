@@ -65,9 +65,47 @@
 #define HOENN_LADDER_ELITE      2 // next Hoenn leader's ace - 1; 83 with 8 badges, 84 after Wallace (elite trainers)
 
 // ==== Lane A (2.1) ==========================================================
-// (no definitions yet)
 
-// ==== Lane B (2.1) ==========================================================
-// (no definitions yet)
+// ---- 2.1-05: the SEEKER'S JOURNAL (src/hoenn_journal.c) -------------------
+// Its heard flags are generated (one per event, tools/hoenn/gen_hoenn_journal.py
+// from data/hoenn/journal.json): FLAG_HOENN_HEARD_<KEY> in HOENN_21_JOURNAL_FLAGS,
+// numbers locked in data/hoenn/journal_flags.json.
+#include "constants/hoenn_journal.h"
+#define FLAG_HOENN_GOT_SEEKERS_JOURNAL (HOENN_21_LANE_A_FLAGS + 0x00) // Elm's aide gave it
 
+// ---- 2.1-06: the journal's rewards (a region's page all found) -------------
+#define FLAG_HOENN_JOURNAL_DOLL_JOHTO  (HOENN_21_LANE_A_FLAGS + 0x01) // Elm gave the CELEBI DOLL
+#define FLAG_HOENN_JOURNAL_DOLL_KANTO  (HOENN_21_LANE_A_FLAGS + 0x02) // Oak gave the MEW DOLL
+#define FLAG_HOENN_JOURNAL_DOLL_HOENN  (HOENN_21_LANE_A_FLAGS + 0x03) // Birch gave the JIRACHI DOLL
+#define FLAG_HOENN_CALL_JOURNAL_JOHTO  (HOENN_21_LANE_A_FLAGS + 0x04) // Elm's call rang
+#define FLAG_HOENN_CALL_JOURNAL_KANTO  (HOENN_21_LANE_A_FLAGS + 0x05) // Oak's
+#define FLAG_HOENN_CALL_JOURNAL_HOENN  (HOENN_21_LANE_A_FLAGS + 0x06) // Birch's
+
+// ---- 2.1-07: the daily swarm (src/hoenn_swarm.c) ----------------------------
+#define FLAG_HOENN_SWARM_MET           (HOENN_21_LANE_A_FLAGS + 0x07) // met a swarm Pokémon (the journal's found)
+#define VAR_HOENN_SWARM_TODAY          (HOENN_21_LANE_A_VARS + 0x00)  // today's row in sHoennSwarms + 1 (0 = not rolled yet)
+
+// ---- 2.1-08: SILVER keeps up (src/hoenn_silver.c) ---------------------------
+#define FLAG_HOENN_HIDE_SILVER_LEAGUE  (HOENN_21_LANE_A_FLAGS + 0x08) // his object at the Ever Grande Pokémon League (set until Wallace is beaten)
+#define FLAG_HOENN_MET_SILVER_HOENN    (HOENN_21_LANE_A_FLAGS + 0x09) // talked to him there once
+#define FLAG_HOENN_SILVER_CELEBI_LINE  (HOENN_21_LANE_A_FLAGS + 0x0A) // he told you what he remembered after the Route 22 scene
+#define FLAG_HOENN_BM_SILVER_LINE      (HOENN_21_LANE_A_FLAGS + 0x0B) // Brendan or May told you they met him
+
+// ==== Lane B (2.1) ============================================
+
+// 2.1-34: Teleport to your secret base. Your own base's entrance, recorded each
+// time you walk into it (HoennRecordBaseEntrance, src/hoenn_2_1_lane_b.c).
+#define VAR_HOENN_BASE_TELEPORT_ID   (HOENN_21_LANE_B_VARS + 0) // the base's secretBaseId; 0 = none recorded
+#define VAR_HOENN_BASE_TELEPORT_MAP  (HOENN_21_LANE_B_VARS + 1) // mapGroup << 8 | mapNum of the map outside
+#define VAR_HOENN_BASE_TELEPORT_XY   (HOENN_21_LANE_B_VARS + 2) // x | y << 8: the tile you walked in from
+// HoennTeleportGo's choice (VAR_RESULT): the menu's order.
+#define HOENN_TELEPORT_TO_CENTER 0
+#define HOENN_TELEPORT_TO_BASE   1
+
+// 2.1-18 to 20: gym leaders' weekends. Three flags per leader (gym, spot, dojo),
+// 24 leaders; the names are generated (constants/hoenn_weekends.h, from
+// data/hoenn/leader_weekends.json, whose "slot" picks the leader's three).
+#define HOENN_21_WEEKEND_FLAGS       (HOENN_21_LANE_B_FLAGS + 0x00) // 72 flags: +0x00-0x47
+#define FLAG_HOENN_CALL_WEEKENDS     (HOENN_21_LANE_B_FLAGS + 0x48) // May: the League's weekend memo
+#include "constants/hoenn_weekends.h"
 #endif // GUARD_CONSTANTS_HOENN_EVENTS_2_1_H

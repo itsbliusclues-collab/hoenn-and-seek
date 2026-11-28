@@ -1,4 +1,5 @@
 #include "global.h"
+#include "hoenn.h"
 #include "field_effect.h"
 #include "field_player_avatar.h"
 #include "fldeff.h"
@@ -27,6 +28,10 @@ bool32 SetUpFieldMove_Teleport(void)
 
 static void FieldCallback_Teleport(void)
 {
+#if IS_HNS
+    if (HoennTeleportOffersBase()) // Hoenn & Seek 2.1-34: POKéMON CENTER or SECRET BASE?
+        return;
+#endif
     Overworld_ResetStateAfterTeleport();
     FieldEffectStart(FLDEFF_USE_TELEPORT);
     gFieldEffectArguments[0] = (u32)GetCursorSelectionMonId();

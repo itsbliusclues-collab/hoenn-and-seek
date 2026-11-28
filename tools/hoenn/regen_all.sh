@@ -40,9 +40,12 @@ GENERATORS=(
     gen_hoenn_battle_bgs     # battle environments per map
     gen_hoenn_battle_art     # battle background art
     gen_hoenn_ow_mons        # overworld Pokémon (after map objects change)
+    gen_hoenn_weekends       # leaders' weekend spots, gym/Dojo flags (2.1-18; before followers)
     gen_hoenn_followers      # trainer followers (after trainers + ow mons)
     gen_hoenn_buildings      # opened buildings (before hints)
     gen_hoenn_hints          # hint NPC wrappers (after everything that moves objects)
+    gen_hoenn_swarms         # daily swarm table (2.1-07)
+    gen_hoenn_journal        # SEEKER'S JOURNAL table (2.1-05; after hints, reads their order)
     gen_hoenn_lights         # follow-the-lights paths (after layouts and objects)
     gen_hoenn_unown_tiles    # Ruins of Alph braille + glowing Unown blocks (2.0 part 27a)
     gen_hoenn_radio          # radio segments (2.1-02)

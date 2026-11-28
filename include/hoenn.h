@@ -58,7 +58,43 @@ bool32 HoennLaneAOnStep(void); // src/hoenn_lane_a.c (part 32: the Ampharos ride
 bool32 HoennLaneAFollowerOverride(u32 *species, bool32 *shiny, bool32 *female); // src/hoenn_lane_a.c (part 32)
 u16 HoennLaneBDueCall(void); // src/hoenn_lane_b.c
 u16 Hoenn21LaneADueCall(void); // src/hoenn_2_1_lane_a.c (2.1-02)
+void HoennUpdateLeaderWeekends(void); // 2.1-18: leaders' weekends (src/hoenn_2_1_lane_b.c)
 u16 Hoenn21LaneBDueCall(void); // src/hoenn_2_1_lane_b.c (2.1-02)
+// 2.1-05: the SEEKER'S JOURNAL (src/hoenn_journal.c, lane A)
+void HoennJournalHeardCall(u16 call); // an event call rang (HoennTryEventCall)
+void HoennJournalPushPages(void);     // special
+void HoennJournalPushEntries(void);   // special, page in VAR_0x8004
+struct ScriptContext;
+void HoennSeek_JournalEntryText(struct ScriptContext *ctx);
+// 2.1-06: the TODAY page, the field notes, the professors' rewards.
+void HoennSeek_JournalWhenText(struct ScriptContext *ctx);
+u32 HoennJournalCountFound(u32 *total);
+const u8 *HoennJournalFieldNote(void);
+bool32 HoennJournalPageComplete(u32 page);
+u16 HoennJournalPageDone(void); // specialvar, page in VAR_0x8004
+// 2.1-07: the daily swarm (src/hoenn_swarm.c) and soil planting (src/hoenn_2_1_lane_a.c)
+void HoennSwarmRoll(void);
+bool32 HoennSwarmHere(void);
+void HoennSwarmPick(u16 *species, u8 *level);
+void HoennSwarmMet(void);
+void HoennSwarmBufferNames(void); // special: STR_VAR_1 species, STR_VAR_2 map
+void HoennPlantBerryInSoil(void); // special: VAR_ITEM_ID into the soil patch you talked to
+// 2.1-08: SILVER's ladder and milestone teams (src/hoenn_silver.c)
+u32 HoennSilverTier(void);
+u16 HoennSilverTierForScript(void); // specialvar
+// 2.1-09: SILVER's starter walks behind him (src/hoenn_silver_starter.c)
+#define LOCALID_HOENN_SILVER_STARTER 250 // spawned, no template (IDs from 0xF0 need no map)
+void HoennSilverStarterUpdate(void);
+u16 HoennSilverStarterSpecies(void);
+u16 HoennSilverStarterForScript(void); // specialvar
+extern const u8 HoennSeek_EventScript_SilverStarter[];
+bool32 HoennIsSilverScaled(const struct Trainer *trainer);
+// Teleport to your secret base (src/hoenn_2_1_lane_b.c, 2.1-34)
+void HoennRecordBaseEntrance(u32 secretBaseId);
+bool32 HoennCanTeleportToBase(void);
+bool32 HoennTeleportOffersBase(void);
+bool32 HoennTeleportBaseDestination(void);
+void HoennPrepareOwnSecretBaseWarp(void); // src/secret_base.c
 // The Kangaskhan baby as your follower (src/hoenn_lane_b.c, 2.0 part 30a)
 bool32 HoennIsKangaBabyGfx(u32 species);
 u32 HoennFollowerPaletteSpecies(u32 species);

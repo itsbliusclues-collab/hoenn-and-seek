@@ -77,9 +77,12 @@
 #define HOENN_CALL_21_LANE_A_FIRST 100
 #define HOENN_CALL_21_LANE_A_LAST  129
 // (2.1 lane A's calls)
+#define HOENN_CALL_JOURNAL_JOHTO 100 // 2.1-06: Elm, the JOHTO page is all found
+#define HOENN_CALL_JOURNAL_KANTO 101 // Oak, KANTO
+#define HOENN_CALL_JOURNAL_HOENN 102 // Birch, HOENN
 
 #define HOENN_CALL_21_LANE_B_FIRST 130
 #define HOENN_CALL_21_LANE_B_LAST  159
-// (2.1 lane B's calls)
+#define HOENN_CALL_WEEKENDS (HOENN_CALL_21_LANE_B_FIRST + 0) // 2.1-18: May, the leaders' weekends
 
 #endif // GUARD_CONSTANTS_HOENN_PHONE_H

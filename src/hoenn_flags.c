@@ -18,6 +18,7 @@
 #include "hoenn_bag.h"
 #include "event_data.h"
 #include "hoenn_flags.h"
+#include "hoenn.h"
 #include "constants/flags.h"
 #include "constants/vars.h"
 #include "constants/hoenn_events.h"
@@ -247,6 +248,7 @@ void HoennClearDailyFlags(void)
         if (!IsNightlyFlag(i))
             FlagClear(i);
     }
+    HoennSwarmRoll(); // 2.1-07: a new day's swarm (src/hoenn_swarm.c)
 }
 
 // HoennUpdatePerNight (src/hoenn_time.c) calls this when a new night begins.

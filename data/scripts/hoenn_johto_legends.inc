@@ -73,6 +73,7 @@ HoennSeek_EventScript_TinTowerSage::
 	goto_if_ne VAR_COMPLETED_HO_OH, 4, TinTower_1F_EventScript_SageB
 	lock
 	faceplayer
+	setflag FLAG_HOENN_HEARD_HOOH_DAWN @ 2.1-05: the SEEKER'S JOURNAL
 	checkitem ITEM_CLEAR_BELL
 	goto_if_eq VAR_RESULT, FALSE, HoennSeek_EventScript_SageNoBell
 HoennSeek_EventScript_SageClue::
@@ -281,6 +282,7 @@ HoennSeek_EventScript_IlexShrine::
 	goto_if_ne VAR_AZALEA_TOWN_STATE, 9, IlexForest_EventScript_Shrine
 	goto_if_set FLAG_HOENN_SHRINE_OFFERED, IlexForest_EventScript_Shrine
 	lock
+	setflag FLAG_HOENN_HEARD_CELEBI_OFFERINGS @ 2.1-05: the SEEKER'S JOURNAL
 	specialvar VAR_RESULT, HoennForestOfferings
 	goto_if_eq VAR_RESULT, HOENN_SOIL_COUNT, HoennSeek_EventScript_ShrineOffer
 	msgbox HoennSeek_Text_ShrineDishes, MSGBOX_DEFAULT
