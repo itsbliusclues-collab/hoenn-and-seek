@@ -54,7 +54,6 @@ struct HoennHintRumor
     u8 foundCount;
     const u8 *before;
     const u8 *after;
-    const u8 *notes;  // the field-notes researcher's vague hint
 };
 
 struct HoennHintLine
@@ -86,10 +85,9 @@ struct HoennForecast
 #include "data/hoenn_journal_hints.h" // 2.1-05: each line's and rumor's journal heard flag
 
 STATIC_ASSERT(ARRAY_COUNT(sHintLineHeard) == ARRAY_COUNT(sHintLines), JournalHintLinesMatch);
-STATIC_ASSERT(ARRAY_COUNT(sHintRumorHeard) == ARRAY_COUNT(sHintRumors), JournalHintRumorsMatch);
 
-// 2.1-05: hearing a line (or a rumor, from the field notes) marks its
-// SEEKER'S JOURNAL entry as heard (data/hoenn/journal.json).
+// 2.1-05: hearing a line marks its SEEKER'S JOURNAL entry as heard
+// (data/hoenn/journal.json).
 static void NoteHeard(u16 flag)
 {
     if (flag != 0)
@@ -234,35 +232,26 @@ void HoennSeek_NpcHint(struct ScriptContext *ctx)
     gSpecialVar_Result = TRUE;
 }
 
-// callnative HoennSeek_FieldNotesCount: STR_VAR_1 = rumors found, STR_VAR_2 =
-// rumors in the notes, VAR_RESULT = how many are left.
+// The field notes (Birch's aide) read the SEEKER'S JOURNAL's table since
+// 2.1-06 (src/hoenn_journal.c): every event in it, not only the rumors here.
+// callnative HoennSeek_FieldNotesCount: STR_VAR_1 = events found, STR_VAR_2 =
+// events in the notes, VAR_RESULT = how many are left.
 void HoennSeek_FieldNotesCount(struct ScriptContext *ctx)
 {
-    u32 i, found = 0;
+    u32 total, found = HoennJournalCountFound(&total);
 
-    for (i = 0; i < ARRAY_COUNT(sHintRumors); i++)
-        if (IsRumorFound(i))
-            found++;
     ConvertIntToDecimalStringN(gStringVar1, found, STR_CONV_MODE_LEFT_ALIGN, 3);
-    ConvertIntToDecimalStringN(gStringVar2, ARRAY_COUNT(sHintRumors), STR_CONV_MODE_LEFT_ALIGN, 3);
-    gSpecialVar_Result = ARRAY_COUNT(sHintRumors) - found;
+    ConvertIntToDecimalStringN(gStringVar2, total, STR_CONV_MODE_LEFT_ALIGN, 3);
+    gSpecialVar_Result = total - found;
 }
 
-// callnative HoennSeek_FieldNotesHint: data[0] = the first unfound rumor's notes.
+// callnative HoennSeek_FieldNotesHint: data[0] = the rumor of the next event
+// he reads out (it goes in your journal as heard).
 void HoennSeek_FieldNotesHint(struct ScriptContext *ctx)
 {
-    u32 i;
+    const u8 *text = HoennJournalFieldNote();
 
-    for (i = 0; i < ARRAY_COUNT(sHintRumors); i++)
-    {
-        if (!IsRumorFound(i))
-        {
-            ctx->data[0] = (uintptr_t)sHintRumors[i].notes;
-            NoteHeard(sHintRumorHeard[i]);
-            return;
-        }
-    }
-    ctx->data[0] = (uintptr_t)sHintRumors[0].after; // not reached: the script checks the count first
+    ctx->data[0] = (uintptr_t)(text != NULL ? text : sHintRumors[0].after); // not NULL: the script checks the count first
 }
 
 // callnative HoennSeek_Forecast: VAR_RESULT = TRUE and the forecast in data[0]

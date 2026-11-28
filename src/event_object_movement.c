@@ -3998,6 +3998,8 @@ static const u8 *GetObjectEventScriptPointerByLocalIdAndMap(u8 localId, u8 mapNu
 #if IS_HNS
     if (localId == OBJ_EVENT_ID_FOLLOWER && HoennFollowerScript() != NULL) // Hoenn & Seek (2.0 part 30a)
         return HoennFollowerScript();
+    if (localId == LOCALID_HOENN_SILVER_STARTER) // Hoenn & Seek (2.1-09)
+        return HoennSeek_EventScript_SilverStarter;
 #endif
     if (localId == OBJ_EVENT_ID_FOLLOWER)
         return EventScript_Follower;

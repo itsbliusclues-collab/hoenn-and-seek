@@ -3,148 +3,102 @@
 
 extern const u8 HoennSeek_Text_Hint_RumorCastformBefore[];
 extern const u8 HoennSeek_Text_Hint_RumorCastformAfter[];
-extern const u8 HoennSeek_Text_Hint_RumorCastformNotes[];
 extern const u8 HoennSeek_Text_Hint_RumorFeebasBefore[];
 extern const u8 HoennSeek_Text_Hint_RumorFeebasAfter[];
-extern const u8 HoennSeek_Text_Hint_RumorFeebasNotes[];
 extern const u8 HoennSeek_Text_Hint_RumorMasquerainBefore[];
 extern const u8 HoennSeek_Text_Hint_RumorMasquerainAfter[];
-extern const u8 HoennSeek_Text_Hint_RumorMasquerainNotes[];
 extern const u8 HoennSeek_Text_Hint_RumorLaprasBefore[];
 extern const u8 HoennSeek_Text_Hint_RumorLaprasAfter[];
-extern const u8 HoennSeek_Text_Hint_RumorLaprasNotes[];
 extern const u8 HoennSeek_Text_Hint_RumorRaltsBefore[];
 extern const u8 HoennSeek_Text_Hint_RumorRaltsAfter[];
-extern const u8 HoennSeek_Text_Hint_RumorRaltsNotes[];
 extern const u8 HoennSeek_Text_Hint_RumorMachampBefore[];
 extern const u8 HoennSeek_Text_Hint_RumorMachampAfter[];
-extern const u8 HoennSeek_Text_Hint_RumorMachampNotes[];
 extern const u8 HoennSeek_Text_Hint_RumorScizorBefore[];
 extern const u8 HoennSeek_Text_Hint_RumorScizorAfter[];
-extern const u8 HoennSeek_Text_Hint_RumorScizorNotes[];
 extern const u8 HoennSeek_Text_Hint_RumorGengarBefore[];
 extern const u8 HoennSeek_Text_Hint_RumorGengarAfter[];
-extern const u8 HoennSeek_Text_Hint_RumorGengarNotes[];
 extern const u8 HoennSeek_Text_Hint_RumorSageBefore[];
 extern const u8 HoennSeek_Text_Hint_RumorSageAfter[];
-extern const u8 HoennSeek_Text_Hint_RumorSageNotes[];
 extern const u8 HoennSeek_Text_Hint_RumorMunchlaxBefore[];
 extern const u8 HoennSeek_Text_Hint_RumorMunchlaxAfter[];
-extern const u8 HoennSeek_Text_Hint_RumorMunchlaxNotes[];
 extern const u8 HoennSeek_Text_Hint_RumorSpindaBefore[];
 extern const u8 HoennSeek_Text_Hint_RumorSpindaAfter[];
-extern const u8 HoennSeek_Text_Hint_RumorSpindaNotes[];
 extern const u8 HoennSeek_Text_Hint_RumorSlakingBefore[];
 extern const u8 HoennSeek_Text_Hint_RumorSlakingAfter[];
-extern const u8 HoennSeek_Text_Hint_RumorSlakingNotes[];
 extern const u8 HoennSeek_Text_Hint_RumorTropiusBefore[];
 extern const u8 HoennSeek_Text_Hint_RumorTropiusAfter[];
-extern const u8 HoennSeek_Text_Hint_RumorTropiusNotes[];
 extern const u8 HoennSeek_Text_Hint_RumorFeudBefore[];
 extern const u8 HoennSeek_Text_Hint_RumorFeudAfter[];
-extern const u8 HoennSeek_Text_Hint_RumorFeudNotes[];
 extern const u8 HoennSeek_Text_Hint_RumorAbsolBefore[];
 extern const u8 HoennSeek_Text_Hint_RumorAbsolAfter[];
-extern const u8 HoennSeek_Text_Hint_RumorAbsolNotes[];
 extern const u8 HoennSeek_Text_Hint_RumorWailordBefore[];
 extern const u8 HoennSeek_Text_Hint_RumorWailordAfter[];
-extern const u8 HoennSeek_Text_Hint_RumorWailordNotes[];
 extern const u8 HoennSeek_Text_Hint_RumorChimechoBefore[];
 extern const u8 HoennSeek_Text_Hint_RumorChimechoAfter[];
-extern const u8 HoennSeek_Text_Hint_RumorChimechoNotes[];
 extern const u8 HoennSeek_Text_Hint_RumorChorusBefore[];
 extern const u8 HoennSeek_Text_Hint_RumorChorusAfter[];
-extern const u8 HoennSeek_Text_Hint_RumorChorusNotes[];
 extern const u8 HoennSeek_Text_Hint_RumorBagonBefore[];
 extern const u8 HoennSeek_Text_Hint_RumorBagonAfter[];
-extern const u8 HoennSeek_Text_Hint_RumorBagonNotes[];
 extern const u8 HoennSeek_Text_Hint_RumorMetagrossBefore[];
 extern const u8 HoennSeek_Text_Hint_RumorMetagrossAfter[];
-extern const u8 HoennSeek_Text_Hint_RumorMetagrossNotes[];
 extern const u8 HoennSeek_Text_Hint_RumorDesert_SongBefore[];
 extern const u8 HoennSeek_Text_Hint_RumorDesert_SongAfter[];
-extern const u8 HoennSeek_Text_Hint_RumorDesert_SongNotes[];
 extern const u8 HoennSeek_Text_Hint_RumorMirage_TowerBefore[];
 extern const u8 HoennSeek_Text_Hint_RumorMirage_TowerAfter[];
-extern const u8 HoennSeek_Text_Hint_RumorMirage_TowerNotes[];
 extern const u8 HoennSeek_Text_Hint_RumorNight_DiveBefore[];
 extern const u8 HoennSeek_Text_Hint_RumorNight_DiveAfter[];
-extern const u8 HoennSeek_Text_Hint_RumorNight_DiveNotes[];
 extern const u8 HoennSeek_Text_Hint_RumorTrench_GuardiansBefore[];
 extern const u8 HoennSeek_Text_Hint_RumorTrench_GuardiansAfter[];
-extern const u8 HoennSeek_Text_Hint_RumorTrench_GuardiansNotes[];
 extern const u8 HoennSeek_Text_Hint_RumorIce_ChamberBefore[];
 extern const u8 HoennSeek_Text_Hint_RumorIce_ChamberAfter[];
-extern const u8 HoennSeek_Text_Hint_RumorIce_ChamberNotes[];
 extern const u8 HoennSeek_Text_Hint_RumorIce_FroslassBefore[];
 extern const u8 HoennSeek_Text_Hint_RumorIce_FroslassAfter[];
-extern const u8 HoennSeek_Text_Hint_RumorIce_FroslassNotes[];
 extern const u8 HoennSeek_Text_Hint_RumorHoney_TrailBefore[];
 extern const u8 HoennSeek_Text_Hint_RumorHoney_TrailAfter[];
-extern const u8 HoennSeek_Text_Hint_RumorHoney_TrailNotes[];
 extern const u8 HoennSeek_Text_Hint_RumorMoltres_FlyoverBefore[];
 extern const u8 HoennSeek_Text_Hint_RumorMoltres_FlyoverAfter[];
-extern const u8 HoennSeek_Text_Hint_RumorMoltres_FlyoverNotes[];
 extern const u8 HoennSeek_Text_Hint_RumorOnix_BoreBefore[];
 extern const u8 HoennSeek_Text_Hint_RumorOnix_BoreAfter[];
-extern const u8 HoennSeek_Text_Hint_RumorOnix_BoreNotes[];
 extern const u8 HoennSeek_Text_Hint_RumorDunsparce_BurrowBefore[];
 extern const u8 HoennSeek_Text_Hint_RumorDunsparce_BurrowAfter[];
-extern const u8 HoennSeek_Text_Hint_RumorDunsparce_BurrowNotes[];
 extern const u8 HoennSeek_Text_Hint_RumorTangela_VinesBefore[];
 extern const u8 HoennSeek_Text_Hint_RumorTangela_VinesAfter[];
-extern const u8 HoennSeek_Text_Hint_RumorTangela_VinesNotes[];
 extern const u8 HoennSeek_Text_Hint_RumorKanga_BabyBefore[];
 extern const u8 HoennSeek_Text_Hint_RumorKanga_BabyAfter[];
-extern const u8 HoennSeek_Text_Hint_RumorKanga_BabyNotes[];
 extern const u8 HoennSeek_Text_Hint_RumorTauros_StampedeBefore[];
 extern const u8 HoennSeek_Text_Hint_RumorTauros_StampedeAfter[];
-extern const u8 HoennSeek_Text_Hint_RumorTauros_StampedeNotes[];
 extern const u8 HoennSeek_Text_Hint_RumorSeafoam_TitansBefore[];
 extern const u8 HoennSeek_Text_Hint_RumorSeafoam_TitansAfter[];
-extern const u8 HoennSeek_Text_Hint_RumorSeafoam_TitansNotes[];
 extern const u8 HoennSeek_Text_Hint_RumorEnigma_ShardsBefore[];
 extern const u8 HoennSeek_Text_Hint_RumorEnigma_ShardsAfter[];
-extern const u8 HoennSeek_Text_Hint_RumorEnigma_ShardsNotes[];
 extern const u8 HoennSeek_Text_Hint_RumorMansion_JournalBefore[];
 extern const u8 HoennSeek_Text_Hint_RumorMansion_JournalAfter[];
-extern const u8 HoennSeek_Text_Hint_RumorMansion_JournalNotes[];
 extern const u8 HoennSeek_Text_Hint_RumorMew_BlurBefore[];
 extern const u8 HoennSeek_Text_Hint_RumorMew_BlurAfter[];
-extern const u8 HoennSeek_Text_Hint_RumorMew_BlurNotes[];
+extern const u8 HoennSeek_Text_Hint_RumorCelebi_MemoryBefore[];
+extern const u8 HoennSeek_Text_Hint_RumorCelebi_MemoryAfter[];
 extern const u8 HoennSeek_Text_Hint_RumorLugia_SongBefore[];
 extern const u8 HoennSeek_Text_Hint_RumorLugia_SongAfter[];
-extern const u8 HoennSeek_Text_Hint_RumorLugia_SongNotes[];
 extern const u8 HoennSeek_Text_Hint_RumorJirachiBefore[];
 extern const u8 HoennSeek_Text_Hint_RumorJirachiAfter[];
-extern const u8 HoennSeek_Text_Hint_RumorJirachiNotes[];
 extern const u8 HoennSeek_Text_Hint_RumorDeoxys_SignalBefore[];
 extern const u8 HoennSeek_Text_Hint_RumorDeoxys_SignalAfter[];
-extern const u8 HoennSeek_Text_Hint_RumorDeoxys_SignalNotes[];
 extern const u8 HoennSeek_Text_Hint_RumorRegi_DoorsBefore[];
 extern const u8 HoennSeek_Text_Hint_RumorRegi_DoorsAfter[];
-extern const u8 HoennSeek_Text_Hint_RumorRegi_DoorsNotes[];
 extern const u8 HoennSeek_Text_Hint_RumorUnown_CipherBefore[];
 extern const u8 HoennSeek_Text_Hint_RumorUnown_CipherAfter[];
-extern const u8 HoennSeek_Text_Hint_RumorUnown_CipherNotes[];
 extern const u8 HoennSeek_Text_Hint_RumorIce_ThiefBefore[];
 extern const u8 HoennSeek_Text_Hint_RumorIce_ThiefAfter[];
-extern const u8 HoennSeek_Text_Hint_RumorIce_ThiefNotes[];
 extern const u8 HoennSeek_Text_Hint_RumorLanturn_LightsBefore[];
 extern const u8 HoennSeek_Text_Hint_RumorLanturn_LightsAfter[];
-extern const u8 HoennSeek_Text_Hint_RumorLanturn_LightsNotes[];
 extern const u8 HoennSeek_Text_Hint_RumorAmpharos_RescueBefore[];
 extern const u8 HoennSeek_Text_Hint_RumorAmpharos_RescueAfter[];
-extern const u8 HoennSeek_Text_Hint_RumorAmpharos_RescueNotes[];
 extern const u8 HoennSeek_Text_Hint_RumorHooh_DawnBefore[];
 extern const u8 HoennSeek_Text_Hint_RumorHooh_DawnAfter[];
-extern const u8 HoennSeek_Text_Hint_RumorHooh_DawnNotes[];
 extern const u8 HoennSeek_Text_Hint_RumorForest_OfferingsBefore[];
 extern const u8 HoennSeek_Text_Hint_RumorForest_OfferingsAfter[];
-extern const u8 HoennSeek_Text_Hint_RumorForest_OfferingsNotes[];
 extern const u8 HoennSeek_Text_Hint_RumorSky_Pillar_MuralBefore[];
 extern const u8 HoennSeek_Text_Hint_RumorSky_Pillar_MuralAfter[];
-extern const u8 HoennSeek_Text_Hint_RumorSky_Pillar_MuralNotes[];
 extern const u8 HoennSeek_Text_Hint_LineTipDaycare[];
 extern const u8 HoennSeek_Text_Hint_LineTipBugContest[];
 extern const u8 HoennSeek_Text_Hint_LineTipClock[];
@@ -245,54 +199,55 @@ extern const u8 HoennSeek_Text_Hint_Forecast9[];
 extern const u8 HoennSeek_Text_Hint_Forecast10[];
 
 static const struct HoennHintRumor sHintRumors[] = {
-    { (const struct HoennHintCond[]){{HINT_IF_CAUGHT, SPECIES_CASTFORM, 0}}, 1, HoennSeek_Text_Hint_RumorCastformBefore, HoennSeek_Text_Hint_RumorCastformAfter, HoennSeek_Text_Hint_RumorCastformNotes }, // CASTFORM
-    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_FEEBAS_PRISM_GIVEN, 0}}, 1, HoennSeek_Text_Hint_RumorFeebasBefore, HoennSeek_Text_Hint_RumorFeebasAfter, HoennSeek_Text_Hint_RumorFeebasNotes }, // FEEBAS
-    { (const struct HoennHintCond[]){{HINT_IF_CAUGHT, SPECIES_MASQUERAIN, 0}}, 1, HoennSeek_Text_Hint_RumorMasquerainBefore, HoennSeek_Text_Hint_RumorMasquerainAfter, HoennSeek_Text_Hint_RumorMasquerainNotes }, // MASQUERAIN
-    { (const struct HoennHintCond[]){{HINT_IF_CAUGHT, SPECIES_LAPRAS, 0}}, 1, HoennSeek_Text_Hint_RumorLaprasBefore, HoennSeek_Text_Hint_RumorLaprasAfter, HoennSeek_Text_Hint_RumorLaprasNotes }, // LAPRAS
-    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_RALTS_DONE, 0}}, 1, HoennSeek_Text_Hint_RumorRaltsBefore, HoennSeek_Text_Hint_RumorRaltsAfter, HoennSeek_Text_Hint_RumorRaltsNotes }, // RALTS
-    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_KIYO_BLACK_BELT, 0}}, 1, HoennSeek_Text_Hint_RumorMachampBefore, HoennSeek_Text_Hint_RumorMachampAfter, HoennSeek_Text_Hint_RumorMachampNotes }, // MACHAMP
-    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_SCIZOR_QUICK_CLAW, 0}}, 1, HoennSeek_Text_Hint_RumorScizorBefore, HoennSeek_Text_Hint_RumorScizorAfter, HoennSeek_Text_Hint_RumorScizorNotes }, // SCIZOR
-    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_GENGAR_DONE, 0}}, 1, HoennSeek_Text_Hint_RumorGengarBefore, HoennSeek_Text_Hint_RumorGengarAfter, HoennSeek_Text_Hint_RumorGengarNotes }, // GENGAR
-    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_SLOWKING_PROPHECY, 0}}, 1, HoennSeek_Text_Hint_RumorSageBefore, HoennSeek_Text_Hint_RumorSageAfter, HoennSeek_Text_Hint_RumorSageNotes }, // SAGE
-    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_MUNCHLAX_DONE, 0}}, 1, HoennSeek_Text_Hint_RumorMunchlaxBefore, HoennSeek_Text_Hint_RumorMunchlaxAfter, HoennSeek_Text_Hint_RumorMunchlaxNotes }, // MUNCHLAX
-    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_SPINDA_MET, 0}}, 1, HoennSeek_Text_Hint_RumorSpindaBefore, HoennSeek_Text_Hint_RumorSpindaAfter, HoennSeek_Text_Hint_RumorSpindaNotes }, // SPINDA
-    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_SLAKING_DONE, 0}}, 1, HoennSeek_Text_Hint_RumorSlakingBefore, HoennSeek_Text_Hint_RumorSlakingAfter, HoennSeek_Text_Hint_RumorSlakingNotes }, // SLAKING
-    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_TROPIUS_MET, 0}}, 1, HoennSeek_Text_Hint_RumorTropiusBefore, HoennSeek_Text_Hint_RumorTropiusAfter, HoennSeek_Text_Hint_RumorTropiusNotes }, // TROPIUS
-    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_FEUD_MET, 0}}, 1, HoennSeek_Text_Hint_RumorFeudBefore, HoennSeek_Text_Hint_RumorFeudAfter, HoennSeek_Text_Hint_RumorFeudNotes }, // FEUD
-    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_ABSOL_WOKEN, 0}}, 1, HoennSeek_Text_Hint_RumorAbsolBefore, HoennSeek_Text_Hint_RumorAbsolAfter, HoennSeek_Text_Hint_RumorAbsolNotes }, // ABSOL
-    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_WAILORD_MOVED, 0}}, 1, HoennSeek_Text_Hint_RumorWailordBefore, HoennSeek_Text_Hint_RumorWailordAfter, HoennSeek_Text_Hint_RumorWailordNotes }, // WAILORD
-    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_CHIMECHO_MET, 0}}, 1, HoennSeek_Text_Hint_RumorChimechoBefore, HoennSeek_Text_Hint_RumorChimechoAfter, HoennSeek_Text_Hint_RumorChimechoNotes }, // CHIMECHO
-    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_CHORUS_WATCHED, 0}}, 1, HoennSeek_Text_Hint_RumorChorusBefore, HoennSeek_Text_Hint_RumorChorusAfter, HoennSeek_Text_Hint_RumorChorusNotes }, // CHORUS
-    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_BAGON_MET, 0}}, 1, HoennSeek_Text_Hint_RumorBagonBefore, HoennSeek_Text_Hint_RumorBagonAfter, HoennSeek_Text_Hint_RumorBagonNotes }, // BAGON
-    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_METAGROSS_SEEN, 0}}, 1, HoennSeek_Text_Hint_RumorMetagrossBefore, HoennSeek_Text_Hint_RumorMetagrossAfter, HoennSeek_Text_Hint_RumorMetagrossNotes }, // METAGROSS
-    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_GOT_SINGING_SAND, 0}}, 1, HoennSeek_Text_Hint_RumorDesert_SongBefore, HoennSeek_Text_Hint_RumorDesert_SongAfter, HoennSeek_Text_Hint_RumorDesert_SongNotes }, // DESERT_SONG
-    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_CAUGHT_FLYGON, 0}}, 1, HoennSeek_Text_Hint_RumorMirage_TowerBefore, HoennSeek_Text_Hint_RumorMirage_TowerAfter, HoennSeek_Text_Hint_RumorMirage_TowerNotes }, // MIRAGE_TOWER
-    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_TRENCH_ENTERED, 0}}, 1, HoennSeek_Text_Hint_RumorNight_DiveBefore, HoennSeek_Text_Hint_RumorNight_DiveAfter, HoennSeek_Text_Hint_RumorNight_DiveNotes }, // NIGHT_DIVE
-    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_TRENCH_DOOR_OPEN, 0}}, 1, HoennSeek_Text_Hint_RumorTrench_GuardiansBefore, HoennSeek_Text_Hint_RumorTrench_GuardiansAfter, HoennSeek_Text_Hint_RumorTrench_GuardiansNotes }, // TRENCH_GUARDIANS
-    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_ICE_CHAMBER_FOUND, 0}}, 1, HoennSeek_Text_Hint_RumorIce_ChamberBefore, HoennSeek_Text_Hint_RumorIce_ChamberAfter, HoennSeek_Text_Hint_RumorIce_ChamberNotes }, // ICE_CHAMBER
-    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_ICE_FROSLASS_MET, 0}}, 1, HoennSeek_Text_Hint_RumorIce_FroslassBefore, HoennSeek_Text_Hint_RumorIce_FroslassAfter, HoennSeek_Text_Hint_RumorIce_FroslassNotes }, // ICE_FROSLASS
-    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_MOON_HOLLOW_FOUND, 0}}, 1, HoennSeek_Text_Hint_RumorHoney_TrailBefore, HoennSeek_Text_Hint_RumorHoney_TrailAfter, HoennSeek_Text_Hint_RumorHoney_TrailNotes }, // HONEY_TRAIL
-    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_MOLTRES_CAMEO, 0}}, 1, HoennSeek_Text_Hint_RumorMoltres_FlyoverBefore, HoennSeek_Text_Hint_RumorMoltres_FlyoverAfter, HoennSeek_Text_Hint_RumorMoltres_FlyoverNotes }, // MOLTRES_FLYOVER
-    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_ONIX_FOUND, 0}}, 1, HoennSeek_Text_Hint_RumorOnix_BoreBefore, HoennSeek_Text_Hint_RumorOnix_BoreAfter, HoennSeek_Text_Hint_RumorOnix_BoreNotes }, // ONIX_BORE
-    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_DUDUNSPARCE_CAUGHT, 0}}, 1, HoennSeek_Text_Hint_RumorDunsparce_BurrowBefore, HoennSeek_Text_Hint_RumorDunsparce_BurrowAfter, HoennSeek_Text_Hint_RumorDunsparce_BurrowNotes }, // DUNSPARCE_BURROW
-    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_TANGELA_SEEN, 0}}, 1, HoennSeek_Text_Hint_RumorTangela_VinesBefore, HoennSeek_Text_Hint_RumorTangela_VinesAfter, HoennSeek_Text_Hint_RumorTangela_VinesNotes }, // TANGELA_VINES
-    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_KANGA_REUNITED, 0}}, 1, HoennSeek_Text_Hint_RumorKanga_BabyBefore, HoennSeek_Text_Hint_RumorKanga_BabyAfter, HoennSeek_Text_Hint_RumorKanga_BabyNotes }, // KANGA_BABY
-    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_STAMPEDE_LEADER_CAUGHT, 0}}, 1, HoennSeek_Text_Hint_RumorTauros_StampedeBefore, HoennSeek_Text_Hint_RumorTauros_StampedeAfter, HoennSeek_Text_Hint_RumorTauros_StampedeNotes }, // TAUROS_STAMPEDE
-    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_TITANS_MET, 0}}, 1, HoennSeek_Text_Hint_RumorSeafoam_TitansBefore, HoennSeek_Text_Hint_RumorSeafoam_TitansAfter, HoennSeek_Text_Hint_RumorSeafoam_TitansNotes }, // SEAFOAM_TITANS
-    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_GOT_ENIGMA_STONE, 0}}, 1, HoennSeek_Text_Hint_RumorEnigma_ShardsBefore, HoennSeek_Text_Hint_RumorEnigma_ShardsAfter, HoennSeek_Text_Hint_RumorEnigma_ShardsNotes }, // ENIGMA_SHARDS
-    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_MEWTWO_MET, 0}}, 1, HoennSeek_Text_Hint_RumorMansion_JournalBefore, HoennSeek_Text_Hint_RumorMansion_JournalAfter, HoennSeek_Text_Hint_RumorMansion_JournalNotes }, // MANSION_JOURNAL
-    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_MEW_BLUR_SEEN, 0}}, 1, HoennSeek_Text_Hint_RumorMew_BlurBefore, HoennSeek_Text_Hint_RumorMew_BlurAfter, HoennSeek_Text_Hint_RumorMew_BlurNotes }, // MEW_BLUR
-    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_LUGIA_SHRINE_OPEN, 0}}, 1, HoennSeek_Text_Hint_RumorLugia_SongBefore, HoennSeek_Text_Hint_RumorLugia_SongAfter, HoennSeek_Text_Hint_RumorLugia_SongNotes }, // LUGIA_SONG
-    { (const struct HoennHintCond[]){{HINT_IF_CAUGHT, SPECIES_JIRACHI, 0}}, 1, HoennSeek_Text_Hint_RumorJirachiBefore, HoennSeek_Text_Hint_RumorJirachiAfter, HoennSeek_Text_Hint_RumorJirachiNotes }, // JIRACHI
-    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_DEOXYS_TICKET, 0}}, 1, HoennSeek_Text_Hint_RumorDeoxys_SignalBefore, HoennSeek_Text_Hint_RumorDeoxys_SignalAfter, HoennSeek_Text_Hint_RumorDeoxys_SignalNotes }, // DEOXYS_SIGNAL
-    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_REGI_OPEN_ROCK, 0}, {HINT_IF_FLAG, FLAG_HOENN_REGI_OPEN_ICE, 0}, {HINT_IF_FLAG, FLAG_HOENN_REGI_OPEN_STEEL, 0}}, 3, HoennSeek_Text_Hint_RumorRegi_DoorsBefore, HoennSeek_Text_Hint_RumorRegi_DoorsAfter, HoennSeek_Text_Hint_RumorRegi_DoorsNotes }, // REGI_DOORS
-    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_CIPHER_INSCRIPTION, 0}}, 1, HoennSeek_Text_Hint_RumorUnown_CipherBefore, HoennSeek_Text_Hint_RumorUnown_CipherAfter, HoennSeek_Text_Hint_RumorUnown_CipherNotes }, // UNOWN_CIPHER
-    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_SNEASEL_STASH, 0}}, 1, HoennSeek_Text_Hint_RumorIce_ThiefBefore, HoennSeek_Text_Hint_RumorIce_ThiefAfter, HoennSeek_Text_Hint_RumorIce_ThiefNotes }, // ICE_THIEF
-    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_LAGOON_FOUND, 0}}, 1, HoennSeek_Text_Hint_RumorLanturn_LightsBefore, HoennSeek_Text_Hint_RumorLanturn_LightsAfter, HoennSeek_Text_Hint_RumorLanturn_LightsNotes }, // LANTURN_LIGHTS
-    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_RESCUED_AMPHAROS, 0}}, 1, HoennSeek_Text_Hint_RumorAmpharos_RescueBefore, HoennSeek_Text_Hint_RumorAmpharos_RescueAfter, HoennSeek_Text_Hint_RumorAmpharos_RescueNotes }, // AMPHAROS_RESCUE
-    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_HOOH_RAINBOW, 0}}, 1, HoennSeek_Text_Hint_RumorHooh_DawnBefore, HoennSeek_Text_Hint_RumorHooh_DawnAfter, HoennSeek_Text_Hint_RumorHooh_DawnNotes }, // HOOH_DAWN
-    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_SHRINE_OFFERED, 0}}, 1, HoennSeek_Text_Hint_RumorForest_OfferingsBefore, HoennSeek_Text_Hint_RumorForest_OfferingsAfter, HoennSeek_Text_Hint_RumorForest_OfferingsNotes }, // FOREST_OFFERINGS
-    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_GOT_JADE_ORB, 0}}, 1, HoennSeek_Text_Hint_RumorSky_Pillar_MuralBefore, HoennSeek_Text_Hint_RumorSky_Pillar_MuralAfter, HoennSeek_Text_Hint_RumorSky_Pillar_MuralNotes }, // SKY_PILLAR_MURAL
+    { (const struct HoennHintCond[]){{HINT_IF_CAUGHT, SPECIES_CASTFORM, 0}}, 1, HoennSeek_Text_Hint_RumorCastformBefore, HoennSeek_Text_Hint_RumorCastformAfter }, // CASTFORM
+    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_FEEBAS_PRISM_GIVEN, 0}}, 1, HoennSeek_Text_Hint_RumorFeebasBefore, HoennSeek_Text_Hint_RumorFeebasAfter }, // FEEBAS
+    { (const struct HoennHintCond[]){{HINT_IF_CAUGHT, SPECIES_MASQUERAIN, 0}}, 1, HoennSeek_Text_Hint_RumorMasquerainBefore, HoennSeek_Text_Hint_RumorMasquerainAfter }, // MASQUERAIN
+    { (const struct HoennHintCond[]){{HINT_IF_CAUGHT, SPECIES_LAPRAS, 0}}, 1, HoennSeek_Text_Hint_RumorLaprasBefore, HoennSeek_Text_Hint_RumorLaprasAfter }, // LAPRAS
+    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_RALTS_DONE, 0}}, 1, HoennSeek_Text_Hint_RumorRaltsBefore, HoennSeek_Text_Hint_RumorRaltsAfter }, // RALTS
+    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_KIYO_BLACK_BELT, 0}}, 1, HoennSeek_Text_Hint_RumorMachampBefore, HoennSeek_Text_Hint_RumorMachampAfter }, // MACHAMP
+    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_SCIZOR_QUICK_CLAW, 0}}, 1, HoennSeek_Text_Hint_RumorScizorBefore, HoennSeek_Text_Hint_RumorScizorAfter }, // SCIZOR
+    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_GENGAR_DONE, 0}}, 1, HoennSeek_Text_Hint_RumorGengarBefore, HoennSeek_Text_Hint_RumorGengarAfter }, // GENGAR
+    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_SLOWKING_PROPHECY, 0}}, 1, HoennSeek_Text_Hint_RumorSageBefore, HoennSeek_Text_Hint_RumorSageAfter }, // SAGE
+    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_MUNCHLAX_DONE, 0}}, 1, HoennSeek_Text_Hint_RumorMunchlaxBefore, HoennSeek_Text_Hint_RumorMunchlaxAfter }, // MUNCHLAX
+    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_SPINDA_MET, 0}}, 1, HoennSeek_Text_Hint_RumorSpindaBefore, HoennSeek_Text_Hint_RumorSpindaAfter }, // SPINDA
+    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_SLAKING_DONE, 0}}, 1, HoennSeek_Text_Hint_RumorSlakingBefore, HoennSeek_Text_Hint_RumorSlakingAfter }, // SLAKING
+    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_TROPIUS_MET, 0}}, 1, HoennSeek_Text_Hint_RumorTropiusBefore, HoennSeek_Text_Hint_RumorTropiusAfter }, // TROPIUS
+    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_FEUD_MET, 0}}, 1, HoennSeek_Text_Hint_RumorFeudBefore, HoennSeek_Text_Hint_RumorFeudAfter }, // FEUD
+    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_ABSOL_WOKEN, 0}}, 1, HoennSeek_Text_Hint_RumorAbsolBefore, HoennSeek_Text_Hint_RumorAbsolAfter }, // ABSOL
+    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_WAILORD_MOVED, 0}}, 1, HoennSeek_Text_Hint_RumorWailordBefore, HoennSeek_Text_Hint_RumorWailordAfter }, // WAILORD
+    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_CHIMECHO_MET, 0}}, 1, HoennSeek_Text_Hint_RumorChimechoBefore, HoennSeek_Text_Hint_RumorChimechoAfter }, // CHIMECHO
+    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_CHORUS_WATCHED, 0}}, 1, HoennSeek_Text_Hint_RumorChorusBefore, HoennSeek_Text_Hint_RumorChorusAfter }, // CHORUS
+    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_BAGON_MET, 0}}, 1, HoennSeek_Text_Hint_RumorBagonBefore, HoennSeek_Text_Hint_RumorBagonAfter }, // BAGON
+    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_METAGROSS_SEEN, 0}}, 1, HoennSeek_Text_Hint_RumorMetagrossBefore, HoennSeek_Text_Hint_RumorMetagrossAfter }, // METAGROSS
+    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_GOT_SINGING_SAND, 0}}, 1, HoennSeek_Text_Hint_RumorDesert_SongBefore, HoennSeek_Text_Hint_RumorDesert_SongAfter }, // DESERT_SONG
+    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_CAUGHT_FLYGON, 0}}, 1, HoennSeek_Text_Hint_RumorMirage_TowerBefore, HoennSeek_Text_Hint_RumorMirage_TowerAfter }, // MIRAGE_TOWER
+    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_TRENCH_ENTERED, 0}}, 1, HoennSeek_Text_Hint_RumorNight_DiveBefore, HoennSeek_Text_Hint_RumorNight_DiveAfter }, // NIGHT_DIVE
+    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_TRENCH_DOOR_OPEN, 0}}, 1, HoennSeek_Text_Hint_RumorTrench_GuardiansBefore, HoennSeek_Text_Hint_RumorTrench_GuardiansAfter }, // TRENCH_GUARDIANS
+    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_ICE_CHAMBER_FOUND, 0}}, 1, HoennSeek_Text_Hint_RumorIce_ChamberBefore, HoennSeek_Text_Hint_RumorIce_ChamberAfter }, // ICE_CHAMBER
+    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_ICE_FROSLASS_MET, 0}}, 1, HoennSeek_Text_Hint_RumorIce_FroslassBefore, HoennSeek_Text_Hint_RumorIce_FroslassAfter }, // ICE_FROSLASS
+    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_MOON_HOLLOW_FOUND, 0}}, 1, HoennSeek_Text_Hint_RumorHoney_TrailBefore, HoennSeek_Text_Hint_RumorHoney_TrailAfter }, // HONEY_TRAIL
+    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_MOLTRES_CAMEO, 0}}, 1, HoennSeek_Text_Hint_RumorMoltres_FlyoverBefore, HoennSeek_Text_Hint_RumorMoltres_FlyoverAfter }, // MOLTRES_FLYOVER
+    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_ONIX_FOUND, 0}}, 1, HoennSeek_Text_Hint_RumorOnix_BoreBefore, HoennSeek_Text_Hint_RumorOnix_BoreAfter }, // ONIX_BORE
+    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_DUDUNSPARCE_CAUGHT, 0}}, 1, HoennSeek_Text_Hint_RumorDunsparce_BurrowBefore, HoennSeek_Text_Hint_RumorDunsparce_BurrowAfter }, // DUNSPARCE_BURROW
+    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_TANGELA_SEEN, 0}}, 1, HoennSeek_Text_Hint_RumorTangela_VinesBefore, HoennSeek_Text_Hint_RumorTangela_VinesAfter }, // TANGELA_VINES
+    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_KANGA_REUNITED, 0}}, 1, HoennSeek_Text_Hint_RumorKanga_BabyBefore, HoennSeek_Text_Hint_RumorKanga_BabyAfter }, // KANGA_BABY
+    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_STAMPEDE_LEADER_CAUGHT, 0}}, 1, HoennSeek_Text_Hint_RumorTauros_StampedeBefore, HoennSeek_Text_Hint_RumorTauros_StampedeAfter }, // TAUROS_STAMPEDE
+    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_TITANS_MET, 0}}, 1, HoennSeek_Text_Hint_RumorSeafoam_TitansBefore, HoennSeek_Text_Hint_RumorSeafoam_TitansAfter }, // SEAFOAM_TITANS
+    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_GOT_ENIGMA_STONE, 0}}, 1, HoennSeek_Text_Hint_RumorEnigma_ShardsBefore, HoennSeek_Text_Hint_RumorEnigma_ShardsAfter }, // ENIGMA_SHARDS
+    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_MEWTWO_MET, 0}}, 1, HoennSeek_Text_Hint_RumorMansion_JournalBefore, HoennSeek_Text_Hint_RumorMansion_JournalAfter }, // MANSION_JOURNAL
+    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_MEW_BLUR_SEEN, 0}}, 1, HoennSeek_Text_Hint_RumorMew_BlurBefore, HoennSeek_Text_Hint_RumorMew_BlurAfter }, // MEW_BLUR
+    { (const struct HoennHintCond[]){{HINT_IF_VAR_MIN, VAR_ROUTE22_GIOVANNI_STATE, 2}}, 1, HoennSeek_Text_Hint_RumorCelebi_MemoryBefore, HoennSeek_Text_Hint_RumorCelebi_MemoryAfter }, // CELEBI_MEMORY
+    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_LUGIA_SHRINE_OPEN, 0}}, 1, HoennSeek_Text_Hint_RumorLugia_SongBefore, HoennSeek_Text_Hint_RumorLugia_SongAfter }, // LUGIA_SONG
+    { (const struct HoennHintCond[]){{HINT_IF_CAUGHT, SPECIES_JIRACHI, 0}}, 1, HoennSeek_Text_Hint_RumorJirachiBefore, HoennSeek_Text_Hint_RumorJirachiAfter }, // JIRACHI
+    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_DEOXYS_TICKET, 0}}, 1, HoennSeek_Text_Hint_RumorDeoxys_SignalBefore, HoennSeek_Text_Hint_RumorDeoxys_SignalAfter }, // DEOXYS_SIGNAL
+    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_REGI_OPEN_ROCK, 0}, {HINT_IF_FLAG, FLAG_HOENN_REGI_OPEN_ICE, 0}, {HINT_IF_FLAG, FLAG_HOENN_REGI_OPEN_STEEL, 0}}, 3, HoennSeek_Text_Hint_RumorRegi_DoorsBefore, HoennSeek_Text_Hint_RumorRegi_DoorsAfter }, // REGI_DOORS
+    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_CIPHER_INSCRIPTION, 0}}, 1, HoennSeek_Text_Hint_RumorUnown_CipherBefore, HoennSeek_Text_Hint_RumorUnown_CipherAfter }, // UNOWN_CIPHER
+    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_SNEASEL_STASH, 0}}, 1, HoennSeek_Text_Hint_RumorIce_ThiefBefore, HoennSeek_Text_Hint_RumorIce_ThiefAfter }, // ICE_THIEF
+    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_LAGOON_FOUND, 0}}, 1, HoennSeek_Text_Hint_RumorLanturn_LightsBefore, HoennSeek_Text_Hint_RumorLanturn_LightsAfter }, // LANTURN_LIGHTS
+    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_RESCUED_AMPHAROS, 0}}, 1, HoennSeek_Text_Hint_RumorAmpharos_RescueBefore, HoennSeek_Text_Hint_RumorAmpharos_RescueAfter }, // AMPHAROS_RESCUE
+    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_HOOH_RAINBOW, 0}}, 1, HoennSeek_Text_Hint_RumorHooh_DawnBefore, HoennSeek_Text_Hint_RumorHooh_DawnAfter }, // HOOH_DAWN
+    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_SHRINE_OFFERED, 0}}, 1, HoennSeek_Text_Hint_RumorForest_OfferingsBefore, HoennSeek_Text_Hint_RumorForest_OfferingsAfter }, // FOREST_OFFERINGS
+    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_GOT_JADE_ORB, 0}}, 1, HoennSeek_Text_Hint_RumorSky_Pillar_MuralBefore, HoennSeek_Text_Hint_RumorSky_Pillar_MuralAfter }, // SKY_PILLAR_MURAL
 };
 
 static const struct HoennHintLine sHintLines[] = {
@@ -403,7 +358,8 @@ static const struct HoennHintLine sHintLines[] = {
     { NULL, 0, NULL, HINT_RUMOR, 34 }, // RUMOR_ENIGMA_SHARDS
     { NULL, 0, NULL, HINT_RUMOR, 35 }, // RUMOR_MANSION_JOURNAL
     { NULL, 0, NULL, HINT_RUMOR, 36 }, // RUMOR_MEW_BLUR
-    { NULL, 0, NULL, HINT_RUMOR, 37 }, // RUMOR_LUGIA_SONG
+    { (const struct HoennHintCond[]){{HINT_IF_CAUGHT, SPECIES_CELEBI, 0}}, 1, NULL, HINT_RUMOR, 37 }, // RUMOR_CELEBI_MEMORY
+    { NULL, 0, NULL, HINT_RUMOR, 38 }, // RUMOR_LUGIA_SONG
     { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_ICE_CHAMBER_FOUND, 0}}, 1, NULL, HINT_RUMOR, 25 }, // RUMOR_ICE_FROSLASS
     { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_CIPHER_ASKED, 0}, {HINT_IF_NOT_FLAG, FLAG_HOENN_CIPHER_ROSETTA, 0}}, 2, HoennSeek_Text_Hint_LineStoryCipherWall, HINT_STORY, 0 }, // STORY_CIPHER_WALL
     { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_CIPHER_ROSETTA, 0}, {HINT_IF_NOT_FLAG, FLAG_HOENN_CIPHER_ALL_WORDS, 0}}, 2, HoennSeek_Text_Hint_LineStoryCipherNight, HINT_STORY, 0 }, // STORY_CIPHER_NIGHT
@@ -416,39 +372,39 @@ static const struct HoennHintLine sHintLines[] = {
     { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_LUGIA_CAMEO_SEEN, 0}, {HINT_IF_NOT_FLAG, FLAG_HOENN_LUGIA_SHRINE_OPEN, 0}}, 2, HoennSeek_Text_Hint_LineStoryLugiaSurfaced, HINT_STORY, 0 }, // STORY_LUGIA_SURFACED
     { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_WISH_METEOR_FALLS, 0}, {HINT_IF_FLAG, FLAG_HOENN_WISH_SPACE_CENTER, 0}, {HINT_IF_FLAG, FLAG_HOENN_WISH_MOON_HOLLOW, 0}, {HINT_IF_NOT_CAUGHT, SPECIES_JIRACHI, 0}}, 4, HoennSeek_Text_Hint_LineStoryWishMonday, HINT_STORY, 0 }, // STORY_WISH_MONDAY
     { (const struct HoennHintCond[]){{HINT_IF_NOT_CAUGHT, SPECIES_JIRACHI, 0}}, 1, HoennSeek_Text_Hint_LineStoryWishes, HINT_STORY, 0 }, // STORY_WISHES
-    { NULL, 0, NULL, HINT_RUMOR, 38 }, // RUMOR_JIRACHI
+    { NULL, 0, NULL, HINT_RUMOR, 39 }, // RUMOR_JIRACHI
     { (const struct HoennHintCond[]){{HINT_IF_NOT_FLAG, FLAG_HOENN_DEOXYS_TICKET, 0}}, 1, HoennSeek_Text_Hint_LineStorySignal, HINT_STORY, 0 }, // STORY_SIGNAL
-    { NULL, 0, NULL, HINT_RUMOR, 39 }, // RUMOR_DEOXYS
+    { NULL, 0, NULL, HINT_RUMOR, 40 }, // RUMOR_DEOXYS
     { (const struct HoennHintCond[]){{HINT_IF_VAR_MIN, VAR_PLATECOUNTER, 3}, {HINT_IF_NOT_FLAG, FLAG_HOENN_CIPHER_INSCRIPTION, 0}}, 2, HoennSeek_Text_Hint_LineStoryRegiBraille, HINT_STORY, 0 }, // STORY_REGI_BRAILLE
     { (const struct HoennHintCond[]){{HINT_IF_VAR_MIN, VAR_PLATECOUNTER, 3}, {HINT_IF_FLAG, FLAG_HOENN_CIPHER_INSCRIPTION, 0}, {HINT_IF_NOT_FLAG, FLAG_HOENN_REGI_OPEN_STEEL, 0}}, 3, HoennSeek_Text_Hint_LineStoryRegiSea, HINT_STORY, 0 }, // STORY_REGI_SEA
     { (const struct HoennHintCond[]){{HINT_IF_VAR_MIN, VAR_SINJOH_STORYLINE, 12}, {HINT_IF_NOT_FLAG, FLAG_HOENN_CIPHER_INSCRIPTION, 0}, {HINT_IF_NOT_CAUGHT, SPECIES_ARCEUS, 0}}, 3, HoennSeek_Text_Hint_LineStoryArceusWaits, HINT_STORY, 0 }, // STORY_ARCEUS_WAITS
-    { NULL, 0, NULL, HINT_RUMOR, 40 }, // RUMOR_REGI_DOORS
-    { NULL, 0, NULL, HINT_RUMOR, 41 }, // RUMOR_UNOWN_CIPHER
-    { NULL, 0, NULL, HINT_RUMOR, 42 }, // RUMOR_ICE_THIEF
-    { NULL, 0, NULL, HINT_RUMOR, 43 }, // RUMOR_LANTURN_LIGHTS
-    { NULL, 0, NULL, HINT_RUMOR, 44 }, // RUMOR_AMPHAROS_RESCUE
-    { NULL, 0, NULL, HINT_RUMOR, 45 }, // RUMOR_HOOH_DAWN
-    { NULL, 0, NULL, HINT_RUMOR, 46 }, // RUMOR_FOREST_OFFERINGS
-    { NULL, 0, NULL, HINT_RUMOR, 47 }, // RUMOR_SKY_PILLAR_MURAL
+    { NULL, 0, NULL, HINT_RUMOR, 41 }, // RUMOR_REGI_DOORS
+    { NULL, 0, NULL, HINT_RUMOR, 42 }, // RUMOR_UNOWN_CIPHER
+    { NULL, 0, NULL, HINT_RUMOR, 43 }, // RUMOR_ICE_THIEF
+    { NULL, 0, NULL, HINT_RUMOR, 44 }, // RUMOR_LANTURN_LIGHTS
+    { NULL, 0, NULL, HINT_RUMOR, 45 }, // RUMOR_AMPHAROS_RESCUE
+    { NULL, 0, NULL, HINT_RUMOR, 46 }, // RUMOR_HOOH_DAWN
+    { NULL, 0, NULL, HINT_RUMOR, 47 }, // RUMOR_FOREST_OFFERINGS
+    { NULL, 0, NULL, HINT_RUMOR, 48 }, // RUMOR_SKY_PILLAR_MURAL
     { (const struct HoennHintCond[]){{HINT_IF_NOT_FLAG, FLAG_HOENN_SQUIRTLE_DONE, 0}}, 1, HoennSeek_Text_Hint_LineStorySquirtleSquad, HINT_STORY, 0 }, // STORY_SQUIRTLE_SQUAD
     { NULL, 0, NULL, HINT_FORECAST, 0 }, // FORECAST
 };
 
 static const struct HoennHintNpc sHintNpcs[] = {
     { (const u8[]){2}, 1, FALSE }, // CherrygroveCity_PokemonCenter_hns
-    { (const u8[]){3, 2, 127}, 3, FALSE }, // VioletCity_PokemonCenter_hns
+    { (const u8[]){3, 2, 128}, 3, FALSE }, // VioletCity_PokemonCenter_hns
     { (const u8[]){14, 43, 38}, 3, FALSE }, // AzaleaTown_PokemonCenter_hns
-    { (const u8[]){6, 41, 132}, 3, FALSE }, // GoldenrodCity_PokemonCenter_hns
-    { (const u8[]){4, 131}, 2, FALSE }, // EcruteakCity_PokemonCenter_hns
-    { (const u8[]){30, 5, 130}, 3, FALSE }, // OlivineCity_PokemonCenter_hns
-    { (const u8[]){3, 4, 40, 129}, 4, FALSE }, // CianwoodPokecenter_hns
-    { (const u8[]){38, 40, 128}, 3, FALSE }, // MahoganyTown_PokemonCenter_hns
+    { (const u8[]){6, 41, 133}, 3, FALSE }, // GoldenrodCity_PokemonCenter_hns
+    { (const u8[]){4, 132}, 2, FALSE }, // EcruteakCity_PokemonCenter_hns
+    { (const u8[]){30, 5, 131}, 3, FALSE }, // OlivineCity_PokemonCenter_hns
+    { (const u8[]){3, 4, 40, 130}, 4, FALSE }, // CianwoodPokecenter_hns
+    { (const u8[]){38, 40, 129}, 3, FALSE }, // MahoganyTown_PokemonCenter_hns
     { (const u8[]){14, 5}, 2, FALSE }, // BlackthornCity_PokemonCenter_hns
     { (const u8[]){14, 3, 2}, 3, FALSE }, // PewterCity_PokemonCenter_hns
     { (const u8[]){29, 4}, 2, FALSE }, // CeruleanCity_PokemonCenter_hns
     { (const u8[]){30, 2}, 2, FALSE }, // VermilionCity_PokemonCenter_hns
     { (const u8[]){42, 5}, 2, FALSE }, // LavenderTown_PokemonCenter_hns
-    { (const u8[]){134, 6}, 2, FALSE }, // SaffronCity_PokemonCenter_hns
+    { (const u8[]){135, 6}, 2, FALSE }, // SaffronCity_PokemonCenter_hns
     { (const u8[]){30, 3, 2}, 3, FALSE }, // CeladonCity_PokemonCenter_hns
     { (const u8[]){37, 54}, 2, FALSE }, // OldaleTown_PokemonCenter_1F
     { (const u8[]){31, 8, 51}, 3, FALSE }, // SlateportCity_PokemonCenter_1F
@@ -457,7 +413,7 @@ static const struct HoennHintNpc sHintNpcs[] = {
     { (const u8[]){34, 36, 47, 52}, 4, FALSE }, // FortreeCity_PokemonCenter_1F
     { (const u8[]){36, 15, 49, 85}, 4, FALSE }, // LilycoveCity_PokemonCenter_1F
     { (const u8[]){33, 9, 3, 50, 82}, 5, FALSE }, // MossdeepCity_PokemonCenter_1F
-    { (const u8[]){135}, 1, TRUE }, // Route119_WeatherInstitute_1F
+    { (const u8[]){136}, 1, TRUE }, // Route119_WeatherInstitute_1F
     { (const u8[]){10, 11, 12}, 3, FALSE }, // CianwoodCity_hns
     { (const u8[]){10, 11, 12}, 3, FALSE }, // OlivineCity_hns
     { (const u8[]){13}, 1, FALSE }, // DewfordTown
@@ -489,28 +445,28 @@ static const struct HoennHintNpc sHintNpcs[] = {
     { (const u8[]){77, 78}, 2, FALSE }, // LavaridgeTown
     { (const u8[]){80, 81, 83}, 3, FALSE }, // MossdeepCity
     { (const u8[]){86, 90, 89, 87}, 4, FALSE }, // ShoalCave_LowTideEntranceRoom
-    { (const u8[]){108, 88, 133}, 3, FALSE }, // PacifidlogTown_PokemonCenter_1F
-    { (const u8[]){110, 111, 109}, 3, FALSE }, // RuinsOfAlph_Lab_hns
+    { (const u8[]){109, 88, 134}, 3, FALSE }, // PacifidlogTown_PokemonCenter_1F
+    { (const u8[]){111, 112, 110}, 3, FALSE }, // RuinsOfAlph_Lab_hns
     { (const u8[]){95}, 1, FALSE }, // BlackthornCity_Mart_hns
-    { (const u8[]){135, 96}, 2, FALSE }, // Route10_PowerPlantEntrance_hns
+    { (const u8[]){136, 96}, 2, FALSE }, // Route10_PowerPlantEntrance_hns
     { (const u8[]){97}, 1, FALSE }, // Route113_GlassWorkshop
     { (const u8[]){98}, 1, FALSE }, // LavenderTown_hns
     { (const u8[]){99}, 1, FALSE }, // VioletCity_hns
     { (const u8[]){100}, 1, FALSE }, // PalletTown_hns
     { (const u8[]){101}, 1, FALSE }, // FuchsiaCity_SafariZoneBrush_hns
-    { (const u8[]){112, 113}, 2, FALSE }, // BlackthornCity_hns
+    { (const u8[]){113, 114}, 2, FALSE }, // BlackthornCity_hns
     { (const u8[]){102}, 1, FALSE }, // FuchsiaCity_SafariZoneEntrance_hns
     { (const u8[]){103}, 1, FALSE }, // Route19_hns
     { (const u8[]){104}, 1, FALSE }, // SouthernIsland_Exterior_hns
     { (const u8[]){105}, 1, FALSE }, // CinnabarIsland_PokemonCenter_hns
-    { (const u8[]){106}, 1, FALSE }, // ViridianCity_PokemonCenter_hns
+    { (const u8[]){106, 107}, 2, FALSE }, // ViridianCity_PokemonCenter_hns
     { (const u8[]){106}, 1, FALSE }, // OldaleTown_PokemonCenter_1F
-    { (const u8[]){115, 114}, 2, FALSE }, // OlivineCity_Cafe_hns
-    { (const u8[]){116}, 1, FALSE }, // OlivineCity_Lighthouse_hns
-    { (const u8[]){117, 107}, 2, FALSE }, // OlivineCity_PokemonCenter_hns
-    { (const u8[]){118, 119, 120}, 3, FALSE }, // MossdeepCity_SpaceCenter_1F
-    { (const u8[]){121, 122}, 2, FALSE }, // MossdeepCity_SpaceCenter_1F
-    { (const u8[]){125, 124, 123, 126}, 4, FALSE }, // SinjohRuins_House1_hns
+    { (const u8[]){116, 115}, 2, FALSE }, // OlivineCity_Cafe_hns
+    { (const u8[]){117}, 1, FALSE }, // OlivineCity_Lighthouse_hns
+    { (const u8[]){118, 108}, 2, FALSE }, // OlivineCity_PokemonCenter_hns
+    { (const u8[]){119, 120, 121}, 3, FALSE }, // MossdeepCity_SpaceCenter_1F
+    { (const u8[]){122, 123}, 2, FALSE }, // MossdeepCity_SpaceCenter_1F
+    { (const u8[]){126, 125, 124, 127}, 4, FALSE }, // SinjohRuins_House1_hns
     { (const u8[]){4, 2}, 2, FALSE }, // Route34_FishingShack_hoenn
     { (const u8[]){30, 7}, 2, FALSE }, // OlivineCity_HarborOffice_hoenn
     { (const u8[]){6, 8}, 2, FALSE }, // OlivineCity_SailorsHouse_hoenn

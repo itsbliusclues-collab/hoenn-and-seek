@@ -73,8 +73,23 @@
 #include "constants/hoenn_journal.h"
 #define FLAG_HOENN_GOT_SEEKERS_JOURNAL (HOENN_21_LANE_A_FLAGS + 0x00) // Elm's aide gave it
 
-// ==== Lane B (2.1) ==========================================================
-// (no definitions yet)
+// ---- 2.1-06: the journal's rewards (a region's page all found) -------------
+#define FLAG_HOENN_JOURNAL_DOLL_JOHTO  (HOENN_21_LANE_A_FLAGS + 0x01) // Elm gave the CELEBI DOLL
+#define FLAG_HOENN_JOURNAL_DOLL_KANTO  (HOENN_21_LANE_A_FLAGS + 0x02) // Oak gave the MEW DOLL
+#define FLAG_HOENN_JOURNAL_DOLL_HOENN  (HOENN_21_LANE_A_FLAGS + 0x03) // Birch gave the JIRACHI DOLL
+#define FLAG_HOENN_CALL_JOURNAL_JOHTO  (HOENN_21_LANE_A_FLAGS + 0x04) // Elm's call rang
+#define FLAG_HOENN_CALL_JOURNAL_KANTO  (HOENN_21_LANE_A_FLAGS + 0x05) // Oak's
+#define FLAG_HOENN_CALL_JOURNAL_HOENN  (HOENN_21_LANE_A_FLAGS + 0x06) // Birch's
 
+// ---- 2.1-07: the daily swarm (src/hoenn_swarm.c) ----------------------------
+#define FLAG_HOENN_SWARM_MET           (HOENN_21_LANE_A_FLAGS + 0x07) // met a swarm Pokémon (the journal's found)
+#define VAR_HOENN_SWARM_TODAY          (HOENN_21_LANE_A_VARS + 0x00)  // today's row in sHoennSwarms + 1 (0 = not rolled yet)
 
+// ---- 2.1-08: SILVER keeps up (src/hoenn_silver.c) ---------------------------
+#define FLAG_HOENN_HIDE_SILVER_LEAGUE  (HOENN_21_LANE_A_FLAGS + 0x08) // his object at the Ever Grande Pokémon League (set until Wallace is beaten)
+#define FLAG_HOENN_MET_SILVER_HOENN    (HOENN_21_LANE_A_FLAGS + 0x09) // talked to him there once
+#define FLAG_HOENN_SILVER_CELEBI_LINE  (HOENN_21_LANE_A_FLAGS + 0x0A) // he told you what he remembered after the Route 22 scene
+#define FLAG_HOENN_BM_SILVER_LINE      (HOENN_21_LANE_A_FLAGS + 0x0B) // Brendan or May told you they met him
+
+// ==== Lane B (2.1) ============================================
 #endif // GUARD_CONSTANTS_HOENN_EVENTS_2_1_H

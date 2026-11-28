@@ -264,6 +264,12 @@ static inline u16 GetPartnerIdFromTrainerId(u16 trainerId)
     return (trainerId - TRAINER_PARTNER(PARTNER_NONE));
 }
 
+#if IS_HNS
+const struct Trainer *HoennTrainerOverride(u16 trainerId, const struct Trainer *trainer); // Hoenn & Seek 2.1-08 (src/hoenn_silver.c)
+#else
+#define HoennTrainerOverride(trainerId, trainer) (trainer)
+#endif
+
 static inline const struct Trainer *GetTrainerStructFromId(u16 trainerId)
 {
     if (gIsDebugBattle) return GetDebugAiTrainer();
@@ -277,7 +283,7 @@ static inline const struct Trainer *GetTrainerStructFromId(u16 trainerId)
     else
     {
         difficulty = GetTrainerDifficultyLevel(trainerId);
-        return &gTrainers[difficulty][SanitizeTrainerId(trainerId)];
+        return HoennTrainerOverride(trainerId, &gTrainers[difficulty][SanitizeTrainerId(trainerId)]); // Hoenn & Seek 2.1-08: SILVER's milestone teams
     }
 }
 
