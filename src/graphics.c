@@ -2016,6 +2016,7 @@ const u32 gPokenavLeftHeaderCondition_Gfx[] = INCBIN_U32("graphics/pokenav/left_
 const u32 gPokenavLeftHeaderCute_Gfx[] = INCBIN_U32("graphics/pokenav/left_headers/cute.4bpp.smol");
 #if IS_HNS
 const u32 gPokenavLeftHeaderMatchCall_Gfx[] = INCBIN_U32("graphics/pokenav/hns/left_headers/match_call.4bpp.smol");
+const u32 gPokenavLeftHeaderJournal_Gfx[] = INCBIN_U32("graphics/pokenav/hns/left_headers/journal.4bpp.smol"); // Hoenn & Seek 2.1-06b
 #else
 const u32 gPokenavLeftHeaderMatchCall_Gfx[] = INCBIN_U32("graphics/pokenav/left_headers/match_call.4bpp.smol");
 #endif

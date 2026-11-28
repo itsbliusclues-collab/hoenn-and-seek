@@ -25,7 +25,9 @@
 // exactly what msgbox's `loadword 0, text` would do, so callstd shows it.
 #include "global.h"
 #include "caps.h"
+#include "battle_setup.h"
 #include "event_data.h"
+#include "event_object_movement.h"
 #include "fieldmap.h"
 #include "hoenn.h"
 #include "hoenn_hints.h"
@@ -112,6 +114,28 @@ static bool32 IsCaught(u16 species)
     return GetSetPokedexFlag(SpeciesToNationalPokedexNum(species), FLAG_GET_CAUGHT);
 }
 
+// 2.1-21: the species following you, or SPECIES_NONE.
+static u32 FollowerSpecies(void)
+{
+    struct Pokemon *mon;
+
+    if (GetFollowerObject() == NULL || (mon = GetFirstLiveMon()) == NULL)
+        return SPECIES_NONE;
+    return GetMonData(mon, MON_DATA_SPECIES);
+}
+
+static bool32 InParty(u16 species)
+{
+    u32 i;
+
+    for (i = 0; i < CalculatePlayerPartyCount(); i++)
+    {
+        if (!GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG) && GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == species)
+            return TRUE;
+    }
+    return FALSE;
+}
+
 static bool32 CondHolds(const struct HoennHintCond *cond)
 {
     switch (cond->type)
@@ -127,6 +151,9 @@ static bool32 CondHolds(const struct HoennHintCond *cond)
     case HINT_IF_CAUGHT:       return IsCaught(cond->id);
     case HINT_IF_NOT_CAUGHT:   return !IsCaught(cond->id);
     case HINT_IF_LEVEL_CAP:    return gSaveBlock3Ptr->challengeSettings.tx_Challenges_LevelCap != 0;
+    case HINT_IF_FOLLOWER:     return FollowerSpecies() == cond->id;
+    case HINT_IF_PARTY:        return InParty(cond->id);
+    case HINT_IF_DEFEATED:     return HasTrainerBeenFought(cond->id);
     }
     return FALSE;
 }

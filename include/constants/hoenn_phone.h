@@ -80,9 +80,22 @@
 #define HOENN_CALL_JOURNAL_JOHTO 100 // 2.1-06: Elm, the JOHTO page is all found
 #define HOENN_CALL_JOURNAL_KANTO 101 // Oak, KANTO
 #define HOENN_CALL_JOURNAL_HOENN 102 // Birch, HOENN
+#define HOENN_CALL_NEIGHBOR_BADGE2    103 // 2.1-15: ETHAN or LYRA, every other Johto badge: second
+#define HOENN_CALL_NEIGHBOR_BADGE4    104 // fourth
+#define HOENN_CALL_NEIGHBOR_BADGE6    105 // sixth
+#define HOENN_CALL_NEIGHBOR_BADGE8    106 // eighth
+#define HOENN_CALL_NEIGHBOR_CHAMPION  107 // Johto champion (they're off to help PROF. OAK)
+#define HOENN_CALL_NEIGHBOR_KANTO2    108 // every other Kanto badge: second
+#define HOENN_CALL_NEIGHBOR_KANTO4    109 // fourth
+#define HOENN_CALL_NEIGHBOR_KANTO6    110 // sixth (PROF. OAK asks them to stay)
+#define HOENN_CALL_NEIGHBOR_WALLACE   111 // Wallace beaten (their only Hoenn call; at 8 Kanto badges there's
+                                          // no call: they decide to stay with OAK in a lab scene, 2.1-16)
 
 #define HOENN_CALL_21_LANE_B_FIRST 130
 #define HOENN_CALL_21_LANE_B_LAST  159
 #define HOENN_CALL_WEEKENDS (HOENN_CALL_21_LANE_B_FIRST + 0) // 2.1-18: May, the leaders' weekends
+#define HOENN_CALL_BROCK_CHAIN (HOENN_CALL_21_LANE_B_FIRST + 1) // 2.1-21: Brendan, Brock's ONIX DOLL
+#define HOENN_CALL_MISTY_CHAIN (HOENN_CALL_21_LANE_B_FIRST + 2) // 2.1-22: May, Misty's water show
+#define HOENN_CALL_BLUE_CHAIN  (HOENN_CALL_21_LANE_B_FIRST + 3) // 2.1-23: Brendan, Blue went home
 
 #endif // GUARD_CONSTANTS_HOENN_PHONE_H

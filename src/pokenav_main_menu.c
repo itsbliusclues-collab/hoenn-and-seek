@@ -113,6 +113,10 @@ static const u8 *const sHelpBarTexts[HELPBAR_COUNT] =
     [HELPBAR_RIBBONS_MON_LIST]      = COMPOUND_STRING("{A_BUTTON}RIBBONS {B_BUTTON}CANCEL"),
     [HELPBAR_RIBBONS_LIST]          = COMPOUND_STRING("{A_BUTTON}CHECK {B_BUTTON}CANCEL"),
     [HELPBAR_RIBBONS_CHECK]         = COMPOUND_STRING("{B_BUTTON}CANCEL"),
+#if IS_HNS
+    [HELPBAR_JOURNAL]               = COMPOUND_STRING("{A_BUTTON}READ {B_BUTTON}CANCEL"),
+    [HELPBAR_JOURNAL_ENTRY]         = COMPOUND_STRING("{B_BUTTON}BACK"),
+#endif
 };
 
 static const u8 sHelpBarTextColors[3] =
@@ -176,7 +180,14 @@ static const struct CompressedSpriteSheet sMenuLeftHeaderSpriteSheets[] =
         .data = gPokenavLeftHeaderHoennMap_Gfx,
         .size = 0x40,
         .tag = 0
-    }
+    },
+#if IS_HNS
+    [POKENAV_GFX_JOURNAL_MENU] = { // 2.1-06b: gold, palette row 5 of left_headers/palette.pal
+        .data = gPokenavLeftHeaderJournal_Gfx,
+        .size = 0x20,
+        .tag = 5
+    },
+#endif
 };
 
 static const struct CompressedSpriteSheetNoSize sPokenavSubMenuLeftHeaderSpriteSheets[] =

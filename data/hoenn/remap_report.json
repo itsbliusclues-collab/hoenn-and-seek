@@ -1197,6 +1197,7 @@
   "VAR_MOSSDEEP_SPACE_CENTER_STAIR_GUARD_STATE": "remapped: aliased onto ['VAR_BEVERLY_ITEM_HNS']",
   "VAR_MOSSDEEP_SPACE_CENTER_STATE": "remapped: aliased onto ['VAR_JOSE_ITEM_HNS']",
   "VAR_MT_PYRE_STATE": "remapped: aliased onto ['VAR_NOBLE_KLEAVOR']",
+  "VAR_NEWBARKTOWN_LABSTATE": "kept: HnS owns or uses this name (0x4074)",
   "VAR_NEW_MAUVILLE_STATE": "remapped: aliased onto ['VAR_NOBLE_ELECTRODE']",
   "VAR_OLDALE_RIVAL_STATE": "remapped: aliased onto ['VAR_RADIO_LUCKY_ID']",
   "VAR_OLDALE_TOWN_STATE": "remapped: aliased onto ['VAR_2']",
