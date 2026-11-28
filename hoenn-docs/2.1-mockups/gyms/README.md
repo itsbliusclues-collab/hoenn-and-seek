@@ -64,3 +64,4 @@ Each sprite is a 32×32 frame; the groups below go by the biggest side of the vi
 - **Cerulean:** the pedestal is one tile narrower on each side: 2 wide, just under Misty and Starmie (the pool still gets its extra middle column).
 This is the design 2.1-25 to 27 build.
 - **Ecruteak (Bryan, 8:25 AM CT):** Morty's platform gets the same treatment as Misty's: 2 wide, just under Morty and Gengar. "Then it is actually perfect."
+- **Red (Bryan, 8:27 AM CT):** the same rule for Red and Pikachu at the Mt. Silver summit, even if it takes rebuilding part of it. Bryan trusts the builder's calls from here on (no further check needed).
