@@ -49,3 +49,12 @@ Each sprite is a 32×32 frame; the groups below go by the biggest side of the vi
 | Small (4 wide, side by side) | Goldenrod, Ecruteak, Mahogany, Celadon, Lavaridge |
 | Medium (5 wide, leader / gap / Pokémon) | Azalea, Blackthorn, Cerulean, Vermilion, Saffron, Mauville, Sootopolis, Violet, Viridian, Rustboro, Dewford, Petalburg, Fortree |
 | Large (behind) | Olivine (Steelix), Pewter (Onix) |
+
+### Bryan's final rule (Nov 28, 8:17 AM CT): side by side, no gap; behind only for the three biggest
+"I like the original Scyther placement. I prefer them all, except the really large sprites, to be next to them without a gap in between. Steelix, Onix, Noctowl all behind, the others next to, and then the platforms redone to be 4 wide so that it is centered on the Pokémon and gym leader." This replaces the small/medium/large groups above (the earlier sheets were removed from this folder).
+
+- **Behind (3):** Violet (Noctowl; the rug grows a row), Olivine (Steelix; no change), Pewter (Onix replaces Golem). `v3_behind.png`.
+- **Side by side on a 4-wide rug centred on the pair (17):** `v3_side_1.png` to `v3_side_3.png`. Leader on the left, Pokémon on the right, the rug's middle two tiles.
+  - Rooms with an odd width and a one-tile centre door get **one more column through the middle** (two-tile door, the wall emblem over the middle), so the 4-wide rug is centred in the room too: Ecruteak, Mahogany, Celadon, Lavaridge, Blackthorn, Cerulean, Vermilion, Saffron, Sootopolis, Viridian, Rustboro, Petalburg, Fortree. Most 3-wide rugs become 4 wide by themselves this way.
+  - Already even: Goldenrod (the rug grows, pots re-spaced), Mauville, Dewford.
+  - **Azalea unchanged** (Bryan likes Scyther where it is; a forest, no rug).
