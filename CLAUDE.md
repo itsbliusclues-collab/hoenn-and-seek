@@ -151,6 +151,7 @@ Phase G sizes (38 on, one part at a time; measured on `hoenn` with every lane pa
 
 | Part | Release | Debug |
 |---|---|---|
+| 2.1-05 (Seeker's Journal A: 62 events on 3 pages, heard flags from hint lines/rumors/calls, the key item and Elm's aide's gift; on top of 2.1-04: +18,528 B release, +18,992 B debug, mostly text) | 32,815,556 / 721 KB | 32,969,956 / 570 KB |
 
 2.1 lane B sizes:
 
@@ -477,6 +478,7 @@ Phase G runs one part at a time after both lanes (`hoenn-docs/lanes/README.md`).
 
 ## 2.1 lane A notes
 2.1's lane A (`hoenn-docs/lanes/2.1-lane-a.md`) adds a bullet per part here. Its code lives in `src/hoenn_2_1_lane_a.c` and `data/scripts/hoenn_2_1_lane_a.inc` unless a note says otherwise.
+- **Seeker's Journal A (2.1-05):** `src/hoenn_journal.c` (its header explains the states), `data/hoenn/journal.json` (its comment documents the format) → `tools/hoenn/gen_hoenn_journal.py` (in `regen_all.sh` right after the hints) → `include/constants/hoenn_journal.h` (`FLAG_HOENN_HEARD_<KEY>` in the generated block `HOENN_21_JOURNAL_FLAGS`, 0x25C0, 128 flags), `src/data/hoenn_journal.h`, `src/data/hoenn_journal_hints.h` and `data/scripts/hoenn_journal_texts.inc` (wrapped like the hint texts, so `text_audit.py` passes them). **Heard flag numbers are locked in `data/hoenn/journal_flags.json`** (offsets into the block; committed; never edit or reuse one). An entry is ??? / heard (its flag, any `heard.if` condition, or found) / found (the hint engine's conditions). Hooks: `HoennSeek_NpcHint` (`src/hoenn_hints.c`) sets the heard flag of the line part 38's rotation actually shows (tables sized against `sHintLines`/`sHintRumors` at build time, so regenerate both together); `HoennTryEventCall` calls `HoennJournalHeardCall`; a scene can `setflag FLAG_HOENN_HEARD_<KEY>` itself (Tin Tower sage, Ilex shrine). A hint line, rumor or call feeds one entry only (the generator checks); all 48 rumors feed one. **Every later content part (either lane) adds its entries to `journal.json`**, with a source to hear it from. `ITEM_SEEKERS_JOURNAL` (911, Fame Checker icon) runs `HoennSeek_EventScript_SeekersJournal` from the bag or SELECT (the Sand Chime pattern); the screen is two `dynmultistack` menus fed by `special HoennJournalPushPages`/`HoennJournalPushEntries` (entry ids are places on the page; BACK = `HOENN_JOURNAL_MENU_BACK`), and `callnative HoennSeek_JournalEntryText` + `callstd MSGBOX_DEFAULT` shows one. Elm's aide gives it after `FLAG_BADGE01_GET` (`FLAG_HOENN_GOT_SEEKERS_JOURNAL`, lane A flag +0x00): **hint NPCs take a `"first"` script** in `npc_hints.json`, called at the top of their wrapper (ends the talk or returns). Testing: register an item with `w16 gSaveBlock1Ptr+1178 <item>` and press SELECT (only once every box is closed); event-call tests need a tile you can walk off (New Bark (12,12)).
 
 ## 2.1 lane B notes
 2.1's lane B (`hoenn-docs/lanes/2.1-lane-b.md`) adds a bullet per part here. Its code lives in `src/hoenn_2_1_lane_b.c` and `data/scripts/hoenn_2_1_lane_b.inc` unless a note says otherwise.

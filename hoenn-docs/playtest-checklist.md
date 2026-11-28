@@ -577,7 +577,12 @@ Lane B's `## 2.0 part NN` sections go below this line, at the end of the file.
 # Hoenn & Seek 2.1 (built on `hoenn-2.1`)
 
 ## 2.1 lane A
-(2.1 lane A adds its sections here.)
+
+### 2.1-05 (the SEEKER'S JOURNAL, pages and rumors)
+- [ ] **Getting it:** after your first Johto badge, Elm's call ends by mentioning the JOURNAL; his aide in the lab gives it before anything else she says. On an old 2.0 save that already had Elm's call, talking to her still gives it. (Emulator-tested on the debug save.)
+- [ ] **Reading it on a real screen:** from the bag and from SELECT. Pages show "JOHTO 3/22"; long entry names (DUNSPARCE's burrow, The SEAFOAM titans) fit the list; the text boxes read well. Check a few rumor and found texts for anything that reads wrong for your save (e.g. Ho-Oh's entry counts as found if you caught Ho-Oh in the story).
+- [ ] **Hearing as you play:** talk to hint NPCs (their lines take turns since 2.0 part 38), take event calls and read the field notes; each event they mention turns from ??? into its question. Events you've already done show as found. (Emulator-tested: Elm's aide's starter line, the Saffron PC teacher, Brendan's pond call, the field notes.)
+- [ ] **Every entry reachable:** over the playthrough, every entry on all three pages should get past ??? before or when you find it. Note any that stays ??? until found: it needs a hint line.
 
 ## 2.1 lane B
 
