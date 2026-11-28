@@ -552,6 +552,9 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_KrisFishing
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_KrisWatering_hns;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_KrisDecorating_hns;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AlolaOak_hns;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ExplorerBridgette;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SkydiverAidan;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AthleteBrock;
 
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_BRENDAN_NORMAL] =           &gObjectEventGraphicsInfo_BrendanNormal,
@@ -1076,6 +1079,10 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_POKE_CENTER_LIGHT_HNS] = &gObjectEventGraphicsInfo_PokeCenterLight_Hns,
     [OBJ_EVENT_GFX_SMALL_LIGHT_HNS] =       &gObjectEventGraphicsInfo_SmallLight_Hns,
     [OBJ_EVENT_GFX_ALOLA_OAK_HNS] =         &gObjectEventGraphicsInfo_AlolaOak_hns,
+    // Hoenn & Seek 2.1-13
+    [OBJ_EVENT_GFX_EXPLORER_BRIDGETTE] =    &gObjectEventGraphicsInfo_ExplorerBridgette,
+    [OBJ_EVENT_GFX_SKYDIVER_AIDAN] =        &gObjectEventGraphicsInfo_SkydiverAidan,
+    [OBJ_EVENT_GFX_ATHLETE_BROCK] =         &gObjectEventGraphicsInfo_AthleteBrock,
     // HnS protagonists
     [OBJ_EVENT_GFX_GOLD_NORMAL_HNS] =       &gObjectEventGraphicsInfo_GoldNormal_hns,
     [OBJ_EVENT_GFX_GOLD_MACH_BIKE_HNS] =    &gObjectEventGraphicsInfo_GoldMachBike_hns,

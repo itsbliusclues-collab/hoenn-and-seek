@@ -631,6 +631,13 @@ const u16 gTrainerPalette_YoungsterHns[] = INCBIN_U16("graphics/trainers/palette
 
 const u32 gTrainerFrontPic_SamsonOakHns[] = INCBIN_U32("graphics/trainers/front_pics/samson_oak_hns.4bpp.smol");
 const u16 gTrainerPalette_SamsonOakHns[] = INCBIN_U16("graphics/trainers/front_pics/samson_oak_hns.gbapal");
+// Hoenn & Seek 2.1-13: the friend trainers (tools/hoenn/install_friend_sprites.py)
+const u32 gTrainerFrontPic_ExplorerBridgette[] = INCBIN_U32("graphics/hoenn/friends/bridgette_front_pic.4bpp.smol");
+const u16 gTrainerPalette_ExplorerBridgette[] = INCBIN_U16("graphics/hoenn/friends/bridgette_front_pic.gbapal");
+const u32 gTrainerFrontPic_SkydiverAidan[] = INCBIN_U32("graphics/hoenn/friends/aidan_front_pic.4bpp.smol");
+const u16 gTrainerPalette_SkydiverAidan[] = INCBIN_U16("graphics/hoenn/friends/aidan_front_pic.gbapal");
+const u32 gTrainerFrontPic_AthleteBrock[] = INCBIN_U32("graphics/hoenn/friends/brock_front_pic.4bpp.smol");
+const u16 gTrainerPalette_AthleteBrock[] = INCBIN_U16("graphics/hoenn/friends/brock_front_pic.gbapal");
 
 const u8 gTrainerBackPic_Brendan[] = INCBIN_U8("graphics/trainers/back_pics/brendan.4bpp");
 const u8 gTrainerBackPic_May[] = INCBIN_U8("graphics/trainers/back_pics/may.4bpp");
@@ -885,6 +892,9 @@ const struct TrainerSprite gTrainerSprites[] =
     TRAINER_SPRITE(TRAINER_PIC_FRONT_TWINS_HNS, gTrainerFrontPic_TwinsHns, gTrainerPalette_TwinsHns),
     TRAINER_SPRITE(TRAINER_PIC_FRONT_YOUNGSTER_HNS, gTrainerFrontPic_YoungsterHns, gTrainerPalette_YoungsterHns),
     TRAINER_SPRITE(TRAINER_PIC_FRONT_SAMSON_OAK_HNS, gTrainerFrontPic_SamsonOakHns, gTrainerPalette_SamsonOakHns),
+    TRAINER_SPRITE(TRAINER_PIC_FRONT_EXPLORER_BRIDGETTE, gTrainerFrontPic_ExplorerBridgette, gTrainerPalette_ExplorerBridgette),
+    TRAINER_SPRITE(TRAINER_PIC_FRONT_SKYDIVER_AIDAN, gTrainerFrontPic_SkydiverAidan, gTrainerPalette_SkydiverAidan),
+    TRAINER_SPRITE(TRAINER_PIC_FRONT_ATHLETE_BROCK, gTrainerFrontPic_AthleteBrock, gTrainerPalette_AthleteBrock),
 };
 
 static const union AnimCmd sAnimCmd_Hoenn[] =

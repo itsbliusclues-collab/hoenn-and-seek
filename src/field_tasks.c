@@ -614,7 +614,13 @@ static void FortreeBridgePerStepCallback(u8 taskId)
 
 // Boundaries of the ice puzzle in Sootopolis Gym
 #define ICE_PUZZLE_L 3
+// Hoenn & Seek 2.1-27: the HnS build's Sootopolis Gym has a middle column at x 8 (both floors,
+// tools/hoenn/gen_hoenn_gym_rugs.py), so the ice reaches one column further right.
+#if IS_HNS
+#define ICE_PUZZLE_R 14
+#else
 #define ICE_PUZZLE_R 13
+#endif
 #define ICE_PUZZLE_T 6
 #define ICE_PUZZLE_B 19
 
