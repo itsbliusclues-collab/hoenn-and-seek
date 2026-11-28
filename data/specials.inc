@@ -825,6 +825,9 @@ gSpecials::
 	def_special HoennPlantBerryInSoil @ 2.1-07
 	def_special HoennSilverTierForScript @ 2.1-08
 	def_special HoennSilverStarterForScript @ 2.1-09
+	def_special HoennFriendStronger @ 2.1-12
+	def_special HoennFriendBattleEnded
+	def_special HoennFriendNameLine
 	@ (end of 2.1 lane A's specials)
 
 	@ Hoenn & Seek 2.1, builder lane B: lane B's 2.1 specials go here

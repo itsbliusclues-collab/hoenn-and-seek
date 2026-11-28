@@ -87,6 +87,18 @@ void HoennSilverStarterUpdate(void);
 u16 HoennSilverStarterSpecies(void);
 u16 HoennSilverStarterForScript(void); // specialvar
 extern const u8 HoennSeek_EventScript_SilverStarter[];
+// 2.1-12: the friend trainers (src/hoenn_friends.c)
+struct Trainer;
+bool32 HoennIsFriendTrainer(const struct Trainer *trainer);
+bool32 HoennIsFriendBattle(void);
+#if IS_HNS
+#define HOENN_IS_FRIEND_BATTLE() HoennIsFriendBattle()
+#else
+#define HOENN_IS_FRIEND_BATTLE() FALSE
+#endif
+u16 HoennFriendStronger(void);    // specialvar
+u16 HoennFriendBattleEnded(void); // specialvar
+u16 HoennFriendNameLine(void);    // specialvar
 bool32 HoennIsSilverScaled(const struct Trainer *trainer);
 // The Kangaskhan baby as your follower (src/hoenn_lane_b.c, 2.0 part 30a)
 bool32 HoennIsKangaBabyGfx(u32 species);

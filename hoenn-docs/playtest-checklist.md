@@ -619,6 +619,17 @@ Lane B's `## 2.0 part NN` sections go below this line, at the end of the file.
 - [ ] **Victory Road 1F:** QUINCY and KATELYNN can both spot you at once and start a 6 + 6 double (seen in the emulator). Keep it, or move one of them?
 - [ ] **Teams:** drafts by Claude (no type theme). Swap anything you'd like in `data/hoenn/trainer_parties.party`.
 
+### 2.1-12 (friend trainers: EXPLORER BRIDGETTE)
+- [ ] **Finding her:** Route 111, by the Desert Ruins, at (31,88). Is that out of the way enough, or too hidden? (Her sprite and battle pic are **placeholders**, the PICNICKER and a POKéMON RANGER, until 2.1-13.)
+- [ ] **First meeting:** her introduction, then "How about a battle?" YES/NO; NO gets its own line. (Emulator-tested.)
+- [ ] **Name lines:** a player named AIDAN (any case) hears about her boyfriend; BRIDGET gets "that's my name!" Only at the first meeting. (Emulator-tested with AIDAN.)
+- [ ] **Levels:** her Garchomp is your progress level (85 after Wallace, 87 after Brendan & May, 90 after Red), the rest a level or two below. Is she a fair fight at each point? (Emulator-tested: Lv 54 lead on the debug save.)
+- [ ] **RUN:** asks "Would you like to forfeit the match?"; YES puts you back on the field with her line, no whiteout, no money lost, and you can battle her again the same day. (Emulator-tested.)
+- [ ] **Losing to her** whites out as usual (not tested).
+- [ ] **Winning:** prize money only, then "battled out for today" until tomorrow. (Emulator-tested, ₽9000 on the debug save.)
+- [ ] **"Gotten stronger":** after your progress level goes up, she opens with that line next time. (Emulator-tested by lowering the stored level.)
+- [ ] **Her team:** does the AI switch sensibly (Smart + Prediction)? Any set you'd change?
+
 ## 2.1 lane B
 
 ### 2.1-02 (foundations)

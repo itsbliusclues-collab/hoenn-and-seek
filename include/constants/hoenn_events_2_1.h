@@ -91,5 +91,27 @@
 #define FLAG_HOENN_SILVER_CELEBI_LINE  (HOENN_21_LANE_A_FLAGS + 0x0A) // he told you what he remembered after the Route 22 scene
 #define FLAG_HOENN_BM_SILVER_LINE      (HOENN_21_LANE_A_FLAGS + 0x0B) // Brendan or May told you they met him
 
+// 2.1-12/14: the three friend trainers (src/hoenn_friends.c; one per friend, in HOENN_FRIEND_* order)
+#define FLAG_HOENN_MET_BRIDGETTE       (HOENN_21_LANE_A_FLAGS + 0x0C) // talked once (her name line is first-meeting only)
+#define FLAG_HOENN_MET_AIDAN           (HOENN_21_LANE_A_FLAGS + 0x0D)
+#define FLAG_HOENN_MET_BROCK           (HOENN_21_LANE_A_FLAGS + 0x0E)
+#define FLAG_HOENN_HARD_BEAT_BRIDGETTE (HOENN_21_LANE_A_FLAGS + 0x0F) // first HARD win (2.1-14; Pangea reads them)
+#define FLAG_HOENN_HARD_BEAT_AIDAN     (HOENN_21_LANE_A_FLAGS + 0x10)
+#define FLAG_HOENN_HARD_BEAT_BROCK     (HOENN_21_LANE_A_FLAGS + 0x11)
+#define FLAG_HOENN_DAILY_BRIDGETTE     (HOENN_21_LANE_A_DAILY + 0)    // battled today
+#define FLAG_HOENN_DAILY_AIDAN         (HOENN_21_LANE_A_DAILY + 1)
+#define FLAG_HOENN_DAILY_BROCK         (HOENN_21_LANE_A_DAILY + 2)
+#define VAR_HOENN_FRIEND_LV_BRIDGETTE  (HOENN_21_LANE_A_VARS + 0x01)  // her ace's level in your last battle (0 = never)
+#define VAR_HOENN_FRIEND_LV_AIDAN      (HOENN_21_LANE_A_VARS + 0x02)
+#define VAR_HOENN_FRIEND_LV_BROCK      (HOENN_21_LANE_A_VARS + 0x03)
+#define HOENN_FRIEND_BRIDGETTE 0 // VAR_0x8004 for the friends' specials
+#define HOENN_FRIEND_AIDAN     1
+#define HOENN_FRIEND_BROCK     2
+#define HOENN_FRIEND_COUNT     3
+#define HOENN_NAME_OTHER       0 // HoennFriendNameLine
+#define HOENN_NAME_AIDAN       1
+#define HOENN_NAME_BRIDGET     2
+#define HOENN_NAME_BROCK       3
+
 // ==== Lane B (2.1) ============================================
 #endif // GUARD_CONSTANTS_HOENN_EVENTS_2_1_H

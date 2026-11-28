@@ -521,3 +521,126 @@ HoennSeek_Text_SilverStarter:
 	.string "a long look.\p"
 	.string "It doesn't stray far\n"
 	.string "from its trainer.$"
+
+@ ==== 2.1-12: the friend trainers (EXPLORER BRIDGETTE) ====
+@ src/hoenn_friends.c explains the system. Bridgette stands by the Desert
+@ Ruins on Route 111; TRAINER_KAYLEE is her trainer slot.
+HoennSeek_EventScript_FriendBridgette::
+	lock
+	faceplayer
+	setvar VAR_0x8004, HOENN_FRIEND_BRIDGETTE
+	goto_if_set FLAG_HOENN_DAILY_BRIDGETTE, HoennSeek_EventScript_BridgetteToday
+	goto_if_set FLAG_HOENN_MET_BRIDGETTE, HoennSeek_EventScript_BridgetteAgain
+	setflag FLAG_HOENN_MET_BRIDGETTE
+	msgbox HoennSeek_Text_BridgetteMeet, MSGBOX_DEFAULT
+	specialvar VAR_RESULT, HoennFriendNameLine
+	call_if_eq VAR_RESULT, HOENN_NAME_AIDAN, HoennSeek_EventScript_BridgetteNameAidan
+	call_if_eq VAR_RESULT, HOENN_NAME_BRIDGET, HoennSeek_EventScript_BridgetteNameBridget
+	goto HoennSeek_EventScript_BridgetteAsk
+
+HoennSeek_EventScript_BridgetteAgain::
+	specialvar VAR_RESULT, HoennFriendStronger
+	goto_if_eq VAR_RESULT, TRUE, HoennSeek_EventScript_BridgetteStronger
+	msgbox HoennSeek_Text_BridgetteAgain, MSGBOX_YESNO
+	goto HoennSeek_EventScript_BridgetteAnswer
+
+HoennSeek_EventScript_BridgetteStronger::
+	msgbox HoennSeek_Text_BridgetteStronger, MSGBOX_YESNO
+	goto HoennSeek_EventScript_BridgetteAnswer
+
+HoennSeek_EventScript_BridgetteAsk::
+	msgbox HoennSeek_Text_BridgetteAsk, MSGBOX_YESNO
+HoennSeek_EventScript_BridgetteAnswer::
+	goto_if_eq VAR_RESULT, NO, HoennSeek_EventScript_BridgetteDecline
+	msgbox HoennSeek_Text_BridgetteGo, MSGBOX_DEFAULT
+	closemessage
+	cleartrainerflag TRAINER_KAYLEE
+	trainerbattle_no_intro TRAINER_KAYLEE, HoennSeek_Text_BridgetteDefeat
+	setvar VAR_0x8004, HOENN_FRIEND_BRIDGETTE
+	specialvar VAR_RESULT, HoennFriendBattleEnded
+	goto_if_eq VAR_RESULT, B_OUTCOME_FORFEITED, HoennSeek_EventScript_BridgetteRan
+	setflag FLAG_HOENN_DAILY_BRIDGETTE
+	msgbox HoennSeek_Text_BridgetteWon, MSGBOX_DEFAULT
+	release
+	end
+
+HoennSeek_EventScript_BridgetteRan::
+	msgbox HoennSeek_Text_BridgetteRan, MSGBOX_DEFAULT
+	release
+	end
+
+HoennSeek_EventScript_BridgetteDecline::
+	msgbox HoennSeek_Text_BridgetteDecline, MSGBOX_DEFAULT
+	release
+	end
+
+HoennSeek_EventScript_BridgetteToday::
+	msgbox HoennSeek_Text_BridgetteToday, MSGBOX_DEFAULT
+	release
+	end
+
+HoennSeek_EventScript_BridgetteNameAidan::
+	msgbox HoennSeek_Text_BridgetteNameAidan, MSGBOX_DEFAULT
+	return
+
+HoennSeek_EventScript_BridgetteNameBridget::
+	msgbox HoennSeek_Text_BridgetteNameBridget, MSGBOX_DEFAULT
+	return
+
+HoennSeek_Text_BridgetteMeet:
+	.string "Oh! Hello! I didn't hear you\n"
+	.string "over the wind.\p"
+	.string "I'm BRIDGETTE. I came all the way\n"
+	.string "from SINNOH to explore ruins.\p"
+	.string "This one hums at night, did you\n"
+	.string "know? I've been mapping it for\l"
+	.string "weeks now.$"
+
+HoennSeek_Text_BridgetteNameAidan:
+	.string "Wait, your name's {PLAYER}?\n"
+	.string "My boyfriend is named AIDAN too!$"
+
+HoennSeek_Text_BridgetteNameBridget:
+	.string "{PLAYER}? Hey, that's my name!\n"
+	.string "Well, almost.$"
+
+HoennSeek_Text_BridgetteAgain:
+	.string "Back again? The ruins aren't\n"
+	.string "going anywhere. Neither am I.\p"
+	.string "Up for another battle?$"
+
+HoennSeek_Text_BridgetteStronger:
+	.string "Oh, it's you! I've been training\n"
+	.string "between digs.\p"
+	.string "My team's gotten stronger since\n"
+	.string "our last battle. Want to see?$"
+
+HoennSeek_Text_BridgetteAsk:
+	.string "You look like a strong TRAINER.\n"
+	.string "How about a battle?$"
+
+HoennSeek_Text_BridgetteGo:
+	.string "Let's go! I'll try not to get\n"
+	.string "sand in your eyes.$"
+
+HoennSeek_Text_BridgetteDefeat:
+	.string "You won! I knew this desert was\n"
+	.string "hiding something good.$"
+
+HoennSeek_Text_BridgetteWon:
+	.string "That was fun! Come back tomorrow.\n"
+	.string "I'll have dug up a new strategy.$"
+
+HoennSeek_Text_BridgetteRan:
+	.string "Giving up already? The desert\n"
+	.string "gets to everyone.\p"
+	.string "Come back when you're ready.$"
+
+HoennSeek_Text_BridgetteDecline:
+	.string "That's fine. I'll be right\n"
+	.string "here, digging away.$"
+
+HoennSeek_Text_BridgetteToday:
+	.string "I'm all battled out for today.\n"
+	.string "The ruins come first!\p"
+	.string "Come back tomorrow.$"

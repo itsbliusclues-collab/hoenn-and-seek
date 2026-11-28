@@ -9,6 +9,8 @@
 # 2.1-10: the 15 elite trainers (role "elite" in trainer_curation.json, at the end of this
 # file) have curated teams of 6 with held items and Smart AI; levels are placeholders: the
 # ace is the next Hoenn leader's ace - 1 (HOENN_LADDER_ELITE), gaps kept.
+# 2.1-12: TRAINER_KAYLEE (Emerald's unused slot) is EXPLORER BRIDGETTE, the first friend trainer
+# (src/hoenn_friends.c); her levels are placeholders for the top-90 ladder (Garchomp is the ace).
 
 === TRAINER_ROXANNE_1 ===
 Items: Full Restore / Full Restore / Hyper Potion
@@ -2241,3 +2243,72 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Psycho Cut
 - Superpower
 - Sucker Punch
+
+=== TRAINER_KAYLEE ===
+Name: BRIDGETTE
+Class: Explorer
+Pic: Pokemon Ranger F
+Gender: Female
+Music: Cool
+Items: Full Restore / Full Restore
+AI: Smart Trainer / Prediction
+
+Swampert @ Leftovers
+Level: 88
+Nature: Relaxed
+EVs: 252 HP / 252 Def / 4 SpD
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Stealth Rock
+- Earthquake
+- Surf
+- Roar
+
+Gengar @ Life Orb
+Level: 88
+Nature: Timid
+EVs: 252 SpA / 4 SpD / 252 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Shadow Ball
+- Sludge Bomb
+- Focus Blast
+- Nasty Plot
+
+Rotom-Wash @ Leftovers
+Level: 88
+Nature: Bold
+EVs: 252 HP / 252 Def / 4 SpA
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Hydro Pump
+- Thunderbolt
+- Will-O-Wisp
+- Pain Split
+
+Lucario @ Life Orb
+Level: 89
+Nature: Timid
+EVs: 252 SpA / 4 SpD / 252 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Nasty Plot
+- Aura Sphere
+- Flash Cannon
+- Vacuum Wave
+
+Tyranitar @ Choice Band
+Level: 89
+Nature: Adamant
+EVs: 252 HP / 252 Atk / 4 SpD
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Stone Edge
+- Crunch
+- Pursuit
+- Earthquake
+
+Garchomp @ Yache Berry
+Level: 90
+Nature: Jolly
+EVs: 252 Atk / 4 SpD / 252 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Swords Dance
+- Earthquake
+- Outrage
+- Stone Edge
