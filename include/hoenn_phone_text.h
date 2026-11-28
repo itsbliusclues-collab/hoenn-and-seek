@@ -33,6 +33,7 @@ extern const u8 HoennSeek_Text_EthanPhone7[];
 extern const u8 HoennSeek_Text_EthanPhone8[];
 extern const u8 HoennSeek_Text_EthanPhone9[];
 extern const u8 HoennSeek_Text_EthanPhone10[];
+extern const u8 HoennSeek_Text_EthanPhone11[];
 extern const u8 HoennSeek_Text_LyraPhone0[];
 extern const u8 HoennSeek_Text_LyraPhone1[];
 extern const u8 HoennSeek_Text_LyraPhone2[];
@@ -44,4 +45,5 @@ extern const u8 HoennSeek_Text_LyraPhone7[];
 extern const u8 HoennSeek_Text_LyraPhone8[];
 extern const u8 HoennSeek_Text_LyraPhone9[];
 extern const u8 HoennSeek_Text_LyraPhone10[];
+extern const u8 HoennSeek_Text_LyraPhone11[];
 #endif // GUARD_HOENN_PHONE_TEXT_H

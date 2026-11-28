@@ -30,12 +30,13 @@
 
 #if IS_HNS
 
-// 2.1-15: ETHAN or LYRA, your childhood friend next door, calls you more than
-// anyone. Milestones (sNeighborStages) follow your progress through all three
-// regions: only the highest one reached rings and the ones below it are marked
-// done, as Brendan & May's badge calls are (src/hoenn_phone.c). Tips ring once
-// each when you first get somewhere or something, unless you're already past
-// the stage where the tip would help (then they're marked done).
+// 2.1-15: ETHAN or LYRA, your childhood friend next door, calls about every
+// other BADGE in Johto and Kanto, the Johto title and WALLACE (Aidan: a call
+// per badge was too many). Only the highest stage reached rings and the ones
+// below it are marked done, as Brendan & May's badge calls are
+// (src/hoenn_phone.c). The Kanto-title call is where they decide to stay on as
+// PROF. OAK's field aide, so Hoenn only gets the WALLACE call; their in-person
+// scenes (2.1-16) carry the tips.
 static bool32 NeighborHasPhone(void)
 {
     return FlagGet(FLAG_HOENN_NEIGHBOR_PHONE_ETHAN) || FlagGet(FLAG_HOENN_NEIGHBOR_PHONE_LYRA);
@@ -51,50 +52,32 @@ static u32 CountFlags(u16 first, u32 count)
     return n;
 }
 
-static bool32 NeighborBeenToHoenn(void)
-{
-    return FlagGet(FLAG_VISITED_SLATEPORT_CITY) || FlagGet(FLAG_VISITED_LILYCOVE_CITY)
-        || FlagGet(FLAG_HOENN_CROSSED_STRAIT);
-}
-
-// Your progress as a stage: 0 = no badge, 1-8 Johto badges, then one stage per
-// row after BADGE8 in HOENN_CALL_NEIGHBOR_* order (CHAMPION 9 ... WALLACE 14).
-#define NEIGHBOR_STAGE_COUNT (HOENN_CALL_NEIGHBOR_WALLACE - HOENN_CALL_NEIGHBOR_BADGE1 + 1)
+// Your progress as a stage: 0 = under two Johto badges, 1-4 = 2/4/6/8 Johto
+// badges, 5 = Johto champion, 6-9 = 2/4/6/8 Kanto badges, 10 = WALLACE. Stage n
+// rings HOENN_CALL_NEIGHBOR_BADGE2 + n - 1 and owns FLAG_HOENN_CALL_NEIGHBOR_FIRST + n - 1.
+#define NEIGHBOR_STAGE_COUNT (HOENN_CALL_NEIGHBOR_WALLACE - HOENN_CALL_NEIGHBOR_BADGE2 + 1)
+STATIC_ASSERT(NEIGHBOR_STAGE_COUNT == 10, NeighborStageCount);
 STATIC_ASSERT(NEIGHBOR_STAGE_COUNT == FLAG_HOENN_CALL_NEIGHBOR_LAST - FLAG_HOENN_CALL_NEIGHBOR_FIRST + 1, NeighborStageFlags);
 
 static u32 NeighborStage(void)
 {
+    u32 kanto;
+
     if (FlagGet(FLAG_HOENN_STAMP_WALLACE))
-        return 14;
-    if (CountFlags(FLAG_HOENN_STAMP_GYM_1, 8) == 8)
-        return 13;
-    if (NeighborBeenToHoenn())
-        return 12;
-    if (CountFlags(FLAG_BADGE09_GET, 8) == 8)
-        return 11;
-    if (CountFlags(FLAG_BADGE09_GET, 8) != 0)
         return 10;
+    kanto = CountFlags(FLAG_BADGE09_GET, 8);
+    if (kanto >= 2)
+        return 5 + kanto / 2;
     if (FlagGet(FLAG_SYS_GAME_CLEAR))
-        return 9;
-    return CountFlags(FLAG_BADGE01_GET, 8);
+        return 5;
+    return CountFlags(FLAG_BADGE01_GET, 8) / 2;
 }
 
-// For scripts (contact lines, in-person lines): specialvar VAR_RESULT, HoennNeighborStage
+// For scripts (in-person lines): specialvar VAR_RESULT, HoennNeighborStage
 u16 HoennNeighborStage(void)
 {
     return NeighborStage();
 }
-
-static const struct {
-    u16 flag;      // what you got or where you went
-    u8 staleStage; // at this stage or later the tip is too late (marked done)
-} sNeighborTips[] = {
-    [HOENN_CALL_NEIGHBOR_TIP_AZALEA - HOENN_CALL_NEIGHBOR_TIP_AZALEA]    = {FLAG_VISITED_AZALEA_TOWN, 3},
-    [HOENN_CALL_NEIGHBOR_TIP_GOLDENROD - HOENN_CALL_NEIGHBOR_TIP_AZALEA] = {FLAG_VISITED_GOLDENROD_CITY, 5},
-    [HOENN_CALL_NEIGHBOR_TIP_HEADBUTT - HOENN_CALL_NEIGHBOR_TIP_AZALEA]  = {FLAG_GET_HEADBUTT, 6},
-    [HOENN_CALL_NEIGHBOR_TIP_SURF - HOENN_CALL_NEIGHBOR_TIP_AZALEA]      = {FLAG_RECEIVED_HM_SURF, 9},
-};
-STATIC_ASSERT(ARRAY_COUNT(sNeighborTips) == FLAG_HOENN_CALL_NEIGHBOR_TIP_LAST - FLAG_HOENN_CALL_NEIGHBOR_TIP_FIRST + 1, NeighborTipFlags);
 
 static u16 NeighborDueCall(void)
 {
@@ -107,18 +90,7 @@ static u16 NeighborDueCall(void)
     {
         for (i = 0; i + 1 < stage; i++)
             FlagSet(FLAG_HOENN_CALL_NEIGHBOR_FIRST + i);
-        return HOENN_CALL_NEIGHBOR_BADGE1 + stage - 1;
-    }
-    for (i = 0; i < ARRAY_COUNT(sNeighborTips); i++)
-    {
-        if (FlagGet(FLAG_HOENN_CALL_NEIGHBOR_TIP_FIRST + i) || !FlagGet(sNeighborTips[i].flag))
-            continue;
-        if (stage >= sNeighborTips[i].staleStage)
-        {
-            FlagSet(FLAG_HOENN_CALL_NEIGHBOR_TIP_FIRST + i);
-            continue;
-        }
-        return HOENN_CALL_NEIGHBOR_TIP_AZALEA + i;
+        return HOENN_CALL_NEIGHBOR_BADGE2 + stage - 1;
     }
     return HOENN_CALL_NONE;
 }

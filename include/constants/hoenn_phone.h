@@ -80,24 +80,16 @@
 #define HOENN_CALL_JOURNAL_JOHTO 100 // 2.1-06: Elm, the JOHTO page is all found
 #define HOENN_CALL_JOURNAL_KANTO 101 // Oak, KANTO
 #define HOENN_CALL_JOURNAL_HOENN 102 // Birch, HOENN
-#define HOENN_CALL_NEIGHBOR_BADGE1    103 // 2.1-15: ETHAN or LYRA, your first Johto badge (Violet)
-#define HOENN_CALL_NEIGHBOR_BADGE2    104 // second (Azalea)
-#define HOENN_CALL_NEIGHBOR_BADGE3    105 // third (Goldenrod)
-#define HOENN_CALL_NEIGHBOR_BADGE4    106 // fourth (Ecruteak)
-#define HOENN_CALL_NEIGHBOR_BADGE5    107 // fifth (Cianwood)
-#define HOENN_CALL_NEIGHBOR_BADGE6    108 // sixth (Olivine)
-#define HOENN_CALL_NEIGHBOR_BADGE7    109 // seventh (Mahogany)
-#define HOENN_CALL_NEIGHBOR_BADGE8    110 // eighth (Blackthorn)
-#define HOENN_CALL_NEIGHBOR_CHAMPION  111 // Johto champion
-#define HOENN_CALL_NEIGHBOR_KANTO1    112 // your first Kanto badge
-#define HOENN_CALL_NEIGHBOR_KANTO8    113 // all eight Kanto badges
-#define HOENN_CALL_NEIGHBOR_HOENN     114 // first time in Hoenn
-#define HOENN_CALL_NEIGHBOR_HOENN8    115 // all eight Hoenn badges
-#define HOENN_CALL_NEIGHBOR_WALLACE   116 // Wallace beaten
-#define HOENN_CALL_NEIGHBOR_TIP_AZALEA 117 // tip: first time in Azalea (APRICORNs, KURT)
-#define HOENN_CALL_NEIGHBOR_TIP_GOLDENROD 118 // tip: first time in Goldenrod (DAY-CARE, Bug-Catching Contest)
-#define HOENN_CALL_NEIGHBOR_TIP_HEADBUTT 119 // tip: you learned HEADBUTT (shake trees)
-#define HOENN_CALL_NEIGHBOR_TIP_SURF  120 // tip: you got SURF (water and fishing)
+#define HOENN_CALL_NEIGHBOR_BADGE2    103 // 2.1-15: ETHAN or LYRA, every other Johto badge: second
+#define HOENN_CALL_NEIGHBOR_BADGE4    104 // fourth
+#define HOENN_CALL_NEIGHBOR_BADGE6    105 // sixth
+#define HOENN_CALL_NEIGHBOR_BADGE8    106 // eighth
+#define HOENN_CALL_NEIGHBOR_CHAMPION  107 // Johto champion (they're off to help PROF. OAK)
+#define HOENN_CALL_NEIGHBOR_KANTO2    108 // every other Kanto badge: second
+#define HOENN_CALL_NEIGHBOR_KANTO4    109 // fourth
+#define HOENN_CALL_NEIGHBOR_KANTO6    110 // sixth (PROF. OAK asks them to stay)
+#define HOENN_CALL_NEIGHBOR_KANTO8    111 // all eight: they stay in KANTO as OAK's field aide
+#define HOENN_CALL_NEIGHBOR_WALLACE   112 // Wallace beaten (their only Hoenn call)
 
 #define HOENN_CALL_21_LANE_B_FIRST 130
 #define HOENN_CALL_21_LANE_B_LAST  159

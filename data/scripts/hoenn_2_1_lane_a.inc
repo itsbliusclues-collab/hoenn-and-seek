@@ -12,24 +12,16 @@ HoennSeek_EventScript_PhoneEvent21LaneA::
 	case HOENN_CALL_JOURNAL_JOHTO, HoennSeek_EventScript_CallJournalJohto @ 2.1-06
 	case HOENN_CALL_JOURNAL_KANTO, HoennSeek_EventScript_CallJournalKanto
 	case HOENN_CALL_JOURNAL_HOENN, HoennSeek_EventScript_CallJournalHoenn
-	case HOENN_CALL_NEIGHBOR_BADGE1, HoennSeek_EventScript_CallNeighborBadge1 @ 2.1-15
-	case HOENN_CALL_NEIGHBOR_BADGE2, HoennSeek_EventScript_CallNeighborBadge2
-	case HOENN_CALL_NEIGHBOR_BADGE3, HoennSeek_EventScript_CallNeighborBadge3
+	case HOENN_CALL_NEIGHBOR_BADGE2, HoennSeek_EventScript_CallNeighborBadge2 @ 2.1-15
 	case HOENN_CALL_NEIGHBOR_BADGE4, HoennSeek_EventScript_CallNeighborBadge4
-	case HOENN_CALL_NEIGHBOR_BADGE5, HoennSeek_EventScript_CallNeighborBadge5
 	case HOENN_CALL_NEIGHBOR_BADGE6, HoennSeek_EventScript_CallNeighborBadge6
-	case HOENN_CALL_NEIGHBOR_BADGE7, HoennSeek_EventScript_CallNeighborBadge7
 	case HOENN_CALL_NEIGHBOR_BADGE8, HoennSeek_EventScript_CallNeighborBadge8
 	case HOENN_CALL_NEIGHBOR_CHAMPION, HoennSeek_EventScript_CallNeighborChampion
-	case HOENN_CALL_NEIGHBOR_KANTO1, HoennSeek_EventScript_CallNeighborKanto1
+	case HOENN_CALL_NEIGHBOR_KANTO2, HoennSeek_EventScript_CallNeighborKanto2
+	case HOENN_CALL_NEIGHBOR_KANTO4, HoennSeek_EventScript_CallNeighborKanto4
+	case HOENN_CALL_NEIGHBOR_KANTO6, HoennSeek_EventScript_CallNeighborKanto6
 	case HOENN_CALL_NEIGHBOR_KANTO8, HoennSeek_EventScript_CallNeighborKanto8
-	case HOENN_CALL_NEIGHBOR_HOENN, HoennSeek_EventScript_CallNeighborHoenn
-	case HOENN_CALL_NEIGHBOR_HOENN8, HoennSeek_EventScript_CallNeighborHoenn8
 	case HOENN_CALL_NEIGHBOR_WALLACE, HoennSeek_EventScript_CallNeighborWallace
-	case HOENN_CALL_NEIGHBOR_TIP_AZALEA, HoennSeek_EventScript_CallNeighborTipAzalea
-	case HOENN_CALL_NEIGHBOR_TIP_GOLDENROD, HoennSeek_EventScript_CallNeighborTipGoldenrod
-	case HOENN_CALL_NEIGHBOR_TIP_HEADBUTT, HoennSeek_EventScript_CallNeighborTipHeadbutt
-	case HOENN_CALL_NEIGHBOR_TIP_SURF, HoennSeek_EventScript_CallNeighborTipSurf
 	goto HoennSeek_EventScript_PhoneEvent21LaneB @ lane B's 2.1 calls (hoenn_2_1_lane_b.inc)
 
 @ ==== 2.1-05: the SEEKER'S JOURNAL ====
@@ -936,9 +928,11 @@ HoennSeek_Text_BrockToday::
 @ Kris are only the sprite names). They help PROF. ELM with his research, know
 @ more than you do and teach you things: types before you pick a starter,
 @ running from wild battles, your walking POKéMON and the POKéGEAR's phone
-@ after you get it (their number), how to catch on ROUTE 29 on the way back from MR. POKéMON (with
-@ POKé BALLS), then calls at every milestone and tip calls at firsts
-@ (NeighborDueCall, src/hoenn_2_1_lane_a.c). VAR_HOENN_NEIGHBOR_STATE is
+@ after you get it (their number), how to catch on ROUTE 29 on the way back
+@ from MR. POKéMON (with POKé BALLS), then a call every other BADGE in Johto
+@ and Kanto, at the Johto title and after WALLACE (NeighborDueCall,
+@ src/hoenn_2_1_lane_a.c). After the Kanto title they stay on as PROF. OAK's
+@ field aide in PALLET TOWN, which is why they're seldom heard from in Hoenn. VAR_HOENN_NEIGHBOR_STATE is
 @ HOENN_NEIGHBOR_*. Their objects take VAR_OBJ_GFX_ID_E, set on arrival.
 @ Contact lines: the ETHAN/LYRA headers in src/pokenav_match_call_data.c.
 
@@ -1172,95 +1166,55 @@ HoennSeek_Movement_NeighborRunOff:
 	step_end
 
 @ ---- event calls (lower milestones are marked done when a higher one rings) ----
-HoennSeek_EventScript_CallNeighborBadge1::
-	setflag (FLAG_HOENN_CALL_NEIGHBOR_FIRST + 0)
-	call HoennSeek_EventScript_NeighborSpeaker
-	pokenavcall HoennSeek_Text_CallNeighborBadge1
-	goto HoennSeek_EventScript_CallEnd
 HoennSeek_EventScript_CallNeighborBadge2::
-	setflag (FLAG_HOENN_CALL_NEIGHBOR_FIRST + 1)
+	setflag (FLAG_HOENN_CALL_NEIGHBOR_FIRST + 0)
 	call HoennSeek_EventScript_NeighborSpeaker
 	pokenavcall HoennSeek_Text_CallNeighborBadge2
 	goto HoennSeek_EventScript_CallEnd
-HoennSeek_EventScript_CallNeighborBadge3::
-	setflag (FLAG_HOENN_CALL_NEIGHBOR_FIRST + 2)
-	call HoennSeek_EventScript_NeighborSpeaker
-	pokenavcall HoennSeek_Text_CallNeighborBadge3
-	goto HoennSeek_EventScript_CallEnd
 HoennSeek_EventScript_CallNeighborBadge4::
-	setflag (FLAG_HOENN_CALL_NEIGHBOR_FIRST + 3)
+	setflag (FLAG_HOENN_CALL_NEIGHBOR_FIRST + 1)
 	call HoennSeek_EventScript_NeighborSpeaker
 	pokenavcall HoennSeek_Text_CallNeighborBadge4
 	goto HoennSeek_EventScript_CallEnd
-HoennSeek_EventScript_CallNeighborBadge5::
-	setflag (FLAG_HOENN_CALL_NEIGHBOR_FIRST + 4)
-	call HoennSeek_EventScript_NeighborSpeaker
-	pokenavcall HoennSeek_Text_CallNeighborBadge5
-	goto HoennSeek_EventScript_CallEnd
 HoennSeek_EventScript_CallNeighborBadge6::
-	setflag (FLAG_HOENN_CALL_NEIGHBOR_FIRST + 5)
+	setflag (FLAG_HOENN_CALL_NEIGHBOR_FIRST + 2)
 	call HoennSeek_EventScript_NeighborSpeaker
 	pokenavcall HoennSeek_Text_CallNeighborBadge6
 	goto HoennSeek_EventScript_CallEnd
-HoennSeek_EventScript_CallNeighborBadge7::
-	setflag (FLAG_HOENN_CALL_NEIGHBOR_FIRST + 6)
-	call HoennSeek_EventScript_NeighborSpeaker
-	pokenavcall HoennSeek_Text_CallNeighborBadge7
-	goto HoennSeek_EventScript_CallEnd
 HoennSeek_EventScript_CallNeighborBadge8::
-	setflag (FLAG_HOENN_CALL_NEIGHBOR_FIRST + 7)
+	setflag (FLAG_HOENN_CALL_NEIGHBOR_FIRST + 3)
 	call HoennSeek_EventScript_NeighborSpeaker
 	pokenavcall HoennSeek_Text_CallNeighborBadge8
 	goto HoennSeek_EventScript_CallEnd
 HoennSeek_EventScript_CallNeighborChampion::
-	setflag (FLAG_HOENN_CALL_NEIGHBOR_FIRST + 8)
+	setflag (FLAG_HOENN_CALL_NEIGHBOR_FIRST + 4)
 	call HoennSeek_EventScript_NeighborSpeaker
 	pokenavcall HoennSeek_Text_CallNeighborChampion
 	goto HoennSeek_EventScript_CallEnd
-HoennSeek_EventScript_CallNeighborKanto1::
-	setflag (FLAG_HOENN_CALL_NEIGHBOR_FIRST + 9)
+HoennSeek_EventScript_CallNeighborKanto2::
+	setflag (FLAG_HOENN_CALL_NEIGHBOR_FIRST + 5)
 	call HoennSeek_EventScript_NeighborSpeaker
-	pokenavcall HoennSeek_Text_CallNeighborKanto1
+	pokenavcall HoennSeek_Text_CallNeighborKanto2
+	goto HoennSeek_EventScript_CallEnd
+HoennSeek_EventScript_CallNeighborKanto4::
+	setflag (FLAG_HOENN_CALL_NEIGHBOR_FIRST + 6)
+	call HoennSeek_EventScript_NeighborSpeaker
+	pokenavcall HoennSeek_Text_CallNeighborKanto4
+	goto HoennSeek_EventScript_CallEnd
+HoennSeek_EventScript_CallNeighborKanto6::
+	setflag (FLAG_HOENN_CALL_NEIGHBOR_FIRST + 7)
+	call HoennSeek_EventScript_NeighborSpeaker
+	pokenavcall HoennSeek_Text_CallNeighborKanto6
 	goto HoennSeek_EventScript_CallEnd
 HoennSeek_EventScript_CallNeighborKanto8::
-	setflag (FLAG_HOENN_CALL_NEIGHBOR_FIRST + 10)
+	setflag (FLAG_HOENN_CALL_NEIGHBOR_FIRST + 8)
 	call HoennSeek_EventScript_NeighborSpeaker
 	pokenavcall HoennSeek_Text_CallNeighborKanto8
 	goto HoennSeek_EventScript_CallEnd
-HoennSeek_EventScript_CallNeighborHoenn::
-	setflag (FLAG_HOENN_CALL_NEIGHBOR_FIRST + 11)
-	call HoennSeek_EventScript_NeighborSpeaker
-	pokenavcall HoennSeek_Text_CallNeighborHoenn
-	goto HoennSeek_EventScript_CallEnd
-HoennSeek_EventScript_CallNeighborHoenn8::
-	setflag (FLAG_HOENN_CALL_NEIGHBOR_FIRST + 12)
-	call HoennSeek_EventScript_NeighborSpeaker
-	pokenavcall HoennSeek_Text_CallNeighborHoenn8
-	goto HoennSeek_EventScript_CallEnd
 HoennSeek_EventScript_CallNeighborWallace::
-	setflag (FLAG_HOENN_CALL_NEIGHBOR_FIRST + 13)
+	setflag (FLAG_HOENN_CALL_NEIGHBOR_FIRST + 9)
 	call HoennSeek_EventScript_NeighborSpeaker
 	pokenavcall HoennSeek_Text_CallNeighborWallace
-	goto HoennSeek_EventScript_CallEnd
-HoennSeek_EventScript_CallNeighborTipAzalea::
-	setflag (FLAG_HOENN_CALL_NEIGHBOR_TIP_FIRST + 0)
-	call HoennSeek_EventScript_NeighborSpeaker
-	pokenavcall HoennSeek_Text_CallNeighborTipAzalea
-	goto HoennSeek_EventScript_CallEnd
-HoennSeek_EventScript_CallNeighborTipGoldenrod::
-	setflag (FLAG_HOENN_CALL_NEIGHBOR_TIP_FIRST + 1)
-	call HoennSeek_EventScript_NeighborSpeaker
-	pokenavcall HoennSeek_Text_CallNeighborTipGoldenrod
-	goto HoennSeek_EventScript_CallEnd
-HoennSeek_EventScript_CallNeighborTipHeadbutt::
-	setflag (FLAG_HOENN_CALL_NEIGHBOR_TIP_FIRST + 2)
-	call HoennSeek_EventScript_NeighborSpeaker
-	pokenavcall HoennSeek_Text_CallNeighborTipHeadbutt
-	goto HoennSeek_EventScript_CallEnd
-HoennSeek_EventScript_CallNeighborTipSurf::
-	setflag (FLAG_HOENN_CALL_NEIGHBOR_TIP_FIRST + 3)
-	call HoennSeek_EventScript_NeighborSpeaker
-	pokenavcall HoennSeek_Text_CallNeighborTipSurf
 	goto HoennSeek_EventScript_CallEnd
 
 HoennSeek_Text_NameEthan::
@@ -1311,8 +1265,10 @@ HoennSeek_Text_NeighborRegistered:
 HoennSeek_Text_NeighborTutorial2:
 	.string "There! Pick PHONE and then my\n"
 	.string "name, and you can call me.\p"
-	.string "I'll call you too, every time I\n"
-	.string "find something you should know.\p"
+	.string "I'll call you when there's big\n"
+	.string "news. And I'm always out\l"
+	.string "exploring, so look for me in\l"
+	.string "new towns!\p"
 	.string "I'm doing fieldwork on ROUTE 29\n"
 	.string "today. See you out there!$"
 
@@ -1348,68 +1304,33 @@ HoennSeek_Text_R29Bye:
 	.string "I'm off to check the trees by\n"
 	.string "CHERRYGROVE. Call me anytime!$"
 
-HoennSeek_Text_CallNeighborBadge1:
-	.string "{PLAYER}! PROF. ELM just read me\n"
-	.string "the LEAGUE's note: you beat\l"
-	.string "FALKNER! Way to go!\p"
-	.string "Did he give you a TM? Open your\n"
-	.string "BAG and teach it to a POKéMON\l"
-	.string "that can learn it.\p"
-	.string "I'm mapping nests on ROUTE 30\n"
-	.string "for the lab. Talk soon!$"
-
 HoennSeek_Text_CallNeighborBadge2:
-	.string "You beat BUGSY! PROF. ELM says\n"
-	.string "the LEAGUE's note came today.\p"
-	.string "I read that bug POKéMON hate\n"
-	.string "FIRE and FLYING moves. Did\l"
-	.string "that help you?\p"
+	.string "Two BADGES already! PROF. ELM\n"
+	.string "read me the LEAGUE's note.\p"
+	.string "Did FALKNER and BUGSY give you\n"
+	.string "TMs? Open your BAG and teach\l"
+	.string "them to a POKéMON that can\l"
+	.string "learn them.\p"
 	.string "GOLDENROD is huge, so use the\n"
 	.string "MAP in your POKéGEAR. Bye!$"
 
-HoennSeek_Text_CallNeighborBadge3:
-	.string "WHITNEY's MILTANK! Was it scary?\n"
-	.string "PROF. ELM says you won!\p"
-	.string "Next time a move like ROLLOUT\n"
-	.string "keeps getting stronger, switch\l"
-	.string "out. That stops it.\p"
-	.string "I'm off to ECRUTEAK to look at\n"
-	.string "the old towers. Bye!$"
-
 HoennSeek_Text_CallNeighborBadge4:
-	.string "You beat MORTY! I was in\n"
-	.string "ECRUTEAK when it happened!\p"
+	.string "You beat MORTY! That's four\n"
+	.string "BADGES, and I was in ECRUTEAK\l"
+	.string "when it happened!\p"
 	.string "GHOST moves can't hit NORMAL\n"
 	.string "types, and NORMAL moves can't\l"
 	.string "hit GHOSTs. I wrote it down.\p"
 	.string "The BURNED TOWER is in PROF.\n"
 	.string "ELM's next report, thanks to me!$"
 
-HoennSeek_Text_CallNeighborBadge5:
-	.string "Five BADGES! PROF. ELM pinned the\n"
-	.string "LEAGUE's note to the lab wall.\p"
+HoennSeek_Text_CallNeighborBadge6:
+	.string "Six BADGES, {PLAYER}! PROF. ELM\n"
+	.string "pinned the LEAGUE's notes to\l"
+	.string "the lab wall.\p"
 	.string "Here's a tip: let a POKéMON hold\n"
 	.string "a BERRY. It eats it by itself\l"
 	.string "when it's in trouble!$"
-
-HoennSeek_Text_CallNeighborBadge6:
-	.string "Six BADGES, {PLAYER}! PROF. ELM\n"
-	.string "can't believe it, and neither\l"
-	.string "can I.\p"
-	.string "Did you know? When a POKéMON\n"
-	.string "starts to evolve, press B to\l"
-	.string "stop it.\p"
-	.string "Some learn moves sooner if they\n"
-	.string "wait. I keep a list for the lab!$"
-
-HoennSeek_Text_CallNeighborBadge7:
-	.string "A fisherman on ROUTE 43 says you\n"
-	.string "took on a red GYARADOS at the\l"
-	.string "LAKE OF RAGE!\p"
-	.string "And then you beat PRYCE. PROF.\n"
-	.string "ELM read it out to the whole lab.\p"
-	.string "I'm so proud of you! Don't tell\n"
-	.string "anyone I said that.$"
 
 HoennSeek_Text_CallNeighborBadge8:
 	.string "All eight BADGES! PROF. ELM got\n"
@@ -1424,82 +1345,61 @@ HoennSeek_Text_CallNeighborChampion:
 	.string "You're the CHAMPION?! PROF. OAK\n"
 	.string "called PROF. ELM from the LEAGUE,\l"
 	.string "and ELM ran over to tell me!\p"
-	.string "I bet he'll want to see you at\n"
-	.string "the lab. He has something for\l"
-	.string "you, I just know it.\p"
-	.string "KANTO has BADGES too. I'm going\n"
-	.string "there to study. Race you!$"
+	.string "Oh, and guess what? PROF. ELM is\n"
+	.string "sending me to KANTO to help\l"
+	.string "PROF. OAK for a while.\p"
+	.string "KANTO has BADGES too, you know.\n"
+	.string "See you over there!$"
 
-HoennSeek_Text_CallNeighborKanto1:
-	.string "Your first KANTO BADGE! PROF. OAK\n"
-	.string "told PROF. ELM, who told me.\p"
-	.string "I'm studying KANTO's POKéMON. Some\n"
-	.string "of them don't live in JOHTO at all!\p"
-	.string "Oh, and I heard CLEFAIRY dance at\n"
-	.string "MT. MOON, but only on MONDAY\l"
-	.string "nights. Want to go look?$"
+HoennSeek_Text_CallNeighborKanto2:
+	.string "Two KANTO BADGES! PROF. OAK\n"
+	.string "reads me every note the LEAGUE\l"
+	.string "sends him.\p"
+	.string "I'm helping at his lab in PALLET\n"
+	.string "TOWN. KANTO has POKéMON that\l"
+	.string "don't live in JOHTO at all!\p"
+	.string "Catch some for your POKéDEX.\n"
+	.string "PROF. OAK will love that.$"
+
+HoennSeek_Text_CallNeighborKanto4:
+	.string "Four KANTO BADGES! PROF. OAK read\n"
+	.string "the note out loud, twice.\p"
+	.string "I've been mapping where KANTO's\n"
+	.string "POKéMON live for his POKéDEX.\p"
+	.string "It's like ROUTE 29 all over\n"
+	.string "again, just a lot bigger!$"
+
+HoennSeek_Text_CallNeighborKanto6:
+	.string "Six KANTO BADGES! Only two to go.\p"
+	.string "Hey, {PLAYER}… PROF. OAK says I'm\n"
+	.string "the best field helper he's ever\l"
+	.string "had. He asked me to stay on.\p"
+	.string "I haven't told PROF. ELM yet.\n"
+	.string "I'm still thinking about it.$"
 
 HoennSeek_Text_CallNeighborKanto8:
 	.string "Sixteen BADGES! Nobody from NEW\n"
 	.string "BARK has ever done that.\p"
-	.string "PROF. OAK wants to see you. He\n"
-	.string "said something about a ship\l"
-	.string "sailing to HOENN!\p"
-	.string "HOENN… I'd love to study the\n"
-	.string "POKéMON there someday.$"
-
-HoennSeek_Text_CallNeighborHoenn:
-	.string "You're in HOENN?! PROF. BIRCH\n"
-	.string "called PROF. ELM about you!\p"
-	.string "I read that HOENN's weather\n"
-	.string "changes from route to route, and\l"
-	.string "some POKéMON only come out in it.\p"
-	.string "Take lots of notes for me, okay?\n"
-	.string "I want to hear everything!$"
-
-HoennSeek_Text_CallNeighborHoenn8:
-	.string "Eight HOENN BADGES! PROF. BIRCH\n"
-	.string "sends PROF. ELM every note.\p"
-	.string "HOENN's LEAGUE is at EVER GRANDE\n"
-	.string "CITY, past its own VICTORY ROAD.\p"
-	.string "Two LEAGUEs, {PLAYER}.\n"
-	.string "You're really amazing!$"
+	.string "And {PLAYER}, I made up my mind.\n"
+	.string "I'm staying in KANTO to work\l"
+	.string "with PROF. OAK. PROF. ELM said\l"
+	.string "it's a great chance for me!\p"
+	.string "PROF. OAK wants to see you, too.\n"
+	.string "He said something about a ship\l"
+	.string "that sails to HOENN.\p"
+	.string "I'll be busy here, so I won't see\n"
+	.string "you much over there. Take lots\l"
+	.string "of notes for me, okay?$"
 
 HoennSeek_Text_CallNeighborWallace:
-	.string "You beat WALLACE! A CHAMPION in\n"
-	.string "two regions! PROF. ELM cried.\p"
-	.string "Remember when we said we'd go\n"
+	.string "You beat WALLACE! PROF. BIRCH\n"
+	.string "called PROF. OAK, and he ran into\l"
+	.string "the lab to tell me!\p"
+	.string "A CHAMPION in two regions…\n"
+	.string "Remember when we said we'd go\l"
 	.string "on an adventure together?\p"
-	.string "You really did it. I'm writing it\n"
-	.string "all down for the lab's records!$"
-
-HoennSeek_Text_CallNeighborTipAzalea:
-	.string "You're in AZALEA? Go see KURT!\n"
-	.string "He turns APRICORNs into\l"
-	.string "POKé BALLS for you.\p"
-	.string "The APRICORN trees by the roads\n"
-	.string "grow a new one every day. Bring\l"
-	.string "him some!$"
-
-HoennSeek_Text_CallNeighborTipGoldenrod:
-	.string "GOLDENROD! Two things to know.\p"
-	.string "The DAY-CARE on ROUTE 34 raises\n"
-	.string "your POKéMON while you're away.\p"
-	.string "And there's a BUG-CATCHING\n"
-	.string "CONTEST at the NATIONAL PARK\l"
-	.string "every day. I won once!$"
-
-HoennSeek_Text_CallNeighborTipHeadbutt:
-	.string "You learned HEADBUTT? Use it on\n"
-	.string "trees! Sleeping POKéMON fall out.\p"
-	.string "Different trees hide different\n"
-	.string "POKéMON, so try lots of them.$"
-
-HoennSeek_Text_CallNeighborTipSurf:
-	.string "You can SURF now! Water has its\n"
-	.string "own POKéMON, you know.\p"
-	.string "Fish with a ROD too, and you'll\n"
-	.string "find even more. Try every pond!$"
+	.string "You really did it. I'm writing\n"
+	.string "it all down for the lab's records!$"
 
 @ Contact lines (one set per name; the highest stage you've reached is used).
 HoennSeek_Text_EthanPhone0::
@@ -1523,29 +1423,33 @@ HoennSeek_Text_EthanPhone4::
 	.string "believe it. The LEAGUE is next!\l"
 	.string "Remember to stock up!$"
 HoennSeek_Text_EthanPhone5::
-	.string "ETHAN: CHAMPION {PLAYER}! I tell everyone\n"
-	.string "in NEW BARK we grew up together.\l"
-	.string "KANTO next, right?$"
+	.string "ETHAN: CHAMPION {PLAYER}! I'm packing\n"
+	.string "for KANTO. PROF. OAK's lab, here\l"
+	.string "I come!$"
 HoennSeek_Text_EthanPhone6::
-	.string "ETHAN: I'm studying in KANTO now. PROF.\n"
-	.string "OAK lets me use his lab in PALLET\l"
-	.string "TOWN. It's so quiet there!$"
+	.string "ETHAN: I'm at PROF. OAK's lab in PALLET\n"
+	.string "TOWN. It's so quiet here, but\l"
+	.string "the POKéMON are amazing!$"
 HoennSeek_Text_EthanPhone7::
-	.string "ETHAN: Sixteen BADGES! PROF. OAK and\n"
-	.string "PROF. ELM talk about you every\l"
-	.string "time they call each other.$"
+	.string "ETHAN: PROF. OAK has me out on every\n"
+	.string "route. My notebook is almost\l"
+	.string "full again!$"
 HoennSeek_Text_EthanPhone8::
-	.string "ETHAN: What's HOENN like? PROF. BIRCH\n"
-	.string "sends PROF. ELM photos. The sea\l"
-	.string "there looks so blue!$"
+	.string "ETHAN: PROF. OAK asked me to stay on\n"
+	.string "after this. KANTO, or home…\l"
+	.string "What would you do?$"
 HoennSeek_Text_EthanPhone9::
-	.string "ETHAN: EVER GRANDE CITY next! PROF.\n"
-	.string "BIRCH says it's full of flowers.\l"
-	.string "Bring me back a picture?$"
+	.string "ETHAN: I'm PROF. OAK's field aide now!\n"
+	.string "PROF. ELM says he's proud of me.\l"
+	.string "Go show HOENN what you can do!$"
 HoennSeek_Text_EthanPhone10::
-	.string "ETHAN: Champion of two regions! I'm\n"
-	.string "writing it all down. Where are\l"
-	.string "you exploring next?$"
+	.string "ETHAN: What's HOENN like? PROF. BIRCH\n"
+	.string "sends PROF. OAK photos. The sea\l"
+	.string "there looks so blue!$"
+HoennSeek_Text_EthanPhone11::
+	.string "ETHAN: Champion of two regions! I tell\n"
+	.string "everyone at PROF. OAK's lab we\l"
+	.string "grew up together.$"
 HoennSeek_Text_LyraPhone0::
 	.string "LYRA: I'm out on ROUTE 29 taking notes\n"
 	.string "for PROF. ELM. How's your\l"
@@ -1567,26 +1471,30 @@ HoennSeek_Text_LyraPhone4::
 	.string "believe it. The LEAGUE is next!\l"
 	.string "Remember to stock up!$"
 HoennSeek_Text_LyraPhone5::
-	.string "LYRA: CHAMPION {PLAYER}! I tell everyone\n"
-	.string "in NEW BARK we grew up together.\l"
-	.string "KANTO next, right?$"
+	.string "LYRA: CHAMPION {PLAYER}! I'm packing\n"
+	.string "for KANTO. PROF. OAK's lab, here\l"
+	.string "I come!$"
 HoennSeek_Text_LyraPhone6::
-	.string "LYRA: I'm studying in KANTO now. PROF.\n"
-	.string "OAK lets me use his lab in PALLET\l"
-	.string "TOWN. It's so quiet there!$"
+	.string "LYRA: I'm at PROF. OAK's lab in PALLET\n"
+	.string "TOWN. It's so quiet here, but\l"
+	.string "the POKéMON are amazing!$"
 HoennSeek_Text_LyraPhone7::
-	.string "LYRA: Sixteen BADGES! PROF. OAK and\n"
-	.string "PROF. ELM talk about you every\l"
-	.string "time they call each other.$"
+	.string "LYRA: PROF. OAK has me out on every\n"
+	.string "route. My notebook is almost\l"
+	.string "full again!$"
 HoennSeek_Text_LyraPhone8::
-	.string "LYRA: What's HOENN like? PROF. BIRCH\n"
-	.string "sends PROF. ELM photos. The sea\l"
-	.string "there looks so blue!$"
+	.string "LYRA: PROF. OAK asked me to stay on\n"
+	.string "after this. KANTO, or home…\l"
+	.string "What would you do?$"
 HoennSeek_Text_LyraPhone9::
-	.string "LYRA: EVER GRANDE CITY next! PROF.\n"
-	.string "BIRCH says it's full of flowers.\l"
-	.string "Bring me back a picture?$"
+	.string "LYRA: I'm PROF. OAK's field aide now!\n"
+	.string "PROF. ELM says he's proud of me.\l"
+	.string "Go show HOENN what you can do!$"
 HoennSeek_Text_LyraPhone10::
-	.string "LYRA: Champion of two regions! I'm\n"
-	.string "writing it all down. Where are\l"
-	.string "you exploring next?$"
+	.string "LYRA: What's HOENN like? PROF. BIRCH\n"
+	.string "sends PROF. OAK photos. The sea\l"
+	.string "there looks so blue!$"
+HoennSeek_Text_LyraPhone11::
+	.string "LYRA: Champion of two regions! I tell\n"
+	.string "everyone at PROF. OAK's lab we\l"
+	.string "grew up together.$"
