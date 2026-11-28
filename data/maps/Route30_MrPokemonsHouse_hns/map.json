@@ -55,6 +55,19 @@
       "script": "NULL",
       "flag": "FLAG_DELIVERED_EGG",
       "local_id": "LOCALID_ROUTE30_OAK"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MON_BASE+SPECIES_GROWLITHE",
+      "x": 5,
+      "y": 3,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "HoennSeek_EventScript_PeoplesPet",
+      "flag": "FLAG_HIDE_MRPOKEMON"
     }
   ],
   "warp_events": [

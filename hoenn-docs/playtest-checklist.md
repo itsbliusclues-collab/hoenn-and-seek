@@ -749,6 +749,12 @@ Lane B's `## 2.0 part NN` sections go below this line, at the end of the file.
 - MT. SILVER summit by day and by night: Red and Pikachu side by side on the middle of the peak; battle Red; Pikachu disappears with him afterwards.
 - PEWTER MUSEUM 1F on a weekend after beating BROCK: Onix beside him.
 
+### 2.1-28 (people's Pokémon, Johto/Kanto)
+- Walk through towns and rooms: no pet blocks a door, a path, a counter or someone you want to talk to (the generator checks this, but cutscenes walk people around: watch the scenes in New Bark, Cherrygrove, Goldenrod and Ecruteak).
+- Talk to a few pets: each plays its cry and lets you go.
+- At night, people who go home take their pets with them (a pet uses its owner's flag).
+- Busy town screens (Goldenrod, Saffron, Celadon): no Pokémon objects missing or showing the wrong colours.
+
 ### 2.1-27 (Hoenn gym rugs)
 - Each Hoenn leader with their Pokémon side by side on a 4-wide rug: RUSTBORO (Probopass), DEWFORD (Hariyama; the gym is dark, use FLASH), MAUVILLE (Manectric), LAVARIDGE (Torkoal), PETALBURG (Slaking), FORTREE (Altaria), SOOTOPOLIS (Kingdra). Talk to each leader and battle.
 - PETALBURG: go through the gym room by room; each sliding door you open after a win is drawn in the right place (the rooms are a tile wider) and leads on.

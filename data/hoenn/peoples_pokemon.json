@@ -1,0 +1,93 @@
+{
+ "_comment": [
+  "Hoenn & Seek 2.1-28: people's Pokémon (plan section 8). Read by tools/hoenn/gen_hoenn_peoples_pokemon.py, which puts a Pokémon next to people in towns and one pet in every house or shop that has no Pokémon yet.",
+  "owners: graphics of the people who get a Pokémon, and the species that fit them (one is picked per person, deterministically). Anyone not listed (shop clerks, nurses, story characters, gym leaders, Rockets) never gets one.",
+  "towns: map types that count as towns, and how many owner-pet pairs a town gets at most (pairs_default; pairs overrides it per map).",
+  "interiors: which indoor maps get a pet (a name containing one of include, and none of exclude), and species for rooms whose people aren't owners (room_species, else a pick from fallback by the first key found in the map's name; the empty key is for any other room).",
+  "local_ok: in towns, an owner whose own species don't fit the screen budget may take a species the town already shows (its palette is often loaded already), if it's in this list or any owner's list.",
+  "skip: maps never touched. CherrygroveCity_House3_hns (Anamaria, 2.1-32) and the Pewter Museum (Dan, 2.1-31) are lane A's parts. Every *_hoenn map is skipped too (the buildings generator gives them their own pets).",
+  "regions: johto_kanto for 2.1-28; 2.1-29 adds hoenn.",
+  "never: species no pet may be (one-of-a-kind event Pokémon, starters, legendaries); the generator also refuses anything in data/hoenn/distribution.json's one_of_a_kind."
+ ],
+ "regions": ["johto_kanto"],
+ "owners": {
+  "OBJ_EVENT_GFX_YOUNGSTER_HNS": ["RATTATA", "SENTRET", "PIDGEY"],
+  "OBJ_EVENT_GFX_LITTLE_BOY_HNS": ["PICHU", "HOPPIP", "MARILL"],
+  "OBJ_EVENT_GFX_LITTLE_GIRL_HNS": ["CLEFFA", "IGGLYBUFF", "MARILL"],
+  "OBJ_EVENT_GFX_GIRL_1_HNS": ["JIGGLYPUFF", "MARILL", "HOPPIP"],
+  "OBJ_EVENT_GFX_TWIN_HNS": ["CLEFAIRY", "JIGGLYPUFF"],
+  "OBJ_EVENT_GFX_LASS_HNS": ["SNUBBULL", "JIGGLYPUFF", "MARILL", "VULPIX"],
+  "OBJ_EVENT_GFX_BOY_2_HNS": ["GROWLITHE", "SENTRET", "PIKACHU"],
+  "OBJ_EVENT_GFX_GAMEBOY_KID_HNS": ["PIKACHU", "PORYGON"],
+  "OBJ_EVENT_GFX_BUG_CATCHER_HNS": ["CATERPIE", "LEDYBA", "SPINARAK", "WEEDLE"],
+  "OBJ_EVENT_GFX_CAMPER_HNS": ["SENTRET", "PONYTA"],
+  "OBJ_EVENT_GFX_PICNICKER_HNS": ["HOPPIP", "SUNKERN", "ODDISH"],
+  "OBJ_EVENT_GFX_OLD_MAN_HNS": ["SLOWPOKE", "SMEARGLE", "FURRET"],
+  "OBJ_EVENT_GFX_OLD_MAN_2_HNS": ["SLOWPOKE", "NOCTOWL"],
+  "OBJ_EVENT_GFX_OLD_WOMAN_HNS": ["MEOWTH", "FURRET", "CHANSEY"],
+  "OBJ_EVENT_GFX_GENTLEMAN_HNS": ["GROWLITHE", "PERSIAN", "PSYDUCK"],
+  "OBJ_EVENT_GFX_BALDING_MAN_HNS": ["PSYDUCK", "SLOWPOKE"],
+  "OBJ_EVENT_GFX_FAT_MAN_HNS": ["LICKITUNG", "SWINUB", "PSYDUCK"],
+  "OBJ_EVENT_GFX_MAN_HNS": ["GROWLITHE", "FURRET"],
+  "OBJ_EVENT_GFX_WOMAN_1_HNS": ["FURRET", "VULPIX", "SKIPLOOM"],
+  "OBJ_EVENT_GFX_WOMAN_2_HNS": ["MARILL", "MEOWTH", "EEVEE"],
+  "OBJ_EVENT_GFX_WOMAN_3_HNS": ["VULPIX", "BELLOSSOM", "FURRET"],
+  "OBJ_EVENT_GFX_BEAUTY_HNS": ["PERSIAN", "VULPIX", "NINETALES"],
+  "OBJ_EVENT_GFX_COOLTRAINER_M_HNS": ["PONYTA", "HOUNDOUR"],
+  "OBJ_EVENT_GFX_COOLTRAINER_F_HNS": ["FLAAFFY", "PONYTA"],
+  "OBJ_EVENT_GFX_BLACK_BELT_HNS": ["MACHOP", "TYROGUE"],
+  "OBJ_EVENT_GFX_BATTLE_GIRL_HNS": ["TYROGUE", "MANKEY"],
+  "OBJ_EVENT_GFX_HIKER_HNS": ["GEODUDE", "PHANPY"],
+  "OBJ_EVENT_GFX_FISHERMAN_HNS": ["POLIWAG", "PSYDUCK"],
+  "OBJ_EVENT_GFX_SAILOR_HNS": ["MACHOP", "PSYDUCK", "WOOPER"],
+  "OBJ_EVENT_GFX_SUPER_NERD_HNS": ["MAGNEMITE", "VOLTORB"],
+  "OBJ_EVENT_GFX_SCIENTIST_M_HNS": ["MAGNEMITE", "PORYGON"],
+  "OBJ_EVENT_GFX_SCIENTIST_F_HNS": ["MAGNEMITE", "PORYGON"],
+  "OBJ_EVENT_GFX_ROCKER_HNS": ["VOLTORB", "ELECTABUZZ"],
+  "OBJ_EVENT_GFX_JUGGLER_HNS": ["VOLTORB", "DROWZEE"],
+  "OBJ_EVENT_GFX_WORKER_M_HNS": ["MACHOP", "MAGNEMITE"],
+  "OBJ_EVENT_GFX_ENGINEER_HNS": ["MAGNEMITE", "MACHOP"],
+  "OBJ_EVENT_GFX_SAGE_HNS": ["BELLSPROUT"],
+  "OBJ_EVENT_GFX_OFFICER_HNS": ["GROWLITHE"]
+ },
+ "towns": {
+  "types": ["MAP_TYPE_TOWN", "MAP_TYPE_CITY"],
+  "pairs_default": 3,
+  "pairs": {
+   "GoldenrodCity_hns": 5,
+   "CeladonCity_hns": 4,
+   "SaffronCity_hns": 4,
+   "CeruleanCity_hns": 4,
+   "VermilionCity_hns": 4,
+   "ViridianCity_hns": 3,
+   "NewBarkTown_hns": 1,
+   "PalletTown_hns": 1
+  }
+ },
+ "interiors": {
+  "include": ["House", "Apartments", "PokemonCenter", "Pokecenter", "_Mart", "Shop", "DepartmentStore_", "Cafe", "TrainStation", "PortInside"],
+  "exclude": ["BattleFrontier", "PokemonCenter_2F", "Elevator", "PlayersHouse", "RedsHouse_2F", "Tunnel", "Gate"],
+  "room_species": {
+   "CeruleanCity_BikeShop_hns": "PIKACHU",
+   "GoldenrodCity_BikeShop_hns": "PONYTA",
+   "GoldenrodCity_FlowerShop_hns": "BELLOSSOM",
+   "OlivineCity_Cafe_hns": "MILTANK",
+   "PalletTown_House3_hns": "PIDGEY",
+   "Route26_House2_hns": "FURRET",
+   "CeladonCity_Apartments_2F_hns": "MEOWTH",
+   "CianwoodShop_hns": "SHUCKLE",
+   "GoldenrodCity_TrainStation_hns": "MAGNEMITE",
+   "SaffronCity_TrainStation_hns": "MAGNEMITE"
+  },
+  "fallback": {
+   "PokemonCenter": ["PIKACHU", "EEVEE", "MARILL", "GROWLITHE", "SENTRET", "JIGGLYPUFF", "PSYDUCK", "CLEFAIRY"],
+   "Pokecenter": ["PIKACHU", "EEVEE", "MARILL", "GROWLITHE", "SENTRET", "JIGGLYPUFF", "PSYDUCK", "CLEFAIRY"],
+   "Mart": ["MEOWTH", "PERSIAN"],
+   "DepartmentStore": ["MEOWTH", "PERSIAN", "SNUBBULL", "AIPOM"],
+   "": ["MEOWTH", "FURRET", "SNUBBULL", "SLOWPOKE", "SENTRET", "MARILL", "VULPIX", "HOOTHOOT", "SMOOCHUM"]
+  }
+ },
+ "local_ok": ["SLOWPOKE", "PIDGEY", "SPEAROW", "HOOTHOOT", "NOCTOWL", "DODUO", "MILTANK", "MAREEP", "KRABBY", "AIPOM", "STANTLER", "GIRAFARIG"],
+ "skip": ["CherrygroveCity_House3_hns", "PewterCity_Museum_1F_hns", "PewterCity_Museum_2F_hns"],
+ "never": ["ABSOL", "TROPIUS", "FEEBAS", "RALTS", "SNEASEL", "MUNCHLAX", "TEDDIURSA", "SKITTY"]
+}
