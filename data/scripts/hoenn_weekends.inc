@@ -2,6 +2,8 @@
 
 @ Hoenn & Seek 2.1 (parts 18-20): gym leaders' weekend spots and gym guides.
 
+@ Story flags the gym objects had: FLAG_HIDE_CERULEAN_GYM_TRAINERS, FLAG_HIDE_JOHTO_GYM_LEADERS, FLAG_HIDE_MAUVILLE_GYM_WATTSON, FLAG_HIDE_OLIVINE_CITY_GYM_JASMINE, FLAG_HIDE_PETALBURG_GYM_NORMAN, FLAG_HIDE_SEAFOAM_BLAINE, FLAG_HIDE_VIRIDIAN_BLUE, FLAG_HOENN_WINONA_GYM_HIDDEN
+
 HoennSeek_EventScript_Weekend_FALKNER::
 	lock
 	faceplayer
@@ -216,6 +218,118 @@ HoennSeek_EventScript_WeekendGuide_BLUE::
 	msgbox HoennSeek_Text_WeekendGuide_BLUE, MSGBOX_NPC
 	end
 
+HoennSeek_EventScript_Weekend_ROXANNE::
+	lock
+	faceplayer
+	msgbox HoennSeek_Text_Weekend_ROXANNE, MSGBOX_DEFAULT
+	goto_if_set FLAG_HOENN_STAMP_WALLACE, HoennSeek_EventScript_RematchRoxanne
+	closemessage
+	release
+	end
+
+HoennSeek_EventScript_WeekendGuide_ROXANNE::
+	goto_if_set FLAG_HOENN_WEEKEND_SPOT_ROXANNE, RustboroCity_Gym_EventScript_GymGuide
+	msgbox HoennSeek_Text_WeekendGuide_ROXANNE, MSGBOX_NPC
+	end
+
+HoennSeek_EventScript_Weekend_BRAWLY::
+	lock
+	faceplayer
+	msgbox HoennSeek_Text_Weekend_BRAWLY, MSGBOX_DEFAULT
+	goto_if_set FLAG_HOENN_STAMP_WALLACE, HoennSeek_EventScript_RematchBrawly
+	closemessage
+	release
+	end
+
+HoennSeek_EventScript_WeekendGuide_BRAWLY::
+	goto_if_set FLAG_HOENN_WEEKEND_SPOT_BRAWLY, DewfordTown_Gym_EventScript_GymGuide
+	msgbox HoennSeek_Text_WeekendGuide_BRAWLY, MSGBOX_NPC
+	end
+
+HoennSeek_EventScript_Weekend_WATTSON::
+	lock
+	faceplayer
+	msgbox HoennSeek_Text_Weekend_WATTSON, MSGBOX_DEFAULT
+	goto_if_set FLAG_HOENN_STAMP_WALLACE, HoennSeek_EventScript_RematchWattson
+	closemessage
+	release
+	end
+
+HoennSeek_EventScript_WeekendGuide_WATTSON::
+	goto_if_set FLAG_HOENN_WEEKEND_SPOT_WATTSON, MauvilleCity_Gym_EventScript_GymGuide
+	msgbox HoennSeek_Text_WeekendGuide_WATTSON, MSGBOX_NPC
+	end
+
+HoennSeek_EventScript_Weekend_FLANNERY::
+	lock
+	faceplayer
+	msgbox HoennSeek_Text_Weekend_FLANNERY, MSGBOX_DEFAULT
+	goto_if_set FLAG_HOENN_STAMP_WALLACE, HoennSeek_EventScript_RematchFlannery
+	closemessage
+	release
+	end
+
+HoennSeek_EventScript_WeekendGuide_FLANNERY::
+	goto_if_set FLAG_HOENN_WEEKEND_SPOT_FLANNERY, LavaridgeTown_Gym_1F_EventScript_GymGuide
+	msgbox HoennSeek_Text_WeekendGuide_FLANNERY, MSGBOX_NPC
+	end
+
+HoennSeek_EventScript_Weekend_NORMAN::
+	lock
+	faceplayer
+	msgbox HoennSeek_Text_Weekend_NORMAN, MSGBOX_DEFAULT
+	goto_if_set FLAG_HOENN_STAMP_WALLACE, HoennSeek_EventScript_RematchNorman
+	closemessage
+	release
+	end
+
+HoennSeek_EventScript_WeekendGuide_NORMAN::
+	goto_if_set FLAG_HOENN_WEEKEND_SPOT_NORMAN, PetalburgCity_Gym_EventScript_GymGuide
+	msgbox HoennSeek_Text_WeekendGuide_NORMAN, MSGBOX_NPC
+	end
+
+HoennSeek_EventScript_Weekend_WINONA::
+	lock
+	faceplayer
+	msgbox HoennSeek_Text_Weekend_WINONA, MSGBOX_DEFAULT
+	goto_if_set FLAG_HOENN_STAMP_WALLACE, HoennSeek_EventScript_RematchWinona
+	closemessage
+	release
+	end
+
+HoennSeek_EventScript_WeekendGuide_WINONA::
+	goto_if_set FLAG_HOENN_WEEKEND_SPOT_WINONA, FortreeCity_Gym_EventScript_GymGuide
+	msgbox HoennSeek_Text_WeekendGuide_WINONA, MSGBOX_NPC
+	end
+
+HoennSeek_EventScript_Weekend_TATE_LIZA::
+	lock
+	faceplayer
+	msgbox HoennSeek_Text_Weekend_TATE_LIZA, MSGBOX_DEFAULT
+	goto_if_set FLAG_HOENN_STAMP_WALLACE, HoennSeek_EventScript_RematchTateAndLiza
+	closemessage
+	release
+	end
+
+HoennSeek_EventScript_WeekendGuide_TATE_LIZA::
+	goto_if_set FLAG_HOENN_WEEKEND_SPOT_TATE_LIZA, MossdeepCity_Gym_EventScript_GymGuide
+	msgbox HoennSeek_Text_WeekendGuide_TATE_LIZA, MSGBOX_NPC
+	end
+
+HoennSeek_EventScript_Weekend_JUAN::
+	lock
+	faceplayer
+	msgbox HoennSeek_Text_Weekend_JUAN, MSGBOX_DEFAULT
+	goto_if_set FLAG_HOENN_STAMP_WALLACE, HoennSeek_EventScript_RematchJuan
+	closemessage
+	release
+	end
+
+HoennSeek_EventScript_WeekendGuide_JUAN::
+	goto_if_set FLAG_HOENN_WEEKEND_SPOT_JUAN, SootopolisCity_Gym_1F_EventScript_GymGuide
+	msgbox HoennSeek_Text_WeekendGuide_JUAN, MSGBOX_NPC
+	end
+
 HoennSeek_Text_Weekend_FALKNER:
 	.string "Oh, {PLAYER}! Weekends are my day\noff from the GYM.\pI come down to the beach to watch\nthe sea birds ride the wind off\lthe bay. My father used to bring\lme here.\pYou can learn a lot about flying\njust by watching.$"
 
@@ -305,3 +419,51 @@ HoennSeek_Text_Weekend_BLUE:
 
 HoennSeek_Text_WeekendGuide_BLUE:
 	.string "BLUE takes weekends off. He trains\non ROUTE 22, west of town, on the\lway to the LEAGUE.\pHe'll be back on MONDAY.\nBragging, probably.$"
+
+HoennSeek_Text_Weekend_ROXANNE:
+	.string "Oh! Hello, {PLAYER}. I'm on a field\ntrip of my own today.\pOn weekends I visit the FOSSIL\nMANIAC here on ROUTE 114. He has\ldug up more than any\ltextbook shows!\pA GYM LEADER should never stop\nbeing a student.$"
+
+HoennSeek_Text_WeekendGuide_ROXANNE:
+	.string "ROXANNE spends her weekends on\nROUTE 114, talking fossils with\lthe FOSSIL MANIAC.\pShe'll be back on MONDAY with\nnew notes.$"
+
+HoennSeek_Text_Weekend_BRAWLY:
+	.string "Yo, {PLAYER}! Check out\nthese waves!\pDEWFORD's swell is small on\nweekends, so I come over to\lSLATEPORT's beach to ride the\lbig ones.\pGetting knocked down and paddling\nback out. That's how you\lget tough!$"
+
+HoennSeek_Text_WeekendGuide_BRAWLY:
+	.string "BRAWLY? He's riding the waves at\nSLATEPORT's beach on ROUTE 109\lthis weekend.\pHe'll be back on MONDAY. Probably\nstill dripping.$"
+
+HoennSeek_Text_Weekend_WATTSON:
+	.string "Wahahahah! Well, if it\nisn't {PLAYER}!\pEvery weekend I come out here to\nwatch the young ones on the\lCYCLING ROAD. All that pedaling\lcould power a city!\pDon't tell anyone, but I've been\nsketching a bike that charges\la battery.$"
+
+HoennSeek_Text_WeekendGuide_WATTSON:
+	.string "WATTSON's out on ROUTE 110 by the\nCYCLING ROAD. He goes every\lweekend to watch the bikes.\pHe'll be back on MONDAY, laughing\nas loud as ever.$"
+
+HoennSeek_Text_Weekend_FLANNERY:
+	.string "{PLAYER}! You came all the way up\nMT. CHIMNEY? Wow!\pMy grandfather used to bring me up\nhere on weekends. I still come to\lfeel the heat.\pBeing near the crater reminds me\nwhy I love fire. And why I have to\lkeep it under control!$"
+
+HoennSeek_Text_WeekendGuide_FLANNERY:
+	.string "FLANNERY goes up MT. CHIMNEY every\nweekend. She says it's where her\lgrandpa trained.\pShe'll be back on MONDAY, all\nfired up.$"
+
+HoennSeek_Text_Weekend_NORMAN:
+	.string "Ah, {PLAYER}. Caught me on my\nday off.\pOn weekends I come out to fish on\nROUTE 104. MAY always guesses\lthat's where I'll be.\pA fishing line teaches patience.\nSo does raising POKéMON.$"
+
+HoennSeek_Text_WeekendGuide_NORMAN:
+	.string "NORMAN goes fishing on ROUTE 104\nevery weekend. He says it clears\lhis head.\pHe's back on MONDAY, ready\nfor challengers.$"
+
+HoennSeek_Text_Weekend_WINONA:
+	.string "Hello, {PLAYER}. Look up. Do you\nsee them?\pOn weekends I come to ROUTE 120 to\nwatch the wild bird POKéMON ride\lthe storm winds.\pEvery flight is different. That's\nwhat makes the sky beautiful.$"
+
+HoennSeek_Text_WeekendGuide_WINONA:
+	.string "WINONA spends her weekends on\nROUTE 120, watching the birds in\lthe wind.\pShe'll be back on MONDAY.$"
+
+HoennSeek_Text_Weekend_TATE_LIZA:
+	.string "TATE: Hehehe… We knew you'd come\nhere, {PLAYER}!\pLIZA: Fufufu… On weekends we help\nat the SPACE CENTER. We count the\lrockets together.\pTATE: The scientists say we're the\nonly helpers who never disagree!$"
+
+HoennSeek_Text_WeekendGuide_TATE_LIZA:
+	.string "TATE and LIZA are at the SPACE\nCENTER this weekend. They help\lcount the launches.\pThey'll be back on MONDAY. Both of\nthem, at the same time.$"
+
+HoennSeek_Text_Weekend_JUAN:
+	.string "Ah, {PLAYER}. What a\npleasant surprise.\pOn weekends I come to LILYCOVE to\nwatch the CONTESTS. Beauty in\lbattle is an art I still study.\pMy student WALLACE taught me a few\nthings here, too. Don't tell him I\lsaid so.$"
+
+HoennSeek_Text_WeekendGuide_JUAN:
+	.string "JUAN is at the CONTEST HALL in\nLILYCOVE CITY this weekend. He\lnever misses a show.\pHe'll be back on MONDAY.$"

@@ -163,6 +163,32 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "MossdeepCity_SpaceCenter_1F_EventScript_Steven",
       "flag": "FLAG_HIDE_MOSSDEEP_CITY_SPACE_CENTER_1F_STEVEN"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_TATE",
+      "x": 7,
+      "y": 5,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "HoennSeek_EventScript_Weekend_TATE_LIZA",
+      "flag": "FLAG_HOENN_WEEKEND_SPOT_TATE_LIZA"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_LIZA",
+      "x": 8,
+      "y": 5,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "HoennSeek_EventScript_Weekend_TATE_LIZA",
+      "flag": "FLAG_HOENN_WEEKEND_SPOT_TATE_LIZA"
     }
   ],
   "warp_events": [

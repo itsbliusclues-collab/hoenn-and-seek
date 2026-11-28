@@ -65,4 +65,36 @@ static const struct HoennLeaderWeekend sLeaderWeekends[] = {
         .beaten = FLAG_DEFEATED_VIRIDIAN_GYM, .storyHide = FLAG_HIDE_VIRIDIAN_BLUE, .dojoHide = FLAG_HIDE_DOJO_BLUE, .cameo = 0,
         .gymFlag = FLAG_HOENN_WEEKEND_GYM_BLUE, .spotFlag = FLAG_HOENN_WEEKEND_SPOT_BLUE, .dojoFlag = FLAG_HOENN_WEEKEND_DOJO_BLUE,
     },
+    { // ROXANNE
+        .beaten = FLAG_HOENN_STAMP_GYM_1, .storyHide = 0, .dojoHide = 0, .cameo = 0,
+        .gymFlag = FLAG_HOENN_WEEKEND_GYM_ROXANNE, .spotFlag = FLAG_HOENN_WEEKEND_SPOT_ROXANNE, .dojoFlag = 0,
+    },
+    { // BRAWLY
+        .beaten = FLAG_HOENN_STAMP_GYM_2, .storyHide = 0, .dojoHide = 0, .cameo = 0,
+        .gymFlag = FLAG_HOENN_WEEKEND_GYM_BRAWLY, .spotFlag = FLAG_HOENN_WEEKEND_SPOT_BRAWLY, .dojoFlag = 0,
+    },
+    { // WATTSON
+        .beaten = FLAG_HOENN_STAMP_GYM_3, .storyHide = FLAG_HIDE_MAUVILLE_GYM_WATTSON, .dojoHide = 0, .cameo = 0,
+        .gymFlag = FLAG_HOENN_WEEKEND_GYM_WATTSON, .spotFlag = FLAG_HOENN_WEEKEND_SPOT_WATTSON, .dojoFlag = 0,
+    },
+    { // FLANNERY
+        .beaten = FLAG_HOENN_STAMP_GYM_4, .storyHide = 0, .dojoHide = 0, .cameo = 0,
+        .gymFlag = FLAG_HOENN_WEEKEND_GYM_FLANNERY, .spotFlag = FLAG_HOENN_WEEKEND_SPOT_FLANNERY, .dojoFlag = 0,
+    },
+    { // NORMAN
+        .beaten = FLAG_HOENN_STAMP_GYM_5, .storyHide = FLAG_HIDE_PETALBURG_GYM_NORMAN, .dojoHide = 0, .cameo = 0,
+        .gymFlag = FLAG_HOENN_WEEKEND_GYM_NORMAN, .spotFlag = FLAG_HOENN_WEEKEND_SPOT_NORMAN, .dojoFlag = 0,
+    },
+    { // WINONA
+        .beaten = FLAG_HOENN_STAMP_GYM_6, .storyHide = FLAG_HOENN_WINONA_GYM_HIDDEN, .dojoHide = 0, .cameo = 0,
+        .gymFlag = FLAG_HOENN_WEEKEND_GYM_WINONA, .spotFlag = FLAG_HOENN_WEEKEND_SPOT_WINONA, .dojoFlag = 0,
+    },
+    { // TATE_LIZA
+        .beaten = FLAG_HOENN_STAMP_GYM_7, .storyHide = 0, .dojoHide = 0, .cameo = 0,
+        .gymFlag = FLAG_HOENN_WEEKEND_GYM_TATE_LIZA, .spotFlag = FLAG_HOENN_WEEKEND_SPOT_TATE_LIZA, .dojoFlag = 0,
+    },
+    { // JUAN
+        .beaten = FLAG_HOENN_STAMP_GYM_8, .storyHide = 0, .dojoHide = 0, .cameo = 0,
+        .gymFlag = FLAG_HOENN_WEEKEND_GYM_JUAN, .spotFlag = FLAG_HOENN_WEEKEND_SPOT_JUAN, .dojoFlag = 0,
+    },
 };

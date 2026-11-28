@@ -651,3 +651,9 @@ Lane B's `## 2.0 part NN` sections go below this line, at the end of the file.
 - FUCHSIA GYM on a weekend: only the disguised trainers are left; the real JANINE is on ROUTE 15.
 - Each spot offers that leader's Fighting Dojo rematch (they all have one after their cameo), and the Dojo copy is away on weekends.
 - CERULEAN, VIRIDIAN and SEAFOAM's story moments (MISTY's date, BLUE away, BLAINE's move) still hide those leaders as before, weekends or not.
+
+### 2.1-20 (Hoenn leaders' weekends)
+- On a weekend, after earning a Hoenn badge, that gym is empty and its guide says where the leader went. Spots: ROUTE 114 by the FOSSIL MANIAC's house (ROXANNE), SLATEPORT's beach on ROUTE 109 (BRAWLY), ROUTE 110 by the CYCLING ROAD (WATTSON), MT. CHIMNEY (FLANNERY), ROUTE 104's pond (NORMAN), ROUTE 120 (WINONA), the SPACE CENTER 1F (TATE & LIZA, both), the LILYCOVE contest lobby (JUAN).
+- After beating WALLACE, talking to a leader at their spot offers the same rematch as in their gym.
+- WINONA: talk to her on ROUTE 119, then go straight to FORTREE GYM: she must be there on the first visit (the weekend code reads her gym flag before the gym's own script runs; her ROUTE 119 script now clears it).
+- WATTSON before NEW MAUVILLE is finished is in MAUVILLE CITY, not his gym, weekends or not.

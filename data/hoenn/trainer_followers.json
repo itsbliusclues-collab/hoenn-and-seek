@@ -14,7 +14,7 @@
     "rooms and people as Johto's).",
     "2.1-18 on: the leaders' weekend spots (data/hoenn/leader_weekends.json) list their followers here too, after",
     "gen_hoenn_weekends.py has placed the leader (it runs first in regen_all.sh). Morty has none at the Dance Theater:",
-    "a Gengar would put that room past the sprite budget (tools/hoenn/check_screens.py). Janine has one at hers:", "her gym's no-follower reason (the trick) doesn't apply on a weekend; Blaine's Camerupt is his ace (tied with Torkoal)."
+    "a Gengar would put that room past the sprite budget (tools/hoenn/check_screens.py). Janine has one at hers:", "her gym's no-follower reason (the trick) doesn't apply on a weekend; Blaine's Camerupt is his ace (tied with Torkoal).", "Tate & Liza have none at the SPACE CENTER, as in their gym: the two of them are already a pair."
   ],
   "followers": [
     {"map": "VioletCity_Gym_hns",          "trainer": "OBJ_EVENT_GFX_FALKNER_HNS",  "species": "NOCTOWL"},
@@ -67,6 +67,13 @@
     {"map": "Route15_hns",                   "trainer": "OBJ_EVENT_GFX_JANINE_HNS",  "species": "VENOMOTH",  "_": "2.1-19 weekend spot"},
     {"map": "LavenderTown_SoulHouse_hns",    "trainer": "OBJ_EVENT_GFX_SABRINA_HNS", "species": "ALAKAZAM",  "_": "2.1-19 weekend spot"},
     {"map": "CinnabarIsland_PokemonCenter_hns", "trainer": "OBJ_EVENT_GFX_BLAINE_HNS",  "species": "CAMERUPT",  "_": "2.1-19 weekend spot"},
-    {"map": "Route22_hns",                   "trainer": "OBJ_EVENT_GFX_BLUE_HNS",    "species": "RHYPERIOR", "_": "2.1-19 weekend spot"}
+    {"map": "Route22_hns",                   "trainer": "OBJ_EVENT_GFX_BLUE_HNS",    "species": "RHYPERIOR", "_": "2.1-19 weekend spot"},
+    {"map": "Route114",                      "trainer": "OBJ_EVENT_GFX_ROXANNE",     "species": "PROBOPASS", "_": "2.1-20 weekend spot"},
+    {"map": "Route109",                      "trainer": "OBJ_EVENT_GFX_BRAWLY",      "species": "HARIYAMA",  "_": "2.1-20 weekend spot"},
+    {"map": "Route110",                      "trainer": "OBJ_EVENT_GFX_WATTSON",     "species": "MANECTRIC", "_": "2.1-20 weekend spot"},
+    {"map": "MtChimney",                     "trainer": "OBJ_EVENT_GFX_FLANNERY",    "species": "TORKOAL",   "_": "2.1-20 weekend spot"},
+    {"map": "Route104",                      "trainer": "OBJ_EVENT_GFX_NORMAN",      "species": "SLAKING",   "_": "2.1-20 weekend spot"},
+    {"map": "Route120",                      "trainer": "OBJ_EVENT_GFX_WINONA",      "species": "ALTARIA",   "_": "2.1-20 weekend spot"},
+    {"map": "LilycoveCity_ContestLobby_hoenn", "trainer": "OBJ_EVENT_GFX_JUAN",        "species": "KINGDRA",   "_": "2.1-20 weekend spot"}
   ]
 }

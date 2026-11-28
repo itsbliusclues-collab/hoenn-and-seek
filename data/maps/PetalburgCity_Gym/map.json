@@ -27,7 +27,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "PetalburgCity_Gym_EventScript_Norman",
-      "flag": "FLAG_HIDE_PETALBURG_GYM_NORMAN"
+      "flag": "FLAG_HOENN_WEEKEND_GYM_NORMAN"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_5",
@@ -130,7 +130,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PetalburgCity_Gym_EventScript_GymGuide",
+      "script": "HoennSeek_EventScript_WeekendGuide_NORMAN",
       "flag": "FLAG_HIDE_PETALBURG_GYM_GREETER"
     },
     {
@@ -172,7 +172,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "HoennSeek_EventScript_TrainerFollower",
-      "flag": "FLAG_HIDE_PETALBURG_GYM_NORMAN"
+      "flag": "FLAG_HOENN_WEEKEND_GYM_NORMAN"
     }
   ],
   "warp_events": [

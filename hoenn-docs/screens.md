@@ -40,7 +40,7 @@ Maps checked: 876. Over budget: 61 (all recorded in `data/hoenn/screen_baseline.
 | SecretBase_YellowCave3 | 15 ⚠ | 15 ⚠ | (8, 1) |
 | SecretBase_YellowCave4 | 15 ⚠ | 15 ⚠ | (1, 1) |
 | ContestHall_hns | 15 ⚠ | 14 ⚠ | (2, 0) |
-| MtChimney | 18 ⚠ | 5 | (27, 12) |
+| MtChimney | 18 ⚠ | 6 | (21, 16) |
 | Route116 | 18 ⚠ | 5 | (28, 8) |
 | SecretBase_Tree3 | 14 ⚠ | 14 ⚠ | (1, 1) |
 | SecretBase_YellowCave2 | 14 ⚠ | 14 ⚠ | (1, 1) |
@@ -60,7 +60,7 @@ Maps checked: 876. Over budget: 61 (all recorded in `data/hoenn/screen_baseline.
 | CeladonCity_GameCorner_hns | 11 | 11 ⚠ | (9, 2) |
 | GoldenrodCity_GameCorner_hns | 11 | 11 ⚠ | (8, 2) |
 | GoldenrodCity_hns | 13 | 11 ⚠ | (43, 19) |
-| LilycoveCity_ContestLobby_hoenn | 14 ⚠ | 11 ⚠ | (14, 2) |
+| LilycoveCity_ContestLobby_hoenn | 14 ⚠ | 11 ⚠ | (9, 1) |
 | Route121 | 15 ⚠ | 7 | (20, 5) |
 | TrainerHill_Courtyard_hns | 15 ⚠ | 8 | (21, 21) |
 | EcruteakCity_hns | 12 | 10 ⚠ | (43, 31) |
