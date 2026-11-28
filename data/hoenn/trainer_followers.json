@@ -20,10 +20,10 @@
     {"map": "VioletCity_Gym_hns",          "trainer": "OBJ_EVENT_GFX_FALKNER_HNS",  "species": "NOCTOWL"},
     {"map": "AzaleaTown_Gym_hns",          "trainer": "OBJ_EVENT_GFX_BUGSY_HNS",    "species": "SCYTHER"},
     {"map": "GoldenrodCity_Gym_hns",       "trainer": "OBJ_EVENT_GFX_WHITNEY_HNS",  "species": "MILTANK"},
-    {"map": "EcruteakCity_Gym_hns",        "trainer": "OBJ_EVENT_GFX_MORTY_HNS",    "species": "GENGAR"},
+    {"map": "EcruteakCity_Gym_hns",        "trainer": "OBJ_EVENT_GFX_MORTY_HNS",    "species": "GENGAR", "at": [5, 4], "_": "2.1-25: beside the leader, on the rug"},
     {"map": "OlivineCity_Gym_hns",         "trainer": "OBJ_EVENT_GFX_JASMINE_HNS",  "species": "STEELIX"},
-    {"map": "MahoganyTown_Gym_hns",        "trainer": "OBJ_EVENT_GFX_PRYCE_HNS",    "species": "PILOSWINE"},
-    {"map": "BlackthornCity_Gym_hns",      "trainer": "OBJ_EVENT_GFX_CLAIR_HNS",    "species": "KINGDRA"},
+    {"map": "MahoganyTown_Gym_hns",        "trainer": "OBJ_EVENT_GFX_PRYCE_HNS",    "species": "PILOSWINE", "at": [13, 4], "_": "2.1-25: beside the leader, on the rug"},
+    {"map": "BlackthornCity_Gym_hns",      "trainer": "OBJ_EVENT_GFX_CLAIR_HNS",    "species": "KINGDRA", "at": [21, 5], "_": "2.1-25: beside the leader, on the rug"},
 
     {"map": "PewterCity_Gym_hns",          "trainer": "OBJ_EVENT_GFX_BROCK_HNS",    "species": "GOLEM"},
     {"map": "CeruleanCity_Gym_hns",        "trainer": "OBJ_EVENT_GFX_MISTY_HNS",    "species": "STARMIE"},
