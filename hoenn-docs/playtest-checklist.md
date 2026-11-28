@@ -686,3 +686,10 @@ Lane B's `## 2.0 part NN` sections go below this line, at the end of the file.
 - After beating WALLACE, talking to a leader at their spot offers the same rematch as in their gym.
 - WINONA: talk to her on ROUTE 119, then go straight to FORTREE GYM: she must be there on the first visit (the weekend code reads her gym flag before the gym's own script runs; her ROUTE 119 script now clears it).
 - WATTSON before NEW MAUVILLE is finished is in MAUVILLE CITY, not his gym, weekends or not.
+
+### 2.1-21 (Brock's weekend chain)
+- With BROCK's badge, on four separate weekends: the PEWTER MUSEUM (he asks you to MT. MOON), MT. MOON's fossil dig (MOON STONE), the ROUTE 34 DAY CARE (the question, an EVERSTONE), the museum (ONIX DOLL in the PC). On each weekend after a step he stays where you left him; he's never in two places.
+- Real time: do a step on Saturday, come back Sunday (no wall clock): the next step must not be ready yet. Tested only with the debug weekday tools.
+- The ONIX DOLL with a full decoration PC: he keeps it until you make room (not emulator-tested).
+- His pool lines after the chain: ONIX or GEODUDE following you, a STEELIX in the party, LILEEP/ANORITH/OMANYTE/AERODACTYL/RELICANTH caught (the follower and party lines weren't tested in the emulator; the badge line was).
+- BRENDAN's call after the doll (needs his number). The SEEKER'S JOURNAL's Kanto page has BROCK's weekends, and it shows on TODAY on weekends.
