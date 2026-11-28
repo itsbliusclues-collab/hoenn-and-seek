@@ -586,6 +586,21 @@ HoennSeek_Text_JournalBrockWeekendsFoundText::
 HoennSeek_Text_JournalBrockWeekendsWhen::
 	.string "All day.$"
 
+HoennSeek_Text_JournalMistyWeekendsHint::
+	.string "MISTY's weekends?$"
+
+HoennSeek_Text_JournalMistyWeekendsTitle::
+	.string "MISTY's water show$"
+
+HoennSeek_Text_JournalMistyWeekendsRumor::
+	.string "MISTY swims to the SEAFOAM ISLANDS\nevery weekend. She's planning\lsomething new for her gym's water\lshow, and she could use some help.$"
+
+HoennSeek_Text_JournalMistyWeekendsFoundText::
+	.string "MISTY's new finale: the SEAFOAM\ncurrent, a rehearsal in her gym,\land a STARMIE DOLL from\lher sisters.$"
+
+HoennSeek_Text_JournalMistyWeekendsWhen::
+	.string "All day.$"
+
 HoennSeek_Text_JournalMudkipPondHint::
 	.string "A pond at dawn?$"
 

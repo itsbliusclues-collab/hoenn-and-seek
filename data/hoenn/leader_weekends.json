@@ -10,7 +10,7 @@
     "the weekend off too, and the weekend spot offers the same rematch once that flag is clear.",
     "cameo: HnS's flag for the leader's one-time cameo (where you meet them to open that rematch), or null. While",
     "the cameo is out (flag clear), the leader keeps their usual days, so they're never in two places at once.",
-    "leader_script: only where gym trainers share the leader's graphics (Fuchsia): the gym object's script.",
+    "leader_script: only where other gym objects share the leader's graphics (Fuchsia's trainers, Cerulean's chain Misty): the gym object's script.",
     "rematch: {if_set, script}: the spot jumps to the leader's own rematch once that flag is set (Hoenn: after WALLACE).",
     "partner: {trainer, at}: a second trainer object that moves with the leader, at the spot + at (Tate & Liza).",
     "chain: (2.1-21) a fan chain's script the spot calls first (data/hoenn/fan_chains.json); it returns VAR_RESULT TRUE when it said its own line.",
@@ -155,7 +155,7 @@
     {
       "key": "MISTY", "slot": 9, "part": "2.1-19",
       "gym": "CeruleanCity_Gym_hns", "trainer": "OBJ_EVENT_GFX_MISTY_HNS", "story_flag": "FLAG_HIDE_CERULEAN_GYM_TRAINERS",
-      "beaten": "FLAG_DEFEATED_CERULEAN_GYM", "guide": "CeruleanCity_Gym_EventScript_GymGuy", "dojo": "FLAG_HIDE_DOJO_MISTY", "cameo": "FLAG_HIDE_CAPE_MISTY",
+      "beaten": "FLAG_DEFEATED_CERULEAN_GYM", "guide": "CeruleanCity_Gym_EventScript_GymGuy", "dojo": "FLAG_HIDE_DOJO_MISTY", "cameo": "FLAG_HIDE_CAPE_MISTY", "chain": "HoennSeek_EventScript_ChainSpot_MISTY", "leader_script": "CeruleanCity_Gym_EventScript_Misty",
       "spot": {"map": "Route20_hns", "x": 60, "y": 10, "facing": "DOWN", "elevation": 3},
       "line": [
         "Oh, it's you! Don't stare, I'm on my day off!",

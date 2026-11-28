@@ -62,7 +62,7 @@ void HoennUpdateLeaderWeekends(void); // 2.1-18: leaders' weekends (src/hoenn_2_
 u16 Hoenn21LaneBDueCall(void); // src/hoenn_2_1_lane_b.c (2.1-02)
 // 2.1-21 to 23: fan-favorite chains (src/hoenn_fan_chains.c)
 void HoennUpdateFanChains(void);
-bool32 HoennBrockChainCallDue(void);
+bool32 HoennChainCallDue(u32 chain, u16 callFlag);
 u16 HoennChainStepReady(void); // specialvar
 void HoennChainStepDone(void);  // special
 struct ScriptContext;

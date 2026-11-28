@@ -131,7 +131,10 @@ HoennSeek_EventScript_WeekendGuide_BROCK::
 HoennSeek_EventScript_Weekend_MISTY::
 	lock
 	faceplayer
+	call HoennSeek_EventScript_ChainSpot_MISTY
+	goto_if_eq VAR_RESULT, TRUE, HoennSeek_EventScript_Weekend_MISTY_Rematch
 	msgbox HoennSeek_Text_Weekend_MISTY, MSGBOX_DEFAULT
+HoennSeek_EventScript_Weekend_MISTY_Rematch:
 	goto_if_unset FLAG_HIDE_DOJO_MISTY, SaffronCity_FightingDojoVIP_EventScript_Misty
 	closemessage
 	release

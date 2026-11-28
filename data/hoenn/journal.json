@@ -262,6 +262,12 @@
      "found": [{"var": "VAR_HOENN_CHAIN_BROCK", "min": 4}],
      "heard": {"if": [{"var": "VAR_HOENN_CHAIN_BROCK", "min": 1}]},
      "when": {"days": ["SAT", "SUN"]}},
+    {"key": "MISTY_WEEKENDS", "page": "kanto", "hint": "MISTY's weekends?", "title": "MISTY's water show",
+     "rumor": "MISTY swims to the SEAFOAM ISLANDS every weekend. She's planning something new for her gym's water show, and she could use some help.",
+     "found_text": "MISTY's new finale: the SEAFOAM current, a rehearsal in her gym, and a STARMIE DOLL from her sisters.",
+     "found": [{"var": "VAR_HOENN_CHAIN_MISTY", "min": 4}],
+     "heard": {"if": [{"var": "VAR_HOENN_CHAIN_MISTY", "min": 1}]},
+     "when": {"days": ["SAT", "SUN"]}},
 
     {"key": "MUDKIP_POND", "page": "hoenn", "hint": "A pond at dawn?", "title": "The MUDKIP pond",
      "rumor": "Every morning, a SWAMPERT brings two MUDKIP to a pond on ROUTE 102 to practice. When they all dive, rain is coming.",

@@ -11,6 +11,7 @@ HoennSeek_EventScript_PhoneEvent21LaneB::
 	switch VAR_0x8004
 	case HOENN_CALL_WEEKENDS, HoennSeek_EventScript_CallWeekends @ 2.1-18
 	case HOENN_CALL_BROCK_CHAIN, HoennSeek_EventScript_CallBrockChain @ 2.1-21
+	case HOENN_CALL_MISTY_CHAIN, HoennSeek_EventScript_CallMistyChain @ 2.1-22
 	releaseall @ no call matched: the end of the chain
 	end
 
@@ -311,5 +312,236 @@ HoennSeek_Text_CallBrockChain:
 	.string "them three weeks to stitch.\p"
 	.string "I want to meet BROCK. A LEADER\n"
 	.string "who wants to be a BREEDER! Cool!$"
+
+@ ---------------------------------------------------------------- 2.1-22: MISTY's weekend chain
+@ Same engine as BROCK's (src/hoenn_fan_chains.c). Four weekends: her ROUTE 20
+@ beach (a new finale for the CERULEAN GYM's water show), SEAFOAM 1F's entrance
+@ hall (the current that loops under the islands; MYSTIC WATER), a rehearsal in
+@ her gym's pool (you pick the finale; a WATER STONE), the beach again (the show
+@ went well: the STARMIE DOLL her sisters sewed). Then her pool lines.
+
+HoennSeek_EventScript_ChainSpot_MISTY::
+	goto_if_ge VAR_HOENN_CHAIN_MISTY, HOENN_CHAIN_DONE, HoennSeek_EventScript_ChainMistyPool
+	setvar VAR_0x8004, HOENN_CHAIN_MISTY
+	specialvar VAR_RESULT, HoennChainStepReady
+	goto_if_eq VAR_RESULT, FALSE, HoennSeek_EventScript_ChainMistySpotWait
+	goto_if_eq VAR_HOENN_CHAIN_MISTY, 0, HoennSeek_EventScript_ChainMistyStep1
+	goto_if_eq VAR_HOENN_CHAIN_MISTY, 3, HoennSeek_EventScript_ChainMistyStep4
+	setvar VAR_RESULT, FALSE
+	return
+
+HoennSeek_EventScript_ChainMistyPool:
+	callnative HoennSeek_ChainPoolLine
+	.2byte HOENN_CHAIN_MISTY
+	goto_if_eq VAR_RESULT, FALSE, HoennSeek_EventScript_ChainMistyReturn
+	callstd MSGBOX_DEFAULT
+	setvar VAR_RESULT, TRUE
+HoennSeek_EventScript_ChainMistyReturn:
+	return
+
+HoennSeek_EventScript_ChainMistySpotWait:
+	goto_if_ne VAR_HOENN_CHAIN_MISTY, 1, HoennSeek_EventScript_ChainBrockFalse
+	msgbox HoennSeek_Text_ChainMistyWaitSeafoam, MSGBOX_DEFAULT
+	setvar VAR_RESULT, TRUE
+	return
+
+HoennSeek_EventScript_ChainMistyStep1:
+	msgbox HoennSeek_Text_ChainMistyStep1, MSGBOX_DEFAULT
+	setvar VAR_0x8004, HOENN_CHAIN_MISTY
+	special HoennChainStepDone
+	setvar VAR_RESULT, TRUE
+	return
+
+HoennSeek_EventScript_ChainMistyStep4:
+	msgbox HoennSeek_Text_ChainMistyStep4, MSGBOX_DEFAULT
+	givedecoration DECOR_STARMIE_DOLL
+	goto_if_eq VAR_RESULT, FALSE, HoennSeek_EventScript_ChainMistyNoRoom
+	setvar VAR_0x8004, HOENN_CHAIN_MISTY
+	special HoennChainStepDone
+	msgbox HoennSeek_Text_ChainMistyStep4After, MSGBOX_DEFAULT
+	setvar VAR_RESULT, TRUE
+	return
+
+HoennSeek_EventScript_ChainMistyNoRoom:
+	msgbox HoennSeek_Text_ChainMistyNoRoom, MSGBOX_DEFAULT
+	setvar VAR_RESULT, TRUE
+	return
+
+@ SEAFOAM 1F, the hall inside ROUTE 20's west entrance: step 2 (stage 1), then
+@ the rest of that weekend (stage 2).
+HoennSeek_EventScript_ChainMistySeafoam::
+	lock
+	faceplayer
+	setvar VAR_0x8004, HOENN_CHAIN_MISTY
+	specialvar VAR_RESULT, HoennChainStepReady
+	goto_if_eq VAR_RESULT, FALSE, HoennSeek_EventScript_ChainMistySeafoamAfter
+	msgbox HoennSeek_Text_ChainMistySeafoam1, MSGBOX_DEFAULT
+	closemessage
+	playse SE_M_WATERFALL
+	waitse
+	msgbox HoennSeek_Text_ChainMistySeafoam2, MSGBOX_DEFAULT
+	giveitem ITEM_MYSTIC_WATER
+	msgbox HoennSeek_Text_ChainMistySeafoam3, MSGBOX_DEFAULT
+	setvar VAR_0x8004, HOENN_CHAIN_MISTY
+	special HoennChainStepDone
+	release
+	end
+
+HoennSeek_EventScript_ChainMistySeafoamAfter:
+	msgbox HoennSeek_Text_ChainMistyWaitGym, MSGBOX_DEFAULT
+	release
+	end
+
+@ CERULEAN GYM's pool, closed for the weekend: step 3 (stage 2), then the rest
+@ of that weekend (stage 3).
+HoennSeek_EventScript_ChainMistyGym::
+	lock
+	faceplayer
+	setvar VAR_0x8004, HOENN_CHAIN_MISTY
+	specialvar VAR_RESULT, HoennChainStepReady
+	goto_if_eq VAR_RESULT, FALSE, HoennSeek_EventScript_ChainMistyGymAfter
+	msgbox HoennSeek_Text_ChainMistyGym1, MSGBOX_DEFAULT
+	message HoennSeek_Text_ChainMistyFinale
+	waitmessage
+	dynmultichoice 17, 6, FALSE, 3, 0, DYN_MULTICHOICE_CB_NONE, HoennSeek_Text_ChainMistySpin, HoennSeek_Text_ChainMistyRain, HoennSeek_Text_ChainMistyPsyduck
+	goto_if_eq VAR_RESULT, 1, HoennSeek_EventScript_ChainMistyRain
+	goto_if_eq VAR_RESULT, 2, HoennSeek_EventScript_ChainMistyPsyduck
+	msgbox HoennSeek_Text_ChainMistySpinReply, MSGBOX_DEFAULT
+	goto HoennSeek_EventScript_ChainMistyGymGift
+HoennSeek_EventScript_ChainMistyRain:
+	msgbox HoennSeek_Text_ChainMistyRainReply, MSGBOX_DEFAULT
+	goto HoennSeek_EventScript_ChainMistyGymGift
+HoennSeek_EventScript_ChainMistyPsyduck:
+	msgbox HoennSeek_Text_ChainMistyPsyduckReply, MSGBOX_DEFAULT
+HoennSeek_EventScript_ChainMistyGymGift:
+	msgbox HoennSeek_Text_ChainMistyGym2, MSGBOX_DEFAULT
+	giveitem ITEM_WATER_STONE
+	msgbox HoennSeek_Text_ChainMistyGym3, MSGBOX_DEFAULT
+	setvar VAR_0x8004, HOENN_CHAIN_MISTY
+	special HoennChainStepDone
+	release
+	end
+
+HoennSeek_EventScript_ChainMistyGymAfter:
+	msgbox HoennSeek_Text_ChainMistyWaitShow, MSGBOX_DEFAULT
+	release
+	end
+
+HoennSeek_EventScript_CallMistyChain::
+	setflag FLAG_HOENN_CALL_MISTY_CHAIN
+	setspeaker HoennSeek_Text_NameMay
+	pokenavcall HoennSeek_Text_CallMistyChain
+	goto HoennSeek_EventScript_CallEnd
+
+HoennSeek_Text_ChainMistyStep1:
+	.string "Oh, it's you! Good, I need a fresh\n"
+	.string "pair of eyes.\p"
+	.string "Every summer my GYM puts on a\n"
+	.string "water show, and I want a new\l"
+	.string "finale this year.\p"
+	.string "There's a current under these\n"
+	.string "islands that goes round and round\l"
+	.string "and never stops. That's my idea.\p"
+	.string "Come and see it with me next\n"
+	.string "weekend. It's just inside the\l"
+	.string "SEAFOAM ISLANDS, west of here.$"
+
+HoennSeek_Text_ChainMistyWaitSeafoam:
+	.string "Next weekend, inside the SEAFOAM\n"
+	.string "ISLANDS. Don't be late!$"
+
+HoennSeek_Text_ChainMistySeafoam1:
+	.string "You made it! Shh, listen.$"
+
+HoennSeek_Text_ChainMistySeafoam2:
+	.string "Hear that? The water under these\n"
+	.string "islands loops all the way around\l"
+	.string "and comes back. Every single time.\p"
+	.string "STARMIE spinning like that current.\n"
+	.string "That's the finale!\p"
+	.string "Here, I found this on the sea floor\n"
+	.string "while I was swimming. You keep it.$"
+
+HoennSeek_Text_ChainMistySeafoam3:
+	.string "Next weekend, I'm rehearsing at my\n"
+	.string "GYM. It's closed on weekends, so\l"
+	.string "the pool's all mine.\p"
+	.string "You can be my first audience!$"
+
+HoennSeek_Text_ChainMistyWaitGym:
+	.string "Next weekend, at the CERULEAN GYM.\n"
+	.string "I'll save you the best seat!$"
+
+HoennSeek_Text_ChainMistyGym1:
+	.string "Welcome to the rehearsal! The\n"
+	.string "current spin works. STARMIE nailed\l"
+	.string "it on the first try.\p"
+	.string "But I can't decide how the show\n"
+	.string "should end. You pick!$"
+
+HoennSeek_Text_ChainMistyFinale:
+	.string "What should the finale be?$"
+
+HoennSeek_Text_ChainMistySpin:
+	.string "STARMIE's spin$"
+
+HoennSeek_Text_ChainMistyRain:
+	.string "A RAIN DANCE$"
+
+HoennSeek_Text_ChainMistyPsyduck:
+	.string "PSYDUCK$"
+
+HoennSeek_Text_ChainMistySpinReply:
+	.string "End on the spin itself? Simple and\n"
+	.string "strong. I like the way you think.$"
+
+HoennSeek_Text_ChainMistyRainReply:
+	.string "Rain over the whole crowd! Everyone\n"
+	.string "goes home soaked. Perfect!$"
+
+HoennSeek_Text_ChainMistyPsyduckReply:
+	.string "PSYDUCK? It can barely swim!\n"
+	.string "…Then again, people love it.\l"
+	.string "Fine. PSYDUCK closes the show.$"
+
+HoennSeek_Text_ChainMistyGym2:
+	.string "Thanks for watching. Here, a little\n"
+	.string "something for my first audience.$"
+
+HoennSeek_Text_ChainMistyGym3:
+	.string "The show is next weekend. Come and\n"
+	.string "find me at my beach afterwards!$"
+
+HoennSeek_Text_ChainMistyWaitShow:
+	.string "The show's next weekend! Come and\n"
+	.string "find me at my beach afterwards.$"
+
+HoennSeek_Text_ChainMistyStep4:
+	.string "There you are! The show was a big\n"
+	.string "hit. They want it again next year!\p"
+	.string "My sisters sewed this for the show.\n"
+	.string "They said you should have it.$"
+
+HoennSeek_Text_ChainMistyStep4After:
+	.string "It's in your PC. Don't let it\n"
+	.string "get wet!\p"
+	.string "Thanks, {PLAYER}. Maybe you're not\n"
+	.string "so bad after all.$"
+
+HoennSeek_Text_ChainMistyNoRoom:
+	.string "Your PC's too full for a doll?\n"
+	.string "Make some room. I'll keep it dry\l"
+	.string "for you until then.$"
+
+HoennSeek_Text_CallMistyChain:
+	.string "{PLAYER}! It's MAY!\p"
+	.string "I just watched the CERULEAN GYM's\n"
+	.string "water show on TV! STARMIE spun\l"
+	.string "like a whirlpool!\p"
+	.string "And MISTY thanked you on air!\n"
+	.string "She said you helped her plan it.\p"
+	.string "You have to introduce me. I want\n"
+	.string "to put on a show like that in a\l"
+	.string "CONTEST someday!$"
 
 	.include "data/scripts/hoenn_fan_chains.inc"

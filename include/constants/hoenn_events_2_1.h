@@ -161,6 +161,12 @@
 #define FLAG_HOENN_CALL_BROCK_CHAIN    (HOENN_21_CHAIN_FLAGS + 3) // Brendan's call once the doll is yours
 #define VAR_HOENN_CHAIN_BROCK          (HOENN_21_LANE_B_VARS + 4) // steps done, 0-4 (HOENN_CHAIN_DONE = 4)
 #define VAR_HOENN_CHAIN_BROCK_WEEKEND  (HOENN_21_LANE_B_VARS + 5) // the weekend of the last step (HoennChainWeekendId)
+#define FLAG_HOENN_CHAIN_MISTY_SEAFOAM (HOENN_21_CHAIN_FLAGS + 4) // hides Misty (and her STARMIE) in SEAFOAM 1F
+#define FLAG_HOENN_CHAIN_MISTY_GYM     (HOENN_21_CHAIN_FLAGS + 5) // hides Misty's rehearsal in CERULEAN GYM
+#define FLAG_HOENN_CALL_MISTY_CHAIN    (HOENN_21_CHAIN_FLAGS + 7) // May's call once the doll is yours
+#define VAR_HOENN_CHAIN_MISTY          (HOENN_21_LANE_B_VARS + 6)
+#define VAR_HOENN_CHAIN_MISTY_WEEKEND  (HOENN_21_LANE_B_VARS + 7)
 #define HOENN_CHAIN_BROCK 0 // VAR_0x8004 for the chain specials (the order of fan_chains.json)
+#define HOENN_CHAIN_MISTY 1
 #define HOENN_CHAIN_DONE  4 // every chain has four steps
 #endif // GUARD_CONSTANTS_HOENN_EVENTS_2_1_H

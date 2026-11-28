@@ -171,10 +171,11 @@ void HoennSeek_ChainPoolLine(struct ScriptContext *ctx)
     gSpecialVar_Result = TRUE;
 }
 
-// Brendan's call once Brock's ONIX DOLL is yours (Hoenn21LaneBDueCall).
-bool32 HoennBrockChainCallDue(void)
+// A chain's phone call (Hoenn21LaneBDueCall): due once the chain is done,
+// until its call flag is set.
+bool32 HoennChainCallDue(u32 chain, u16 callFlag)
 {
-    return VarGet(VAR_HOENN_CHAIN_BROCK) >= HOENN_CHAIN_DONE && !FlagGet(FLAG_HOENN_CALL_BROCK_CHAIN);
+    return VarGet(GetChain(chain)->stageVar) >= HOENN_CHAIN_DONE && !FlagGet(callFlag);
 }
 
 #endif // IS_HNS

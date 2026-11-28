@@ -66,6 +66,13 @@ static const u8 DecorDesc_ONIX_DOLL[] = _(
         "and sisters.");
 static const u16 DecorGfx_ONIX_DOLL[] = {OBJ_EVENT_GFX_MON_BASE + SPECIES_ONIX};
 
+// 2.1-22: MISTY's reward at the end of her weekend chain.
+static const u8 DecorDesc_STARMIE_DOLL[] = _(
+    "Sewn by MISTY's\n"
+        "three sisters for\n"
+        "her water show.");
+static const u16 DecorGfx_STARMIE_DOLL[] = {OBJ_EVENT_GFX_MON_BASE + SPECIES_STARMIE};
+
 #define HOENN_DECORATION_HEADERS \
     [DECOR_SUDOWOODO_DOLL] = {.id = DECOR_SUDOWOODO_DOLL, .name = _("SUDOWOODO DOLL"), .permission = DECORPERM_SPRITE, \
         .shape = DECORSHAPE_1x1, .category = DECORCAT_DOLL, .price = 6000, \
@@ -97,6 +104,9 @@ static const u16 DecorGfx_ONIX_DOLL[] = {OBJ_EVENT_GFX_MON_BASE + SPECIES_ONIX};
     [DECOR_ONIX_DOLL] = {.id = DECOR_ONIX_DOLL, .name = _("ONIX DOLL"), .permission = DECORPERM_SPRITE, \
         .shape = DECORSHAPE_1x1, .category = DECORCAT_DOLL, .price = 0, \
         .description = DecorDesc_ONIX_DOLL, .tiles = DecorGfx_ONIX_DOLL}, \
+    [DECOR_STARMIE_DOLL] = {.id = DECOR_STARMIE_DOLL, .name = _("STARMIE DOLL"), .permission = DECORPERM_SPRITE, \
+        .shape = DECORSHAPE_1x1, .category = DECORCAT_DOLL, .price = 0, \
+        .description = DecorDesc_STARMIE_DOLL, .tiles = DecorGfx_STARMIE_DOLL}, \
 
 #define HOENN_DECORATION_ICONS \
     [DECOR_SUDOWOODO_DOLL] = {NULL, NULL}, \
@@ -109,3 +119,4 @@ static const u16 DecorGfx_ONIX_DOLL[] = {OBJ_EVENT_GFX_MON_BASE + SPECIES_ONIX};
     [DECOR_MEW_DOLL] = {NULL, NULL}, \
     [DECOR_JIRACHI_DOLL] = {NULL, NULL}, \
     [DECOR_ONIX_DOLL] = {NULL, NULL}, \
+    [DECOR_STARMIE_DOLL] = {NULL, NULL}, \

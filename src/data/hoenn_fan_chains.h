@@ -19,6 +19,24 @@ extern const u8 HoennSeek_Text_ChainPool_BROCK_15[];
 extern const u8 HoennSeek_Text_ChainPool_BROCK_16[];
 extern const u8 HoennSeek_Text_ChainPool_BROCK_17[];
 extern const u8 HoennSeek_Text_ChainPool_BROCK_18[];
+extern const u8 HoennSeek_Text_ChainPool_MISTY_0[];
+extern const u8 HoennSeek_Text_ChainPool_MISTY_1[];
+extern const u8 HoennSeek_Text_ChainPool_MISTY_2[];
+extern const u8 HoennSeek_Text_ChainPool_MISTY_3[];
+extern const u8 HoennSeek_Text_ChainPool_MISTY_4[];
+extern const u8 HoennSeek_Text_ChainPool_MISTY_5[];
+extern const u8 HoennSeek_Text_ChainPool_MISTY_6[];
+extern const u8 HoennSeek_Text_ChainPool_MISTY_7[];
+extern const u8 HoennSeek_Text_ChainPool_MISTY_8[];
+extern const u8 HoennSeek_Text_ChainPool_MISTY_9[];
+extern const u8 HoennSeek_Text_ChainPool_MISTY_10[];
+extern const u8 HoennSeek_Text_ChainPool_MISTY_11[];
+extern const u8 HoennSeek_Text_ChainPool_MISTY_12[];
+extern const u8 HoennSeek_Text_ChainPool_MISTY_13[];
+extern const u8 HoennSeek_Text_ChainPool_MISTY_14[];
+extern const u8 HoennSeek_Text_ChainPool_MISTY_15[];
+extern const u8 HoennSeek_Text_ChainPool_MISTY_16[];
+extern const u8 HoennSeek_Text_ChainPool_MISTY_17[];
 
 static const struct HoennChainLine sChainPool_BROCK[] = {
     {NULL, 0, HoennSeek_Text_ChainPool_BROCK_0},
@@ -42,6 +60,28 @@ static const struct HoennChainLine sChainPool_BROCK[] = {
     {(const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_STAMP_GYM_8, 0}}, 1, HoennSeek_Text_ChainPool_BROCK_18},
 };
 
+static const struct HoennChainLine sChainPool_MISTY[] = {
+    {NULL, 0, HoennSeek_Text_ChainPool_MISTY_0},
+    {NULL, 0, HoennSeek_Text_ChainPool_MISTY_1},
+    {NULL, 0, HoennSeek_Text_ChainPool_MISTY_2},
+    {NULL, 0, HoennSeek_Text_ChainPool_MISTY_3},
+    {(const struct HoennHintCond[]){{HINT_IF_FOLLOWER, SPECIES_STARMIE, 0}}, 1, HoennSeek_Text_ChainPool_MISTY_4},
+    {(const struct HoennHintCond[]){{HINT_IF_FOLLOWER, SPECIES_PSYDUCK, 0}}, 1, HoennSeek_Text_ChainPool_MISTY_5},
+    {(const struct HoennHintCond[]){{HINT_IF_FOLLOWER, SPECIES_GOLDUCK, 0}}, 1, HoennSeek_Text_ChainPool_MISTY_6},
+    {(const struct HoennHintCond[]){{HINT_IF_FOLLOWER, SPECIES_LAPRAS, 0}}, 1, HoennSeek_Text_ChainPool_MISTY_7},
+    {(const struct HoennHintCond[]){{HINT_IF_PARTY, SPECIES_GYARADOS, 0}}, 1, HoennSeek_Text_ChainPool_MISTY_8},
+    {(const struct HoennHintCond[]){{HINT_IF_CAUGHT, SPECIES_MILOTIC, 0}}, 1, HoennSeek_Text_ChainPool_MISTY_9},
+    {(const struct HoennHintCond[]){{HINT_IF_CAUGHT, SPECIES_KINGDRA, 0}}, 1, HoennSeek_Text_ChainPool_MISTY_10},
+    {(const struct HoennHintCond[]){{HINT_IF_CAUGHT, SPECIES_KYOGRE, 0}}, 1, HoennSeek_Text_ChainPool_MISTY_11},
+    {(const struct HoennHintCond[]){{HINT_IF_CAUGHT, SPECIES_ARTICUNO, 0}}, 1, HoennSeek_Text_ChainPool_MISTY_12},
+    {(const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_STAMP_GYM_8, 0}}, 1, HoennSeek_Text_ChainPool_MISTY_13},
+    {(const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_STAMP_WALLACE, 0}}, 1, HoennSeek_Text_ChainPool_MISTY_14},
+    {(const struct HoennHintCond[]){{HINT_IF_VAR_MIN, VAR_HOENN_CHAIN_BROCK, 4}}, 1, HoennSeek_Text_ChainPool_MISTY_15},
+    {(const struct HoennHintCond[]){{HINT_IF_DEFEATED, TRAINER_RED_HNS, 0}}, 1, HoennSeek_Text_ChainPool_MISTY_16},
+    {(const struct HoennHintCond[]){{HINT_IF_BADGES_MIN, 0, 16}}, 1, HoennSeek_Text_ChainPool_MISTY_17},
+};
+
 static const struct HoennFanChain sFanChains[] = {
     [HOENN_CHAIN_BROCK] = {FLAG_HOENN_WEEKEND_SPOT_BROCK, VAR_HOENN_CHAIN_BROCK, VAR_HOENN_CHAIN_BROCK_WEEKEND, {0, FLAG_HOENN_CHAIN_BROCK_MTMOON, FLAG_HOENN_CHAIN_BROCK_DAYCARE, 0}, sChainPool_BROCK, ARRAY_COUNT(sChainPool_BROCK)},
+    [HOENN_CHAIN_MISTY] = {FLAG_HOENN_WEEKEND_SPOT_MISTY, VAR_HOENN_CHAIN_MISTY, VAR_HOENN_CHAIN_MISTY_WEEKEND, {0, FLAG_HOENN_CHAIN_MISTY_SEAFOAM, FLAG_HOENN_CHAIN_MISTY_GYM, 0}, sChainPool_MISTY, ARRAY_COUNT(sChainPool_MISTY)},
 };

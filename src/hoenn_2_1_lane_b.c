@@ -114,8 +114,11 @@ u16 Hoenn21LaneBDueCall(void)
     if (FlagGet(FLAG_HOENN_BM_PHONE) && !FlagGet(FLAG_HOENN_CALL_WEEKENDS) && AnyLeaderAway())
         return HOENN_CALL_WEEKENDS;
     // 2.1-21: Brendan heard about Brock's ONIX DOLL at the PEWTER MUSEUM.
-    if (FlagGet(FLAG_HOENN_BM_PHONE) && HoennBrockChainCallDue())
+    if (FlagGet(FLAG_HOENN_BM_PHONE) && HoennChainCallDue(HOENN_CHAIN_BROCK, FLAG_HOENN_CALL_BROCK_CHAIN))
         return HOENN_CALL_BROCK_CHAIN;
+    // 2.1-22: May saw MISTY's water show on TV.
+    if (FlagGet(FLAG_HOENN_BM_PHONE) && HoennChainCallDue(HOENN_CHAIN_MISTY, FLAG_HOENN_CALL_MISTY_CHAIN))
+        return HOENN_CALL_MISTY_CHAIN;
     return HOENN_CALL_NONE; // the end of the chain
 }
 

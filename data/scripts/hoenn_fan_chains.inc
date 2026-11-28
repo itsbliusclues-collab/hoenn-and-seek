@@ -57,3 +57,57 @@ HoennSeek_Text_ChainPool_BROCK_17::
 
 HoennSeek_Text_ChainPool_BROCK_18::
 	.string "Eight BADGES in HOENN, too? Your\nPOKéMON must eat well. That's half\lthe work, you know.$"
+
+HoennSeek_Text_ChainPool_MISTY_0::
+	.string "The show's over, but I still swim\nthe SEAFOAM current every weekend.\lIt's my thinking time.$"
+
+HoennSeek_Text_ChainPool_MISTY_1::
+	.string "My sisters think the show was all\nabout them. I let them think it.\lThat's what sisters are for.$"
+
+HoennSeek_Text_ChainPool_MISTY_2::
+	.string "PSYDUCK fell in the pool during\nthe bows. The crowd thought it was\lplanned. It was NOT planned.$"
+
+HoennSeek_Text_ChainPool_MISTY_3::
+	.string "Water POKéMON aren't just pretty,\nyou know.\pThey're tough. Like me!$"
+
+HoennSeek_Text_ChainPool_MISTY_4::
+	.string "Your STARMIE's core is so bright!\nSomebody's been swimming it in\lclean water. Good.$"
+
+HoennSeek_Text_ChainPool_MISTY_5::
+	.string "A PSYDUCK! Does yours get\nheadaches too? Mine gets one every\ltime I raise my voice. So, often.$"
+
+HoennSeek_Text_ChainPool_MISTY_6::
+	.string "Your GOLDUCK swims like an arrow.\nMine still floats on its back when\lit thinks nobody's looking.$"
+
+HoennSeek_Text_ChainPool_MISTY_7::
+	.string "Your LAPRAS is humming! They sing\nwhen they're happy. Don't tell\lanyone, but I sang along once.$"
+
+HoennSeek_Text_ChainPool_MISTY_8::
+	.string "You have a GYARADOS! I used to be\nscared of them. Now I just think\lthey're misunderstood.$"
+
+HoennSeek_Text_ChainPool_MISTY_9::
+	.string "You raised a MILOTIC? I'd love to\nsee it swim. They say it calms any\lstorm it passes.$"
+
+HoennSeek_Text_ChainPool_MISTY_10::
+	.string "KINGDRA! CLAIR has one too. Don't\ntell her I said hers looks grumpy.$"
+
+HoennSeek_Text_ChainPool_MISTY_11::
+	.string "You caught the POKéMON that made\nthe oceans? I'm a little jealous.\lOkay, a lot jealous.$"
+
+HoennSeek_Text_ChainPool_MISTY_12::
+	.string "ARTICUNO roosts deep in SEAFOAM.\nI've heard it sing over the water,\lbut I've never seen it up close.$"
+
+HoennSeek_Text_ChainPool_MISTY_13::
+	.string "You beat JUAN in SOOTOPOLIS? I\nhear his gym floor is made of ice.\lMine's a pool. Mine's better.$"
+
+HoennSeek_Text_ChainPool_MISTY_14::
+	.string "WALLACE won a contest with a water\nshow once. I watched the tape a\lhundred times. For research!$"
+
+HoennSeek_Text_ChainPool_MISTY_15::
+	.string "BROCK told me about your trip to\nMT. MOON. He wouldn't stop talking\labout CLEFAIRY eggs. For an hour.$"
+
+HoennSeek_Text_ChainPool_MISTY_16::
+	.string "You beat RED? He swam to the\nSEAFOAM ISLANDS once. In jeans. I\lstill don't know how.$"
+
+HoennSeek_Text_ChainPool_MISTY_17::
+	.string "Sixteen BADGES? You've seen more\ngyms than I have pools.\lWell, almost.$"
