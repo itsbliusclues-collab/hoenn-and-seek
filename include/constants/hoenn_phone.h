@@ -83,6 +83,6 @@
 
 #define HOENN_CALL_21_LANE_B_FIRST 130
 #define HOENN_CALL_21_LANE_B_LAST  159
-// (2.1 lane B's calls)
+#define HOENN_CALL_WEEKENDS (HOENN_CALL_21_LANE_B_FIRST + 0) // 2.1-18: May, the leaders' weekends
 
 #endif // GUARD_CONSTANTS_HOENN_PHONE_H

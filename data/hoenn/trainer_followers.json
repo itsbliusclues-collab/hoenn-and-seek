@@ -11,7 +11,10 @@
     "Tate & Liza (on a dais whose only open tiles are where you stand to talk to them). Also not here:",
     "Janine (Fuchsia's trick is that every trainer looks like her, and a Venomoth would give the real",
     "one away), Lance and Wallace (their champion rooms run walk-in scenes), Kanto's Elite Four rematch (same",
-    "rooms and people as Johto's)."
+    "rooms and people as Johto's).",
+    "2.1-18 on: the leaders' weekend spots (data/hoenn/leader_weekends.json) list their followers here too, after",
+    "gen_hoenn_weekends.py has placed the leader (it runs first in regen_all.sh). Morty has none at the Dance Theater:",
+    "a Gengar would put that room past the sprite budget (tools/hoenn/check_screens.py)."
   ],
   "followers": [
     {"map": "VioletCity_Gym_hns",          "trainer": "OBJ_EVENT_GFX_FALKNER_HNS",  "species": "NOCTOWL"},
@@ -48,6 +51,14 @@
     {"map": "EverGrandeCity_DrakesRoom",   "trainer": "OBJ_EVENT_GFX_DRAKE",        "species": "SALAMENCE"},
 
     {"map": "MtSilver_SummitDay_hns",      "trainer": "OBJ_EVENT_GFX_RED_NORMAL_HNS", "species": "PIKACHU", "local_id": "LOCALID_MTSILVER_RED_PIKACHU"},
-    {"map": "MtSilver_SummitNight_hns",    "trainer": "OBJ_EVENT_GFX_RED_NORMAL_HNS", "species": "PIKACHU", "local_id": "LOCALID_MTSILVER_RED_PIKACHU"}
+    {"map": "MtSilver_SummitNight_hns",    "trainer": "OBJ_EVENT_GFX_RED_NORMAL_HNS", "species": "PIKACHU", "local_id": "LOCALID_MTSILVER_RED_PIKACHU"},
+
+    {"map": "CherrygroveCity_hns",         "trainer": "OBJ_EVENT_GFX_FALKNER_HNS",  "species": "NOCTOWL",   "_": "2.1-18 weekend spot"},
+    {"map": "NationalPark_Normal_hns",     "trainer": "OBJ_EVENT_GFX_BUGSY_HNS",    "species": "SCYTHER",   "_": "2.1-18 weekend spot"},
+    {"map": "Route39_hns",                 "trainer": "OBJ_EVENT_GFX_WHITNEY_HNS",  "species": "MILTANK",   "_": "2.1-18 weekend spot"},
+    {"map": "MtMortar_1F_South_hns",       "trainer": "OBJ_EVENT_GFX_CHUCK_HNS",    "species": "POLIWRATH", "_": "2.1-18 weekend spot"},
+    {"map": "Route40_hns",                 "trainer": "OBJ_EVENT_GFX_JASMINE_HNS",  "species": "STEELIX",   "_": "2.1-18 weekend spot"},
+    {"map": "Route44_hns",                 "trainer": "OBJ_EVENT_GFX_PRYCE_HNS",    "species": "PILOSWINE", "_": "2.1-18 weekend spot"},
+    {"map": "LakeOfRage_hns",              "trainer": "OBJ_EVENT_GFX_CLAIR_HNS",    "species": "KINGDRA",   "_": "2.1-18 weekend spot"}
   ]
 }

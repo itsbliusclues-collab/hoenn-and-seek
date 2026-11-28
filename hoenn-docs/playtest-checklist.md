@@ -612,6 +612,10 @@ Lane B's `## 2.0 part NN` sections go below this line, at the end of the file.
 - [ ] **Its form:** it's the form he used in your last battle with him (base, then middle after your second battle, final from the fourth). After a battle where it evolved, it shows the new form straight away (not tested: the swap after a battle).
 - [ ] **Standing still:** at Indigo (and Ever Grande, Mt. Moon) it stands behind or beside him; talk to it (cry + a line). (Emulator-tested at Indigo: Meganium.)
 - [ ] **After a battle with him** in a scene, it's still there next to him (not tested).
+- [ ] **Busy maps (reviewer):** the starter takes an object slot. In Ecruteak (already over the screen budget in places) and Olivine, Silver himself is added by the scene's script; check that he, the starter and everyone else in view all show up. Also save next to the waiting Silver at Indigo and Continue: the starter should reappear beside him within a frame.
+
+### 2.1-01 (friend sprite mockups)
+- **Placeholders:** Bridgette's, Aidan's and Brock's sprites are repaints of existing trainers. Bryan is designing the real ones; swap them in and look at them in game (front pic in battle, overworld walking all four ways) before 2.1 ships.
 
 ### 2.1-10–11 (elite Hoenn trainers)
 - [ ] **The 15:** CAROLINA (Route 108), LEONEL (120), MARCEL (121), BRAXTON and FREDRICK (123), AURON (125), ATHENA (127), RUBEN (128), PAXTON (132), CONOR (133), AARON (134), QUINCY, KATELYNN, SAMUEL and VITO (Victory Road). Each greets you by name and brings 6 Pokémon with held items. Are they gym-level fights? Too hard or too easy for where you meet them?
@@ -643,3 +647,17 @@ Lane B's `## 2.0 part NN` sections go below this line, at the end of the file.
 ### 2.1-04 (key-item pocket)
 - The KEY ITEMS pocket holds 80 now. Late in the game (lots of key items), scroll the pocket to the end, move an item (SELECT) across the 60th/61st place, register one past the 60th for SELECT and use it: everything should behave as in the first 60.
 - Load a 2.0 save: the key items are all there and nothing new appears at the end of the pocket.
+
+### 2.1-34 (teleport to base)
+- Make a real base, walk in once, then use Teleport from a route in another region: the menu should name your last healing town, SECRET BASE and CANCEL. SECRET BASE lands you inside; walking out puts you at the base's door.
+- A base full of decorations and dolls: everything should be there after teleporting in, as after walking in.
+- Move out (or use Secret Power somewhere new): Teleport goes back to HnS's YES/NO question until you walk into the new base.
+- Teleport in at night and in rain or fog: the base and the way back outside should look right.
+
+### 2.1-18 (Johto leaders' weekends)
+- On a Saturday or Sunday, after beating a Johto leader, their gym is empty and the gym guide says where they went. Visit each spot: Cherrygrove's beach (FALKNER), the NATIONAL PARK (BUGSY, not on contest days), MOOMOO FARM (WHITNEY), the DANCE THEATER (MORTY), MT. MORTAR's falls (CHUCK), ROUTE 40's beach (JASMINE), ROUTE 44's pond (PRYCE), LAKE OF RAGE's east shore (CLAIR). Each says a few lines; back in the gym on Monday.
+- A leader you haven't beaten yet stays in their gym on weekends (so a first challenge is never blocked).
+- After Kanto, when the Saffron Fighting Dojo has a leader's rematch: on a weekend that leader isn't at the Dojo, and talking to them at their spot offers the same rematch (and BP).
+- Change the day at a wall clock and go back outside: the leaders move with the calendar.
+- May calls once, the first weekend a leader is away (needs her number from BIRCH).
+- Load a save made inside a gym on a Friday and continue on Saturday: the leader is still there until you leave the map (expected; the next map load moves them).

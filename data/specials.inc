@@ -831,4 +831,5 @@ gSpecials::
 	@ (end of 2.1 lane A's specials)
 
 	@ Hoenn & Seek 2.1, builder lane B: lane B's 2.1 specials go here
+	def_special HoennTeleportGo
 	@ (end of 2.1 lane B's specials)
