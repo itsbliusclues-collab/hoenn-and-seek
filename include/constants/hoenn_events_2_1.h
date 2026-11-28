@@ -105,7 +105,7 @@
 #define FLAG_HOENN_NEIGHBOR_PHONE_LYRA     (HOENN_21_LANE_A_FLAGS + 0x15) // (a male player's neighbor)
 #define FLAG_HOENN_HIDE_ROUTE29_NEIGHBOR   (HOENN_21_LANE_A_FLAGS + 0x16) // their object on Route 29 (only out during the catching demo)
 #define FLAG_HOENN_CALL_NEIGHBOR_FIRST     (HOENN_21_LANE_A_FLAGS + 0x17) // their milestone calls, one flag each, in
-#define FLAG_HOENN_CALL_NEIGHBOR_LAST      (HOENN_21_LANE_A_FLAGS + 0x20) //   HOENN_CALL_NEIGHBOR_* order (10 flags)
+#define FLAG_HOENN_CALL_NEIGHBOR_LAST      (HOENN_21_LANE_A_FLAGS + 0x1F) //   HOENN_CALL_NEIGHBOR_* order (9 flags)
 #define VAR_HOENN_NEIGHBOR_STATE           (HOENN_21_LANE_A_VARS + 0x04)  // HOENN_NEIGHBOR_* below
 // VAR_HOENN_NEIGHBOR_STATE
 #define HOENN_NEIGHBOR_NOT_MET   0 // in Elm's lab from your first visit

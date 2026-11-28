@@ -31,12 +31,12 @@
 #if IS_HNS
 
 // 2.1-15: ETHAN or LYRA, your childhood friend next door, calls about every
-// other BADGE in Johto and Kanto, the Johto title and WALLACE (Aidan: a call
-// per badge was too many). Only the highest stage reached rings and the ones
-// below it are marked done, as Brendan & May's badge calls are
-// (src/hoenn_phone.c). The Kanto-title call is where they decide to stay on as
-// PROF. OAK's field aide, so Hoenn only gets the WALLACE call; their in-person
-// scenes (2.1-16) carry the tips.
+// other BADGE in Johto, Kanto badges 2/4/6, the Johto title and WALLACE (Aidan:
+// a call per badge was too many). Only the highest stage reached rings and the
+// ones below it are marked done, as Brendan & May's badge calls are
+// (src/hoenn_phone.c). At eight Kanto badges there's no call: they decide to
+// stay on as PROF. OAK's field aide in a scene in his lab (2.1-16), so Hoenn
+// only gets the WALLACE call; their in-person scenes carry the tips.
 static bool32 NeighborHasPhone(void)
 {
     return FlagGet(FLAG_HOENN_NEIGHBOR_PHONE_ETHAN) || FlagGet(FLAG_HOENN_NEIGHBOR_PHONE_LYRA);
@@ -53,10 +53,11 @@ static u32 CountFlags(u16 first, u32 count)
 }
 
 // Your progress as a stage: 0 = under two Johto badges, 1-4 = 2/4/6/8 Johto
-// badges, 5 = Johto champion, 6-9 = 2/4/6/8 Kanto badges, 10 = WALLACE. Stage n
+// badges, 5 = Johto champion, 6-8 = 2/4/6 Kanto badges (8 counts as 6), 9 =
+// WALLACE. Stage n
 // rings HOENN_CALL_NEIGHBOR_BADGE2 + n - 1 and owns FLAG_HOENN_CALL_NEIGHBOR_FIRST + n - 1.
 #define NEIGHBOR_STAGE_COUNT (HOENN_CALL_NEIGHBOR_WALLACE - HOENN_CALL_NEIGHBOR_BADGE2 + 1)
-STATIC_ASSERT(NEIGHBOR_STAGE_COUNT == 10, NeighborStageCount);
+STATIC_ASSERT(NEIGHBOR_STAGE_COUNT == 9, NeighborStageCount);
 STATIC_ASSERT(NEIGHBOR_STAGE_COUNT == FLAG_HOENN_CALL_NEIGHBOR_LAST - FLAG_HOENN_CALL_NEIGHBOR_FIRST + 1, NeighborStageFlags);
 
 static u32 NeighborStage(void)
@@ -64,10 +65,10 @@ static u32 NeighborStage(void)
     u32 kanto;
 
     if (FlagGet(FLAG_HOENN_STAMP_WALLACE))
-        return 10;
+        return 9;
     kanto = CountFlags(FLAG_BADGE09_GET, 8);
     if (kanto >= 2)
-        return 5 + kanto / 2;
+        return 5 + min(kanto, 7) / 2;
     if (FlagGet(FLAG_SYS_GAME_CLEAR))
         return 5;
     return CountFlags(FLAG_BADGE01_GET, 8) / 2;

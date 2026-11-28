@@ -602,9 +602,8 @@ static const match_call_text_data_t sEthanTextScripts[] = {
     { HoennSeek_Text_EthanPhone6, FLAG_HOENN_CALL_NEIGHBOR_FIRST + 5, NO_FLAG_TO_SET },
     { HoennSeek_Text_EthanPhone7, FLAG_HOENN_CALL_NEIGHBOR_FIRST + 6, NO_FLAG_TO_SET },
     { HoennSeek_Text_EthanPhone8, FLAG_HOENN_CALL_NEIGHBOR_FIRST + 7, NO_FLAG_TO_SET },
-    { HoennSeek_Text_EthanPhone9, FLAG_HOENN_CALL_NEIGHBOR_FIRST + 8, NO_FLAG_TO_SET },
-    { HoennSeek_Text_EthanPhone10, FLAG_VISITED_SLATEPORT_CITY, NO_FLAG_TO_SET },
-    { HoennSeek_Text_EthanPhone11, FLAG_HOENN_CALL_NEIGHBOR_FIRST + 9, NO_FLAG_TO_SET },
+    { HoennSeek_Text_EthanPhone9, FLAG_VISITED_SLATEPORT_CITY, NO_FLAG_TO_SET },
+    { HoennSeek_Text_EthanPhone10, FLAG_HOENN_CALL_NEIGHBOR_FIRST + 8, NO_FLAG_TO_SET },
     MATCH_CALL_TEXT_END
 };
 
@@ -628,9 +627,8 @@ static const match_call_text_data_t sLyraTextScripts[] = {
     { HoennSeek_Text_LyraPhone6, FLAG_HOENN_CALL_NEIGHBOR_FIRST + 5, NO_FLAG_TO_SET },
     { HoennSeek_Text_LyraPhone7, FLAG_HOENN_CALL_NEIGHBOR_FIRST + 6, NO_FLAG_TO_SET },
     { HoennSeek_Text_LyraPhone8, FLAG_HOENN_CALL_NEIGHBOR_FIRST + 7, NO_FLAG_TO_SET },
-    { HoennSeek_Text_LyraPhone9, FLAG_HOENN_CALL_NEIGHBOR_FIRST + 8, NO_FLAG_TO_SET },
-    { HoennSeek_Text_LyraPhone10, FLAG_VISITED_SLATEPORT_CITY, NO_FLAG_TO_SET },
-    { HoennSeek_Text_LyraPhone11, FLAG_HOENN_CALL_NEIGHBOR_FIRST + 9, NO_FLAG_TO_SET },
+    { HoennSeek_Text_LyraPhone9, FLAG_VISITED_SLATEPORT_CITY, NO_FLAG_TO_SET },
+    { HoennSeek_Text_LyraPhone10, FLAG_HOENN_CALL_NEIGHBOR_FIRST + 8, NO_FLAG_TO_SET },
     MATCH_CALL_TEXT_END
 };
 

@@ -88,8 +88,8 @@
 #define HOENN_CALL_NEIGHBOR_KANTO2    108 // every other Kanto badge: second
 #define HOENN_CALL_NEIGHBOR_KANTO4    109 // fourth
 #define HOENN_CALL_NEIGHBOR_KANTO6    110 // sixth (PROF. OAK asks them to stay)
-#define HOENN_CALL_NEIGHBOR_KANTO8    111 // all eight: they stay in KANTO as OAK's field aide
-#define HOENN_CALL_NEIGHBOR_WALLACE   112 // Wallace beaten (their only Hoenn call)
+#define HOENN_CALL_NEIGHBOR_WALLACE   111 // Wallace beaten (their only Hoenn call; at 8 Kanto badges there's
+                                          // no call: they decide to stay with OAK in a lab scene, 2.1-16)
 
 #define HOENN_CALL_21_LANE_B_FIRST 130
 #define HOENN_CALL_21_LANE_B_LAST  159

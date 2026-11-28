@@ -20,7 +20,6 @@ HoennSeek_EventScript_PhoneEvent21LaneA::
 	case HOENN_CALL_NEIGHBOR_KANTO2, HoennSeek_EventScript_CallNeighborKanto2
 	case HOENN_CALL_NEIGHBOR_KANTO4, HoennSeek_EventScript_CallNeighborKanto4
 	case HOENN_CALL_NEIGHBOR_KANTO6, HoennSeek_EventScript_CallNeighborKanto6
-	case HOENN_CALL_NEIGHBOR_KANTO8, HoennSeek_EventScript_CallNeighborKanto8
 	case HOENN_CALL_NEIGHBOR_WALLACE, HoennSeek_EventScript_CallNeighborWallace
 	goto HoennSeek_EventScript_PhoneEvent21LaneB @ lane B's 2.1 calls (hoenn_2_1_lane_b.inc)
 
@@ -930,9 +929,10 @@ HoennSeek_Text_BrockToday::
 @ running from wild battles, your walking POKéMON and the POKéGEAR's phone
 @ after you get it (their number), how to catch on ROUTE 29 on the way back
 @ from MR. POKéMON (with POKé BALLS), then a call every other BADGE in Johto
-@ and Kanto, at the Johto title and after WALLACE (NeighborDueCall,
-@ src/hoenn_2_1_lane_a.c). After the Kanto title they stay on as PROF. OAK's
-@ field aide in PALLET TOWN, which is why they're seldom heard from in Hoenn. VAR_HOENN_NEIGHBOR_STATE is
+@ and Kanto (up to the sixth Kanto one), at the Johto title and after WALLACE
+@ (NeighborDueCall, src/hoenn_2_1_lane_a.c). After the Kanto title they decide,
+@ in a scene with PROF. OAK in his lab (2.1-16), to stay on as his field aide,
+@ which is why they're seldom heard from in Hoenn. VAR_HOENN_NEIGHBOR_STATE is
 @ HOENN_NEIGHBOR_*. Their objects take VAR_OBJ_GFX_ID_E, set on arrival.
 @ Contact lines: the ETHAN/LYRA headers in src/pokenav_match_call_data.c.
 
@@ -1206,13 +1206,8 @@ HoennSeek_EventScript_CallNeighborKanto6::
 	call HoennSeek_EventScript_NeighborSpeaker
 	pokenavcall HoennSeek_Text_CallNeighborKanto6
 	goto HoennSeek_EventScript_CallEnd
-HoennSeek_EventScript_CallNeighborKanto8::
-	setflag (FLAG_HOENN_CALL_NEIGHBOR_FIRST + 8)
-	call HoennSeek_EventScript_NeighborSpeaker
-	pokenavcall HoennSeek_Text_CallNeighborKanto8
-	goto HoennSeek_EventScript_CallEnd
 HoennSeek_EventScript_CallNeighborWallace::
-	setflag (FLAG_HOENN_CALL_NEIGHBOR_FIRST + 9)
+	setflag (FLAG_HOENN_CALL_NEIGHBOR_FIRST + 8)
 	call HoennSeek_EventScript_NeighborSpeaker
 	pokenavcall HoennSeek_Text_CallNeighborWallace
 	goto HoennSeek_EventScript_CallEnd
@@ -1377,20 +1372,6 @@ HoennSeek_Text_CallNeighborKanto6:
 	.string "I haven't told PROF. ELM yet.\n"
 	.string "I'm still thinking about it.$"
 
-HoennSeek_Text_CallNeighborKanto8:
-	.string "Sixteen BADGES! Nobody from NEW\n"
-	.string "BARK has ever done that.\p"
-	.string "And {PLAYER}, I made up my mind.\n"
-	.string "I'm staying in KANTO to work\l"
-	.string "with PROF. OAK. PROF. ELM said\l"
-	.string "it's a great chance for me!\p"
-	.string "PROF. OAK wants to see you, too.\n"
-	.string "He said something about a ship\l"
-	.string "that sails to HOENN.\p"
-	.string "I'll be busy here, so I won't see\n"
-	.string "you much over there. Take lots\l"
-	.string "of notes for me, okay?$"
-
 HoennSeek_Text_CallNeighborWallace:
 	.string "You beat WALLACE! PROF. BIRCH\n"
 	.string "called PROF. OAK, and he ran into\l"
@@ -1439,14 +1420,10 @@ HoennSeek_Text_EthanPhone8::
 	.string "after this. KANTO, or home…\l"
 	.string "What would you do?$"
 HoennSeek_Text_EthanPhone9::
-	.string "ETHAN: I'm PROF. OAK's field aide now!\n"
-	.string "PROF. ELM says he's proud of me.\l"
-	.string "Go show HOENN what you can do!$"
-HoennSeek_Text_EthanPhone10::
 	.string "ETHAN: What's HOENN like? PROF. BIRCH\n"
 	.string "sends PROF. OAK photos. The sea\l"
 	.string "there looks so blue!$"
-HoennSeek_Text_EthanPhone11::
+HoennSeek_Text_EthanPhone10::
 	.string "ETHAN: Champion of two regions! I tell\n"
 	.string "everyone at PROF. OAK's lab we\l"
 	.string "grew up together.$"
@@ -1487,14 +1464,10 @@ HoennSeek_Text_LyraPhone8::
 	.string "after this. KANTO, or home…\l"
 	.string "What would you do?$"
 HoennSeek_Text_LyraPhone9::
-	.string "LYRA: I'm PROF. OAK's field aide now!\n"
-	.string "PROF. ELM says he's proud of me.\l"
-	.string "Go show HOENN what you can do!$"
-HoennSeek_Text_LyraPhone10::
 	.string "LYRA: What's HOENN like? PROF. BIRCH\n"
 	.string "sends PROF. OAK photos. The sea\l"
 	.string "there looks so blue!$"
-HoennSeek_Text_LyraPhone11::
+HoennSeek_Text_LyraPhone10::
 	.string "LYRA: Champion of two regions! I tell\n"
 	.string "everyone at PROF. OAK's lab we\l"
 	.string "grew up together.$"
