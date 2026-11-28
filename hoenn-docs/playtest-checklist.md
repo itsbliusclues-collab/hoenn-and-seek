@@ -607,6 +607,12 @@ Lane B's `## 2.0 part NN` sections go below this line, at the end of the file.
 - [ ] **Brendan & May:** the first time you talk to either at home after the League, they mention the red-haired trainer. (Emulator-tested.)
 - [ ] **Celebi:** with Celebi caught, the Viridian Pokémon Center bug catcher tells you to walk Route 22 with it following you (it must lead, follow, and be at full HP). After the scene, Silver at Indigo says his one-time line before his usual talk. (The line was emulator-tested; the rumor and the scene weren't.)
 
+### 2.1-09 (Silver's starter)
+- [ ] **His scenes:** in every Silver scene (Cherrygrove, Azalea, Burned Tower, Goldenrod Underground, Mahogany's hideout, Victory Road, Dragon's Den, Mt. Moon, Olivine, Ecruteak, Sprout Tower), his starter walks in behind him and leaves with him. Watch for scenes where it gets in the way or looks odd. (Emulator-tested: Rocket Hideout B3F, walking in and out.)
+- [ ] **Its form:** it's the form he used in your last battle with him (base, then middle after your second battle, final from the fourth). After a battle where it evolved, it shows the new form straight away (not tested: the swap after a battle).
+- [ ] **Standing still:** at Indigo (and Ever Grande, Mt. Moon) it stands behind or beside him; talk to it (cry + a line). (Emulator-tested at Indigo: Meganium.)
+- [ ] **After a battle with him** in a scene, it's still there next to him (not tested).
+
 ## 2.1 lane B
 
 ### 2.1-02 (foundations)
