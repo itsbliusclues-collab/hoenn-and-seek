@@ -456,6 +456,13 @@ static void DrawJournalRowCheck(u16 windowId, u32 index, u32 tileOffset)
     tilemap[0x20] = found ? CHECK_TILE_TOP + 1 : CHECK_TILE_NONE;
 }
 
+// The left column's lines are centred, like the tab name above them (the
+// box's frame covers the window's first pixels).
+static void PrintInfoLine(u32 windowId, const u8 *text, u32 y)
+{
+    AddTextPrinterParameterized(windowId, FONT_NARROW, text, GetStringCenterAlignXOffset(FONT_NARROW, text, 88), y, TEXT_SKIP_DRAW, NULL);
+}
+
 static void PrintTabInfo(struct Pokenav_JournalGfx *gfx)
 {
     struct Pokenav_Journal *journal = GetSubstructPtr(POKENAV_SUBSTRUCT_JOURNAL);
@@ -473,7 +480,7 @@ static void PrintTabInfo(struct Pokenav_JournalGfx *gfx)
     if (page == HOENN_JOURNAL_PAGE_TODAY)
     {
         HoennBufferWeekdayName(); // STR_VAR_1 (TODAY is the calendar's day; night-only rows use the night's)
-        AddTextPrinterParameterized(gfx->infoWindowId, FONT_NARROW, gStringVar1, 2, 1, TEXT_SKIP_DRAW, NULL);
+        PrintInfoLine(gfx->infoWindowId, gStringVar1, 1);
         ConvertIntToDecimalStringN(gStringVar2, total, STR_CONV_MODE_LEFT_ALIGN, 3);
         StringExpandPlaceholders(gStringVar4, sText_OnToday);
     }
@@ -481,8 +488,8 @@ static void PrintTabInfo(struct Pokenav_JournalGfx *gfx)
     {
         StringExpandPlaceholders(gStringVar4, sText_Found);
     }
-    AddTextPrinterParameterized(gfx->infoWindowId, FONT_NARROW, gStringVar4, 2, 17, TEXT_SKIP_DRAW, NULL);
-    AddTextPrinterParameterized(gfx->infoWindowId, FONT_NARROW, sText_Tabs, 2, 49, TEXT_SKIP_DRAW, NULL);
+    PrintInfoLine(gfx->infoWindowId, gStringVar4, 17);
+    PrintInfoLine(gfx->infoWindowId, sText_Tabs, 49);
     CopyWindowToVram(gfx->infoWindowId, COPYWIN_FULL);
 }
 
