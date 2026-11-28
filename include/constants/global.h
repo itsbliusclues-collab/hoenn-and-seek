@@ -136,6 +136,16 @@ enum Language
 #define BAG_TREASURES_COUNT 36 // 26 + padding
 #endif
 
+// Hoenn & Seek 2.1-04: SaveBlock1 keeps its 60 key-item slots (struct Bag's
+// layout is fixed: moving it would shift every field after it), but HnS's key
+// pocket is 80 slots in SaveBlock3 (hoennKeyItems). Save version 8 moves a
+// 2.0 save's key items there (src/save.c). hoenn-docs/key-items.md has the audit.
+#define BAG_KEYITEMS_SB1_COUNT 60
+#if IS_HNS
+#undef BAG_KEYITEMS_COUNT
+#define BAG_KEYITEMS_COUNT 80
+#endif
+
 // Number of facilities for Ranking Hall.
 // 7 facilities for single mode + tower double mode + tower multi mode.
 // Excludes link modes. See RANKING_HALL_* in include/constants/battle_frontier.h

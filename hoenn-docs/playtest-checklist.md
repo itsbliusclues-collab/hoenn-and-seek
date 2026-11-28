@@ -576,5 +576,10 @@ No content of its own; these check the plumbing on a real cartridge/emulator sav
 - **DAMIAN** (outside the Cerulean Gym once Charmander joined you): his ace is still your progress cap (e.g. 64 with 3 Kanto badges), 85 after Wallace.
 - **Debug menu:** Utilities → "H&S time & weather…" → LADDERS shows three aces and the cap; they rise with badges.
 
+## 2.1-04 (the key-item pocket, 80 slots)
+- [ ] **Old save:** load a 2.0 save and open the bag's KEY ITEMS: every key item is still there, in the same order (they moved to a new place in the save). Use one (a bike, a rod, a flute) to check it still works. (Emulator-tested with 60 key items in a forced version-7 save.)
+- [ ] **A real 61st key item:** on a long save, pick up key items past 60 as you play. Each one goes in, none says the bag is full, and the list scrolls to the end. (Emulator-tested with the debug menu's Fill Pocket Key Items, which now fills 80.)
+- [ ] **Registered item:** register a key item that sits past slot 60 to SELECT and use it from the field.
+
 ## Track B parts (2.1: the world and its people)
 Track B's `## 2.1-NN` sections go below this line, at the end of the file.

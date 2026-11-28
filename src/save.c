@@ -15,6 +15,7 @@
 #include "constants/rematches.h"
 #include "event_data.h"
 #include "hoenn_flags.h" // Hoenn & Seek
+#include "hoenn.h" // Hoenn & Seek 2.1-04 (HoennMoveKeyItemsToSaveBlock3)
 
 static u16 CalculateChecksum(void *, u16);
 static bool8 ReadFlashSector(u8, struct SaveSector *);
@@ -998,6 +999,15 @@ u8 LoadGameSave(u8 saveType)
         Hoenn21ClearFlagsAndVars();
 #endif
         gSaveBlock1Ptr->saveVersion = 7;
+    }
+    if (gSaveBlock1Ptr->saveVersion < 8)
+    {
+#if IS_HNS
+        // Hoenn & Seek 2.1-04 moved the key-item pocket to SaveBlock3 (80
+        // slots). Bring an older save's 60 key items along.
+        HoennMoveKeyItemsToSaveBlock3();
+#endif
+        gSaveBlock1Ptr->saveVersion = 8;
     }
 
     // Add version migration steps here:

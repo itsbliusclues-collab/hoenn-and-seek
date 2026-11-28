@@ -145,6 +145,7 @@ Track A sizes (2.1):
 | Part | Release | Debug |
 |---|---|---|
 | **2.1-02** Foundations (2.1 flags/vars + save v7, both tracks' ranges and files, radio segment table with 2.0's two radio hooks as rows + one news row, scaled-opponent ladder with DAMIAN on it, LADDERS debug page; on `hoenn` at #104: +4,640 B release, +1,408 B debug over part 37) | 32,793,428 / 743 KB | 32,947,540 / 592 KB |
+| **2.1-04** Key-item pocket (audit: 63 key items given, ~60 held at once; pocket 60 → 80 slots in SaveBlock3, save v8 moves them; on top of 2.1-02, `hoenn` at #103: +208 B release, +144 B debug) | 32,793,636 / 742 KB | 32,947,684 / 592 KB |
 
 Track B sizes (2.1):
 
@@ -415,9 +416,10 @@ Track B sizes (2.1):
   - **1.0 (generated):** Hoenn flags 0x1800–0x1BFF and Hoenn trainer flags 0x1C00–0x1FFF live in `gSaveBlock3Ptr->hoennFlags`; Hoenn vars 0x7000–0x707F in `hoennVars`.
   - **2.0 (hand-defined, 2.0 part 1):** event flags 0x2000–0x23FF in `hoennEventFlags`, event vars 0x7080–0x70FF in `hoennEventVars`. Sub-ranges: 0x2000–0x203F hidden items, 0x2040–0x22FF one block per build phase, 0x2300–0x233F daily, 0x2340–0x237F weekly, 0x2380+ spare. **Take new flags/vars from your phase's block in `include/constants/hoenn_events.h`** (the file explains the rules); `hoenn_custom.h`'s last 9 flags are for 1.x fixes.
   - `GetFlagPointer`/`GetVarPointer` (`src/event_data.c`) hand any Hoenn ID to `HoennGetFlagPointer`/`HoennGetVarPointer`. `NewGameInitData` calls `HoennClearAllFlagsAndVars()`. `ClearDailyFlags` calls `HoennClearDailyFlags()`; `HoennUpdatePerWeek()` calls `HoennClearWeeklyFlags()` when a new week starts (2.0 part 2). SaveBlock3 is 948 of 1,624 bytes.
-  - **2.1 (hand-defined, 2.1-02):** flags 0x2400–0x25FF in `hoenn21Flags` (0x2400–0x257F event flags, 0x2580–0x25BF daily, 0x25C0–0x25FF weekly), vars 0x7100–0x713F in `hoenn21Vars`, split between the two builder tracks in `include/constants/hoenn_events_2_1.h` (A / B / join tail; the file explains it, `hoenn-docs/tracks/README.md` has the table). The daily and weekly resets clear both 2.0's and 2.1's ranges. 2.1 hidden items can't use these (13-bit offset): they take 2.0 lanes' unused hidden-item flags. SaveBlock3 is 1,138 of 1,624 bytes since 2.1-02.
+  - **2.1 (hand-defined, 2.1-02):** flags 0x2400–0x25FF in `hoenn21Flags` (0x2400–0x257F event flags, 0x2580–0x25BF daily, 0x25C0–0x25FF weekly), vars 0x7100–0x713F in `hoenn21Vars`, split between the two builder tracks in `include/constants/hoenn_events_2_1.h` (A / B / join tail; the file explains it, `hoenn-docs/tracks/README.md` has the table). The daily and weekly resets clear both 2.0's and 2.1's ranges. 2.1 hidden items can't use these (13-bit offset): they take 2.0 lanes' unused hidden-item flags. SaveBlock3 is 1,138 of 1,624 bytes since 2.1-02, 1,460 since 2.1-04 (the key-item pocket).
   - **Save version 6** (`include/save.h`, migration in `src/save.c`): a 1.0 save never wrote the 2.0 arrays, so loading one clears them. New games start at `SAVE_VERSION`, so 2.0 saves keep their flags. If upstream HnS ever ships its own version 6, renumber ours on merge.
   - **Save version 7** (2.1-02): the same for 2.1's arrays on a 2.0 save. Upstream HnS's own versions stop at 5 today; if it ever ships 6 or 7, renumber ours on merge.
+  - **Save version 8** (2.1-04): the key-item pocket moved to SaveBlock3 (`hoennKeyItems[80]`, offset 0x474); version 8 copies an older save's 60 SaveBlock1 slots there (next note).
   - Build-time checks in `src/hoenn_flags.c`: the phase blocks are in order and inside their range, and the arrays sit at the offsets `pt.py` uses (`HOENN_*_SB3`).
   - Hidden-item flags must stay below 0x20E9 (13-bit offset from `FLAG_HIDDEN_ITEMS_START`); the generator puts them first, and 2.0 hidden items use 0x2000–0x203F.
 - **Trainers.**
@@ -466,6 +468,7 @@ Built once by track A so later parts plug in instead of adding hooks (`hoenn-doc
 ## Track A notes (2.1)
 Track A (`hoenn-docs/tracks/track-a.md`) adds a bullet per part here, at the end of this list. Its code lives in `src/hoenn_2_1_a.c` and `data/scripts/hoenn_2_1_a.inc` unless a note says otherwise.
 - **Foundations (2.1-02):** the shared systems above, no content. Flags/vars in `hoenn_events_2_1.h` (none used yet); `HOENN_LADDER_*` script constants there.
+- **Key-item pocket (2.1-04):** `hoenn-docs/key-items.md` (the audit; `tools/hoenn/key_item_audit.py [--write]` re-runs it). 63 key items are given and about 60 can be held at once, so HnS's 60-slot pocket had no room for 2.1's. `BAG_KEYITEMS_COUNT` is 80 for HnS; SaveBlock1 keeps its 60 slots (`BAG_KEYITEMS_SB1_COUNT`, unused from save v8: moving `struct Bag` would shift everything after it) and the pocket is `gSaveBlock3Ptr->hoennKeyItems` (`SetBagItemsPointers`, `ClearBag` in `src/item.c`; `struct ItemSlot` moved above SaveBlock3 in `global.h`). Save version 8 runs `HoennMoveKeyItemsToSaveBlock3()` (`src/hoenn_2_1_a.c`). Debug PC/Bag → Fill… → Fill Pocket Key Items now fills 80. Testing: `pt.py`'s `KEY_ITEMS_SB3` (0x474, 2 bytes of padding after the 2.1 vars); SaveBlock1's old slots are at +0x914.
 
 ## Track B notes (2.1)
 Track B (`hoenn-docs/tracks/track-b.md`) adds a bullet per part here, at the end of this list. Its code lives in `src/hoenn_2_1_b.c` and `data/scripts/hoenn_2_1_b.inc` unless a note says otherwise.

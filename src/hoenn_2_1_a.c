@@ -16,6 +16,15 @@
 //   they should ring; IDs come from track A's range (100-129) in
 //   constants/hoenn_phone.h, and each call's script case goes in
 //   HoennSeek_EventScript_PhoneEvent21A (data/scripts/hoenn_2_1_a.inc).
+// - HoennMoveKeyItemsToSaveBlock3() (2.1-04): the key-item pocket. 2.0 had 60
+//   key-item slots and could hand out about 60 different key items, so 2.1's
+//   new ones wouldn't fit (the audit is hoenn-docs/key-items.md). SaveBlock1
+//   is nearly full and moving struct Bag would shift everything after it, so
+//   the pocket is now 80 slots at the end of SaveBlock3 (hoennKeyItems;
+//   SetBagItemsPointers in src/item.c points the pocket there). Save version 8
+//   runs this once on an older save: the slots are copied as they are
+//   (quantities stay XORed with the same encryption key) and SaveBlock1's old
+//   slots are zeroed; they're unused from then on.
 #include "global.h"
 #include "event_data.h"
 #include "hoenn.h"
@@ -28,6 +37,23 @@ u16 Hoenn21ADueCall(void)
 {
     // (track A's calls go here, one `if` each)
     return Hoenn21BDueCall();
+}
+
+STATIC_ASSERT(BAG_KEYITEMS_COUNT >= BAG_KEYITEMS_SB1_COUNT, KeyPocketGrows);
+
+void HoennMoveKeyItemsToSaveBlock3(void)
+{
+    u32 i;
+
+    for (i = 0; i < BAG_KEYITEMS_COUNT; i++)
+    {
+        if (i < BAG_KEYITEMS_SB1_COUNT)
+            gSaveBlock3Ptr->hoennKeyItems[i] = gSaveBlock1Ptr->bag.keyItems[i];
+        else
+            gSaveBlock3Ptr->hoennKeyItems[i] = (struct ItemSlot){0};
+    }
+    for (i = 0; i < BAG_KEYITEMS_SB1_COUNT; i++)
+        gSaveBlock1Ptr->bag.keyItems[i] = (struct ItemSlot){0};
 }
 
 #endif // IS_HNS

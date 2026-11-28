@@ -35,6 +35,7 @@ STATIC_ASSERT(offsetof(struct SaveBlock3, hoennEventFlags) == 0x232, HoennHarnes
 STATIC_ASSERT(offsetof(struct SaveBlock3, hoennEventVars) == 0x2B2, HoennHarnessEventVarsOffset);
 STATIC_ASSERT(offsetof(struct SaveBlock3, hoenn21Flags) == 0x3B2, HoennHarness21FlagsOffset);
 STATIC_ASSERT(offsetof(struct SaveBlock3, hoenn21Vars) == 0x3F2, HoennHarness21VarsOffset);
+STATIC_ASSERT(offsetof(struct SaveBlock3, hoennKeyItems) == 0x474, HoennHarnessKeyItemsOffset); // 2.1-04: pt.py KEY_ITEMS_SB3
 // SaveBlock3 has a fixed size in the save sectors (global.h says 1,624 bytes).
 STATIC_ASSERT(sizeof(struct SaveBlock3) <= 1624, HoennSaveBlock3Fits);
 

@@ -155,7 +155,11 @@ void SetBagItemsPointers(void)
     gBagPockets[POCKET_ITEMS].capacity = BAG_ITEMS_COUNT;
     gBagPockets[POCKET_ITEMS].id = POCKET_ITEMS;
 
+#if IS_HNS
+    gBagPockets[POCKET_KEY_ITEMS].itemSlots = gSaveBlock3Ptr->hoennKeyItems; // Hoenn & Seek 2.1-04: 80 slots
+#else
     gBagPockets[POCKET_KEY_ITEMS].itemSlots = gSaveBlock1Ptr->bag.keyItems;
+#endif
     gBagPockets[POCKET_KEY_ITEMS].capacity = BAG_KEYITEMS_COUNT;
     gBagPockets[POCKET_KEY_ITEMS].id = POCKET_KEY_ITEMS;
 
@@ -587,6 +591,9 @@ void MoveItemSlotInPC(struct ItemSlot *itemSlots, u32 from, u32 to)
 void ClearBag(void)
 {
     CpuFastFill(0, &gSaveBlock1Ptr->bag, sizeof(struct Bag));
+#if IS_HNS
+    CpuFill16(0, gSaveBlock3Ptr->hoennKeyItems, sizeof(gSaveBlock3Ptr->hoennKeyItems)); // 2.1-04
+#endif
 }
 
 static inline u16 NONNULL BagPocket_CountTotalItemQuantity(struct BagPocket *pocket, enum Item itemId)

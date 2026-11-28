@@ -340,6 +340,13 @@ struct ChallengeSettings
     u8 tx_Features_ShinyChance:4;
 };
 
+// (before SaveBlock3, which holds Hoenn & Seek's key-item pocket since 2.1-04)
+struct ItemSlot
+{
+    enum Item itemId;
+    u16 quantity;
+};
+
 struct SaveBlock3
 {
     struct SiiRtcInfo fakeRTC;
@@ -369,6 +376,9 @@ struct SaveBlock3
     // reasons: save version 7 clears them on 2.0 saves.
     u8 hoenn21Flags[HOENN_21_FLAGS_BYTES];
     u16 hoenn21Vars[HOENN_21_VARS_COUNT];
+    // The key-item pocket (2.1-04): 80 slots, SaveBlock1's 60 were too few.
+    // Save version 8 copies a 2.0 save's 60 slots in here.
+    struct ItemSlot hoennKeyItems[BAG_KEYITEMS_COUNT];
 #endif
 }; /* max size 1624 bytes */
 
@@ -770,12 +780,6 @@ struct WarpData
     s8 warpId;
     //u8 padding;
     s16 x, y;
-};
-
-struct ItemSlot
-{
-    enum Item itemId;
-    u16 quantity;
 };
 
 struct Pokeblock
@@ -1189,7 +1193,7 @@ struct Bag
 #if I_COMBINE_BAG_POCKETS == FALSE
     struct ItemSlot treasures[BAG_TREASURES_COUNT];
 #endif
-    struct ItemSlot keyItems[BAG_KEYITEMS_COUNT];
+    struct ItemSlot keyItems[BAG_KEYITEMS_SB1_COUNT]; // Hoenn & Seek: unused since save version 8 (the pocket is SaveBlock3's hoennKeyItems)
     struct ItemSlot pokeBalls[BAG_POKEBALLS_COUNT];
     struct ItemSlot TMsHMs[BAG_TMHM_COUNT];
     struct ItemSlot berries[BAG_BERRIES_COUNT];

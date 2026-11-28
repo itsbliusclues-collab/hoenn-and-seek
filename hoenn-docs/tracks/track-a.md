@@ -10,8 +10,8 @@ Only track A's builder edits this file (the reviewer may add a line when it merg
 | Order | Part | State | Branch / PR | IDs and notes |
 |---|---|---|---|---|
 | A1 | **2.1-02** Foundations: 2.1 flag/var block + save v7, both tracks' ranges and files, radio segments (28's and 35b's hooks folded in), scaled-opponent ladder | PR #113 open (Nov 28) | `claude/project-thread-b7lyt3` | no flags used; `HOENN_LADDER_*` constants. Also carries the 2.1 plan docs (#103, #108) |
-| A2 | 2.1-04 Key-item pocket audit (+ 80 slots if needed) | next | | |
-| A3 | 2.1-05 Seeker's Journal A | | | the ~90 heard flags start at `HOENN_TRACK_A_FLAGS` + 0x00 |
+| A2 | 2.1-04 Key-item pocket audit (+ 80 slots if needed) | PR open (Nov 28) | `v2.1-04-key-pocket` (on 2.1-02) | no flags; pocket 80 slots in SaveBlock3 (320 B), save version 8. Audit: `hoenn-docs/key-items.md` |
+| A3 | 2.1-05 Seeker's Journal A | next | | the ~90 heard flags start at `HOENN_TRACK_A_FLAGS` + 0x00 |
 | A4 | 2.1-06 Seeker's Journal B | | | |
 | A5 | 2.1-07 Swarms (+ the berry check) | | | |
 | A6 | 2.1-08 Silver | | | joins `LADDER_RIVAL` |
@@ -32,3 +32,4 @@ Flags, daily, weekly and vars in build order from each range's + 0x00. Calls fro
 ## Claims on shared things
 One line each, before the part that uses it.
 - 2.1-02: `src/pokenav_radio.c` (one segment call before every station's broadcast, one in OAK's intro, replacing 2.0's two hook lines; a build-time check of the station numbers), `src/caps.c` (`HoennNormalLevelCap`, next to its tables), `src/hoenn_hints.c` (the condition type moved to `include/hoenn_hints.h`), `src/save.c` (version 7), `include/global.h` (the 2.1 arrays), `src/hoenn_lane_b.c` + `data/scripts/hoenn_lane_b.inc` (2.0 lane B's phone chain end now hands over to 2.1), `data/scripts/hoenn_debug.inc` (LADDERS in the debug time menu).
+- 2.1-04: `include/constants/global.h` (`BAG_KEYITEMS_COUNT` 80 for HnS), `include/global.h` (`hoennKeyItems` in SaveBlock3; `struct ItemSlot` moved above it), `src/item.c` (the key pocket points at SaveBlock3; `ClearBag` clears it), `src/save.c` (version 8).

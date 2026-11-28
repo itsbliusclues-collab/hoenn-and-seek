@@ -70,6 +70,8 @@ void HoennDebugBufferLadders(void); // debug menu: H&S time & weather… → LAD
 // ============================================================================
 // src/hoenn_2_1_a.c
 u16 Hoenn21ADueCall(void);
+// 2.1-04: save version 8 moves SaveBlock1's 60 key-item slots into SaveBlock3's 80.
+void HoennMoveKeyItemsToSaveBlock3(void);
 
 // (track A's declarations go here)
 
