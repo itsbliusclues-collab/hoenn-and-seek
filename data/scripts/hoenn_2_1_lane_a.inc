@@ -325,3 +325,199 @@ HoennSeek_Text_TVSwarm:
 	.string "on {STR_VAR_2}!$"
 
 	.include "data/scripts/hoenn_journal_texts.inc"
+
+@ ==== 2.1-08: SILVER keeps up ====
+@ src/hoenn_silver.c explains the ladder and the milestone teams. His Indigo
+@ Plateau object is a hint NPC (npc_hints.json): its wrapper calls
+@ SilverCelebiLine first, and its own script is IndigoSilver, which hands
+@ HnS's team (tier 0) to HnS's script and plays the milestone teams itself.
+HoennSeek_EventScript_IndigoSilver::
+	specialvar VAR_RESULT, HoennSilverTierForScript
+	goto_if_eq VAR_RESULT, 0, IndigoPlateau_EventScript_Silver
+	lock
+	faceplayer
+	goto_if_set FLAG_DAILY_BEAT_SILVER, HoennSeek_EventScript_SilverBeatToday
+	call HoennSeek_EventScript_SilverTierIntro
+	call HoennSeek_EventScript_SilverBattle
+	msgbox HoennSeek_Text_SilverAfter, MSGBOX_DEFAULT
+	setflag FLAG_DAILY_BEAT_SILVER
+	release
+	end
+
+HoennSeek_EventScript_SilverBeatToday::
+	msgbox HoennSeek_Text_SilverBeatToday, MSGBOX_DEFAULT
+	release
+	end
+
+@ The milestone's line (VAR_RESULT = his tier, 1-4).
+HoennSeek_EventScript_SilverTierIntro::
+	switch VAR_RESULT
+	case 1, HoennSeek_EventScript_SilverIntro1
+	case 2, HoennSeek_EventScript_SilverIntro2
+	case 3, HoennSeek_EventScript_SilverIntro3
+	msgbox HoennSeek_Text_SilverIntro4, MSGBOX_DEFAULT
+	return
+HoennSeek_EventScript_SilverIntro1:
+	msgbox HoennSeek_Text_SilverIntro1, MSGBOX_DEFAULT
+	return
+HoennSeek_EventScript_SilverIntro2:
+	msgbox HoennSeek_Text_SilverIntro2, MSGBOX_DEFAULT
+	return
+HoennSeek_EventScript_SilverIntro3:
+	msgbox HoennSeek_Text_SilverIntro3, MSGBOX_DEFAULT
+	return
+
+@ HnS's Indigo battle IDs by your starter (his team is the counter-pick);
+@ HoennTrainerOverride swaps in the milestone team.
+HoennSeek_EventScript_SilverBattle::
+	call_if_eq VAR_STARTER_MON, 0, IndigoPlateau_Silver_Battle_Cyndaquil
+	call_if_eq VAR_STARTER_MON, 1, IndigoPlateau_Silver_Battle_Totodile
+	call_if_eq VAR_STARTER_MON, 2, IndigoPlateau_Silver_Battle_Chikorita
+	return
+
+@ Once the Route 22 scene has played (Celebi showed you GIOVANNI and young
+@ SILVER), he says what he remembered, once. Called first by his hint wrapper:
+@ ends the talk when it speaks, returns otherwise.
+HoennSeek_EventScript_SilverCelebiLine::
+	goto_if_set FLAG_HOENN_SILVER_CELEBI_LINE, HoennSeek_EventScript_SilverCelebiReturn
+	goto_if_lt VAR_ROUTE22_GIOVANNI_STATE, 2, HoennSeek_EventScript_SilverCelebiReturn
+	lock
+	faceplayer
+	msgbox HoennSeek_Text_SilverCelebi, MSGBOX_DEFAULT
+	setflag FLAG_HOENN_SILVER_CELEBI_LINE
+	release
+	end
+HoennSeek_EventScript_SilverCelebiReturn::
+	return
+
+@ The Ever Grande POKéMON LEAGUE, after you beat WALLACE: he followed you to
+@ HOENN. Same battle and daily flag as at INDIGO. The lobby's OnTransition
+@ calls LeagueSilverArm.
+HoennSeek_EventScript_LeagueSilverArm::
+	setflag FLAG_HOENN_HIDE_SILVER_LEAGUE
+	goto_if_unset FLAG_HOENN_STAMP_WALLACE, HoennSeek_EventScript_LeagueSilverArmDone
+	clearflag FLAG_HOENN_HIDE_SILVER_LEAGUE
+HoennSeek_EventScript_LeagueSilverArmDone:
+	return
+
+HoennSeek_EventScript_LeagueSilver::
+	lock
+	faceplayer
+	goto_if_set FLAG_HOENN_MET_SILVER_HOENN, HoennSeek_EventScript_LeagueSilverAgain
+	msgbox HoennSeek_Text_LeagueSilverMeet, MSGBOX_DEFAULT
+	setflag FLAG_HOENN_MET_SILVER_HOENN
+HoennSeek_EventScript_LeagueSilverAgain:
+	goto_if_set FLAG_DAILY_BEAT_SILVER, HoennSeek_EventScript_SilverBeatToday
+	msgbox HoennSeek_Text_LeagueSilverChallenge, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, HoennSeek_EventScript_LeagueSilverLater
+	call HoennSeek_EventScript_SilverBattle
+	msgbox HoennSeek_Text_SilverAfter, MSGBOX_DEFAULT
+	setflag FLAG_DAILY_BEAT_SILVER
+	release
+	end
+HoennSeek_EventScript_LeagueSilverLater:
+	msgbox HoennSeek_Text_LeagueSilverLater, MSGBOX_DEFAULT
+	release
+	end
+
+@ Brendan and May at home (hoenn_teams.inc calls this): they met him at the
+@ LEAGUE. Once.
+HoennSeek_EventScript_BMSilverLine::
+	goto_if_set FLAG_HOENN_BM_SILVER_LINE, HoennSeek_EventScript_SilverCelebiReturn
+	msgbox HoennSeek_Text_BMSilverLine, MSGBOX_DEFAULT
+	setflag FLAG_HOENN_BM_SILVER_LINE
+	return
+
+HoennSeek_Text_SilverIntro1:
+	.string "Hmph. So you beat the KANTO\n"
+	.string "LEAGUE too.\p"
+	.string "I've been training where you\n"
+	.string "weren't looking.\p"
+	.string "My team's new. Let's see if you\n"
+	.string "can keep up!$"
+
+HoennSeek_Text_SilverIntro2:
+	.string "{PLAYER}. They say you're winning\n"
+	.string "BADGES in HOENN now.\p"
+	.string "Don't think I've just been\n"
+	.string "standing around.\p"
+	.string "My POKéMON listen to me now.\n"
+	.string "Every last one. Come on!$"
+
+HoennSeek_Text_SilverIntro3:
+	.string "You beat HOENN's champion…\p"
+	.string "I went there too. I found a BELDUM\n"
+	.string "in a cave and raised it myself.\p"
+	.string "Now it's a METAGROSS. Let's go!$"
+
+HoennSeek_Text_SilverIntro4:
+	.string "I heard you beat BRENDAN and MAY.\n"
+	.string "Both at once.\p"
+	.string "Everyone keeps saying your name.\n"
+	.string "I'm sick of it.\p"
+	.string "Today I'm the one who wins!$"
+
+HoennSeek_Text_SilverAfter:
+	.string "…I lost again.\p"
+	.string "But it was closer than last time.\n"
+	.string "I could feel it.\p"
+	.string "Come back tomorrow. Don't you dare\n"
+	.string "skip it.$"
+
+HoennSeek_Text_SilverBeatToday:
+	.string "We already battled today.\p"
+	.string "My POKéMON need rest. Even I know\n"
+	.string "that much now.$"
+
+HoennSeek_Text_SilverCelebi:
+	.string "…Hey. Something weird happened.\p"
+	.string "I remembered a day I'd forgotten.\n"
+	.string "ROUTE 22, three years ago.\p"
+	.string "My father asked me what made a\n"
+	.string "trainer number one.\p"
+	.string "I didn't have an answer then.\n"
+	.string "I think I do now.\p"
+	.string "…It's my POKéMON.\n"
+	.string "Don't tell anyone I said that.$"
+
+HoennSeek_Text_LeagueSilverMeet:
+	.string "…What are you looking at?\p"
+	.string "Yeah, I came to HOENN. You weren't\n"
+	.string "getting the strong trainers here\l"
+	.string "all to yourself.\p"
+	.string "You beat their champion, WALLACE?\n"
+	.string "Then you're still the one I have\l"
+	.string "to beat. Same as always.$"
+
+HoennSeek_Text_LeagueSilverChallenge:
+	.string "Battle me, {PLAYER}.\n"
+	.string "Right here.$"
+
+HoennSeek_Text_LeagueSilverLater:
+	.string "Hmph. I'll be here.$"
+
+HoennSeek_Text_BMSilverLine:
+	.string "Oh! A red-haired trainer from\n"
+	.string "JOHTO was at the POKéMON LEAGUE.\p"
+	.string "He battled us both without saying\n"
+	.string "a word, then asked if we knew you.\p"
+	.string "Friend of yours?$"
+
+@ ==== 2.1-09: SILVER's starter follows him ====
+@ The object is spawned by src/hoenn_silver_starter.c (no template); talking
+@ to it runs this through GetObjectEventScriptPointerByLocalIdAndMap.
+HoennSeek_EventScript_SilverStarter::
+	lock
+	faceplayer
+	specialvar VAR_RESULT, HoennSilverStarterForScript
+	playmoncry VAR_RESULT, CRY_MODE_NORMAL
+	msgbox HoennSeek_Text_SilverStarter, MSGBOX_DEFAULT
+	waitmoncry
+	release
+	end
+
+HoennSeek_Text_SilverStarter:
+	.string "SILVER's {STR_VAR_1} gives you\n"
+	.string "a long look.\p"
+	.string "It doesn't stray far\n"
+	.string "from its trainer.$"
