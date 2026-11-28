@@ -41,6 +41,7 @@ GENERATORS=(
     gen_hoenn_battle_art     # battle background art
     gen_hoenn_ow_mons        # overworld Pokémon (after map objects change)
     gen_hoenn_weekends       # leaders' weekend spots, gym/Dojo flags (2.1-18; before followers)
+    gen_hoenn_chains         # fan-favorite chains: tables and pool texts (2.1-21; after weekends)
     gen_hoenn_followers      # trainer followers (after trainers + ow mons)
     gen_hoenn_buildings      # opened buildings (before hints)
     gen_hoenn_hints          # hint NPC wrappers (after everything that moves objects)

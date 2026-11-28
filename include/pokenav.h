@@ -91,6 +91,10 @@ enum
     POKENAV_SUBSTRUCT_REGION_MAP,
     POKENAV_SUBSTRUCT_LIST,
     POKENAV_SUBSTRUCT_MON_LIST,
+#if IS_HNS
+    POKENAV_SUBSTRUCT_JOURNAL,     // Hoenn & Seek 2.1-06b (src/hoenn_journal_page.c)
+    POKENAV_SUBSTRUCT_JOURNAL_GFX,
+#endif
     POKENAV_SUBSTRUCT_COUNT,
 };
 
@@ -102,6 +106,9 @@ enum
     POKENAV_GFX_MATCH_CALL_MENU,
     POKENAV_GFX_MAP_MENU_ZOOMED_OUT,
     POKENAV_GFX_MAP_MENU_ZOOMED_IN,
+#if IS_HNS
+    POKENAV_GFX_JOURNAL_MENU,
+#endif
     POKENAV_GFX_PARTY_MENU,
     POKENAV_GFX_SEARCH_MENU,
     POKENAV_GFX_COOL_MENU,
@@ -135,7 +142,10 @@ enum
 #if IS_HNS
     POKENAV_RADIO,
     POKENAV_MAIN_MENU_CURSOR_ON_RADIO,
+    POKENAV_JOURNAL,                            // Hoenn & Seek 2.1-06b
+    POKENAV_MAIN_MENU_CURSOR_ON_JOURNAL,
 #endif
+    POKENAV_MENU_IDS_END
 };
 
 enum
@@ -148,6 +158,7 @@ enum
     POKENAV_MENU_TYPE_UNLOCK_MC_RIBBONS_RADIO,
     POKENAV_MENU_TYPE_DEFAULT_NO_COND,
     POKENAV_MENU_TYPE_UNLOCK_MC_NO_COND,
+    POKENAV_MENU_TYPE_HOENN_MAIN, // 2.1-06b: HnS's main menu, built from the flags (pokenav_menu_handler.c)
 #endif
     POKENAV_MENU_TYPE_CONDITION,
     POKENAV_MENU_TYPE_CONDITION_SEARCH,
@@ -164,6 +175,7 @@ enum
     POKENAV_MENUITEM_RIBBONS,
 #if IS_HNS
     POKENAV_MENUITEM_RADIO,
+    POKENAV_MENUITEM_JOURNAL, // Hoenn & Seek 2.1-06b
 #endif
     POKENAV_MENUITEM_SWITCH_OFF,
     POKENAV_MENUITEM_CONDITION_PARTY,
@@ -177,8 +189,12 @@ enum
     POKENAV_MENUITEM_CONDITION_SEARCH_CANCEL,
 };
 
-// Max menu options (condition search uses 6)
+// Max menu options (condition search uses 6; HnS's main menu 7 with the JOURNAL, 2.1-06b)
+#if IS_HNS
+#define MAX_POKENAV_MENUITEMS 7
+#else
 #define MAX_POKENAV_MENUITEMS 6
+#endif
 
 enum
 {
@@ -196,6 +212,10 @@ enum
     HELPBAR_RIBBONS_MON_LIST,
     HELPBAR_RIBBONS_LIST,
     HELPBAR_RIBBONS_CHECK,
+#if IS_HNS
+    HELPBAR_JOURNAL,       // 2.1-06b
+    HELPBAR_JOURNAL_ENTRY,
+#endif
     HELPBAR_COUNT
 };
 
@@ -436,6 +456,9 @@ bool32 PokenavCallback_Init_MainMenuCursorOnMatchCall(void);
 bool32 PokenavCallback_Init_MainMenuCursorOnRibbons(void);
 #if IS_HNS
 bool32 PokenavCallback_Init_MainMenuCursorOnRadio(void);
+bool32 PokenavCallback_Init_MainMenuCursorOnJournal(void);
+int GetPokenavMenuItemAt(int pos);
+int GetPokenavMenuItemCount(void);
 #endif
 bool32 PokenavCallback_Init_ConditionMenu(void);
 bool32 PokenavCallback_Init_ConditionSearchMenu(void);
@@ -445,6 +468,17 @@ int GetPokenavMenuType(void);
 int GetPokenavCursorPos(void);
 int GetCurrentMenuItemId(void);
 u16 GetHelpBarTextId(void);
+
+#if IS_HNS
+// hoenn_journal_page.c (2.1-06b)
+bool32 PokenavCallback_Init_Journal(void);
+u32 GetJournalCallback(void);
+bool32 OpenPokenavJournal(void);
+void CreateJournalLoopedTask(s32 index);
+bool32 IsJournalLoopedTaskActive(void);
+void FreeJournalSubstruct1(void);
+void FreeJournalSubstruct2(void);
+#endif
 
 // pokenav_menu_handler_gfx.c
 bool32 OpenPokenavMenuInitial(void);

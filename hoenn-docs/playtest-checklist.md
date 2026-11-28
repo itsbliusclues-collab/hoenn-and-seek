@@ -580,7 +580,7 @@ Lane B's `## 2.0 part NN` sections go below this line, at the end of the file.
 
 ### 2.1-05 (the SEEKER'S JOURNAL, pages and rumors)
 - [ ] **Getting it:** after your first Johto badge, Elm's call ends by mentioning the JOURNAL; his aide in the lab gives it before anything else she says. On an old 2.0 save that already had Elm's call, talking to her still gives it. (Emulator-tested on the debug save.)
-- [ ] **Reading it on a real screen:** from the bag and from SELECT. Pages show "JOHTO 3/22"; long entry names (DUNSPARCE's burrow, The SEAFOAM titans) fit the list; the text boxes read well. Check a few rumor and found texts for anything that reads wrong for your save (e.g. Ho-Oh's entry counts as found if you caught Ho-Oh in the story).
+- [ ] **Reading it on a real screen:** (since 2.1-06b in the POKéGEAR, see below). Pages show "JOHTO 3/22"; long entry names (DUNSPARCE's burrow, The SEAFOAM titans) fit the list; the text boxes read well. Check a few rumor and found texts for anything that reads wrong for your save (e.g. Ho-Oh's entry counts as found if you caught Ho-Oh in the story).
 - [ ] **Hearing as you play:** talk to hint NPCs (their lines take turns since 2.0 part 38), take event calls and read the field notes; each event they mention turns from ??? into its question. Events you've already done show as found. (Emulator-tested: Elm's aide's starter line, the Saffron PC teacher, Brendan's pond call, the field notes.)
 - [ ] **Every entry reachable:** over the playthrough, every entry on all three pages should get past ??? before or when you find it. Note any that stays ??? until found: it needs a hint line.
 
@@ -646,6 +646,14 @@ Lane B's `## 2.0 part NN` sections go below this line, at the end of the file.
 - [ ] **Switching:** when your Pokémon is about to hit theirs super effectively, a friend switches to one that resists it (up to three times a battle). Emulator-tested: Aidan's AERODACTYL switched to SALAMENCE against LAPRAS's SURF. Does it feel clever, or too much?
 - [ ] **Lines:** Aidan's "Mid-air swap!" on his switch and "Pull the cord!" for his last Pokémon (emulator-tested). Not tested: Bridgette's PURSUIT jab (TYRANITAR switching in against a Pokémon weak to Dark), her super-effective and last-Pokémon lines, Brock's clap-and-swap and his lines, Aidan's low-HP line.
 
+### 2.1-06b (the journal as a POKéGEAR page)
+- [ ] **Getting it:** Elm's aide says she adds the JOURNAL to your POKéGEAR (key-item fanfare); nothing goes in the bag. Open the POKéGEAR: JOURNAL sits between RADIO and RIBBONS with a gold square, and its description is "Read your SEEKER'S JOURNAL." (Emulator-tested with the flags poked, not through her scene.)
+- [ ] **The squeezed menu:** with all seven buttons the menu matches the mockup; with fewer (no RADIO yet, no RIBBONS) it keeps HnS's spacing. Moving up and down and the glow on the chosen button look right. (Emulator-tested: 7, 6, 4 and 3 buttons.)
+- [ ] **The page:** TODAY opens first, with the weekday and how many are on; L/R go TODAY → JOHTO → KANTO → HOENN and wrap; each region says "Found X of Y"; found rows have a check; a long page scrolls (UP/DOWN) and pages (LEFT/RIGHT). (Emulator-tested.)
+- [ ] **Reading:** A opens the entry in the box; on TODAY the when line comes first in green. A or B closes it; B leaves and the cursor is back on JOURNAL. (Emulator-tested.)
+- [ ] **Long texts:** read the longest rumors and found texts (the SEAFOAM titans, the Unown sanctum) and check none run past the box.
+- [ ] **Old saves:** a save made with the 2.1-05/06 build that has the JOURNAL key item still shows the button (same flag); the item just sits in the bag doing nothing. Fine for testers only.
+
 ### 2.1-16 (ETHAN or LYRA in person)
 - [ ] **Johto towns:** VIOLET (east road by the ROUTE 31 gate, before FALKNER), AZALEA (before your 2nd badge), GOLDENROD (main street, before your 3rd), ECRUTEAK (by the ROUTE 37 gate, before your 4th), OLIVINE (north road, before your 6th). They should spot you and walk over, give their tip and walk off. All five talked to in the emulator; the walk-up was tested in PEWTER. Do the tips help at that point, and does anyone stand in an awkward place?
 - [ ] **Kanto towns** (after the Johto title, before all 8 Kanto badges): VERMILION's dock, CERULEAN's main street, PEWTER (all tested). Arriving from a different side than the one tested (e.g. CERULEAN from ROUTE 4) may mean you only see them when you pass.
@@ -659,6 +667,8 @@ Lane B's `## 2.0 part NN` sections go below this line, at the end of the file.
 - [ ] **Calls (every other badge since Aidan's cut):** Johto badges 2/4/6/8, Johto champion, Kanto badges 2/4/6, WALLACE; only the highest reached rings (2 Johto, 8 Johto, champion, 4 and 6 Kanto, WALLACE tested). No call at 16 badges (their decision is a scene in Oak's lab, 2.1-16). Does the story feel right with only the WALLACE call in Hoenn? Kanto 2 not heard in the emulator.
 - [ ] **Contact:** OLD FRIEND in the POKéGEAR list, NEW BARK TOWN; 11 lines by stage (Kanto lines at Oak's lab, a Hoenn line once you've been to Slateport). Not re-tested after the rework (the list itself was tested before it).
 - [ ] **Elm's journal calls** (2.1-06) now ring in Johto before you have Brendan & May's numbers (they couldn't before). Untested in the emulator on this part.
+
+## 2.1 lane B
 
 ### 2.1-02 (foundations)
 - Load a 2.0 save into a 2.1 build: it should carry on as before (save version 7 clears only 2.1's new space; tested in the emulator with a v6 save).
@@ -698,3 +708,22 @@ Lane B's `## 2.0 part NN` sections go below this line, at the end of the file.
 - After beating WALLACE, talking to a leader at their spot offers the same rematch as in their gym.
 - WINONA: talk to her on ROUTE 119, then go straight to FORTREE GYM: she must be there on the first visit (the weekend code reads her gym flag before the gym's own script runs; her ROUTE 119 script now clears it).
 - WATTSON before NEW MAUVILLE is finished is in MAUVILLE CITY, not his gym, weekends or not.
+
+### 2.1-21 (Brock's weekend chain)
+- With BROCK's badge, on four separate weekends: the PEWTER MUSEUM (he asks you to MT. MOON), MT. MOON's fossil dig (MOON STONE), the ROUTE 34 DAY CARE (the question, an EVERSTONE), the museum (ONIX DOLL in the PC). On each weekend after a step he stays where you left him; he's never in two places.
+- Real time: do a step on Saturday, come back Sunday (no wall clock): the next step must not be ready yet. Tested only with the debug weekday tools.
+- The ONIX DOLL with a full decoration PC: he keeps it until you make room (not emulator-tested).
+- His pool lines after the chain: ONIX or GEODUDE following you, a STEELIX in the party, LILEEP/ANORITH/OMANYTE/AERODACTYL/RELICANTH caught (the follower and party lines weren't tested in the emulator; the badge line was).
+- BRENDAN's call after the doll (needs his number). The SEEKER'S JOURNAL's Kanto page has BROCK's weekends, and it shows on TODAY on weekends.
+
+### 2.1-22 (Misty's weekend chain)
+- With MISTY's badge (and her ROUTE 25 cape date done), on four weekends: her ROUTE 20 beach, SEAFOAM 1F just inside the west entrance (MYSTIC WATER), CERULEAN GYM's pool (pick a finale, WATER STONE), the beach (STARMIE DOLL). Walk into SEAFOAM from ROUTE 20 to check she's in view from the entrance.
+- The gym on the rehearsal weekend: only the rehearsal MISTY shows (her gym object and STARMIE are away), and the gym's swimmers don't battle you on the way to her.
+- Her pool lines: STARMIE, PSYDUCK, GOLDUCK or LAPRAS following you (LAPRAS was tested), a GYARADOS in the party, the caught lines.
+- MAY's call after the doll.
+
+### 2.1-23 (Blue's weekend chain)
+- With BLUE's badge, on four weekends: ROUTE 22, DAISY's house in PALLET (SOOTHE BELL), OAK's lab (the question, a RARE CANDY), ROUTE 22 (PIDGEOT DOLL).
+- DAISY's own script still works with BLUE sitting across from her (grooming once a day), and OAK still gives the journal's Kanto doll.
+- His pool lines with PIDGEOT/RHYPERIOR/ARCANINE/EEVEE following and the two-chain line (BROCK's and MISTY's both done).
+- BRENDAN's call after the doll.

@@ -11,8 +11,8 @@
 #define HOENN_JOURNAL_PAGE_KANTO  1
 #define HOENN_JOURNAL_PAGE_HOENN  2
 #define HOENN_JOURNAL_PAGE_COUNT  3
-#define HOENN_JOURNAL_PAGE_TODAY  3 // 2.1-06: the TODAY page (listed first; its id comes after the regions)
-#define HOENN_JOURNAL_MENU_BACK   126 // the BACK row's id in an entry list (MULTI_B_PRESSED is 127)
+#define HOENN_JOURNAL_PAGE_TODAY  3 // 2.1-06: the TODAY page (the first tab; its id comes after the regions)
+#define HOENN_JOURNAL_ENTRIES     64 // 2.1-06b: all entries; the POKéGEAR page keeps their ids in a u8
 
 #define FLAG_HOENN_HEARD_CHIKORITA_MEADOW        (HOENN_JOURNAL_FLAGS + 0x00)
 #define FLAG_HOENN_HEARD_CYNDAQUIL_TOWER         (HOENN_JOURNAL_FLAGS + 0x01)
@@ -54,6 +54,9 @@
 #define FLAG_HOENN_HEARD_MEW_BLUR                (HOENN_JOURNAL_FLAGS + 0x24)
 #define FLAG_HOENN_HEARD_CELEBI_MEMORY           (HOENN_JOURNAL_FLAGS + 0x3F)
 #define FLAG_HOENN_HEARD_JIRACHI_WISHES          (HOENN_JOURNAL_FLAGS + 0x25)
+#define FLAG_HOENN_HEARD_BROCK_WEEKENDS          (HOENN_JOURNAL_FLAGS + 0x40)
+#define FLAG_HOENN_HEARD_MISTY_WEEKENDS          (HOENN_JOURNAL_FLAGS + 0x41)
+#define FLAG_HOENN_HEARD_BLUE_WEEKENDS           (HOENN_JOURNAL_FLAGS + 0x42)
 #define FLAG_HOENN_HEARD_MUDKIP_POND             (HOENN_JOURNAL_FLAGS + 0x26)
 #define FLAG_HOENN_HEARD_RALTS_GUARD             (HOENN_JOURNAL_FLAGS + 0x27)
 #define FLAG_HOENN_HEARD_MUNCHLAX_NAP            (HOENN_JOURNAL_FLAGS + 0x28)
