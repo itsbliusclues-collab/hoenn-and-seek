@@ -84,6 +84,11 @@ python3 tools/hoenn/text_audit.py
 echo "== check_screens"
 python3 tools/hoenn/check_screens.py --report hoenn-docs/screens.md
 
+# And the key-item pocket (2.1-04): fails when the key items a player can hold
+# come within 5 slots of the pocket's size. Rewrites hoenn-docs/key-items.md.
+echo "== key_item_audit"
+python3 tools/hoenn/key_item_audit.py --report hoenn-docs/key-items.md
+
 # Two generators rewrite files that come out byte-different but identical in
 # content: gen_hoenn_base_entrances.py and gen_hoenn_battle_art.py re-encode
 # their PNGs (same pixels and palette, other zlib settings), and .pal files can

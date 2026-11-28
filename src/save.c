@@ -999,6 +999,15 @@ u8 LoadGameSave(u8 saveType)
 #endif
         gSaveBlock1Ptr->saveVersion = 7;
     }
+    if (gSaveBlock1Ptr->saveVersion < 8)
+    {
+#if IS_HNS
+        // Hoenn & Seek 2.1-04: 20 more key-item slots at the end of
+        // SaveBlock3, never written by an older save (include/hoenn_bag.h).
+        HoennClearKeyItemsExtra();
+#endif
+        gSaveBlock1Ptr->saveVersion = 8;
+    }
 
     // Add version migration steps here:
     // if (gSaveBlock1Ptr->saveVersion < 1)
