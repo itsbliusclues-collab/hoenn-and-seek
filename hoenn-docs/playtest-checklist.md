@@ -323,7 +323,7 @@ Hint NPCs (one per Pokémon Center in most towns, list in `data/hoenn/npc_hints.
 - [ ] Cozmo's wife's own line still says Cozmo went to Meteor Falls "with some people from TEAM MAGMA" (Emerald's text, pre-existing): fine for reformed Magma, or reword?
 
 ## General
-- [ ] The release build plays the same as the debug build (all testing so far used debug builds).
+- [ ] The release build plays the same as the debug build. (39a: a new game on the release build reaches New Bark, the clock scene and the weekday prompt; everything else was tested on debug builds.)
 - [ ] Every phone line and in-person line about Brendan & May still makes sense in the order a real player hits them.
 - [ ] Day/night tinting on Hoenn windows and lamps.
 - [ ] Walking (not warping) Slateport → Route 110 → Route 103 → Oldale → Littleroot as the aide describes.
@@ -561,3 +561,15 @@ Lane B's `## 2.0 part NN` sections go below this line, at the end of the file.
 - Safari Zone Brush/Mountain/Cave: Roselia, Breloom, Kecleon, Grumpig, Gyarados instead of Tropius, Absol and Feebas. Johto Safari Low Right: Piloswine and Quagsire instead of Sneasel.
 - Hoenn: Route 102 has Nuzleaf where Gardevoir was, Routes 119/120 Breloom/Nuzleaf/Gloom/Mightyena where Tropius and Absol were, Route 117 has Roselia by day. Fortree's roof Pokémon is a Swellow. Absol only as the storm roamer, Tropius only in the orchard.
 - The Pokédex area pages for Absol, Tropius, Feebas, Sneasel and Ralts: do they still show stale spots?
+
+## 2.0 part 38 (the sweep)
+- [ ] **Link trade and link battle** (plan section 11): two mGBA windows on the same build (File → New multiplayer window), the Goldenrod Pokémon Center 2F cable club. Trade an event Pokémon (the shiny Beldum, a Johto starter escapee) and back, then one link battle. The harness can't link two emulators, so this has never been tested.
+- [ ] Night weekdays (all three play past midnight now): Mt. Moon's Clefairy dance and Jirachi's white rock run Monday dusk to Tuesday dawn (not Monday 12–4 AM); the trench guardian is the evening's one until dawn; Zangoose vs. Seviper runs Sunday dusk to Monday dawn.
+- [ ] Knock out Jirachi: touching the white rock again that night says it's "waiting"; next Monday night it can be woken again.
+- [ ] Hint NPCs with several lines now take turns: talk to the Goldenrod, Cianwood or Mahogany Pokémon Center hint NPC a few times and every one of their lines should come up (before, only the first ever showed).
+- [ ] Seven new rumors (lane A): UNOWN_CIPHER (Violet PC), ICE_THIEF (Mahogany PC), LANTURN_LIGHTS (Cianwood PC), AMPHAROS_RESCUE (Olivine PC), HOOH_DAWN (Ecruteak PC), FOREST_OFFERINGS (Goldenrod PC), SKY_PILLAR_MURAL (Pacifidlog PC). Birch's lab aide counts 48.
+- [ ] Do several events before Birch gives you Brendan & May's numbers, then get the numbers: the waiting calls ring one at a time, about 256 steps apart, not back to back.
+- [ ] Celadon florist's and Ecruteak dance teacher's rooms have their own furniture now (table on the left and pots of flowers; an open practice floor). Walk around both: nothing blocks the way to an NPC, and the florist's gift still works from below her.
+- [ ] DAMIAN outside the Cerulean Gym stands one tile right (37,32), clear of the gym sign.
+- [ ] The Vermilion fire shows more smoke (five puffs a round, four rounds). Still small at night: say if it needs real flame art.
+- [ ] 22 texts were re-wrapped so no box ends on a single word: skim them as they come up (contest twin, the RUINS researcher, Wattson, Cozmo, the Tin Tower sages, Charmander, the Squirtle Squad, the officer, the Ruins boulder, the sanctum, Sky Pillar's mural, ...).
