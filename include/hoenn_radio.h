@@ -54,6 +54,7 @@ u32 HoennRadioSegments(u32 station, const u8 **lines, u32 n, u32 at, u32 maxLine
 // Builders (the JSON's "native" names).
 u32 HoennRadioUnownBroadcast(const u8 **lines, u8 *bufs); // src/hoenn_lane_a.c (2.0 part 28)
 u32 HoennRadioEusineReport(const u8 **lines, u8 *bufs);   // src/hoenn_johto_legends.c (2.0 part 35b)
+u32 HoennRadioSwarm(const u8 **lines, u8 *bufs);         // src/hoenn_swarm.c (2.1-07)
 
 #endif // IS_HNS
 

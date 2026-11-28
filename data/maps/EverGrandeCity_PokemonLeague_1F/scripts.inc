@@ -7,6 +7,7 @@ EverGrandeCity_PokemonLeague_1F_OnTransition:
 	setrespawn HEAL_LOCATION_EVER_GRANDE_CITY_POKEMON_LEAGUE
 	setflag FLAG_LANDMARK_POKEMON_LEAGUE
 	call HoennSeek_EventScript_ResetHoennE4 @ Hoenn & Seek (13b)
+	call HoennSeek_EventScript_LeagueSilverArm @ Hoenn & Seek 2.1-08: SILVER after Wallace
 	call_if_unset FLAG_ENTERED_ELITE_FOUR, EverGrandeCity_PokemonLeague_1F_EventScript_GuardsBlockDoor
 	end
 

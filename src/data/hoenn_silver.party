@@ -1,0 +1,858 @@
+/* Hoenn & Seek 2.1-08: SILVER's milestone teams for his Indigo Plateau rematch (and his
+   Hoenn appearance). src/hoenn_silver.c picks one by your progress; levels are placeholders
+   (HoennScaledAce's top-90 ladder sets the ace, gaps kept). Team names follow HnS's
+   TRAINER_RIVAL_<X>_7_HNS: CHIKORITA's has Meganium, CYNDAQUIL's Typhlosion, TOTODILE's
+   Feraligatr. Tiers: 1 Kanto champion, 2 four Hoenn badges, 3 Wallace beaten, 4 Brendan & May
+   beaten. */
+
+=== HOENN_SILVER_T1_CHIKORITA ===
+Name: {B_RIVAL_NAME}
+Class: Rival Hns
+Pic: Silver Hns
+Gender: Male
+Music: Silver
+Double Battle: No
+AI: Basic Trainer
+Mugshot: Dark Red
+Items: Full Restore / Full Restore
+
+Ursaluna-Bloodmoon @ Leftovers
+Level: 67
+Nature: Modest
+EVs: 252 HP / 252 SpA / 4 SpD
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Blood Moon
+- Earth Power
+- Moonlight
+- Vacuum Wave
+
+Crobat @ Life Orb
+Level: 67
+Nature: Jolly
+EVs: 252 Atk / 4 SpD / 252 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Brave Bird
+- Cross Poison
+- U-Turn
+- Roost
+
+Weavile @ Life Orb
+Level: 67
+Nature: Jolly
+EVs: 252 Atk / 4 SpD / 252 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Knock Off
+- Icicle Crash
+- Ice Shard
+- Low Kick
+
+Houndoom @ Heat Rock
+Level: 67
+Nature: Timid
+EVs: 252 SpA / 4 SpD / 252 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Sunny Day
+- Fire Blast
+- Dark Pulse
+- Solar Beam
+
+Meganium @ Leftovers
+Level: 68
+Nature: Bold
+EVs: 252 HP / 252 Def / 4 SpD
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Giga Drain
+- Earth Power
+- Leech Seed
+- Synthesis
+
+Tyranitar @ Choice Band
+Level: 68
+Nature: Adamant
+EVs: 252 HP / 252 Atk / 4 SpD
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Stone Edge
+- Crunch
+- Earthquake
+- Fire Punch
+
+=== HOENN_SILVER_T1_CYNDAQUIL ===
+Name: {B_RIVAL_NAME}
+Class: Rival Hns
+Pic: Silver Hns
+Gender: Male
+Music: Silver
+Double Battle: No
+AI: Basic Trainer
+Mugshot: Dark Red
+Items: Full Restore / Full Restore
+
+Ursaluna-Bloodmoon @ Leftovers
+Level: 67
+Nature: Modest
+EVs: 252 HP / 252 SpA / 4 SpD
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Blood Moon
+- Earth Power
+- Moonlight
+- Vacuum Wave
+
+Crobat @ Life Orb
+Level: 67
+Nature: Jolly
+EVs: 252 Atk / 4 SpD / 252 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Brave Bird
+- Cross Poison
+- U-Turn
+- Roost
+
+Weavile @ Life Orb
+Level: 67
+Nature: Jolly
+EVs: 252 Atk / 4 SpD / 252 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Knock Off
+- Icicle Crash
+- Ice Shard
+- Low Kick
+
+Victreebel @ Life Orb
+Level: 67
+Nature: Adamant
+EVs: 252 Atk / 4 SpD / 252 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Swords Dance
+- Power Whip
+- Sucker Punch
+- Poison Jab
+
+Typhlosion @ Choice Scarf
+Level: 68
+Nature: Timid
+EVs: 252 SpA / 4 SpD / 252 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Eruption
+- Flamethrower
+- Focus Blast
+- Extrasensory
+
+Tyranitar @ Choice Band
+Level: 68
+Nature: Adamant
+EVs: 252 HP / 252 Atk / 4 SpD
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Stone Edge
+- Crunch
+- Earthquake
+- Fire Punch
+
+=== HOENN_SILVER_T1_TOTODILE ===
+Name: {B_RIVAL_NAME}
+Class: Rival Hns
+Pic: Silver Hns
+Gender: Male
+Music: Silver
+Double Battle: No
+AI: Basic Trainer
+Mugshot: Dark Red
+Items: Full Restore / Full Restore
+
+Ursaluna-Bloodmoon @ Leftovers
+Level: 67
+Nature: Modest
+EVs: 252 HP / 252 SpA / 4 SpD
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Blood Moon
+- Earth Power
+- Moonlight
+- Vacuum Wave
+
+Crobat @ Life Orb
+Level: 67
+Nature: Jolly
+EVs: 252 Atk / 4 SpD / 252 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Brave Bird
+- Cross Poison
+- U-Turn
+- Roost
+
+Weavile @ Life Orb
+Level: 67
+Nature: Jolly
+EVs: 252 Atk / 4 SpD / 252 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Knock Off
+- Icicle Crash
+- Ice Shard
+- Low Kick
+
+Houndoom @ Heat Rock
+Level: 67
+Nature: Timid
+EVs: 252 SpA / 4 SpD / 252 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Sunny Day
+- Fire Blast
+- Dark Pulse
+- Solar Beam
+
+Feraligatr @ Lum Berry
+Level: 68
+Nature: Adamant
+EVs: 252 Atk / 4 SpD / 252 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Dragon Dance
+- Liquidation
+- Ice Punch
+- Crunch
+
+Tyranitar @ Choice Band
+Level: 68
+Nature: Adamant
+EVs: 252 HP / 252 Atk / 4 SpD
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Stone Edge
+- Crunch
+- Earthquake
+- Fire Punch
+
+=== HOENN_SILVER_T2_CHIKORITA ===
+Name: {B_RIVAL_NAME}
+Class: Rival Hns
+Pic: Silver Hns
+Gender: Male
+Music: Silver
+Double Battle: No
+AI: Smart Trainer
+Mugshot: Dark Red
+Items: Full Restore / Full Restore
+
+Ursaluna-Bloodmoon @ Leftovers
+Level: 67
+Nature: Modest
+EVs: 252 HP / 252 SpA / 4 SpD
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Blood Moon
+- Earth Power
+- Moonlight
+- Vacuum Wave
+
+Crobat @ Life Orb
+Level: 67
+Nature: Jolly
+EVs: 252 Atk / 4 SpD / 252 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Brave Bird
+- Cross Poison
+- U-Turn
+- Roost
+
+Weavile @ Life Orb
+Level: 67
+Nature: Jolly
+EVs: 252 Atk / 4 SpD / 252 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Knock Off
+- Icicle Crash
+- Ice Shard
+- Low Kick
+
+Magnezone @ Choice Specs
+Level: 67
+Nature: Modest
+EVs: 252 HP / 252 SpA / 4 SpD
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Thunderbolt
+- Flash Cannon
+- Volt Switch
+- Body Press
+
+Meganium @ Leftovers
+Level: 68
+Nature: Bold
+EVs: 252 HP / 252 Def / 4 SpD
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Giga Drain
+- Earth Power
+- Leech Seed
+- Synthesis
+
+Tyranitar @ Choice Band
+Level: 68
+Nature: Adamant
+EVs: 252 HP / 252 Atk / 4 SpD
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Stone Edge
+- Crunch
+- Earthquake
+- Fire Punch
+
+=== HOENN_SILVER_T2_CYNDAQUIL ===
+Name: {B_RIVAL_NAME}
+Class: Rival Hns
+Pic: Silver Hns
+Gender: Male
+Music: Silver
+Double Battle: No
+AI: Smart Trainer
+Mugshot: Dark Red
+Items: Full Restore / Full Restore
+
+Ursaluna-Bloodmoon @ Leftovers
+Level: 67
+Nature: Modest
+EVs: 252 HP / 252 SpA / 4 SpD
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Blood Moon
+- Earth Power
+- Moonlight
+- Vacuum Wave
+
+Crobat @ Life Orb
+Level: 67
+Nature: Jolly
+EVs: 252 Atk / 4 SpD / 252 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Brave Bird
+- Cross Poison
+- U-Turn
+- Roost
+
+Weavile @ Life Orb
+Level: 67
+Nature: Jolly
+EVs: 252 Atk / 4 SpD / 252 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Knock Off
+- Icicle Crash
+- Ice Shard
+- Low Kick
+
+Magnezone @ Choice Specs
+Level: 67
+Nature: Modest
+EVs: 252 HP / 252 SpA / 4 SpD
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Thunderbolt
+- Flash Cannon
+- Volt Switch
+- Body Press
+
+Typhlosion @ Choice Scarf
+Level: 68
+Nature: Timid
+EVs: 252 SpA / 4 SpD / 252 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Eruption
+- Flamethrower
+- Focus Blast
+- Extrasensory
+
+Tyranitar @ Choice Band
+Level: 68
+Nature: Adamant
+EVs: 252 HP / 252 Atk / 4 SpD
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Stone Edge
+- Crunch
+- Earthquake
+- Fire Punch
+
+=== HOENN_SILVER_T2_TOTODILE ===
+Name: {B_RIVAL_NAME}
+Class: Rival Hns
+Pic: Silver Hns
+Gender: Male
+Music: Silver
+Double Battle: No
+AI: Smart Trainer
+Mugshot: Dark Red
+Items: Full Restore / Full Restore
+
+Ursaluna-Bloodmoon @ Leftovers
+Level: 67
+Nature: Modest
+EVs: 252 HP / 252 SpA / 4 SpD
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Blood Moon
+- Earth Power
+- Moonlight
+- Vacuum Wave
+
+Crobat @ Life Orb
+Level: 67
+Nature: Jolly
+EVs: 252 Atk / 4 SpD / 252 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Brave Bird
+- Cross Poison
+- U-Turn
+- Roost
+
+Weavile @ Life Orb
+Level: 67
+Nature: Jolly
+EVs: 252 Atk / 4 SpD / 252 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Knock Off
+- Icicle Crash
+- Ice Shard
+- Low Kick
+
+Magnezone @ Choice Specs
+Level: 67
+Nature: Modest
+EVs: 252 HP / 252 SpA / 4 SpD
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Thunderbolt
+- Flash Cannon
+- Volt Switch
+- Body Press
+
+Feraligatr @ Lum Berry
+Level: 68
+Nature: Adamant
+EVs: 252 Atk / 4 SpD / 252 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Dragon Dance
+- Liquidation
+- Ice Punch
+- Crunch
+
+Tyranitar @ Choice Band
+Level: 68
+Nature: Adamant
+EVs: 252 HP / 252 Atk / 4 SpD
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Stone Edge
+- Crunch
+- Earthquake
+- Fire Punch
+
+=== HOENN_SILVER_T3_CHIKORITA ===
+Name: {B_RIVAL_NAME}
+Class: Rival Hns
+Pic: Silver Hns
+Gender: Male
+Music: Silver
+Double Battle: No
+AI: Smart Trainer
+Mugshot: Dark Red
+Items: Full Restore / Full Restore
+
+Metagross @ Assault Vest
+Level: 67
+Nature: Adamant
+EVs: 252 HP / 252 Atk / 4 SpD
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Meteor Mash
+- Zen Headbutt
+- Earthquake
+- Bullet Punch
+
+Crobat @ Life Orb
+Level: 67
+Nature: Jolly
+EVs: 252 Atk / 4 SpD / 252 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Brave Bird
+- Cross Poison
+- U-Turn
+- Roost
+
+Weavile @ Life Orb
+Level: 67
+Nature: Jolly
+EVs: 252 Atk / 4 SpD / 252 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Knock Off
+- Icicle Crash
+- Ice Shard
+- Low Kick
+
+Magnezone @ Choice Specs
+Level: 67
+Nature: Modest
+EVs: 252 HP / 252 SpA / 4 SpD
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Thunderbolt
+- Flash Cannon
+- Volt Switch
+- Body Press
+
+Meganium @ Leftovers
+Level: 68
+Nature: Bold
+EVs: 252 HP / 252 Def / 4 SpD
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Giga Drain
+- Earth Power
+- Leech Seed
+- Synthesis
+
+Tyranitar @ Choice Band
+Level: 68
+Nature: Adamant
+EVs: 252 HP / 252 Atk / 4 SpD
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Stone Edge
+- Crunch
+- Earthquake
+- Fire Punch
+
+=== HOENN_SILVER_T3_CYNDAQUIL ===
+Name: {B_RIVAL_NAME}
+Class: Rival Hns
+Pic: Silver Hns
+Gender: Male
+Music: Silver
+Double Battle: No
+AI: Smart Trainer
+Mugshot: Dark Red
+Items: Full Restore / Full Restore
+
+Metagross @ Assault Vest
+Level: 67
+Nature: Adamant
+EVs: 252 HP / 252 Atk / 4 SpD
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Meteor Mash
+- Zen Headbutt
+- Earthquake
+- Bullet Punch
+
+Crobat @ Life Orb
+Level: 67
+Nature: Jolly
+EVs: 252 Atk / 4 SpD / 252 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Brave Bird
+- Cross Poison
+- U-Turn
+- Roost
+
+Weavile @ Life Orb
+Level: 67
+Nature: Jolly
+EVs: 252 Atk / 4 SpD / 252 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Knock Off
+- Icicle Crash
+- Ice Shard
+- Low Kick
+
+Magnezone @ Choice Specs
+Level: 67
+Nature: Modest
+EVs: 252 HP / 252 SpA / 4 SpD
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Thunderbolt
+- Flash Cannon
+- Volt Switch
+- Body Press
+
+Typhlosion @ Choice Scarf
+Level: 68
+Nature: Timid
+EVs: 252 SpA / 4 SpD / 252 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Eruption
+- Flamethrower
+- Focus Blast
+- Extrasensory
+
+Tyranitar @ Choice Band
+Level: 68
+Nature: Adamant
+EVs: 252 HP / 252 Atk / 4 SpD
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Stone Edge
+- Crunch
+- Earthquake
+- Fire Punch
+
+=== HOENN_SILVER_T3_TOTODILE ===
+Name: {B_RIVAL_NAME}
+Class: Rival Hns
+Pic: Silver Hns
+Gender: Male
+Music: Silver
+Double Battle: No
+AI: Smart Trainer
+Mugshot: Dark Red
+Items: Full Restore / Full Restore
+
+Metagross @ Assault Vest
+Level: 67
+Nature: Adamant
+EVs: 252 HP / 252 Atk / 4 SpD
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Meteor Mash
+- Zen Headbutt
+- Earthquake
+- Bullet Punch
+
+Crobat @ Life Orb
+Level: 67
+Nature: Jolly
+EVs: 252 Atk / 4 SpD / 252 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Brave Bird
+- Cross Poison
+- U-Turn
+- Roost
+
+Weavile @ Life Orb
+Level: 67
+Nature: Jolly
+EVs: 252 Atk / 4 SpD / 252 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Knock Off
+- Icicle Crash
+- Ice Shard
+- Low Kick
+
+Magnezone @ Choice Specs
+Level: 67
+Nature: Modest
+EVs: 252 HP / 252 SpA / 4 SpD
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Thunderbolt
+- Flash Cannon
+- Volt Switch
+- Body Press
+
+Feraligatr @ Lum Berry
+Level: 68
+Nature: Adamant
+EVs: 252 Atk / 4 SpD / 252 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Dragon Dance
+- Liquidation
+- Ice Punch
+- Crunch
+
+Tyranitar @ Choice Band
+Level: 68
+Nature: Adamant
+EVs: 252 HP / 252 Atk / 4 SpD
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Stone Edge
+- Crunch
+- Earthquake
+- Fire Punch
+
+=== HOENN_SILVER_T4_CHIKORITA ===
+Name: {B_RIVAL_NAME}
+Class: Rival Hns
+Pic: Silver Hns
+Gender: Male
+Music: Silver
+Double Battle: No
+AI: Smart Trainer / Prediction
+Mugshot: Dark Red
+Items: Full Restore / Full Restore
+
+Metagross @ Assault Vest
+Level: 67
+Nature: Adamant
+EVs: 252 HP / 252 Atk / 4 SpD
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Meteor Mash
+- Zen Headbutt
+- Earthquake
+- Bullet Punch
+
+Crobat @ Life Orb
+Level: 67
+Nature: Jolly
+EVs: 252 Atk / 4 SpD / 252 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Brave Bird
+- Cross Poison
+- U-Turn
+- Roost
+
+Weavile @ Life Orb
+Level: 67
+Nature: Jolly
+EVs: 252 Atk / 4 SpD / 252 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Knock Off
+- Icicle Crash
+- Ice Shard
+- Low Kick
+
+Gengar @ Focus Sash
+Level: 67
+Nature: Timid
+EVs: 252 SpA / 4 SpD / 252 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Nasty Plot
+- Shadow Ball
+- Sludge Bomb
+- Focus Blast
+
+Meganium @ Leftovers
+Level: 68
+Nature: Bold
+EVs: 252 HP / 252 Def / 4 SpD
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Giga Drain
+- Earth Power
+- Leech Seed
+- Synthesis
+
+Tyranitar @ Choice Band
+Level: 68
+Nature: Adamant
+EVs: 252 HP / 252 Atk / 4 SpD
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Stone Edge
+- Crunch
+- Earthquake
+- Fire Punch
+
+=== HOENN_SILVER_T4_CYNDAQUIL ===
+Name: {B_RIVAL_NAME}
+Class: Rival Hns
+Pic: Silver Hns
+Gender: Male
+Music: Silver
+Double Battle: No
+AI: Smart Trainer / Prediction
+Mugshot: Dark Red
+Items: Full Restore / Full Restore
+
+Metagross @ Assault Vest
+Level: 67
+Nature: Adamant
+EVs: 252 HP / 252 Atk / 4 SpD
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Meteor Mash
+- Zen Headbutt
+- Earthquake
+- Bullet Punch
+
+Crobat @ Life Orb
+Level: 67
+Nature: Jolly
+EVs: 252 Atk / 4 SpD / 252 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Brave Bird
+- Cross Poison
+- U-Turn
+- Roost
+
+Weavile @ Life Orb
+Level: 67
+Nature: Jolly
+EVs: 252 Atk / 4 SpD / 252 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Knock Off
+- Icicle Crash
+- Ice Shard
+- Low Kick
+
+Gengar @ Focus Sash
+Level: 67
+Nature: Timid
+EVs: 252 SpA / 4 SpD / 252 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Nasty Plot
+- Shadow Ball
+- Sludge Bomb
+- Focus Blast
+
+Typhlosion @ Choice Scarf
+Level: 68
+Nature: Timid
+EVs: 252 SpA / 4 SpD / 252 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Eruption
+- Flamethrower
+- Focus Blast
+- Extrasensory
+
+Tyranitar @ Choice Band
+Level: 68
+Nature: Adamant
+EVs: 252 HP / 252 Atk / 4 SpD
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Stone Edge
+- Crunch
+- Earthquake
+- Fire Punch
+
+=== HOENN_SILVER_T4_TOTODILE ===
+Name: {B_RIVAL_NAME}
+Class: Rival Hns
+Pic: Silver Hns
+Gender: Male
+Music: Silver
+Double Battle: No
+AI: Smart Trainer / Prediction
+Mugshot: Dark Red
+Items: Full Restore / Full Restore
+
+Metagross @ Assault Vest
+Level: 67
+Nature: Adamant
+EVs: 252 HP / 252 Atk / 4 SpD
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Meteor Mash
+- Zen Headbutt
+- Earthquake
+- Bullet Punch
+
+Crobat @ Life Orb
+Level: 67
+Nature: Jolly
+EVs: 252 Atk / 4 SpD / 252 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Brave Bird
+- Cross Poison
+- U-Turn
+- Roost
+
+Weavile @ Life Orb
+Level: 67
+Nature: Jolly
+EVs: 252 Atk / 4 SpD / 252 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Knock Off
+- Icicle Crash
+- Ice Shard
+- Low Kick
+
+Gengar @ Focus Sash
+Level: 67
+Nature: Timid
+EVs: 252 SpA / 4 SpD / 252 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Nasty Plot
+- Shadow Ball
+- Sludge Bomb
+- Focus Blast
+
+Feraligatr @ Lum Berry
+Level: 68
+Nature: Adamant
+EVs: 252 Atk / 4 SpD / 252 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Dragon Dance
+- Liquidation
+- Ice Punch
+- Crunch
+
+Tyranitar @ Choice Band
+Level: 68
+Nature: Adamant
+EVs: 252 HP / 252 Atk / 4 SpD
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Stone Edge
+- Crunch
+- Earthquake
+- Fire Punch

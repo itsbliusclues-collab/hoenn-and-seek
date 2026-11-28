@@ -39,6 +39,26 @@ static const u8 DecorDesc_EEVEE_DOLL[] = _(
         "evolve many ways.");
 static const u16 DecorGfx_EEVEE_DOLL[] = {OBJ_EVENT_GFX_MON_BASE + SPECIES_EEVEE};
 
+// 2.1-06: the professors' rewards (Elm, Oak, Birch) for a complete SEEKER'S
+// JOURNAL page. Price 0: nobody sells them, and they can't be sold back.
+static const u8 DecorDesc_CELEBI_DOLL[] = _(
+    "A gift from\n"
+        "PROF. ELM for a\n"
+        "full JOHTO page.");
+static const u16 DecorGfx_CELEBI_DOLL[] = {OBJ_EVENT_GFX_MON_BASE + SPECIES_CELEBI};
+
+static const u8 DecorDesc_MEW_DOLL[] = _(
+    "A gift from\n"
+        "PROF. OAK for a\n"
+        "full KANTO page.");
+static const u16 DecorGfx_MEW_DOLL[] = {OBJ_EVENT_GFX_MON_BASE + SPECIES_MEW};
+
+static const u8 DecorDesc_JIRACHI_DOLL[] = _(
+    "A gift from\n"
+        "PROF. BIRCH for a\n"
+        "full HOENN page.");
+static const u16 DecorGfx_JIRACHI_DOLL[] = {OBJ_EVENT_GFX_MON_BASE + SPECIES_JIRACHI};
+
 #define HOENN_DECORATION_HEADERS \
     [DECOR_SUDOWOODO_DOLL] = {.id = DECOR_SUDOWOODO_DOLL, .name = _("SUDOWOODO DOLL"), .permission = DECORPERM_SPRITE, \
         .shape = DECORSHAPE_1x1, .category = DECORCAT_DOLL, .price = 6000, \
@@ -58,6 +78,15 @@ static const u16 DecorGfx_EEVEE_DOLL[] = {OBJ_EVENT_GFX_MON_BASE + SPECIES_EEVEE
     [DECOR_EEVEE_DOLL] = {.id = DECOR_EEVEE_DOLL, .name = _("EEVEE DOLL"), .permission = DECORPERM_SPRITE, \
         .shape = DECORSHAPE_1x1, .category = DECORCAT_DOLL, .price = 6000, \
         .description = DecorDesc_EEVEE_DOLL, .tiles = DecorGfx_EEVEE_DOLL}, \
+    [DECOR_CELEBI_DOLL] = {.id = DECOR_CELEBI_DOLL, .name = _("CELEBI DOLL"), .permission = DECORPERM_SPRITE, \
+        .shape = DECORSHAPE_1x1, .category = DECORCAT_DOLL, .price = 0, \
+        .description = DecorDesc_CELEBI_DOLL, .tiles = DecorGfx_CELEBI_DOLL}, \
+    [DECOR_MEW_DOLL] = {.id = DECOR_MEW_DOLL, .name = _("MEW DOLL"), .permission = DECORPERM_SPRITE, \
+        .shape = DECORSHAPE_1x1, .category = DECORCAT_DOLL, .price = 0, \
+        .description = DecorDesc_MEW_DOLL, .tiles = DecorGfx_MEW_DOLL}, \
+    [DECOR_JIRACHI_DOLL] = {.id = DECOR_JIRACHI_DOLL, .name = _("JIRACHI DOLL"), .permission = DECORPERM_SPRITE, \
+        .shape = DECORSHAPE_1x1, .category = DECORCAT_DOLL, .price = 0, \
+        .description = DecorDesc_JIRACHI_DOLL, .tiles = DecorGfx_JIRACHI_DOLL}, \
 
 #define HOENN_DECORATION_ICONS \
     [DECOR_SUDOWOODO_DOLL] = {NULL, NULL}, \
@@ -66,3 +95,6 @@ static const u16 DecorGfx_EEVEE_DOLL[] = {OBJ_EVENT_GFX_MON_BASE + SPECIES_EEVEE
     [DECOR_UNOWN_DOLL] = {NULL, NULL}, \
     [DECOR_VULPIX_DOLL] = {NULL, NULL}, \
     [DECOR_EEVEE_DOLL] = {NULL, NULL}, \
+    [DECOR_CELEBI_DOLL] = {NULL, NULL}, \
+    [DECOR_MEW_DOLL] = {NULL, NULL}, \
+    [DECOR_JIRACHI_DOLL] = {NULL, NULL}, \

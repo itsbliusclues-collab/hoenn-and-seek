@@ -13,7 +13,8 @@ Where a species can come from ("direct" sources):
   wild    Every wild table the HnS build compiles: HnS's own (`_hns` labels in
           src/data/wild_encounters.json, minus "Unused" tables), the Hoenn
           tables (data/hoenn/wild_encounters_hoenn.json) and the weather
-          tables (data/hoenn/wild_encounters_weather.json). Only the slots the
+          tables (data/hoenn/wild_encounters_weather.json), and the daily
+          swarm's rows (data/hoenn/swarms.json, 2.1-07). Only the slots the
           engine rolls count (LAND 12, WATER 5, ROCK 5, FISH 10): HnS water
           tables sometimes list more. Pyramid/Pike tables don't count (you
           can't catch there).
@@ -127,6 +128,11 @@ def wild_sources(maps_by_id):
             for mon in e.get(kind, {}).get('mons', [])[:n]:
                 if mon['species'] != 'SPECIES_NONE':
                     src[mon['species']].append('wild:%s:%s' % (e['base_label'], kind.split('_')[0]))
+    # 2.1-07: the daily swarm (data/hoenn/swarms.json); one row comes up every day
+    for s in json.load(open(P('data', 'hoenn', 'swarms.json')))['swarms']:
+        mid = json.load(open(P('data', 'maps', s['map'], 'map.json')))['id']
+        if mid in maps_by_id:
+            src['SPECIES_' + s['species']].append('swarm:%s' % s['map'])
     return src
 
 # ---------------------------------------------------------------- scripts

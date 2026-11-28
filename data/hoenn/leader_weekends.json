@@ -5,7 +5,7 @@
     "slot: the leader's place in the flag block (3 flags each: gym, spot, dojo). Saved: never change or reuse one.",
     "gym / trainer: the gym map and the leader's graphics_id there. story_flag: the flag the leader's object had before",
     "2.1 (HnS's own story hide), or 0; the generated flag keeps hiding the leader whenever that one is set.",
-    "beaten: the flag set when you win the badge. guide: the gym guide's own script (null: the gym has no guide).",
+    "beaten: the flag set when you beat the leader in their gym (Clair: before the Dragon's Den gives the badge). guide: the gym guide's own script (null: the gym has no guide).",
     "dojo: HnS's FLAG_HIDE_DOJO_* for the leader's Fighting Dojo rematch (Saffron), or null. The Dojo copy takes",
     "the weekend off too, and the weekend spot offers the same rematch once that flag is clear.",
     "cameo: HnS's flag for the leader's one-time cameo (where you meet them to open that rematch), or null. While",

@@ -12,7 +12,7 @@
     "    text: a string or a list of strings, word-wrapped into radio lines (at most 8), or",
     "    native: a C builder (HoennRadioBuilder, include/hoenn_radio.h) with lines: the most it",
     "      writes and buffers: the text buffers it uses.",
-    "  2.1-05 adds 'heard' (a Seeker's Journal rumor the segment marks as heard)."
+    "  heard (2.1-07): a FLAG_HOENN_HEARD_<KEY> the segment sets when it plays (the Seeker's Journal)."
   ],
 
   "segments": [
@@ -20,6 +20,9 @@
      "_note": "2.0 part 28: the cipher's signal at the Ruins of Alph (src/hoenn_lane_a.c)"},
     {"key": "EUSINE_NOTES", "station": "oak", "if": [{"flag": "FLAG_HOENN_EUSINE_NOTES"}],
      "native": "HoennRadioEusineReport", "lines": 3, "buffers": 2,
-     "_note": "2.0 part 35b: where the uncaught beast was last tracked (src/hoenn_johto_legends.c)"}
+     "_note": "2.0 part 35b: where the uncaught beast was last tracked (src/hoenn_johto_legends.c)"},
+    {"key": "DAILY_SWARM", "station": "pokedex", "native": "HoennRadioSwarm", "lines": 3, "buffers": 2,
+     "heard": "FLAG_HOENN_HEARD_DAILY_SWARM",
+     "_note": "2.1-07: today's swarm, on PROF. OAK's POKéDEX show (src/hoenn_swarm.c)"}
   ]
 }

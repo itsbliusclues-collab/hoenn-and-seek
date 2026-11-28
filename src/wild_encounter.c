@@ -34,6 +34,7 @@
 #include "pokenav.h"
 #include "sound.h"
 #include "hoenn_time.h"
+#include "hoenn.h"
 
 extern const u8 EventScript_SprayWoreOff[];
 
@@ -690,6 +691,17 @@ static u16 GenerateFishingWildMon(const struct WildPokemonInfo *wildMonInfo, u8 
 static bool8 SetUpMassOutbreakEncounter(u8 flags)
 {
     u16 i;
+#if IS_HNS // Hoenn & Seek 2.1-07: the daily swarm (src/hoenn_swarm.c)
+    u16 species;
+    u8 level;
+
+    HoennSwarmPick(&species, &level);
+    if (flags & WILD_CHECK_REPEL && !IsWildLevelAllowedByRepel(level))
+        return FALSE;
+    CreateWildMon(species, level);
+    HoennSwarmMet();
+    return TRUE;
+#endif
 
     if (flags & WILD_CHECK_REPEL && !IsWildLevelAllowedByRepel(gSaveBlock1Ptr->outbreakPokemonLevel))
         return FALSE;
@@ -703,6 +715,7 @@ static bool8 SetUpMassOutbreakEncounter(u8 flags)
 
 static bool8 DoMassOutbreakEncounterTest(void)
 {
+    if (IS_HNS) return HoennSwarmHere(); // Hoenn & Seek 2.1-07: the daily swarm
     if (gSaveBlock1Ptr->outbreakPokemonSpecies != SPECIES_NONE
      && gSaveBlock1Ptr->location.mapNum == gSaveBlock1Ptr->outbreakLocationMapNum
      && gSaveBlock1Ptr->location.mapGroup == gSaveBlock1Ptr->outbreakLocationMapGroup)

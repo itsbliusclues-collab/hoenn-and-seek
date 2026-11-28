@@ -1094,6 +1094,7 @@ enum __attribute__((packed)) Item
     ITEM_FLAME_FEATHER, // Hoenn & Seek 2.0 part 34a (lane B): Moltres's feather from Route 113's ash
     ITEM_JADE_ORB, // Hoenn & Seek 2.0 part 36 (lane B): set into Sky Pillar's mural; wakes Rayquaza in the Embedded Tower
     ITEM_ENIGMA_STONE, // Hoenn & Seek 2.0 part 36 (lane B): Southern Island's shards, joined at the Pewter Museum; calls the island's Lati
+    ITEM_SEEKERS_JOURNAL, // Hoenn & Seek 2.1-05: Elm's aide's event tracker (src/hoenn_journal.c)
 #endif
 
     ITEMS_COUNT,

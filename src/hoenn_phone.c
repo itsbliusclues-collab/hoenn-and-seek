@@ -161,6 +161,7 @@ bool32 HoennTryEventCall(void)
 
     sEventCallGap = EVENT_CALL_GAP;
     gSpecialVar_0x8004 = call;
+    HoennJournalHeardCall(call); // 2.1-05: the call tells you about an event
     ScriptContext_SetupScript(HoennSeek_EventScript_PhoneEvent);
     return TRUE;
 }
