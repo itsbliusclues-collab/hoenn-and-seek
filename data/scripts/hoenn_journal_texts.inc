@@ -967,3 +967,15 @@ HoennSeek_Text_JournalDeoxysSignalFoundText::
 HoennSeek_Text_JournalDeoxysSignalWhen::
 	.string "At night.$"
 
+HoennSeek_Text_JournalRyanRunsHint::
+	.string "A loud trainer?$"
+
+HoennSeek_Text_JournalRyanRunsTitle::
+	.string "RYAN's runs$"
+
+HoennSeek_Text_JournalRyanRunsRumor::
+	.string "A trainer at the BATTLE FRONTIER\ntalks through every battle for an\laudience at home, half of it in\lanother language. He's in a\ldifferent building each day.$"
+
+HoennSeek_Text_JournalRyanRunsFoundText::
+	.string "RYAN narrates his FRONTIER runs in\ntwo languages. THE LIBRARIAN\lwrites down every word\land translates.$"
+

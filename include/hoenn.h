@@ -73,6 +73,11 @@ u16 HoennChainStepReady(void); // specialvar
 void HoennChainStepDone(void);  // special
 struct ScriptContext;
 void HoennSeek_ChainPoolLine(struct ScriptContext *ctx); // callnative
+// 2.1-30: RYAN and THE LIBRARIAN (src/hoenn_ryan.c)
+void HoennUpdateRyan(void);
+void HoennRyanMet(void); // special
+void HoennSeek_RyanLine(struct ScriptContext *ctx);      // callnative
+void HoennSeek_LibrarianLine(struct ScriptContext *ctx); // callnative
 // 2.1-05: the SEEKER'S JOURNAL (src/hoenn_journal.c, lane A)
 void HoennJournalHeardCall(u16 call); // an event call rang (HoennTryEventCall)
 // 2.1-06b: the POKéGEAR page's reading of the journal (src/hoenn_journal_page.c).

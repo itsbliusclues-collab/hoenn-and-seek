@@ -13,6 +13,7 @@ HoennSeek_EventScript_PhoneEvent21LaneB::
 	case HOENN_CALL_BROCK_CHAIN, HoennSeek_EventScript_CallBrockChain @ 2.1-21
 	case HOENN_CALL_MISTY_CHAIN, HoennSeek_EventScript_CallMistyChain @ 2.1-22
 	case HOENN_CALL_BLUE_CHAIN, HoennSeek_EventScript_CallBlueChain @ 2.1-23
+	case HOENN_CALL_RYAN, HoennSeek_EventScript_CallRyan @ 2.1-30
 	releaseall @ no call matched: the end of the chain
 	end
 
@@ -768,3 +769,364 @@ HoennSeek_Text_CallBlueChain:
 	.string "Except you. Bye!$"
 
 	.include "data/scripts/hoenn_fan_chains.inc"
+
+
+@ ---------------------------------------------------------------- 2.1-30: RYAN and THE LIBRARIAN
+@ Design: src/hoenn_ryan.c. RYAN runs a different BATTLE FRONTIER facility each
+@ weekday and stands in its lobby, talking to everyone watching at home; THE
+@ LIBRARIAN stands near him, catalogues every word and translates his Mandarin.
+@ Every line of both characters is here, in one place (drafts until the
+@ dialogue pass with Bryan, 2.1-36c). Pinyin uses the toned vowels of
+@ tools/hoenn/gen_hoenn_pinyin_glyphs.py.
+
+HoennSeek_EventScript_Ryan::
+	lock
+	faceplayer
+	goto_if_unset FLAG_HOENN_RYAN_MET, HoennSeek_EventScript_RyanFirst
+	callnative HoennSeek_RyanLine
+	callstd MSGBOX_DEFAULT
+	release
+	end
+
+HoennSeek_EventScript_RyanFirst:
+	msgbox HoennSeek_Text_RyanFirst, MSGBOX_DEFAULT
+	special HoennRyanMet
+	release
+	end
+
+HoennSeek_EventScript_Librarian::
+	lock
+	faceplayer
+	callnative HoennSeek_LibrarianLine
+	callstd MSGBOX_DEFAULT
+	release
+	end
+
+HoennSeek_EventScript_CallRyan::
+	setflag FLAG_HOENN_CALL_RYAN
+	setspeaker HoennSeek_Text_NameMay
+	pokenavcall HoennSeek_Text_CallRyan
+	goto HoennSeek_EventScript_CallEnd
+
+@ ---- RYAN: the first meeting
+HoennSeek_Text_RyanFirst:
+	.string "…and that's why you never trust\n"
+	.string "a door. Hang on, everyone, we've\l"
+	.string "got a visitor!\p"
+	.string "Hi! I'm RYAN. I do runs. FACTORY,\n"
+	.string "PYRAMID, PIKE, whatever the day\l"
+	.string "says. And I talk the whole way\l"
+	.string "through, for everyone at home.\p"
+	.string "Nǚshìmen, xiānshengmen, huānyíng!\p"
+	.string "That was Mandarin! I'm learning.\n"
+	.string "Badly! Out loud! In public!\p"
+	.string "Oh, and that's THE LIBRARIAN.\n"
+	.string "THE LIBRARIAN writes down every\l"
+	.string "word I say. I didn't hire anyone.\l"
+	.string "Nobody knows who did.\p"
+	.string "If you want to know what I just\n"
+	.string "said, ask THE LIBRARIAN. I'm a very\l"
+	.string "well-documented man.$"
+
+@ ---- RYAN: the run of the day (the first talk each day; src/hoenn_ryan.c sRunTexts)
+HoennSeek_Text_RyanRunSun::
+	.string "Sunday is TOWER day. No rentals,\n"
+	.string "no doors, no dark. Just my team\l"
+	.string "and a ladder that never ends.\p"
+	.string "Very relaxing. I'm going to lose\n"
+	.string "to a SHEDINJA. Zhè shì mìngyùn.\p"
+	.string "Tomorrow's run: the FACTORY!\n"
+	.string "Come say hi.$"
+
+HoennSeek_Text_RyanRunMon::
+	.string "Monday: the BATTLE FACTORY! You\n"
+	.string "don't bring a team. They hand you\l"
+	.string "six strangers and say good luck.\p"
+	.string "That's a roguelike! That's the\n"
+	.string "purest thing in this building!\p"
+	.string "First rental: a SUDOWOODO.\n"
+	.string "…Zhè ge hěn qiáng. I'm keeping it.\p"
+	.string "Tomorrow's run: the PIKE.$"
+
+HoennSeek_Text_RyanRunTue::
+	.string "Tuesday is PIKE day. Three doors.\n"
+	.string "One heals you, one has a nurse,\l"
+	.string "one has a BRELOOM with SPORE.\p"
+	.string "Hóng mén háishi lǜ mén?\n"
+	.string "They're all the same color.\l"
+	.string "I ask every week anyway.\p"
+	.string "Tomorrow's run: the ARENA.$"
+
+HoennSeek_Text_RyanRunWed::
+	.string "Wednesday: the ARENA. Three turns,\n"
+	.string "then a judge scores MIND, SKILL\l"
+	.string "and BODY.\p"
+	.string "I lose on MIND every single time.\n"
+	.string "The judge can tell. Wǒ shì lǘ.\p"
+	.string "Tomorrow's run: the PALACE.$"
+
+HoennSeek_Text_RyanRunThu::
+	.string "Thursday is PALACE day, where your\n"
+	.string "POKéMON pick their own moves. It's\l"
+	.string "like watching someone else play.\p"
+	.string "My GENGAR used PROTECT four times\n"
+	.string "in a row. Bù kěnéng!\p"
+	.string "Tomorrow's run: the DOME.$"
+
+HoennSeek_Text_RyanRunFri::
+	.string "Friday: the DOME! A tournament.\n"
+	.string "They show you the whole bracket\l"
+	.string "first, so you can see exactly who's\l"
+	.string "going to beat you.\p"
+	.string "Round two. It's always round two.\n"
+	.string "Wǒ wán le.\p"
+	.string "Tomorrow's run: the PYRAMID!$"
+
+HoennSeek_Text_RyanRunSat::
+	.string "Saturday. The PYRAMID. The real\n"
+	.string "one. It's dark, you can't bring\l"
+	.string "items, you find it all on the floor.\p"
+	.string "Floor by floor, everyone at home.\n"
+	.string "This is the dream. Jiāyóu!\p"
+	.string "Tomorrow's run: the TOWER, to\n"
+	.string "rest my nerves.$"
+
+@ ---- RYAN: the pool (src/hoenn_ryan.c sPool; holding lines take turns)
+HoennSeek_Text_RyanNoRuns::
+	.string "Wait. You've never done a run here?\n"
+	.string "Not one?\p"
+	.string "You get to try all seven for the\n"
+	.string "first time. I'm so jealous. Jiāyóu!$"
+
+HoennSeek_Text_RyanItemLuck::
+	.string "I opened eleven item balls in the\n"
+	.string "PYRAMID last week. Ten were… I want\l"
+	.string "to say tragic.\p"
+	.string "One was a SITRUS BERRY. I ate it in\n"
+	.string "the hallway. Out of spite.\l"
+	.string "Wǒ de yùnqì tài chà le.$"
+
+HoennSeek_Text_RyanMiddle::
+	.string "People ask if I'm good at these.\n"
+	.string "I'm not! I'm consistent. I am\l"
+	.string "consistently in the middle.\p"
+	.string "There's a whole community of us\n"
+	.string "down here. Méi wèntí.$"
+
+HoennSeek_Text_RyanTheOne::
+	.string "Every run, I say: this is the one.\p"
+	.string "It is never the one. But one day\n"
+	.string "it will be, and I'll have been right\l"
+	.string "the whole time. Zài lái yí cì!$"
+
+HoennSeek_Text_RyanRandom::
+	.string "The FACTORY's scientist says the\n"
+	.string "rentals are random. I said, random\l"
+	.string "for who? He didn't answer.\p"
+	.string "That's how I know.\n"
+	.string "Suíjīshù bù xǐhuan wǒ.$"
+
+HoennSeek_Text_RyanNotebook::
+	.string "Don't look now, but THE LIBRARIAN's\n"
+	.string "here again. I've never seen them\l"
+	.string "arrive. I've never seen them leave.\p"
+	.string "I just turn around and there's a\n"
+	.string "new notebook. Xiǎoxīn!$"
+
+HoennSeek_Text_RyanStop::
+	.string "You know the best held item? Not\n"
+	.string "LEFTOVERS. Not a CHOICE SCARF.\l"
+	.string "It's knowing when to stop.\p"
+	.string "I've never found one. Tài nán le.$"
+
+HoennSeek_Text_RyanTones::
+	.string "Why Mandarin? Practice! Four tones,\n"
+	.string "and every sentence I get one wrong.\p"
+	.string "It's a roguelike too, if you think\n"
+	.string "about it. Wǒ zhēn shì tiāncái.$"
+
+HoennSeek_Text_RyanFactoryRecord::
+	.string "Your FACTORY record is better than\n"
+	.string "mine. I looked it up. Bù kěnéng!\p"
+	.string "I'm not upset. I'm taking notes.\n"
+	.string "THE LIBRARIAN is taking notes.$"
+
+HoennSeek_Text_RyanPyramidRecord::
+	.string "You got past floor 21 of the\n"
+	.string "PYRAMID? In the dark? With what\l"
+	.string "you found on the floor?\p"
+	.string "Teach me. No, don't. I'd just do it\n"
+	.string "worse. Wǒ zhēn shì tiāncái.$"
+
+HoennSeek_Text_RyanPikeRecord::
+	.string "You've picked the right door\n"
+	.string "in the PIKE more than I have\l"
+	.string "picked any door at all.\p"
+	.string "Hóng mén háishi lǜ mén?\n"
+	.string "You'd know. I wouldn't.$"
+
+HoennSeek_Text_RyanTowerRecord::
+	.string "Thirty-five wins in a row in the\n"
+	.string "TOWER. You did the thing where you\l"
+	.string "just keep winning.\p"
+	.string "I've heard about it. Zhè ge hěn\n"
+	.string "qiáng. That's you. You're “zhè ge.”$"
+
+HoennSeek_Text_RyanSilverSymbols::
+	.string "All seven SILVER SYMBOLS!\n"
+	.string "The FRONTIER BRAINS must be\l"
+	.string "nervous about you.\p"
+	.string "They've never been nervous about\n"
+	.string "me. Wǒ wán le.$"
+
+HoennSeek_Text_RyanGoldSymbol::
+	.string "Is that a GOLD SYMBOL?\n"
+	.string "Can I hold it? I won't put it on\l"
+	.string "the broadcast. Bù kěnéng…\p"
+	.string "Okay, I'll put it on the broadcast\n"
+	.string "a little.$"
+
+HoennSeek_Text_RyanPoints::
+	.string "You're sitting on a lot of BATTLE\n"
+	.string "POINTS. Spend them!\p"
+	.string "Points in the bank are a run you\n"
+	.string "didn't take. Zài lái yí cì!$"
+
+@ ---- THE LIBRARIAN (src/hoenn_ryan.c; STR_VAR_1 = the entry number)
+HoennSeek_Text_LibrarianNotMet::
+	.string "… … …\p"
+	.string "(The person is writing in a thick\n"
+	.string "notebook and doesn't look up.)$"
+
+HoennSeek_Text_LibrarianVolume::
+	.string "…Volume 31. Everything the subject\n"
+	.string "has said this season, in order.\p"
+	.string "The subject does not know about\n"
+	.string "volumes 1 to 30.$"
+
+HoennSeek_Text_LibrarianTheOne::
+	.string "…The subject says “this is the one”\n"
+	.string "about four times a day.\p"
+	.string "It has been the one twice.$"
+
+HoennSeek_Text_LibrarianTones::
+	.string "…I translate. I don't comment.\p"
+	.string "The subject's tones are improving.\n"
+	.string "That is not a comment.$"
+
+HoennSeek_Text_LibrarianBorrow::
+	.string "…You may borrow a volume. Return it\n"
+	.string "to any FRONTIER lobby.\p"
+	.string "I'll find it.$"
+
+HoennSeek_Text_LibrarianPhraseWelcome::
+	.string "…Entry {STR_VAR_1}.\p"
+	.string "“Nǚshìmen, xiānshengmen, huānyíng!”\n"
+	.string "“Ladies and gentlemen, welcome!”\p"
+	.string "The subject greets an audience that\n"
+	.string "isn't here. Every time.$"
+
+HoennSeek_Text_LibrarianPhraseBadLuck::
+	.string "…Entry {STR_VAR_1}.\p"
+	.string "“Wǒ de yùnqì tài chà le.”\n"
+	.string "“My luck is far too bad.”\p"
+	.string "The most common entry.\n"
+	.string "Volume 12 is only this.$"
+
+HoennSeek_Text_LibrarianPhraseStrong::
+	.string "…Entry {STR_VAR_1}.\p"
+	.string "“Zhè ge hěn qiáng.”\n"
+	.string "“This one is strong.”\p"
+	.string "Usually said of the opponent.\n"
+	.string "Today, of a SUDOWOODO.$"
+
+HoennSeek_Text_LibrarianPhraseAddOil::
+	.string "…Entry {STR_VAR_1}.\p"
+	.string "“Jiāyóu!”\n"
+	.string "Literally, “add oil.” It means\l"
+	.string "“go for it!”\p"
+	.string "The subject finds “add oil” funny\n"
+	.string "every single time.$"
+
+HoennSeek_Text_LibrarianPhraseFinished::
+	.string "…Entry {STR_VAR_1}.\p"
+	.string "“Wǒ wán le.”\n"
+	.string "“I'm finished.”\p"
+	.string "Said before the battle. Accurate.$"
+
+HoennSeek_Text_LibrarianPhraseNoProblem::
+	.string "…Entry {STR_VAR_1}.\p"
+	.string "“Méi wèntí.”\n"
+	.string "“No problem.”\p"
+	.string "There was a problem.$"
+
+HoennSeek_Text_LibrarianPhraseImpossible::
+	.string "…Entry {STR_VAR_1}.\p"
+	.string "“Bù kěnéng!” “Impossible!”\p"
+	.string "It was possible.$"
+
+HoennSeek_Text_LibrarianPhraseAgain::
+	.string "…Entry {STR_VAR_1}.\p"
+	.string "“Zài lái yí cì!”\n"
+	.string "“One more time!”\p"
+	.string "It is never one more time.$"
+
+HoennSeek_Text_LibrarianPhraseRandom::
+	.string "…Entry {STR_VAR_1}.\p"
+	.string "“Suíjīshù bù xǐhuan wǒ.”\n"
+	.string "“The random numbers don't like me.”\p"
+	.string "I checked. They have no opinion\n"
+	.string "of the subject.$"
+
+HoennSeek_Text_LibrarianPhraseFate::
+	.string "…Entry {STR_VAR_1}.\p"
+	.string "“Zhè shì mìngyùn.”\n"
+	.string "“This is fate.”\p"
+	.string "Fate, in this case, is a SHEDINJA\n"
+	.string "with a FOCUS SASH.$"
+
+HoennSeek_Text_LibrarianPhraseCareful::
+	.string "…Entry {STR_VAR_1}.\p"
+	.string "“Xiǎoxīn!” “Careful!”\p"
+	.string "Addressed to me.\n"
+	.string "I was not in any danger.$"
+
+HoennSeek_Text_LibrarianPhraseGenius::
+	.string "…Entry {STR_VAR_1}.\p"
+	.string "“Wǒ zhēn shì tiāncái.”\n"
+	.string "“I really am a genius.”\p"
+	.string "Sarcasm. He got all four tones\n"
+	.string "right, though.$"
+
+HoennSeek_Text_LibrarianPhraseTooHard::
+	.string "…Entry {STR_VAR_1}.\p"
+	.string "“Tài nán le.”\n"
+	.string "“It's too hard.”\p"
+	.string "It is.$"
+
+HoennSeek_Text_LibrarianPhraseDoors::
+	.string "…Entry {STR_VAR_1}.\p"
+	.string "“Hóng mén háishi lǜ mén?”\n"
+	.string "“Red door or green door?”\p"
+	.string "The doors in the PIKE are all the\n"
+	.string "same color. He knows.$"
+
+HoennSeek_Text_LibrarianPhraseDonkey::
+	.string "…Entry {STR_VAR_1}.\p"
+	.string "“Wǒ shì lǘ.”\n"
+	.string "“I am a donkey.”\p"
+	.string "Self-assessment.\n"
+	.string "Entered without comment.$"
+
+@ ---- May's call (2.1-30): BRENDAN found RYAN's broadcast first
+HoennSeek_Text_CallRyan:
+	.string "{PLAYER}! It's MAY! You were on\n"
+	.string "a broadcast! Well, sort of.\p"
+	.string "BRENDAN found this trainer at the\n"
+	.string "BATTLE FRONTIER who talks through\l"
+	.string "every battle for people at home.\p"
+	.string "And there you were! He said you\n"
+	.string "looked like a natural. Then he lost\l"
+	.string "to a SHEDINJA.\p"
+	.string "BRENDAN's been saying “jiāyóu”\n"
+	.string "all day. He won't say what it means.$"

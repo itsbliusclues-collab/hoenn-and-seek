@@ -841,4 +841,5 @@ gSpecials::
 	def_special HoennTeleportGo
 	def_special HoennChainStepReady @ 2.1-21
 	def_special HoennChainStepDone
+	def_special HoennRyanMet @ 2.1-30
 	@ (end of 2.1 lane B's specials)

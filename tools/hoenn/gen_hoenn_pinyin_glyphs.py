@@ -2,13 +2,13 @@
 """Hoenn & Seek 2.1-30: the toned pinyin vowels for Ryan's Mandarin.
 
 Pinyin needs 24 toned vowels (ā á ǎ à, ē é ě è, ī í ǐ ì, ō ó ǒ ò, ū ú ǔ ù, ǖ ǘ ǚ ǜ).
-Nine of them are already in the font (Emerald's French/Spanish/Italian letters:
-à á è é ì ò ó ù ú), so this draws the other 15 into the normal and small Latin
+Ten of them are already in the font (Emerald's French/Spanish/Italian letters:
+à á è é ì í ò ó ù ú), so this draws the other 14 into the normal and small Latin
 fonts and gives them charmap codes.
 
-Where they go: glyphs 0x1C1-0x1CF, the last free cells before the emoji block
+Where they go: glyphs 0x1C1-0x1CE, free cells just before the emoji block
 (0x1D0). Glyphs 0x100+ are reached through CHAR_EXTRA_SYMBOL (F9), so the codes are
-F9 C1-F9 CF. Every Latin font has these cells blank, so the other fonts just show
+F9 C1-F9 CE. Every Latin font has these cells blank, so the other fonts just show
 nothing there (Ryan's lines are message-box text, FONT_NORMAL).
 
 How they're drawn: each one is its base letter's body (a e i o u ü, rows 5 down,
@@ -18,7 +18,7 @@ macron (a line) and caron (a small v) are drawn in the same rows and style (dark
 pixel with a light shadow to its right). Over ü the mark goes one row higher, above
 the dots. Widths are the base letter's.
 
-Idempotent: it rewrites the 15 cells, the 15 widths in both width tables
+Idempotent: it rewrites the 14 cells, the 14 widths in both width tables
 (src/fonts.c, upstream's file: only those numbers change) and the marked block at
 the end of charmap.txt.
 
@@ -33,7 +33,7 @@ P = lambda *a: os.path.join(ROOT, *a)
 FIRST = 0x1C1
 # (char, base letter code, tone): tone 1 macron, 2 acute, 3 caron, 4 grave.
 GLYPHS = [("ā", "a", 1), ("ǎ", "a", 3), ("ē", "e", 1), ("ě", "e", 3),
-          ("ī", "i", 1), ("í", "i", 2), ("ǐ", "i", 3), ("ō", "o", 1), ("ǒ", "o", 3),
+          ("ī", "i", 1), ("ǐ", "i", 3), ("ō", "o", 1), ("ǒ", "o", 3),
           ("ū", "u", 1), ("ǔ", "u", 3), ("ǖ", "ü", 1), ("ǘ", "ü", 2), ("ǚ", "ü", 3), ("ǜ", "ü", 4)]
 # Base glyphs: the body comes from these (FONT code points). For i the body is
 # ì's (centred under a mark; plain i is narrower and has a dot).
@@ -144,7 +144,7 @@ def main():
     cm = open(P("charmap.txt"), encoding="utf-8").read()
     open(P("charmap.txt"), "w", encoding="utf-8").write(charmap_update(cm))
     if args.preview:
-        out = Image.new("RGB", (16 * 15 * 4, 16 * 2 * 4), "white")
+        out = Image.new("RGB", (16 * len(GLYPHS) * 4, 16 * 2 * 4), "white")
         for r, im in enumerate(previews):
             rgb = im.convert("RGB")
             for k in range(len(GLYPHS)):
