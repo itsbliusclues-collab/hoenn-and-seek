@@ -39,6 +39,7 @@
 
 #if IS_HNS
 #include "constants/hoenn_events.h"
+#include "constants/hoenn_events_2_1.h"
 #include "constants/hoenn_phone.h"
 
 u16 HoennSeaMapPieceCount(void);
@@ -74,7 +75,7 @@ u16 HoennLaneBDueCall(void)
     // Part 35a: May, once the OLD SEA MAP is whole (a Vermilion sailor saw it).
     if (HoennSeaMapPieceCount() == HOENN_MEW_SIGHTINGS && !FlagGet(FLAG_HOENN_CALL_MEW))
         return HOENN_CALL_MEW;
-    return HOENN_CALL_NONE; // the end of the chain
+    return Hoenn21LaneADueCall(); // 2.1's calls come next (src/hoenn_2_1_lane_a.c)
 }
 
 // ---------------------------------------------------------------------------
@@ -149,36 +150,18 @@ bool16 HoennBirdBattleEnded(void)
 
 // ---------------------------------------------------------------------------
 // Part 29: shifting tunnels. Levels for these Johto/Kanto events follow your
-// progress, like DAMIAN's team (src/hoenn_scaling.c): HnS's Normal level cap for
-// your Johto badges, then the post-Johto cap (Kanto badges, Hoenn badges), 85
-// after Wallace; the Pokémon comes in 5 below it, never under VAR_0x8005.
+// progress, like DAMIAN's team: the progress ladder (HoennScaledAce, in
+// src/hoenn_scaling.c since 2.1-02: HnS's Normal level cap for your Johto
+// badges, then the post-Johto cap, 85 after Wallace); the Pokémon comes in 5
+// below it, never under VAR_0x8005.
 
 #define PROGRESS_WILD_GAP       5
-#define PROGRESS_AFTER_WALLACE  85
-#define PROGRESS_JOHTO_CHAMPION 56 // the floor before Kanto badges (as for DAMIAN)
-
-// HnS's Normal caps by Johto badge count (src/caps.c); 0 badges: Lv 10.
-static const u8 sJohtoBadgeLevels[] = { 10, 15, 19, 24, 29, 31, 33, 42 };
-
-static u32 HoennProgressLevel(void)
-{
-    u32 i, badges = 0;
-
-    if (FlagGet(FLAG_HOENN_STAMP_WALLACE))
-        return PROGRESS_AFTER_WALLACE;
-    for (i = 0; i < 8; i++)
-        if (FlagGet(FLAG_BADGE01_GET + i))
-            badges++;
-    if (badges < 8)
-        return sJohtoBadgeLevels[badges];
-    return HoennGetPostJohtoLevelCap(PROGRESS_JOHTO_CHAMPION, FALSE);
-}
 
 // special HoennSetupProgressWildBattle: VAR_0x8004 = species, VAR_0x8005 = the
 // lowest level it may have. Follow with HoennTuneWildMonSlot as usual.
 void HoennSetupProgressWildBattle(void)
 {
-    u32 level = HoennProgressLevel() - PROGRESS_WILD_GAP;
+    u32 level = HoennScaledAce(HOENN_LADDER_PROGRESS) - PROGRESS_WILD_GAP;
 
     if (level < VarGet(VAR_0x8005))
         level = VarGet(VAR_0x8005);

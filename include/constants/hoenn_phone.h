@@ -73,4 +73,13 @@
 #define HOENN_CALL_MEWTWO       77 // Brendan: you caught Mewtwo (part 35a)
 #define HOENN_CALL_MEW          78 // May: your OLD SEA MAP is whole (part 35a)
 
+// ---- Hoenn & Seek 2.1 (hoenn-docs/lanes/2.1-lanes.md) ----
+#define HOENN_CALL_21_LANE_A_FIRST 100
+#define HOENN_CALL_21_LANE_A_LAST  129
+// (2.1 lane A's calls)
+
+#define HOENN_CALL_21_LANE_B_FIRST 130
+#define HOENN_CALL_21_LANE_B_LAST  159
+// (2.1 lane B's calls)
+
 #endif // GUARD_CONSTANTS_HOENN_PHONE_H

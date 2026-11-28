@@ -19,8 +19,7 @@ HoennSeek_EventScript_PhoneEventLaneB::
 	case HOENN_CALL_RAYQUAZA, HoennSeek_EventScript_CallRayquaza @ part 36
 	case HOENN_CALL_MEWTWO, HoennSeek_EventScript_CallMewtwo @ part 35a
 	case HOENN_CALL_MEW, HoennSeek_EventScript_CallMew @ part 35a
-	releaseall @ no call matched: the end of the chain
-	end
+	goto HoennSeek_EventScript_PhoneEvent21LaneA @ 2.1's calls (hoenn_2_1_lane_a.inc, then _b)
 
 @ ==========================================================================
 @ Part 31b: Teddiursa's honey trail (Route 45) and the moon hollow

@@ -30,6 +30,7 @@ struct Trainer;
 #if IS_HNS
 u32 HoennCountStamps(void);
 u32 HoennGymAceLevel(void);
+u32 HoennScaledAce(u32 ladder); // 2.1-02: HOENN_LADDER_* (constants/hoenn_events_2_1.h)
 #define HOENN_SCALED_WILD_GAP 8 // scripted wild battles: gym-ace level - 8 (60-70, 77 after Wallace)
 u8 HoennScaleTrainerMonLevel(const struct Trainer *trainer, u8 level);
 void HoennSetupScaledWildBattle(void);
@@ -53,10 +54,11 @@ u16 HoennSpeciesDueCall(void);
 u16 HoennHiddenDueCall(void);
 u16 HoennLaneADueCall(void); // src/hoenn_lane_a.c (lane setup, Nov 27)
 u32 HoennObjectPaletteSpecies(u32 species); // src/hoenn_lane_a.c (part 27b)
-u32 HoennRadioUnownBroadcast(const u8 **lines, u8 *line); // src/hoenn_lane_a.c (part 28): the Ruins' Unown station
 bool32 HoennLaneAOnStep(void); // src/hoenn_lane_a.c (part 32: the Ampharos ride)
 bool32 HoennLaneAFollowerOverride(u32 *species, bool32 *shiny, bool32 *female); // src/hoenn_lane_a.c (part 32)
 u16 HoennLaneBDueCall(void); // src/hoenn_lane_b.c
+u16 Hoenn21LaneADueCall(void); // src/hoenn_2_1_lane_a.c (2.1-02)
+u16 Hoenn21LaneBDueCall(void); // src/hoenn_2_1_lane_b.c (2.1-02)
 // The Kangaskhan baby as your follower (src/hoenn_lane_b.c, 2.0 part 30a)
 bool32 HoennIsKangaBabyGfx(u32 species);
 u32 HoennFollowerPaletteSpecies(u32 species);
@@ -70,7 +72,6 @@ u16 HoennCipherDueCall(void);      // 2.0 part 27a (src/hoenn_cipher.c)
 u32 HoennNightWeekday(void);       // 27r: a night's weekday, dusk to dawn (src/hoenn_cipher.c)
 // 2.0 part 35b (src/hoenn_johto_legends.c)
 void HoennJohtoBeastBattleEnded(u32 roamerIndex);
-u32 HoennRadioEusineReport(const u8 **lines, u8 *line1, u8 *line2);
 u16 HoennEusineState(void);
 u16 HoennHoOhClue(void);
 u16 HoennForestSoilState(void);

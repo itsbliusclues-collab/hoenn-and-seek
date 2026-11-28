@@ -10,7 +10,9 @@
 #include "event_data.h"
 #include "hoenn.h"
 #include "hoenn_caps.h"
+#include "battle_setup.h"
 #include "constants/opponents.h"
+#include "constants/hoenn_events_2_1.h"
 
 #if IS_HNS
 
@@ -95,9 +97,10 @@ u8 HoennScaleTrainerMonLevel(const struct Trainer *trainer, u8 level)
         if (trainer->party[i].lvl > maxLevel)
             maxLevel = trainer->party[i].lvl;
 
-    ace = HoennGymAceLevel();
-    if (role == GYM_ROLE_PROGRESS && !FlagGet(FLAG_HOENN_STAMP_WALLACE))
-        ace = HoennGetPostJohtoLevelCap(HOENN_JOHTO_CHAMPION_CAP, FALSE);
+    if (role == GYM_ROLE_PROGRESS)
+        ace = HoennScaledAce(HOENN_LADDER_PROGRESS);
+    else
+        ace = HoennGymAceLevel();
     if (role == GYM_ROLE_TRAINER)
         ace -= HOENN_GYM_TRAINER_GAP;
     else if (role == GYM_ROLE_STRONG)
@@ -110,6 +113,86 @@ u8 HoennScaleTrainerMonLevel(const struct Trainer *trainer, u8 level)
     if (scaled > MAX_LEVEL)
         scaled = MAX_LEVEL;
     return scaled;
+}
+
+// ---- 2.1-02: scaled-opponent ladders -------------------------------------
+//
+// One place for every "scales with your progress" opponent outside the Hoenn
+// gyms. Each ladder gives the ace (the team's strongest Pokémon); callers keep
+// the team's own gaps below it, as HoennScaleTrainerMonLevel does.
+//
+//   HOENN_LADDER_PROGRESS  the player's progress cap, as if LEVEL CAP were on
+//                          (Normal), whether or not it is: HnS's Johto caps by
+//                          badge count, then the post-Johto cap (Kanto badges,
+//                          Kanto champion, Hoenn badges, Wallace's 84), and 85
+//                          after Wallace like the leader rematches. DAMIAN (2.0
+//                          part 16) and lane B's progress-level wild events
+//                          (part 29) use it.
+//   HOENN_LADDER_TOP_90    PROGRESS up to Wallace, then two post-game steps up
+//                          to Bryan's top of 90 (2.1 plan, round 5): 85 after
+//                          Wallace, 87 after Brendan & May, 90 after Red.
+//                          Silver, the second rival and the friend trainers.
+//   HOENN_LADDER_ELITE     Hoenn's elite trainers (2.1 plan section 9): the next
+//                          Hoenn leader's ace - 1; Wallace's ace - 1 (83) with
+//                          eight badges, 84 after Wallace.
+
+// HnS's Normal level caps by Johto badge count (src/caps.c's table); 0 badges: 10.
+static const u8 sJohtoBadgeAces[] = { 10, 15, 19, 24, 29, 31, 33, 42 };
+
+#define LADDER_AFTER_WALLACE    HOENN_GYM_REMATCH_ACE // 85
+#define LADDER_AFTER_BM         87
+#define LADDER_TOP              90
+#define LADDER_WALLACE_ACE      84
+#define LADDER_ELITE_GAP        1
+
+static u32 CountJohtoBadges(void)
+{
+    u32 i, badges = 0;
+
+    for (i = 0; i < 8; i++)
+        if (FlagGet(FLAG_BADGE01_GET + i))
+            badges++;
+    return badges;
+}
+
+static u32 ProgressAce(void)
+{
+    u32 badges;
+
+    if (FlagGet(FLAG_HOENN_STAMP_WALLACE))
+        return LADDER_AFTER_WALLACE;
+    badges = CountJohtoBadges();
+    if (badges < ARRAY_COUNT(sJohtoBadgeAces))
+        return sJohtoBadgeAces[badges];
+    return HoennGetPostJohtoLevelCap(HOENN_JOHTO_CHAMPION_CAP, FALSE);
+}
+
+u32 HoennScaledAce(u32 ladder)
+{
+    switch (ladder)
+    {
+    case HOENN_LADDER_TOP_90:
+        if (HasTrainerBeenFought(TRAINER_RED_HNS))
+            return LADDER_TOP;
+        if (FlagGet(FLAG_HOENN_BEAT_BM))
+            return LADDER_AFTER_BM;
+        return ProgressAce();
+    case HOENN_LADDER_ELITE:
+        if (FlagGet(FLAG_HOENN_STAMP_WALLACE))
+            return LADDER_WALLACE_ACE;
+        if (HoennCountStamps() >= HOENN_GYM_COUNT)
+            return LADDER_WALLACE_ACE - LADDER_ELITE_GAP;
+        return HoennGymAceLevel() - LADDER_ELITE_GAP;
+    case HOENN_LADDER_PROGRESS:
+    default:
+        return ProgressAce();
+    }
+}
+
+// specialvar VAR_RESULT, HoennScaledAceForScript: VAR_0x8004 = a HOENN_LADDER_*.
+u16 HoennScaledAceForScript(void)
+{
+    return HoennScaledAce(VarGet(VAR_0x8004));
 }
 
 #endif // IS_HNS

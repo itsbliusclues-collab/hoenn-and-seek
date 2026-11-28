@@ -990,6 +990,15 @@ u8 LoadGameSave(u8 saveType)
 #endif
         gSaveBlock1Ptr->saveVersion = 6;
     }
+    if (gSaveBlock1Ptr->saveVersion < 7)
+    {
+#if IS_HNS
+        // Hoenn & Seek 2.1 added its own flags and vars after 2.0's, in space
+        // a 2.0 save never wrote: start them cleared (src/hoenn_flags.c).
+        Hoenn21ClearFlagsAndVars();
+#endif
+        gSaveBlock1Ptr->saveVersion = 7;
+    }
 
     // Add version migration steps here:
     // if (gSaveBlock1Ptr->saveVersion < 1)

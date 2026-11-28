@@ -1,0 +1,25 @@
+{
+  "_comment": [
+    "Hoenn & Seek 2.1-02: radio segments. Read by tools/hoenn/gen_hoenn_radio.py, which writes",
+    "src/data/hoenn_radio_segments.h (the table src/hoenn_radio.c reads). Design: src/hoenn_radio.c.",
+    "",
+    "segments: played in front of a station's normal broadcast, in this order, when their",
+    "  conditions hold and they fit (15 lines and 8 text buffers per broadcast; a segment that",
+    "  doesn't fit whole is skipped). On OAK's POKéMON TALK they play in the intro, after MARY.",
+    "  key: unique name (letters, digits, _). station: oak, pokedex, music, lucky, buena, unown,",
+    "  places, sing, rocket, hoenn_sound. if: the hint engine's conditions (npc_hints.json's",
+    "  _comment lists them). Then either",
+    "    text: a string or a list of strings, word-wrapped into radio lines (at most 8), or",
+    "    native: a C builder (HoennRadioBuilder, include/hoenn_radio.h) with lines: the most it",
+    "      writes and buffers: the text buffers it uses.",
+    "  2.1-05 adds 'heard' (a Seeker's Journal rumor the segment marks as heard)."
+  ],
+
+  "segments": [
+    {"key": "UNOWN_SIGNAL", "station": "unown", "native": "HoennRadioUnownBroadcast", "lines": 2, "buffers": 1,
+     "_note": "2.0 part 28: the cipher's signal at the Ruins of Alph (src/hoenn_lane_a.c)"},
+    {"key": "EUSINE_NOTES", "station": "oak", "if": [{"flag": "FLAG_HOENN_EUSINE_NOTES"}],
+     "native": "HoennRadioEusineReport", "lines": 3, "buffers": 2,
+     "_note": "2.0 part 35b: where the uncaught beast was last tracked (src/hoenn_johto_legends.c)"}
+  ]
+}

@@ -145,6 +145,19 @@ Phase G sizes (38 on, one part at a time; measured on `hoenn` with every lane pa
 |---|---|---|
 | **2.0** part 38 (sweep: hint lines take turns, 7 rumors, event calls spaced out (lane A's start); text audit + 22 re-wrapped texts, night weekdays, Jirachi's nightly flag, 2 refurnished rooms, Damian moved, denser smoke: +4,160 B release, +4,208 B debug over 37) | 32,792,948 / 743 KB | 32,950,340 / 589 KB |
 
+**2.1 size rows (Nov 28 on):** 2.1 is built on `hoenn-2.1` (`hoenn-docs/lanes/2.1-lanes.md`); each 2.1 lane adds rows to its own table, measured after merging `hoenn-2.1` into the branch.
+
+2.1 lane A sizes:
+
+| Part | Release | Debug |
+|---|---|---|
+
+2.1 lane B sizes:
+
+| Part | Release | Debug |
+|---|---|---|
+| 2.1-02 (foundations: 2.1 flag/var block + save version 7, radio segment table, scaled-opponent ladders, 2.1 lane files; re-measured by the reviewer after merging `hoenn-2.1` with 2.0 parts 38–39: +3,952 B release, +848 B debug over 38) | 32,796,900 / 739 KB | 32,951,188 / 589 KB |
+
 ¹ Release got 12.5 KB *smaller*: flag/var lookups now go through `HoennGetFlagPointer`/`HoennGetVarPointer`, so LTO stops inlining `GetVarPointer` into ~100 callers (`ScrCmd_createmon` alone −1.6 KB). Same behavior. Measured against a fresh 1.0 release build, which matched the 20a row byte for byte.
 
 ## How the codebase is organized
@@ -459,6 +472,18 @@ Phase G runs one part at a time after both lanes (`hoenn-docs/lanes/README.md`).
   - **Hint lines take turns** (lane A, before handing 38 off): `VAR_HOENN_HINT_TOGGLE`'s upper bits count extra lines shown and pick among an NPC's holding lines in turn (`src/hoenn_hints.c`). Until then an NPC only ever said its first holding line, so lines listed after a tip or a rumor never showed. Seven rumors were added on existing Pokémon Center NPCs (UNOWN_CIPHER, ICE_THIEF, LANTURN_LIGHTS, AMPHAROS_RESCUE, HOOH_DAWN, FOREST_OFFERINGS, SKY_PILLAR_MURAL): 48 in the field notes.
   - **Event calls wait for each other** (lane A): after an event call, the next waits `EVENT_CALL_GAP` checks (256 steps, `src/hoenn_phone.c`). Calls about events done before Birch gave you Brendan & May's numbers used to ring every 16 steps, one after another.
   - `gen_hoenn_battle_art.py` writes `.pal` files with CRLF (`.gitattributes` checks them out that way), so a run no longer leaves them showing as modified.
+
+## 2.1 lane A notes
+2.1's lane A (`hoenn-docs/lanes/2.1-lane-a.md`) adds a bullet per part here. Its code lives in `src/hoenn_2_1_lane_a.c` and `data/scripts/hoenn_2_1_lane_a.inc` unless a note says otherwise.
+
+## 2.1 lane B notes
+2.1's lane B (`hoenn-docs/lanes/2.1-lane-b.md`) adds a bullet per part here. Its code lives in `src/hoenn_2_1_lane_b.c` and `data/scripts/hoenn_2_1_lane_b.inc` unless a note says otherwise.
+- **Foundations (2.1-02):**
+  - **2.1 flags and vars:** flags 0x2400–0x26FF (768) and vars 0x7100–0x713F (64) in two new SaveBlock3 arrays, `hoenn21Flags`/`hoenn21Vars` (SB3 +0x3B2 / +0x412, asserted; `pt.py` knows them). Blocks and lane slices are in `include/constants/hoenn_events_2_1.h` (included from `flags.h`, its header explains the rules): shared 0x2400, lane A 0x2440 (192), lane B 0x2500 (192), the journal's generated "heard" flags 0x25C0 (128), spare 0x2640; daily 0x2680–0x26BF and weekly 0x26C0–0x26FF (16 each per lane); vars shared 0x7100, lane A 0x7108, lane B 0x7120, spare 0x7138. 2.1's daily/weekly flags reset with 2.0's (`HoennClearDailyFlags`/`HoennClearWeeklyFlags`); a night event's flag goes in `sNightlyFlags` as before. **The 1.0, 2.0 and 2.1 ranges sit end to end**, so `IS_HOENN_FLAG`/`IS_HOENN_VAR` are single range checks (asserted in `src/hoenn_flags.c`). 2.1 hidden items can't use this range (13-bit limit): take them from the top of your 2.0 lane's hidden-item range, counting down.
+  - **Save version 7** (`include/save.h`, `src/save.c`): a 2.0 save loads with the 2.1 arrays cleared (`Hoenn21ClearFlagsAndVars`); tested with a v6 save full of junk in that space.
+  - **Radio segments:** `data/hoenn/radio_segments.json` → `tools/hoenn/gen_hoenn_radio.py` → `src/data/hoenn_radio_segments.h`, played by `src/hoenn_radio.c` (its header explains the design): each `{key, station, if, text | native}` goes in front of the station's own lines (OAK's POKéMON TALK: in its intro, after MARY), in table order, and is skipped whole if it doesn't fit (15 lines, 8 text buffers; LUCKY CHANNEL already uses 13). Conditions are the hint engine's (`HoennHintConditionsHold` and `struct HoennHintCond` now live in `include/hoenn_hints.h`; the generator reuses `gen_hoenn_hints.py`'s `cond_c`). Fixed text is wrapped at 30 characters. Builders (`HoennRadioBuilder`, `include/hoenn_radio.h`) take `(lines, bufs)`: part 28's `HoennRadioUnownBroadcast` and 35b's `HoennRadioEusineReport` are now entries `UNOWN_SIGNAL` and `EUSINE_NOTES`. `src/pokenav_radio.c` has two `HOENN_RADIO_SEGMENTS` hook lines (end of `GenerateStationContent`, OAK's intro) and one `HOENN_RADIO_STATION_CHECKS` line (`include/hoenn_radio.h`'s station IDs match the file's enum). **Add new radio lines as entries, never as new hooks.** Testing: set `FLAG_HIDE_GOLDENROD_ROCKETS` or every Johto station is TEAM ROCKET; in the PokéGear wait ~60 frames after opening RADIO, then press RIGHT 3 frames + wait 6 per dial step (OAK 13, LUCKY 25, BUENA 32, UNOWN 41).
+  - **2.1 lane files and phone chain:** `src/hoenn_2_1_lane_{a,b}.c` and `data/scripts/hoenn_2_1_lane_{a,b}.inc` (included after 2.0's lane files). `HoennLaneBDueCall` ends with `Hoenn21LaneADueCall()` → `Hoenn21LaneBDueCall()` → `HOENN_CALL_NONE`; 2.0 lane B's call switch `goto`s `HoennSeek_EventScript_PhoneEvent21LaneA` → `…21LaneB`. Call IDs: lane A 100–129, lane B 130–159 (`hoenn_phone.h`). `data/specials.inc` ends with a 2.1 shared, lane A and lane B section.
+  - **Scaled-opponent ladders:** `HoennScaledAce(ladder)` (`src/hoenn_scaling.c`, `specialvar VAR_RESULT, HoennScaledAceForScript` with the ladder in `VAR_0x8004`). `HOENN_LADDER_PROGRESS`: HnS's Normal Johto caps by badge count (10–42), then `HoennGetPostJohtoLevelCap` (56 → Kanto badges → 70 → Hoenn badges → 84), 85 after Wallace; DAMIAN and lane B's part 29 wild events now use it (same numbers as before). `HOENN_LADDER_TOP_90`: the same, then 87 after Brendan & May (`FLAG_HOENN_BEAT_BM`) and 90 after Red (`TRAINER_RED_HNS`), for Silver, the second rival and the friends. `HOENN_LADDER_ELITE`: the next Hoenn leader's ace − 1, 83 with eight badges, 84 after Wallace. All 11 stages were checked in the emulator.
 
 ## Known Hoenn issues (found in part 3, fix in later parts)
 - **All Emerald map scripts and text were already assembled into HnS** (`data/event_scripts.s` includes every map's `scripts.inc`). Script and text cost is already in the baseline, so cutting story text *saves* ROM.

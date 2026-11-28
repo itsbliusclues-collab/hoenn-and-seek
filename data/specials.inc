@@ -811,3 +811,14 @@ gSpecials::
 	def_special HoennMewtwoBattleEnded
 	def_special HoennSeaMapPieceCount
 	def_special HoennMewBlurState
+	@ (end of lane B's specials)
+
+	@ Hoenn & Seek 2.1, shared (2.1-02 on)
+	def_special HoennScaledAceForScript
+	@ (end of 2.1's shared specials)
+
+	@ Hoenn & Seek 2.1, builder lane A: lane A's 2.1 specials go here
+	@ (end of 2.1 lane A's specials)
+
+	@ Hoenn & Seek 2.1, builder lane B: lane B's 2.1 specials go here
+	@ (end of 2.1 lane B's specials)

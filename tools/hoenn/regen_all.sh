@@ -15,7 +15,7 @@
 #   tables → strait → base entrances → base spots → composed maps → trainers →
 #   IDs → gyms, new-game state → battle backgrounds and art → overworld
 #   Pokémon → trainer followers → buildings → hints → light paths → Unown
-#   tiles, then the living dex check.
+#   tiles → radio segments, then the living dex check.
 #
 # Usage: tools/hoenn/regen_all.sh           run everything
 #        tools/hoenn/regen_all.sh --check   run, then fail if the tree changed
@@ -45,6 +45,7 @@ GENERATORS=(
     gen_hoenn_hints          # hint NPC wrappers (after everything that moves objects)
     gen_hoenn_lights         # follow-the-lights paths (after layouts and objects)
     gen_hoenn_unown_tiles    # Ruins of Alph braille + glowing Unown blocks (2.0 part 27a)
+    gen_hoenn_radio          # radio segments (2.1-02)
 )
 
 # What changed, by content: `git status` also lists the battle-art .pal files

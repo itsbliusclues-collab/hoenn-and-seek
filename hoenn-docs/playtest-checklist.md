@@ -573,3 +573,15 @@ Lane B's `## 2.0 part NN` sections go below this line, at the end of the file.
 - [ ] DAMIAN outside the Cerulean Gym stands one tile right (37,32), clear of the gym sign.
 - [ ] The Vermilion fire shows more smoke (five puffs a round, four rounds). Still small at night: say if it needs real flame art.
 - [ ] 22 texts were re-wrapped so no box ends on a single word: skim them as they come up (contest twin, the RUINS researcher, Wattson, Cozmo, the Tin Tower sages, Charmander, the Squirtle Squad, the officer, the Ruins boulder, the sanctum, Sky Pillar's mural, ...).
+
+# Hoenn & Seek 2.1 (built on `hoenn-2.1`)
+
+## 2.1 lane A
+(2.1 lane A adds its sections here.)
+
+## 2.1 lane B
+
+### 2.1-02 (foundations)
+- Load a 2.0 save into a 2.1 build: it should carry on as before (save version 7 clears only 2.1's new space; tested in the emulator with a v6 save).
+- The Ruins of Alph's Unown station and EUSINE's notes on OAK's POKéMON TALK now come from the radio segment table: same lines as in 2.0, in the same places. Worth a listen.
+- DAMIAN (Cerulean Gym) and the shifting-tunnel Pokémon use the new ladder: their levels should be exactly what they were.
