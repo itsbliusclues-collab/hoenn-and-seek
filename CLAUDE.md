@@ -180,7 +180,7 @@ Phase G sizes (38 on, one part at a time; measured on `hoenn` with every lane pa
 | 2.1-23 (Blue's weekend chain: Daisy's house, Oak's lab, PIDGEOT DOLL, 17 pool lines, Brendan's call; on top of 2.1-22: +4,720 B release, +4,736 B debug) | 32,872,148 / 666 KB | 33,019,652 / 522 KB |
 | 2.1-25 (Johto gym rugs: 6 leaders' rooms redrawn so leader and Pokémon stand side by side on a rug made for the pair, `gen_hoenn_gym_rugs.py`; on `hoenn-2.1` at #138: +992 B release, +976 B debug) | 32,856,132 / 681 KB | 33,004,436 / 537 KB |
 | 2.1-26 (Kanto gym rugs + Red's summit: middle columns in Celadon, Cerulean, Vermilion, Saffron, Viridian and both summits, Misty's 2-wide pedestal, Onix behind Brock; on top of 2.1-25: +512 B release, +528 B debug) | 32,856,644 / 681 KB | 33,004,964 / 536 KB |
-| 2.1-27 (Hoenn gym rugs: middle columns in Rustboro, Lavaridge, Petalburg, Fortree and Sootopolis (ice puzzle and stair counts moved with it), Dewford's and Mauville's rugs widened; E4 rooms unchanged; on top of 2.1-26: +2,016 B release, +2,016 B debug) | 32,858,660 / 679 KB | 33,006,980 / 534 KB |
+| 2.1-27 (Hoenn gym rugs: middle columns in Rustboro, Lavaridge, Petalburg, Fortree and Sootopolis (ice puzzle and stair counts moved with it), Dewford's and Mauville's rugs widened; E4 rooms unchanged; +2,016 B release, +2,016 B debug over 2.1-26; re-measured after merging `hoenn-2.1` at #147, with 21–23) | 32,892,676 / 646 KB | 33,038,644 / 503 KB |
 
 ¹ Release got 12.5 KB *smaller*: flag/var lookups now go through `HoennGetFlagPointer`/`HoennGetVarPointer`, so LTO stops inlining `GetVarPointer` into ~100 callers (`ScrCmd_createmon` alone −1.6 KB). Same behavior. Measured against a fresh 1.0 release build, which matched the 20a row byte for byte.
 
