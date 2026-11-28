@@ -1133,3 +1133,21 @@ EMOJI_BIGANGER = F9 FE
 '\l' = FA @ scroll up window text
 '\p' = FB @ new paragraph
 '\n' = FE @ new line
+
+@ Hoenn & Seek 2.1-30: toned pinyin vowels (tools/hoenn/gen_hoenn_pinyin_glyphs.py)
+'ā' = F9 C1
+'ǎ' = F9 C2
+'ē' = F9 C3
+'ě' = F9 C4
+'ī' = F9 C5
+'í' = F9 C6
+'ǐ' = F9 C7
+'ō' = F9 C8
+'ǒ' = F9 C9
+'ū' = F9 CA
+'ǔ' = F9 CB
+'ǖ' = F9 CC
+'ǘ' = F9 CD
+'ǚ' = F9 CE
+'ǜ' = F9 CF
+@ end of Hoenn & Seek's pinyin vowels

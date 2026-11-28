@@ -47,6 +47,10 @@ def charmap():
         if m:
             ch = m.group(1).replace("\\'", "'")
             codes.setdefault(ch, int(m.group(2), 16))
+        # 2.1-30: the pinyin vowels are extra symbols, F9 xx = glyph 0x100 + xx
+        m = re.match(r"^'(.+)'\s*=\s*F9\s+([0-9A-Fa-f]{2})\s*$", line)
+        if m:
+            codes.setdefault(m.group(1), 0x100 + int(m.group(2), 16))
     return codes
 
 
