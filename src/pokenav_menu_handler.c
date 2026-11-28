@@ -168,7 +168,7 @@ static s16 LastCursorPos(struct Pokenav_Menu *menu)
     if (menu->menuType == POKENAV_MENU_TYPE_HOENN_MAIN)
         return menu->mainCount - 1;
 #endif
-    return LastCursorPos(menu);
+    return sLastCursorPositions[menu->menuType];
 }
 
 // The cursor position is a row index into sMenuItems, which is not the same as
