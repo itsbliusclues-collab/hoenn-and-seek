@@ -24,7 +24,9 @@ Reads data/hoenn/leader_weekends.json (its comment explains the fields) and writ
     and the spot object (found by its script name, so re-runs replace it).
   Optional per leader: `rematch` ({if_set, script}: the spot jumps to the leader's own
   rematch once that flag is set; Hoenn) and `partner` ({trainer, at}: a second trainer
-  object that moves with the leader, placed at the spot + `at`; Tate & Liza).
+  object that moves with the leader, placed at the spot + `at`; Tate & Liza) and `chain`
+  (2.1-21: a fan chain's script the spot calls first; it ends the talk itself, or returns
+  VAR_RESULT TRUE when it said its own line instead of the weekend line, FALSE for the usual).
 The leaders' followers (gym and spot) come from gen_hoenn_followers.py, which copies
 the trainer's flag: run this first. Idempotent; regen_all.sh runs it in that order.
 """
@@ -108,8 +110,13 @@ def main():
     s += ["@ Story flags the gym objects had: " + ", ".join(old), ""]
     for l in leaders:
         k = l["key"]
-        s += ["%s::" % spot_script(k), "\tlock", "\tfaceplayer",
-              "\tmsgbox HoennSeek_Text_Weekend_%s, MSGBOX_DEFAULT" % k]
+        s += ["%s::" % spot_script(k), "\tlock", "\tfaceplayer"]
+        if l.get("chain"):  # 2.1-21: a fan chain's script runs first (TRUE = it said its line)
+            s += ["\tcall %s" % l["chain"],
+                  "\tgoto_if_eq VAR_RESULT, TRUE, %s_Rematch" % spot_script(k)]
+        s.append("\tmsgbox HoennSeek_Text_Weekend_%s, MSGBOX_DEFAULT" % k)
+        if l.get("chain"):
+            s.append("%s_Rematch:" % spot_script(k))
         if l["dojo"]:  # HnS's Dojo rematch, once it's open (it asks, battles and gives BP)
             s.append("\tgoto_if_unset %s, %s" % (l["dojo"], dojo_script(k)))
         if l.get("rematch"):  # Hoenn: the leader's own rematch, once it's open

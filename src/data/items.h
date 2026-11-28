@@ -14576,10 +14576,9 @@ const struct ItemInfo gItemsInfo[] =
         .iconPalette = gItemIconPalette_SoulDew,
     },
 
-    // Hoenn & Seek 2.1-05: Elm's aide gives it after your first Johto badge.
-    // It lists the hidden events by region: ??? until you hear of one, the
-    // rumor once you have, what you saw once found (src/hoenn_journal.c).
-    // Read from the bag or with SELECT (HoennSeek_EventScript_SeekersJournal).
+    // Hoenn & Seek 2.1-05: was the journal's key item. Since 2.1-06b the
+    // journal is a POKéGEAR page (src/hoenn_journal_page.c) and nothing gives
+    // this item; it stays defined so item IDs after it don't move.
     [ITEM_SEEKERS_JOURNAL] =
     {
         .name = ITEM_NAME("SEEKER'S JOURNAL"),
@@ -14590,8 +14589,8 @@ const struct ItemInfo gItemsInfo[] =
             "hear and find."),
         .importance = 1,
         .pocket = POCKET_KEY_ITEMS,
-        .type = ITEM_USE_FIELD,
-        .fieldUseFunc = ItemUseOutOfBattle_HoennSeekersJournal,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .iconPic = gItemIcon_FameChecker,
         .iconPalette = gItemIconPalette_FameChecker,
     },

@@ -4,6 +4,7 @@ Route29_hns_MapScripts::
 	.byte 0
 
 Route29_OnTransition: 
+	call HoennSeek_EventScript_Route29NeighborArm @ Hoenn & Seek 2.1-15
 	callnative SetTimeBasedEncounters
 	end
 

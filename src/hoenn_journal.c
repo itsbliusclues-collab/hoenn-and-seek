@@ -1,12 +1,13 @@
 // Hoenn & Seek 2.1-05: the SEEKER'S JOURNAL (2.1 lane A; 2.1 plan section 15).
 //
-// A key item that lists 2.0's (and later 2.1's) hidden, daily and weekly
-// events by region. Data: data/hoenn/journal.json →
-// tools/hoenn/gen_hoenn_journal.py → src/data/hoenn_journal.h (included below),
-// the heard flags in include/constants/hoenn_journal.h and the texts in
-// data/scripts/hoenn_journal_texts.inc. The script is
-// HoennSeek_EventScript_SeekersJournal (data/scripts/hoenn_2_1_lane_a.inc), run
-// from the bag or SELECT like the Sand Chime (src/item_use.c).
+// Lists 2.0's (and later 2.1's) hidden, daily and weekly events by region.
+// Data: data/hoenn/journal.json → tools/hoenn/gen_hoenn_journal.py →
+// src/data/hoenn_journal.h (included below), the heard flags in
+// include/constants/hoenn_journal.h and the texts in
+// data/scripts/hoenn_journal_texts.inc. Since 2.1-06b it's a POKéGEAR page
+// (src/hoenn_journal_page.c draws it; this file decides what's on it), shown
+// once Elm's aide sets FLAG_HOENN_GOT_SEEKERS_JOURNAL. 2.1-05 built it as a
+// key item read from the bag or SELECT; that item is no longer given.
 //
 // Each entry is in one of three states:
 //   - ??? until you've heard of it;
@@ -19,18 +20,15 @@
 //     always counts as heard, so nothing found ever shows as ???.
 // So the heard flags only record what can't be read from the game's state.
 //
-// The screen is two dynamic menus: the pages (JOHTO 3/22 …), then a page's
-// entries (??? / the rumor's short question / the found title). Picking an
-// entry shows its rumor or its found line in a message box, and the list
-// opens again on the same row. Menu names are Alloc'ed copies: the dynamic
-// menu frees every name when it closes (CLAUDE.md, part 14a).
+// The page has a tab per region and TODAY; each row is ??? / the rumor's
+// short question / the found title, and A reads its rumor or its found line.
 //
 // 2.1-06 adds:
-//   - the TODAY page, listed first: every entry with a "when" rule that you've
-//     heard of, isn't found yet (or comes back: repeat), and fits today: its
-//     weekdays (a night-only event counts the night's weekday,
+//   - the TODAY page, the first tab: every entry with a "when" rule that
+//     you've heard of, isn't found yet (or comes back: repeat), and fits
+//     today: its weekdays (a night-only event counts the night's weekday,
 //     HoennNightWeekday) and its weather maps (one has its special-weather
-//     day today, the forecast table's test). Picking one shows its "when"
+//     day today, the forecast table's test). Reading one shows its "when"
 //     line (times, tide) first, then its rumor or found line;
 //   - Birch's aide's field notes read this table instead of the hint rumors:
 //     found X of all entries, then the first unfound entry you haven't heard
@@ -44,10 +42,7 @@
 #include "hoenn_hints.h"
 #include "hoenn_time.h"
 #include "rtc.h"
-#include "list_menu.h"
-#include "malloc.h"
 #include "script.h"
-#include "script_menu.h"
 #include "string_util.h"
 #include "constants/flags.h"
 #include "constants/hoenn_events.h"
@@ -96,8 +91,6 @@ struct HoennJournalCall
 #include "data/hoenn_journal.h"
 
 static const u8 sText_Unknown[] = _("? ? ? ? ?");
-static const u8 sText_Back[] = _("BACK");
-static const u8 sText_Close[] = _("CLOSE");
 static const u8 sText_NotHeard[] = _("Nothing written here yet.\nKeep your ears open!");
 static const u8 sText_Today[] = _("TODAY");
 
@@ -155,17 +148,6 @@ static bool32 OnPage(const struct HoennJournalEntry *e, u32 page)
     return (page == HOENN_JOURNAL_PAGE_TODAY) ? IsToday(e) : e->page == page;
 }
 
-// The entry at place `slot` on `page` (the TODAY page too), or NULL.
-static const struct HoennJournalEntry *EntryAt(u32 page, u32 slot)
-{
-    u32 i;
-
-    for (i = 0; i < ARRAY_COUNT(sJournalEntries); i++)
-        if (OnPage(&sJournalEntries[i], page) && slot-- == 0)
-            return &sJournalEntries[i];
-    return NULL;
-}
-
 static u32 CountToday(void)
 {
     u32 i, n = 0;
@@ -191,86 +173,85 @@ static void CountPage(u32 page, u32 *found, u32 *total)
     }
 }
 
-static void PushName(const u8 *text, u32 id)
-{
-    struct ListMenuItem item;
-    u8 *name = Alloc(StringLength(text) + 1);
+// ---- What the POKéGEAR page reads (src/hoenn_journal_page.c, 2.1-06b) ------
 
-    StringCopy(name, text);
-    item.name = name;
-    item.id = id;
-    MultichoiceDynamic_PushElement(item);
+// The entries on `page` (a region, or TODAY), in table order, as indices
+// into sJournalEntries. Returns how many.
+u32 HoennJournalPageEntries(u32 page, u8 *entries)
+{
+    u32 i, n = 0;
+
+    for (i = 0; i < ARRAY_COUNT(sJournalEntries); i++)
+        if (OnPage(&sJournalEntries[i], page))
+            entries[n++] = i;
+    return n;
 }
 
-// special HoennJournalPushPages: "TODAY 3" (id HOENN_JOURNAL_PAGE_TODAY),
-// "JOHTO 3/22" per region, then CLOSE (HOENN_JOURNAL_PAGE_TODAY + 1).
-void HoennJournalPushPages(void)
+u32 HoennJournalEntryCount(void)
 {
-    u8 buf[24];
-    u32 page, found, total;
-    u8 *end;
-
-    end = StringCopy(buf, sText_Today);
-    *end++ = CHAR_SPACE;
-    ConvertIntToDecimalStringN(end, CountToday(), STR_CONV_MODE_LEFT_ALIGN, 3);
-    PushName(buf, HOENN_JOURNAL_PAGE_TODAY);
-    for (page = 0; page < HOENN_JOURNAL_PAGE_COUNT; page++)
-    {
-        CountPage(page, &found, &total);
-        end = StringCopy(buf, sJournalPageNames[page]);
-        *end++ = CHAR_SPACE;
-        end = ConvertIntToDecimalStringN(end, found, STR_CONV_MODE_LEFT_ALIGN, 3);
-        *end++ = CHAR_SLASH;
-        ConvertIntToDecimalStringN(end, total, STR_CONV_MODE_LEFT_ALIGN, 3);
-        PushName(buf, page);
-    }
-    PushName(sText_Close, HOENN_JOURNAL_PAGE_TODAY + 1);
+    return ARRAY_COUNT(sJournalEntries);
 }
 
-// special HoennJournalPushEntries: page VAR_0x8004's entries (id = place on
-// the page), then BACK (HOENN_JOURNAL_MENU_BACK). STR_VAR_1 = the page's
-// name, STR_VAR_2 = found, STR_VAR_3 = total. On the TODAY page: STR_VAR_1 =
-// the weekday, STR_VAR_2 = how many are on.
-void HoennJournalPushEntries(void)
+u32 HoennJournalEntryState(u32 entry)
 {
-    u32 page = gSpecialVar_0x8004, slot, found, total;
-    const struct HoennJournalEntry *e;
+    if (IsFound(&sJournalEntries[entry]))
+        return HOENN_JOURNAL_FOUND;
+    if (IsHeard(&sJournalEntries[entry]))
+        return HOENN_JOURNAL_HEARD;
+    return HOENN_JOURNAL_NOT_HEARD;
+}
 
-    for (slot = 0; (e = EntryAt(page, slot)) != NULL; slot++)
+// The row's name: ??? until heard, then the rumor's short question, then
+// the found title.
+const u8 *HoennJournalEntryName(u32 entry)
+{
+    switch (HoennJournalEntryState(entry))
     {
-        if (IsFound(e))
-            PushName(e->title, slot);
-        else if (IsHeard(e))
-            PushName(e->hint, slot);
-        else
-            PushName(sText_Unknown, slot);
+    case HOENN_JOURNAL_FOUND:
+        return sJournalEntries[entry].title;
+    case HOENN_JOURNAL_HEARD:
+        return sJournalEntries[entry].hint;
+    default:
+        return sText_Unknown;
     }
-    PushName(sText_Back, HOENN_JOURNAL_MENU_BACK);
+}
+
+// What reading it shows: the found line, the rumor, or "nothing yet".
+const u8 *HoennJournalEntryText(u32 entry)
+{
+    switch (HoennJournalEntryState(entry))
+    {
+    case HOENN_JOURNAL_FOUND:
+        return sJournalEntries[entry].foundText;
+    case HOENN_JOURNAL_HEARD:
+        return sJournalEntries[entry].rumor;
+    default:
+        return sText_NotHeard;
+    }
+}
+
+// The TODAY page's "when" line (times, tide), or NULL. The swarm's line
+// names today's species and map ({STR_VAR_1}/{STR_VAR_2}), so buffer them.
+const u8 *HoennJournalEntryWhen(u32 entry)
+{
+    if (sJournalEntries[entry].when == NULL)
+        return NULL;
+    HoennSwarmBufferNames(); // 2.1-07
+    return sJournalEntries[entry].when->text;
+}
+
+// Found and total on a region's page; on TODAY, both are the entries on it.
+void HoennJournalPageCounts(u32 page, u32 *found, u32 *total)
+{
     if (page == HOENN_JOURNAL_PAGE_TODAY)
-    {
-        HoennBufferWeekdayName(); // STR_VAR_1
-        ConvertIntToDecimalStringN(gStringVar2, CountToday(), STR_CONV_MODE_LEFT_ALIGN, 3);
-        return;
-    }
-    CountPage(page, &found, &total);
-    StringCopy(gStringVar1, sJournalPageNames[page]);
-    ConvertIntToDecimalStringN(gStringVar2, found, STR_CONV_MODE_LEFT_ALIGN, 3);
-    ConvertIntToDecimalStringN(gStringVar3, total, STR_CONV_MODE_LEFT_ALIGN, 3);
+        *found = *total = CountToday();
+    else
+        CountPage(page, found, total);
 }
 
-// callnative HoennSeek_JournalEntryText: data[0] = the text of entry
-// VAR_0x8005 on page VAR_0x8004 (for callstd MSGBOX_DEFAULT, like the hint
-// NPCs).
-void HoennSeek_JournalEntryText(struct ScriptContext *ctx)
+const u8 *HoennJournalPageName(u32 page)
 {
-    const struct HoennJournalEntry *e = EntryAt(gSpecialVar_0x8004, gSpecialVar_0x8005);
-
-    if (e == NULL || !IsHeard(e))
-        ctx->data[0] = (uintptr_t)sText_NotHeard;
-    else if (IsFound(e))
-        ctx->data[0] = (uintptr_t)e->foundText;
-    else
-        ctx->data[0] = (uintptr_t)e->rumor;
+    return (page == HOENN_JOURNAL_PAGE_TODAY) ? sText_Today : sJournalPageNames[page];
 }
 
 // The heard flags are 2.1's generated journal block (HOENN_21_JOURNAL_FLAGS).
@@ -280,16 +261,6 @@ STATIC_ASSERT(FLAG_HOENN_GOT_SEEKERS_JOURNAL >= HOENN_21_LANE_A_FLAGS && FLAG_HO
 #endif // IS_HNS
 
 #if IS_HNS
-// callnative HoennSeek_JournalWhenText: data[0] = the "when" line of TODAY's
-// entry VAR_0x8005 (shown before its rumor or found line).
-void HoennSeek_JournalWhenText(struct ScriptContext *ctx)
-{
-    const struct HoennJournalEntry *e = EntryAt(HOENN_JOURNAL_PAGE_TODAY, gSpecialVar_0x8005);
-
-    HoennSwarmBufferNames(); // 2.1-07: the swarm's line names today's species and map
-    ctx->data[0] = (uintptr_t)(e != NULL && e->when != NULL ? e->when->text : sText_NotHeard);
-}
-
 // ---- Birch's aide's field notes (src/hoenn_hints.c) -------------------------
 
 // Found entries, and all entries, on every page.

@@ -35,6 +35,7 @@ u32 HoennScaledAce(u32 ladder); // 2.1-02: HOENN_LADDER_* (constants/hoenn_event
 u8 HoennScaleTrainerMonLevel(const struct Trainer *trainer, u8 level);
 void HoennSetupScaledWildBattle(void);
 u16 HoennGetStampCount(void);
+bool32 HoennIsPetalburgGymDoor(u8 metatileBehavior); // 1.1 fix: Petalburg Gym's room doors (src/hoenn_specials.c)
 u16 HoennBufferFollower(void);
 void HoennPushStoneList(void);
 u16 HoennStoneFromIndex(void);
@@ -58,16 +59,34 @@ bool32 HoennLaneAOnStep(void); // src/hoenn_lane_a.c (part 32: the Ampharos ride
 bool32 HoennLaneAFollowerOverride(u32 *species, bool32 *shiny, bool32 *female); // src/hoenn_lane_a.c (part 32)
 u16 HoennLaneBDueCall(void); // src/hoenn_lane_b.c
 u16 Hoenn21LaneADueCall(void); // src/hoenn_2_1_lane_a.c (2.1-02)
+u16 HoennNeighborStage(void);                // 2.1-15: specialvar, your progress stage for ETHAN/LYRA's lines
+u16 HoennNeighborTownArm(void);             // 2.1-16: specialvar, shows/hides ETHAN/LYRA in town VAR_0x8004
+u16 HoennNeighborLeaveDir(void);            // 2.1-16: specialvar, the way they move along
+u16 HoennCatchTutorialBackPic(void);         // 2.1-15: the catch-tutorial back pic (WALLY's unless it's your friend's demo)
+const u8 *HoennCatchTutorialString(u32 stringId, const u8 *str);
+const u8 *HoennCatchTutorialWhatWill(const u8 *str);
 void HoennUpdateLeaderWeekends(void); // 2.1-18: leaders' weekends (src/hoenn_2_1_lane_b.c)
 u16 Hoenn21LaneBDueCall(void); // src/hoenn_2_1_lane_b.c (2.1-02)
+// 2.1-21 to 23: fan-favorite chains (src/hoenn_fan_chains.c)
+void HoennUpdateFanChains(void);
+bool32 HoennChainCallDue(u32 chain, u16 callFlag);
+u16 HoennChainStepReady(void); // specialvar
+void HoennChainStepDone(void);  // special
+struct ScriptContext;
+void HoennSeek_ChainPoolLine(struct ScriptContext *ctx); // callnative
 // 2.1-05: the SEEKER'S JOURNAL (src/hoenn_journal.c, lane A)
 void HoennJournalHeardCall(u16 call); // an event call rang (HoennTryEventCall)
-void HoennJournalPushPages(void);     // special
-void HoennJournalPushEntries(void);   // special, page in VAR_0x8004
-struct ScriptContext;
-void HoennSeek_JournalEntryText(struct ScriptContext *ctx);
-// 2.1-06: the TODAY page, the field notes, the professors' rewards.
-void HoennSeek_JournalWhenText(struct ScriptContext *ctx);
+// 2.1-06b: the POKéGEAR page's reading of the journal (src/hoenn_journal_page.c).
+enum { HOENN_JOURNAL_NOT_HEARD, HOENN_JOURNAL_HEARD, HOENN_JOURNAL_FOUND };
+u32 HoennJournalPageEntries(u32 page, u8 *entries); // entry ids on a page (TODAY too); returns how many
+u32 HoennJournalEntryCount(void);
+u32 HoennJournalEntryState(u32 entry);
+const u8 *HoennJournalEntryName(u32 entry);  // ??? / its question / its title
+const u8 *HoennJournalEntryText(u32 entry);  // its rumor or found line
+const u8 *HoennJournalEntryWhen(u32 entry);  // its TODAY line, or NULL
+void HoennJournalPageCounts(u32 page, u32 *found, u32 *total);
+const u8 *HoennJournalPageName(u32 page);
+// 2.1-06: the field notes, the professors' rewards.
 u32 HoennJournalCountFound(u32 *total);
 const u8 *HoennJournalFieldNote(void);
 bool32 HoennJournalPageComplete(u32 page);

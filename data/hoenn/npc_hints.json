@@ -29,7 +29,8 @@
     "",
     "Conditions: {flag: F} {not_flag: F} {var: V, min: n} {var: V, below: n} {stamps_min: n}",
     "  {stamps_below: n} (Hoenn badges) {badges_min: n} {badges_below: n} (HnS's 16 badges)",
-    "  {caught: SPECIES} {not_caught: SPECIES} {level_cap: true} (HnS's level cap option is on)."
+    "  {caught: SPECIES} {not_caught: SPECIES} {level_cap: true} (HnS's level cap option is on)",
+    "  {follower: SPECIES} (the Pokémon following you) {party: SPECIES} {defeated: TRAINER_X} (2.1-21)."
   ],
 
   "lines": {

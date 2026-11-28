@@ -48,21 +48,29 @@ BlackthornGym_MapScript_BuildBridge1::
 	setmetatile 19, 53, 0x35A, FALSE
 	setmetatile 19, 54, 0x35A, FALSE
 	setmetatile 20, 47, 0x35A, FALSE
-	setmetatile 20, 48, 0x35A, FALSE
-	setmetatile 20, 49, 0x35A, FALSE
-	setmetatile 20, 50, 0x35A, FALSE
-	setmetatile 20, 51, 0x35A, FALSE
-	setmetatile 20, 52, 0x35A, FALSE
-	setmetatile 20, 53, 0x35A, FALSE
-	setmetatile 20, 54, 0x35A, FALSE
 	setmetatile 21, 47, 0x35A, FALSE
+	setmetatile 20, 48, 0x35A, FALSE
 	setmetatile 21, 48, 0x35A, FALSE
+	setmetatile 20, 49, 0x35A, FALSE
 	setmetatile 21, 49, 0x35A, FALSE
+	setmetatile 20, 50, 0x35A, FALSE
 	setmetatile 21, 50, 0x35A, FALSE
+	setmetatile 20, 51, 0x35A, FALSE
 	setmetatile 21, 51, 0x35A, FALSE
+	setmetatile 20, 52, 0x35A, FALSE
 	setmetatile 21, 52, 0x35A, FALSE
+	setmetatile 20, 53, 0x35A, FALSE
 	setmetatile 21, 53, 0x35A, FALSE
+	setmetatile 20, 54, 0x35A, FALSE
 	setmetatile 21, 54, 0x35A, FALSE
+	setmetatile 22, 47, 0x35A, FALSE
+	setmetatile 22, 48, 0x35A, FALSE
+	setmetatile 22, 49, 0x35A, FALSE
+	setmetatile 22, 50, 0x35A, FALSE
+	setmetatile 22, 51, 0x35A, FALSE
+	setmetatile 22, 52, 0x35A, FALSE
+	setmetatile 22, 53, 0x35A, FALSE
+	setmetatile 22, 54, 0x35A, FALSE
 	return
 
 BlackthornGym_TriggerBridge2::
@@ -94,15 +102,19 @@ BlackthornGym_MapScript_BuildBridge2::
 	setmetatile 20, 32, 0x359, FALSE
 	setmetatile 21, 32, 0x359, FALSE
 	setmetatile 22, 32, 0x359, FALSE
+	setmetatile 23, 32, 0x359, FALSE
 	setmetatile 20, 35, 0x361, TRUE
 	setmetatile 21, 35, 0x361, TRUE
 	setmetatile 22, 35, 0x361, TRUE
+	setmetatile 23, 35, 0x361, TRUE
 	setmetatile 20, 33, 0x35A, FALSE
-	setmetatile 20, 34, 0x35A, FALSE
 	setmetatile 21, 33, 0x35A, FALSE
+	setmetatile 20, 34, 0x35A, FALSE
 	setmetatile 21, 34, 0x35A, FALSE
 	setmetatile 22, 33, 0x35A, FALSE
 	setmetatile 22, 34, 0x35A, FALSE
+	setmetatile 23, 33, 0x35A, FALSE
+	setmetatile 23, 34, 0x35A, FALSE
 	return
 
 BlackthornGym_TriggerBridge3::
@@ -120,6 +132,7 @@ BlackthornGym_MapScript_BuildBridge3::
 	setmetatile 21, 26, 0x359, FALSE
 	setmetatile 22, 26, 0x359, FALSE
 	setmetatile 23, 26, 0x359, FALSE
+	setmetatile 24, 26, 0x359, FALSE
 
 	setmetatile 17, 29, 0x361, TRUE
 	setmetatile 18, 29, 0x361, TRUE
@@ -128,6 +141,7 @@ BlackthornGym_MapScript_BuildBridge3::
 	setmetatile 21, 29, 0x361, TRUE
 	setmetatile 22, 29, 0x361, TRUE
 	setmetatile 23, 29, 0x361, TRUE
+	setmetatile 24, 29, 0x361, TRUE
 
 	setmetatile 17, 27, 0x35A, FALSE
 	setmetatile 17, 28, 0x35A, FALSE
@@ -136,13 +150,15 @@ BlackthornGym_MapScript_BuildBridge3::
 	setmetatile 19, 27, 0x35A, FALSE
 	setmetatile 19, 28, 0x35A, FALSE
 	setmetatile 20, 27, 0x35A, FALSE
-	setmetatile 20, 28, 0x35A, FALSE
 	setmetatile 21, 27, 0x35A, FALSE
+	setmetatile 20, 28, 0x35A, FALSE
 	setmetatile 21, 28, 0x35A, FALSE
 	setmetatile 22, 27, 0x35A, FALSE
 	setmetatile 22, 28, 0x35A, FALSE
 	setmetatile 23, 27, 0x35A, FALSE
 	setmetatile 23, 28, 0x35A, FALSE
+	setmetatile 24, 27, 0x35A, FALSE
+	setmetatile 24, 28, 0x35A, FALSE
 	return	
 
 BlackthornGym_TriggerBridge4::
@@ -159,15 +175,20 @@ BlackthornGym_MapScript_BuildBridge4::
 	setmetatile 19, 14, 0x35A, FALSE
 	setmetatile 19, 15, 0x35A, FALSE
 	setmetatile 20, 11, 0x35A, FALSE
-	setmetatile 20, 12, 0x35A, FALSE
-	setmetatile 20, 13, 0x35A, FALSE
-	setmetatile 20, 14, 0x35A, FALSE
-	setmetatile 20, 15, 0x35A, FALSE
 	setmetatile 21, 11, 0x35A, FALSE
+	setmetatile 20, 12, 0x35A, FALSE
 	setmetatile 21, 12, 0x35A, FALSE
+	setmetatile 20, 13, 0x35A, FALSE
 	setmetatile 21, 13, 0x35A, FALSE
+	setmetatile 20, 14, 0x35A, FALSE
 	setmetatile 21, 14, 0x35A, FALSE
+	setmetatile 20, 15, 0x35A, FALSE
 	setmetatile 21, 15, 0x35A, FALSE
+	setmetatile 22, 11, 0x35A, FALSE
+	setmetatile 22, 12, 0x35A, FALSE
+	setmetatile 22, 13, 0x35A, FALSE
+	setmetatile 22, 14, 0x35A, FALSE
+	setmetatile 22, 15, 0x35A, FALSE
 	return
 
 
