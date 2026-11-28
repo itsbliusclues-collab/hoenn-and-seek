@@ -1,4 +1,6 @@
 PalletTown_Lab_hns_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, HoennSeek_EventScript_OaksLabOnTransition @ Hoenn & Seek 2.1-16
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, HoennSeek_OaksLabFrameTable
 	.byte 0
 
 PalletTown_Lab_EventScript_Oak::

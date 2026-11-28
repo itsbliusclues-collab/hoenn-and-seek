@@ -1420,10 +1420,14 @@ HoennSeek_Text_EthanPhone8::
 	.string "after this. KANTO, or home…\l"
 	.string "What would you do?$"
 HoennSeek_Text_EthanPhone9::
+	.string "ETHAN: I'm PROF. OAK's field aide now!\n"
+	.string "PROF. ELM says he's proud of me.\l"
+	.string "Go show HOENN what you can do!$"
+HoennSeek_Text_EthanPhone10::
 	.string "ETHAN: What's HOENN like? PROF. BIRCH\n"
 	.string "sends PROF. OAK photos. The sea\l"
 	.string "there looks so blue!$"
-HoennSeek_Text_EthanPhone10::
+HoennSeek_Text_EthanPhone11::
 	.string "ETHAN: Champion of two regions! I tell\n"
 	.string "everyone at PROF. OAK's lab we\l"
 	.string "grew up together.$"
@@ -1464,10 +1468,14 @@ HoennSeek_Text_LyraPhone8::
 	.string "after this. KANTO, or home…\l"
 	.string "What would you do?$"
 HoennSeek_Text_LyraPhone9::
+	.string "LYRA: I'm PROF. OAK's field aide now!\n"
+	.string "PROF. ELM says he's proud of me.\l"
+	.string "Go show HOENN what you can do!$"
+HoennSeek_Text_LyraPhone10::
 	.string "LYRA: What's HOENN like? PROF. BIRCH\n"
 	.string "sends PROF. OAK photos. The sea\l"
 	.string "there looks so blue!$"
-HoennSeek_Text_LyraPhone10::
+HoennSeek_Text_LyraPhone11::
 	.string "LYRA: Champion of two regions! I tell\n"
 	.string "everyone at PROF. OAK's lab we\l"
 	.string "grew up together.$"
