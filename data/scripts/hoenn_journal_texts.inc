@@ -571,6 +571,51 @@ HoennSeek_Text_JournalJirachiWishesFoundText::
 HoennSeek_Text_JournalJirachiWishesWhen::
 	.string "At night.$"
 
+HoennSeek_Text_JournalBrockWeekendsHint::
+	.string "BROCK's weekends?$"
+
+HoennSeek_Text_JournalBrockWeekendsTitle::
+	.string "BROCK's weekends$"
+
+HoennSeek_Text_JournalBrockWeekendsRumor::
+	.string "BROCK spends his weekends at the\nPEWTER MUSEUM. Talk to him there:\lhe has something on his mind, and\lit takes a few weekends to tell.$"
+
+HoennSeek_Text_JournalBrockWeekendsFoundText::
+	.string "BROCK's breeder dream: MT. MOON,\nthe DAY CARE, and an ONIX DOLL\lfrom his family.$"
+
+HoennSeek_Text_JournalBrockWeekendsWhen::
+	.string "All day.$"
+
+HoennSeek_Text_JournalMistyWeekendsHint::
+	.string "MISTY's weekends?$"
+
+HoennSeek_Text_JournalMistyWeekendsTitle::
+	.string "MISTY's water show$"
+
+HoennSeek_Text_JournalMistyWeekendsRumor::
+	.string "MISTY swims to the SEAFOAM ISLANDS\nevery weekend. She's planning\lsomething new for her gym's water\lshow, and she could use some help.$"
+
+HoennSeek_Text_JournalMistyWeekendsFoundText::
+	.string "MISTY's new finale: the SEAFOAM\ncurrent, a rehearsal in her gym,\land a STARMIE DOLL from\lher sisters.$"
+
+HoennSeek_Text_JournalMistyWeekendsWhen::
+	.string "All day.$"
+
+HoennSeek_Text_JournalBlueWeekendsHint::
+	.string "BLUE's weekends?$"
+
+HoennSeek_Text_JournalBlueWeekendsTitle::
+	.string "BLUE goes home$"
+
+HoennSeek_Text_JournalBlueWeekendsRumor::
+	.string "BLUE trains on ROUTE 22 every\nweekend. His grandpa and his\lsister say he never visits PALLET\lTOWN. Maybe he needs someone to\lcome along.$"
+
+HoennSeek_Text_JournalBlueWeekendsFoundText::
+	.string "BLUE went home to PALLET TOWN:\nDAISY's stories, a talk in OAK's\llab, and a PIDGEOT DOLL.$"
+
+HoennSeek_Text_JournalBlueWeekendsWhen::
+	.string "All day.$"
+
 HoennSeek_Text_JournalMudkipPondHint::
 	.string "A pond at dawn?$"
 

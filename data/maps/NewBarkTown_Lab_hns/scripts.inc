@@ -6,6 +6,7 @@ NewBarkTown_Lab_hns_MapScripts::
 	.byte 0
 
 NewBarkTown_Lab_OnTransition::
+	call HoennSeek_EventScript_LabNeighborArm @ Hoenn & Seek 2.1-15
 	goto_if_eq VAR_NEWBARKTOWN_LABSTATE, 6, NewBarkTown_Lab_EventScript_ElmAtComputer
 	goto_if_eq VAR_NEWBARKTOWN_LABSTATE, 2, NewBarkTown_Lab_EventScript_ElmAtComputer
 	goto_if_eq VAR_NEWBARKTOWN_LABSTATE, 3, NewBarkTown_Lab_EventScript_ElmAtComputer
@@ -308,6 +309,7 @@ NewBarkTown_Lab_EventScript_MrPokemon::
 	clearflag FLAG_RECEIVED_FIRST_POTION
 	setvar VAR_NEWBARK_TOWN_STATE, 3
 	setflag FLAG_ENABLE_CONDITION
+	call HoennSeek_EventScript_NeighborAfterElm @ Hoenn & Seek 2.1-15
 	release
 	end
 
@@ -317,6 +319,7 @@ NewBarkTown_Lab_EventScript_MrPokemonMovementSafe::
 	clearflag FLAG_RECEIVED_FIRST_BALLS
 	clearflag FLAG_RECEIVED_FIRST_POTION
 	setvar VAR_NEWBARK_TOWN_STATE, 3
+	call HoennSeek_EventScript_NeighborAfterElm @ Hoenn & Seek 2.1-15
 	release
 	end
 

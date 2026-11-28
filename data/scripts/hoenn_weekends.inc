@@ -114,7 +114,10 @@ HoennSeek_EventScript_WeekendGuide_CLAIR::
 HoennSeek_EventScript_Weekend_BROCK::
 	lock
 	faceplayer
+	call HoennSeek_EventScript_ChainSpot_BROCK
+	goto_if_eq VAR_RESULT, TRUE, HoennSeek_EventScript_Weekend_BROCK_Rematch
 	msgbox HoennSeek_Text_Weekend_BROCK, MSGBOX_DEFAULT
+HoennSeek_EventScript_Weekend_BROCK_Rematch:
 	goto_if_unset FLAG_HIDE_DOJO_BROCK, SaffronCity_FightingDojoVIP_EventScript_Brock
 	closemessage
 	release
@@ -128,7 +131,10 @@ HoennSeek_EventScript_WeekendGuide_BROCK::
 HoennSeek_EventScript_Weekend_MISTY::
 	lock
 	faceplayer
+	call HoennSeek_EventScript_ChainSpot_MISTY
+	goto_if_eq VAR_RESULT, TRUE, HoennSeek_EventScript_Weekend_MISTY_Rematch
 	msgbox HoennSeek_Text_Weekend_MISTY, MSGBOX_DEFAULT
+HoennSeek_EventScript_Weekend_MISTY_Rematch:
 	goto_if_unset FLAG_HIDE_DOJO_MISTY, SaffronCity_FightingDojoVIP_EventScript_Misty
 	closemessage
 	release
@@ -207,7 +213,10 @@ HoennSeek_EventScript_WeekendGuide_BLAINE::
 HoennSeek_EventScript_Weekend_BLUE::
 	lock
 	faceplayer
+	call HoennSeek_EventScript_ChainSpot_BLUE
+	goto_if_eq VAR_RESULT, TRUE, HoennSeek_EventScript_Weekend_BLUE_Rematch
 	msgbox HoennSeek_Text_Weekend_BLUE, MSGBOX_DEFAULT
+HoennSeek_EventScript_Weekend_BLUE_Rematch:
 	goto_if_unset FLAG_HIDE_DOJO_BLUE, SaffronCity_FightingDojoVIP_EventScript_Blue
 	closemessage
 	release

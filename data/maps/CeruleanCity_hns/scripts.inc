@@ -3,6 +3,7 @@ CeruleanCity_hns_MapScripts::
 	.byte 0
 
 CeruleanCity_EventScript_CityEnter::
+	call HoennSeek_EventScript_NeighborTownArmCerulean @ Hoenn & Seek 2.1-16
 	setflag FLAG_VISITED_CERULEAN_CITY
 	call HoennSeek_EventScript_CeruleanOnTransition @ Hoenn & Seek 2.0 part 16
 	end
