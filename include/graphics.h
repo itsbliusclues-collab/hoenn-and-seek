@@ -2177,6 +2177,7 @@ extern const u32 gPokenavLeftHeaderMainMenu_Gfx[];
 extern const u32 gPokenavLeftHeaderCondition_Gfx[];
 extern const u32 gPokenavLeftHeaderRibbons_Gfx[];
 extern const u32 gPokenavLeftHeaderMatchCall_Gfx[];
+extern const u32 gPokenavLeftHeaderJournal_Gfx[]; // Hoenn & Seek 2.1-06b (HnS only)
 extern const u32 gPokenavLeftHeaderParty_Gfx[];
 extern const u32 gPokenavLeftHeaderSearch_Gfx[];
 extern const u32 gPokenavLeftHeaderCool_Gfx[];

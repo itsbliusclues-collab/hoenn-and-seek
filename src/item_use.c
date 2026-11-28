@@ -1718,19 +1718,6 @@ void ItemUseOutOfBattle_HoennSandChime(u8 taskId)
     SetUpItemUseOnFieldCallback(taskId);
 }
 
-// Hoenn & Seek 2.1-05: the SEEKER'S JOURNAL opens on the field the same way.
-static void Task_HoennReadJournal(u8 taskId)
-{
-    ScriptContext_SetupScript(HoennSeek_EventScript_SeekersJournal);
-    DestroyTask(taskId);
-}
-
-void ItemUseOutOfBattle_HoennSeekersJournal(u8 taskId)
-{
-    sItemUseOnFieldCB = Task_HoennReadJournal;
-    SetUpItemUseOnFieldCallback(taskId);
-}
-
 void ItemUseOutOfBattle_PokeFlute(u8 taskId)
 {
     bool32 wokeSomeoneUp = FALSE;
