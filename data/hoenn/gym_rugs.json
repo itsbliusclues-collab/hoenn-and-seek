@@ -1,0 +1,90 @@
+{
+  "_comment": [
+    "Hoenn & Seek 2.1-25 to 27: leaders' rooms redrawn so the leader and their Pokémon stand side by side, centred, on a rug",
+    "made for the pair (Bryan, Nov 28; hoenn-docs/2.1-mockups/gyms/README.md). Read by tools/hoenn/gen_hoenn_gym_rugs.py",
+    "(its header explains the ops). Coordinates are blocks unless an op says \"px\". Ops run in order; pixel ops see the map",
+    "after every block op. The followers' tiles are in data/hoenn/trainer_followers.json (\"at\")."
+  ],
+  "gyms": [
+    {"map": "VioletCity_Gym_hns", "_": "Noctowl stands behind Falkner: the rug grows a row up so it stands on it",
+     "ops": [
+       {"op": "nine", "src": [8, 4, 3, 1], "dst": [8, 3, 3, 2], "b": 5}
+     ]},
+    {"map": "EcruteakCity_Gym_hns", "_": "the leader's room (rows 0-7) gets a middle column; a 2-wide mat just under Morty and Gengar (Bryan, 8:25 AM CT)",
+     "ops": [
+       {"op": "insert_col", "x": 4, "rows": [0, 7]},
+       {"op": "orn", "x": 4, "y": 2},
+       {"op": "nine", "from": "orig", "src": [3, 4, 3, 2], "dst": [3, 4, 4, 2], "b": 16, "mode": "repeat"},
+       {"op": "paste", "px": true, "from": "orig", "src": [64, 109, 3, 19], "dst": [64, 109], "_": "the door's left edge"},
+       {"op": "paste", "px": true, "from": "orig", "src": [77, 109, 3, 19], "dst": [93, 109], "_": "its right edge, a column on"},
+       {"op": "paste", "px": true, "src": [83, 93, 26, 16], "dst": [67, 109], "_": "the floor runs on through it (its pattern repeats every 16 pixels)"},
+       {"op": "paste", "px": true, "src": [83, 93, 26, 3], "dst": [67, 125]}
+     ]},
+    {"map": "GoldenrodCity_Gym_hns", "_": "already even: the bench grows to 4 (x 14-17) under Whitney and Miltank, its left pot moves to its right end",
+     "ops": [
+       {"op": "put", "src": [14, 8, 1, 1], "dst": [18, 8]},
+       {"op": "nine", "src": [15, 8, 2, 1], "dst": [14, 8, 4, 1], "b": 5},
+       {"op": "set", "at": [17, 8], "collision": 1, "_": "both bench ends are solid (14,8 kept its pot's collision)"}
+     ]},
+    {"map": "AzaleaTown_Gym_hns", "_": "Bugsy (11,6) and Scyther (10,6) stay; the trees left of them (x 5-10) are mirrored onto x 11-16 (Bryan, 8:21 AM CT). Row 11 holds the three Ariados pads (x 6, 11, 16), whose triggers and Ariados objects stay where they are, so the pads are put back after the mirror. The room is 15 wide (x 4-18), so x 17-18 by the right wall keep their trees",
+     "ops": [
+       {"op": "mirror", "x0": 5, "x1": 10, "y0": 3, "y1": 11, "axis": 21},
+       {"op": "put", "src": [6, 11, 1, 1], "dst": [11, 11]},
+       {"op": "put", "src": [6, 11, 1, 1], "dst": [16, 11]},
+       {"op": "put", "src": [5, 11, 1, 1], "dst": [15, 11]}
+     ]},
+    {"map": "MahoganyTown_Gym_hns", "_": "a middle column (12) through the whole room: Pryce at 12, Piloswine at 13, the platform 4 wide",
+     "ops": [
+       {"op": "insert_col", "x": 12},
+       {"op": "orn", "x": 12, "y": 0}
+     ]},
+    {"map": "BlackthornCity_Gym_hns", "_": "a middle column (20) through the whole gym: Clair at 20, Kingdra at 21; the bridge scripts in its scripts.inc were moved to match by hand (x > 20 + 1, x = 20 doubled)",
+     "ops": [
+       {"op": "insert_col", "x": 20},
+       {"op": "orn", "x": 20, "y": 1, "h": 2}
+     ]},
+    {"map": "CeladonCity_Gym_hns", "_": "a garden, so no rug: a middle column (6), Erika at 6, Bellossom at 7; the cut-tree row gets a fourth tree (its own flag) so the gap stays closed",
+     "ops": [
+       {"op": "insert_col", "x": 6},
+       {"op": "orn", "x": 6, "y": 0},
+       {"op": "add_event", "kind": "object_events", "index": 8, "at": [7, 14], "fields": {"flag": "FLAG_TEMP_4"}},
+       {"op": "move_event", "kind": "object_events", "index": 1, "x": 6, "_": "the twins JO and ZOE, centred on the path"},
+       {"op": "move_event", "kind": "object_events", "index": 2, "x": 7}
+     ]},
+    {"map": "CeruleanCity_Gym_hns", "_": "a middle column (7) through the pool; the pedestal is 2 wide, just under Misty and Starmie, its plate centred (Bryan, 8:21 AM CT)",
+     "ops": [
+       {"op": "insert_col", "x": 7},
+       {"op": "orn", "x": 7, "y": 0},
+       {"op": "put", "src": [8, 15, 1, 1], "dst": [8, 14], "_": "the copied (7,14) has the walkway's left edge: plain walkway there"},
+       {"op": "nine", "from": "orig", "src": [7, 5, 1, 2], "dst": [7, 5, 2, 2], "b": 4},
+       {"op": "paste", "px": true, "from": "orig", "src": [112, 112, 4, 16], "dst": [112, 112], "_": "the pedestal's foot: left edge"},
+       {"op": "nine", "px": true, "from": "orig", "src": [115, 112, 1, 16], "dst": [116, 112, 24, 16], "b": 0, "_": "its plain middle"},
+       {"op": "paste", "px": true, "from": "orig", "src": [124, 112, 4, 16], "dst": [140, 112], "_": "right edge"},
+       {"op": "paste", "px": true, "from": "orig", "src": [116, 112, 8, 16], "dst": [124, 112], "_": "the plate, centred"}
+     ]},
+    {"map": "VermilionCity_Gym_hns", "_": "the leader's room and the beam (rows 0-7) get a middle column (5), so the rug is 4 wide; the trash-can room below keeps its grid and gains a floor column on the right (the map's edge is its wall). The beam's setmetatile lines were moved by hand (x > 5 + 1, x = 5 doubled)",
+     "ops": [
+       {"op": "widen"},
+       {"op": "insert_col", "x": 5, "rows": [0, 7]},
+       {"op": "orn", "x": 5, "y": 0}
+     ]},
+    {"map": "SaffronCity_Gym_hns", "_": "a middle column (14) through the middle rooms; Sabrina at 14, Alakazam beside her at 15 on the diamonds",
+     "ops": [
+       {"op": "insert_col", "x": 14},
+       {"op": "orn", "x": 14, "y": 8}
+     ]},
+    {"map": "ViridianCity_Gym_hns", "_": "a middle column (5); the rug grows to 4 with it, Blue at 5, Rhyperior at 6",
+     "ops": [
+       {"op": "insert_col", "x": 5},
+       {"op": "orn", "x": 5, "y": 0}
+     ]},
+    {"map": "MtSilver_SummitDay_hns", "_": "Red and Pikachu centred on the peak: the summit path gets a middle column (10) (Bryan, 8:27 AM CT)",
+     "ops": [
+       {"op": "insert_col", "x": 10}
+     ]},
+    {"map": "MtSilver_SummitNight_hns", "_": "the night summit, the same change",
+     "ops": [
+       {"op": "insert_col", "x": 10}
+     ]}
+  ]
+}

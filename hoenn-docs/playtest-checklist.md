@@ -727,3 +727,19 @@ Lane B's `## 2.0 part NN` sections go below this line, at the end of the file.
 - DAISY's own script still works with BLUE sitting across from her (grooming once a day), and OAK still gives the journal's Kanto doll.
 - His pool lines with PIDGEOT/RHYPERIOR/ARCANINE/EEVEE following and the two-chain line (BROCK's and MISTY's both done).
 - BRENDAN's call after the doll.
+
+### 2.1-25 (Johto gym rugs)
+- Each Johto leader with their Pokémon: VIOLET (Noctowl behind Falkner, both on the rug), AZALEA (trees symmetric around Bugsy and Scyther), GOLDENROD (Whitney and Miltank on a 4-wide bench), ECRUTEAK (Morty and Gengar on a 2-wide mat, the room's emblem and door centred), MAHOGANY (Pryce and Piloswine side by side on the platform), BLACKTHORN (Clair and Kingdra side by side). Talk to each leader and battle: nothing changed there.
+- AZALEA: ride each of the three top Ariados pads down and back up; the trees around them moved.
+- ECRUTEAK: leave the leader's room by its door's left tile (the hidden path); the right tile drops you into the pit like the tiles beside the path.
+- MAHOGANY: solve the ice from the door to Pryce (the room is one column wider; a solver and one emulator run found the route).
+- BLACKTHORN: raise all four bridges in order (each is a tile wider now) and reach Clair; reload the gym after each bridge (the map script redraws them).
+- Visit each gym on a weekend after beating its leader: the room is empty, no stray rug pieces or follower.
+
+### 2.1-26 (Kanto gym rugs, Red's summit)
+- Each Kanto leader with their Pokémon: PEWTER (Onix behind Brock), CERULEAN (Misty and Starmie on a 2-wide pedestal, the plate centred), VERMILION (Surge and Raichu on a 4-wide rug), CELADON (Erika and Bellossom centred in the garden), SAFFRON (Sabrina and Alakazam side by side on the diamonds), VIRIDIAN (Blue and Rhyperior on a 4-wide rug). Talk to each leader and battle.
+- CELADON: the cut-tree row has four trees now: you can't pass without CUT, and all four stay cut until you leave.
+- VERMILION: the trash-can puzzle (unchanged grid), then both beam states: half on after the first switch, off after the second (the beam is a tile wider now).
+- SAFFRON: try a few teleport pads in the middle rooms (those rooms are a tile wider; the pads moved with them).
+- MT. SILVER summit by day and by night: Red and Pikachu side by side on the middle of the peak; battle Red; Pikachu disappears with him afterwards.
+- PEWTER MUSEUM 1F on a weekend after beating BROCK: Onix beside him.

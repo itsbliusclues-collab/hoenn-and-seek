@@ -121,7 +121,7 @@
       "flag": "FLAG_HOENN_WEEKEND_SPOT_BROCK"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_MON_BASE+SPECIES_GOLEM",
+      "graphics_id": "OBJ_EVENT_GFX_MON_BASE+SPECIES_ONIX",
       "x": 7,
       "y": 6,
       "elevation": 3,

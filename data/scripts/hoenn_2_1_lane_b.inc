@@ -222,7 +222,7 @@ HoennSeek_Text_ChainBrockMtMoon1:
 	.string "These are pieces of eggshell.\n"
 	.string "CLEFAIRY eggs, and fresh ones.\p"
 	.string "Something's under them. Stand back.\n"
-	.string "GOLEM, lift that rock!$"
+	.string "ONIX, move that rock!$"
 
 HoennSeek_Text_ChainBrockMtMoon2:
 	.string "A MOON STONE! The eggs were laid\n"
