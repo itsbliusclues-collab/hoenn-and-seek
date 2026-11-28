@@ -369,6 +369,10 @@ struct SaveBlock3
     // save version 7 clears them on 2.0 saves.
     u8 hoenn21Flags[HOENN_21_FLAGS_BYTES];
     u16 hoenn21Vars[HOENN_21_VARS_COUNT];
+    // 2.1-04: the key-item pocket's slots after SaveBlock1's 60 (hoenn_bag.h).
+    // Save version 8 clears them on older saves. One u32 per slot: the size
+    // and alignment of struct ItemSlot (item ID, quantity), defined further down.
+    u32 hoennKeyItemsExtra[HOENN_KEY_ITEMS_EXTRA];
 #endif
 }; /* max size 1624 bytes */
 

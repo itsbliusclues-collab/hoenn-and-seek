@@ -576,3 +576,7 @@ Lane B's `## 2.0 part NN` sections go below this line, at the end of the file.
 
 ### 2.1-03 (screen checker)
 - Nothing new in the game. If you ever see a Pokémon or NPC missing from a busy screen (a town, a gym, a secret base full of dolls), note the map and where you stood: `hoenn-docs/screens.md` lists the 61 screens that were already over the sprite budget before 2.1.
+
+### 2.1-04 (key-item pocket)
+- The KEY ITEMS pocket holds 80 now. Late in the game (lots of key items), scroll the pocket to the end, move an item (SELECT) across the 60th/61st place, register one past the 60th for SELECT and use it: everything should behave as in the first 60.
+- Load a 2.0 save: the key items are all there and nothing new appears at the end of the pocket.

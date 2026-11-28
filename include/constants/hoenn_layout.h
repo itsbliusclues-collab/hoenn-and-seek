@@ -78,6 +78,9 @@
 #define HOENN_21_VARS_START         (HOENN_EVENT_VARS_START + HOENN_EVENT_VARS_COUNT) // 0x7100
 #define HOENN_21_VARS_COUNT         0x40
 
+// 2.1-04: key-item slots after SaveBlock1's BAG_KEYITEMS_COUNT (include/hoenn_bag.h)
+#define HOENN_KEY_ITEMS_EXTRA       20
+
 #define HOENN_21_DAILY_FLAGS_START  0x2680 // 64 daily flags
 #define HOENN_21_DAILY_FLAGS_END    0x26BF
 #define HOENN_21_WEEKLY_FLAGS_START 0x26C0 // 64 weekly flags

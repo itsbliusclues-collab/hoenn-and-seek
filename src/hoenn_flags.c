@@ -15,6 +15,7 @@
 // ID, so scripts use setflag/setvar on these like on any other flag or var.
 
 #include "global.h"
+#include "hoenn_bag.h"
 #include "event_data.h"
 #include "hoenn_flags.h"
 #include "constants/flags.h"
@@ -35,6 +36,12 @@ STATIC_ASSERT(offsetof(struct SaveBlock3, hoennEventFlags) == 0x232, HoennHarnes
 STATIC_ASSERT(offsetof(struct SaveBlock3, hoennEventVars) == 0x2B2, HoennHarnessEventVarsOffset);
 STATIC_ASSERT(offsetof(struct SaveBlock3, hoenn21Flags) == 0x3B2, HoennHarness21FlagsOffset);
 STATIC_ASSERT(offsetof(struct SaveBlock3, hoenn21Vars) == 0x412, HoennHarness21VarsOffset);
+// 2.1-04: the extra key-item slots (include/hoenn_bag.h). The bag menu's list
+// buffer (MAX_POCKET_ITEMS, src/item_menu.c) is sized by the biggest pocket,
+// which has to stay the items pocket.
+STATIC_ASSERT(offsetof(struct SaveBlock3, hoennKeyItemsExtra) == 0x494, HoennHarnessKeyItemsOffset);
+STATIC_ASSERT(HOENN_KEY_ITEMS_COUNT <= BAG_ITEMS_COUNT, HoennKeyPocketFitsBagMenu);
+STATIC_ASSERT(sizeof(struct ItemSlot) == sizeof(u32) && _Alignof(struct ItemSlot) <= _Alignof(u32), HoennKeyItemSlotIsAWord);
 
 // The 2.0 ranges must not overlap anything else.
 STATIC_ASSERT(HOENN_EVENT_FLAGS_START == HOENN_FLAGS_END + 1, HoennEventFlagsFollow1_0);
@@ -171,6 +178,13 @@ void Hoenn21ClearFlagsAndVars(void)
 {
     memset(gSaveBlock3Ptr->hoenn21Flags, 0, sizeof(gSaveBlock3Ptr->hoenn21Flags));
     memset(gSaveBlock3Ptr->hoenn21Vars, 0, sizeof(gSaveBlock3Ptr->hoenn21Vars));
+}
+
+// The key-item pocket's extra slots (2.1-04, include/hoenn_bag.h): ClearBag
+// calls this at new game, and the save version 8 upgrade on older saves.
+void HoennClearKeyItemsExtra(void)
+{
+    memset(gSaveBlock3Ptr->hoennKeyItemsExtra, 0, sizeof(gSaveBlock3Ptr->hoennKeyItemsExtra));
 }
 
 // Daily flags of night events (41r, Bryan): "knocked out tonight, back
