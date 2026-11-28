@@ -22,7 +22,7 @@ applymovement / removeobject / setobjectxy line of their own script or their map
 a person who walks off in a scene would leave the pet standing there.
 
 Where a pet can stand (all of these):
-  - plain floor (the trainer followers' rules: collision 0, a floor behavior, the owner's
+  - plain floor, not on the map's edge (the trainer followers' rules: collision 0, a floor behavior, the owner's
     elevation, no forced-move tile next to it) with nothing drawn on its top layer;
   - not on or next to a warp or a trigger, not next to a sign, not on any object or its
     wander range, not in front of any object that faces a fixed way (where you talk to it),
@@ -235,6 +235,8 @@ class Room:
         c = self.cells.get(xy)
         if c is None or c[0] or c[2] not in FLOOR or self.cov.get(xy, True):
             return False
+        if not (1 <= xy[0] < self.w - 1 and 1 <= xy[1] < self.h - 1):
+            return False  # never on the map's edge (outdoors that's where the next map starts)
         if elev and c[1] not in (0, elev):
             return False
         x, y = xy
