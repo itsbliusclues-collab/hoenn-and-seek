@@ -206,6 +206,10 @@ extern const u8 HoennSeek_Text_JournalBlueWeekendsTitle[];
 extern const u8 HoennSeek_Text_JournalBlueWeekendsRumor[];
 extern const u8 HoennSeek_Text_JournalBlueWeekendsFoundText[];
 extern const u8 HoennSeek_Text_JournalBlueWeekendsWhen[];
+extern const u8 HoennSeek_Text_JournalDanShowHint[];
+extern const u8 HoennSeek_Text_JournalDanShowTitle[];
+extern const u8 HoennSeek_Text_JournalDanShowRumor[];
+extern const u8 HoennSeek_Text_JournalDanShowFoundText[];
 extern const u8 HoennSeek_Text_JournalMudkipPondHint[];
 extern const u8 HoennSeek_Text_JournalMudkipPondTitle[];
 extern const u8 HoennSeek_Text_JournalMudkipPondRumor[];
@@ -374,6 +378,7 @@ static const struct HoennJournalEntry sJournalEntries[] = {
     { (const struct HoennHintCond[]){{HINT_IF_VAR_MIN, VAR_HOENN_CHAIN_BROCK, 4}}, 1, (const struct HoennHintCond[]){{HINT_IF_VAR_MIN, VAR_HOENN_CHAIN_BROCK, 1}}, 1, &(const struct HoennJournalWhen){ NULL, 0, 0x41, 0x0, 255, 0, FALSE, HoennSeek_Text_JournalBrockWeekendsWhen }, HoennSeek_Text_JournalBrockWeekendsHint, HoennSeek_Text_JournalBrockWeekendsTitle, HoennSeek_Text_JournalBrockWeekendsRumor, HoennSeek_Text_JournalBrockWeekendsFoundText, FLAG_HOENN_HEARD_BROCK_WEEKENDS, HOENN_JOURNAL_PAGE_KANTO }, // BROCK_WEEKENDS
     { (const struct HoennHintCond[]){{HINT_IF_VAR_MIN, VAR_HOENN_CHAIN_MISTY, 4}}, 1, (const struct HoennHintCond[]){{HINT_IF_VAR_MIN, VAR_HOENN_CHAIN_MISTY, 1}}, 1, &(const struct HoennJournalWhen){ NULL, 0, 0x41, 0x0, 255, 0, FALSE, HoennSeek_Text_JournalMistyWeekendsWhen }, HoennSeek_Text_JournalMistyWeekendsHint, HoennSeek_Text_JournalMistyWeekendsTitle, HoennSeek_Text_JournalMistyWeekendsRumor, HoennSeek_Text_JournalMistyWeekendsFoundText, FLAG_HOENN_HEARD_MISTY_WEEKENDS, HOENN_JOURNAL_PAGE_KANTO }, // MISTY_WEEKENDS
     { (const struct HoennHintCond[]){{HINT_IF_VAR_MIN, VAR_HOENN_CHAIN_BLUE, 4}}, 1, (const struct HoennHintCond[]){{HINT_IF_VAR_MIN, VAR_HOENN_CHAIN_BLUE, 1}}, 1, &(const struct HoennJournalWhen){ NULL, 0, 0x41, 0x0, 255, 0, FALSE, HoennSeek_Text_JournalBlueWeekendsWhen }, HoennSeek_Text_JournalBlueWeekendsHint, HoennSeek_Text_JournalBlueWeekendsTitle, HoennSeek_Text_JournalBlueWeekendsRumor, HoennSeek_Text_JournalBlueWeekendsFoundText, FLAG_HOENN_HEARD_BLUE_WEEKENDS, HOENN_JOURNAL_PAGE_KANTO }, // BLUE_WEEKENDS
+    { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_MET_DAN, 0}}, 1, NULL, 0, NULL, HoennSeek_Text_JournalDanShowHint, HoennSeek_Text_JournalDanShowTitle, HoennSeek_Text_JournalDanShowRumor, HoennSeek_Text_JournalDanShowFoundText, FLAG_HOENN_HEARD_DAN_SHOW, HOENN_JOURNAL_PAGE_KANTO }, // DAN_SHOW
     { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_POND_SEEN, 0}}, 1, NULL, 0, &(const struct HoennJournalWhen){ NULL, 0, 0x00, 0x1, 255, 0, TRUE, HoennSeek_Text_JournalMudkipPondWhen }, HoennSeek_Text_JournalMudkipPondHint, HoennSeek_Text_JournalMudkipPondTitle, HoennSeek_Text_JournalMudkipPondRumor, HoennSeek_Text_JournalMudkipPondFoundText, FLAG_HOENN_HEARD_MUDKIP_POND, HOENN_JOURNAL_PAGE_HOENN }, // MUDKIP_POND
     { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_RALTS_DONE, 0}}, 1, NULL, 0, &(const struct HoennJournalWhen){ NULL, 0, 0x00, 0x1, 255, 0, FALSE, HoennSeek_Text_JournalRaltsGuardWhen }, HoennSeek_Text_JournalRaltsGuardHint, HoennSeek_Text_JournalRaltsGuardTitle, HoennSeek_Text_JournalRaltsGuardRumor, HoennSeek_Text_JournalRaltsGuardFoundText, FLAG_HOENN_HEARD_RALTS_GUARD, HOENN_JOURNAL_PAGE_HOENN }, // RALTS_GUARD
     { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_MUNCHLAX_DONE, 0}}, 1, NULL, 0, NULL, HoennSeek_Text_JournalMunchlaxNapHint, HoennSeek_Text_JournalMunchlaxNapTitle, HoennSeek_Text_JournalMunchlaxNapRumor, HoennSeek_Text_JournalMunchlaxNapFoundText, FLAG_HOENN_HEARD_MUNCHLAX_NAP, HOENN_JOURNAL_PAGE_HOENN }, // MUNCHLAX_NAP
@@ -422,6 +427,7 @@ static const struct HoennJournalCall sJournalCalls[] = {
     { HOENN_CALL_MEWTWO, FLAG_HOENN_HEARD_MANSION_JOURNAL },
     { HOENN_CALL_MEW, FLAG_HOENN_HEARD_MEW_BLUR },
     { HOENN_CALL_WISHES, FLAG_HOENN_HEARD_JIRACHI_WISHES },
+    { HOENN_CALL_DAN, FLAG_HOENN_HEARD_DAN_SHOW },
     { HOENN_CALL_POND, FLAG_HOENN_HEARD_MUDKIP_POND },
     { HOENN_CALL_RALTS, FLAG_HOENN_HEARD_RALTS_GUARD },
     { HOENN_CALL_MUNCHLAX, FLAG_HOENN_HEARD_MUNCHLAX_NAP },

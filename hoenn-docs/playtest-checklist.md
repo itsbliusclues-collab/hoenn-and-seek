@@ -677,6 +677,14 @@ Lane B's `## 2.0 part NN` sections go below this line, at the end of the file.
 - [ ] **POKéGEAR:** ETHAN's or LYRA's contact line about her (the mailbox labeled MAIL), until their first milestone call. Not checked in the emulator.
 - [ ] **Dialogue is a draft** until the 2.1-36c pass.
 
+### 2.1-31 (DAN, the history broadcaster; lane B's part, built by lane A)
+- [ ] **PEWTER MUSEUM 2F:** DAN by the windows. First talk: his introduction, then episode 1's first part; each talk after that is the next part, and the third ends the episode with a teaser for next week (tested).
+- [ ] **The week:** after an episode he says the next one needs another week and offers an old one again (tested). Set the day forward at a wall clock past Sunday (or wait for Sunday): episode 2 starts (tested by clearing the weekly flag; not with the wall clock).
+- [ ] **All six:** the last part of THE ROCKET YEARS ends with his outro; afterwards he offers the replay menu with all six titles (tested). Pick one in the middle of the list and hear it through.
+- [ ] **Radio, in Kanto or Hoenn:** PLACES AND PEOPLE opens with THE DEEP PAST: this week's episode, next week's once you've finished it, a rerun after the last (tested: next week's). DJ LILY's usual lines follow; check they still play.
+- [ ] **Brendan's call** after three episodes (needs BRENDAN's number; tested). The PEWTER POKéMON CENTER teacher mentions DAN until you've met him; the journal's Kanto page gets THE DEEP PAST.
+- [ ] **Dialogue is a draft** until the 2.1-36c pass.
+
 ## 2.1 lane B
 
 ### 2.1-02 (foundations)

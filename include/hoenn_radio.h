@@ -41,6 +41,10 @@ typedef u32 (*HoennRadioBuilder)(const u8 **lines, u8 *bufs);
 u32 HoennRadioSegments(u32 station, const u8 **lines, u32 n, u32 at, u32 maxLines,
                        u8 *bufs, u32 *buf, u32 numBufs, u32 bufSize);
 
+// How many lines the segments that apply to `station` may take (a station that
+// fills every free line stops this short of the end).
+u32 HoennRadioReservedLines(u32 station);
+
 // The hooks in src/pokenav_radio.c (one line each), written as macros so they
 // can use that file's own sizes.
 #define HOENN_RADIO_SEGMENTS(station, radio, n, at, buf) \
@@ -55,6 +59,7 @@ u32 HoennRadioSegments(u32 station, const u8 **lines, u32 n, u32 at, u32 maxLine
 u32 HoennRadioUnownBroadcast(const u8 **lines, u8 *bufs); // src/hoenn_lane_a.c (2.0 part 28)
 u32 HoennRadioEusineReport(const u8 **lines, u8 *bufs);   // src/hoenn_johto_legends.c (2.0 part 35b)
 u32 HoennRadioSwarm(const u8 **lines, u8 *bufs);         // src/hoenn_swarm.c (2.1-07)
+u32 HoennRadioDan(const u8 **lines, u8 *bufs);           // src/hoenn_dan.c (2.1-31)
 
 #endif // IS_HNS
 

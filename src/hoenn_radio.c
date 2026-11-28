@@ -47,6 +47,20 @@ struct HoennRadioSegment
 
 #define MAX_SEGMENT_LINES 8 // the most one segment may have (the generator checks it)
 
+// The lines the segments that apply to `station` right now may take (2.1-31).
+// A station that fills every line it can (PLACES AND PEOPLE) stops this short,
+// or no segment would ever fit in front of it.
+u32 HoennRadioReservedLines(u32 station)
+{
+    u32 i, total = 0;
+
+    for (i = 0; i < ARRAY_COUNT(sRadioSegments); i++)
+        if (sRadioSegments[i].station == station
+         && HoennHintConditionsHold(sRadioSegments[i].conds, sRadioSegments[i].condCount))
+            total += sRadioSegments[i].maxLines;
+    return total;
+}
+
 u32 HoennRadioSegments(u32 station, const u8 **lines, u32 n, u32 at, u32 maxLines,
                        u8 *bufs, u32 *buf, u32 numBufs, u32 bufSize)
 {

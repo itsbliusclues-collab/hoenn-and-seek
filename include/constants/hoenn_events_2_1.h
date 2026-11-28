@@ -141,6 +141,21 @@
 #define HOENN_ORGANIZE_PACKED    1 // BY TYPE: the box breaks didn't fit, so the boxes are packed tightly
 #define HOENN_ORGANIZE_EMPTY     2 // nothing to sort in the chosen boxes
 #define HOENN_ORGANIZE_FAILED    3 // a check failed; nothing was moved (or, after moving, the totals differ)
+// 2.1-31: DAN, the history broadcaster (PEWTER MUSEUM 2F; lane B's part, built
+// by lane A, so lane A's IDs). src/hoenn_dan.c.
+#define FLAG_HOENN_MET_DAN                 (HOENN_21_LANE_A_FLAGS + 0x2C) // his introduction was given
+#define FLAG_HOENN_DAN_ALL_TOLD            (HOENN_21_LANE_A_FLAGS + 0x2D) // you've heard his last episode to the end
+#define FLAG_HOENN_CALL_DAN                (HOENN_21_LANE_A_FLAGS + 0x2E) // Brendan's call about his show rang
+#define FLAG_HOENN_WEEKLY_DAN              (HOENN_21_LANE_A_WEEKLY + 0)   // an episode was finished this week
+#define VAR_HOENN_DAN_EPISODE              (HOENN_21_LANE_A_VARS + 0x07)  // the episode he's on (index, append-only list)
+#define VAR_HOENN_DAN_PART                 (HOENN_21_LANE_A_VARS + 0x08)  // installments of it you've heard
+#define HOENN_DAN_NEW      0 // HoennDanState: a new episode starts
+#define HOENN_DAN_CONTINUE 1 //   its next installment
+#define HOENN_DAN_WAIT     2 //   finished; the next one comes with the new week
+#define HOENN_DAN_DONE     3 //   every episode told
+#define HOENN_DAN_TEXT_PART   0 // callnative HoennSeek_DanText's .byte
+#define HOENN_DAN_TEXT_TEASER 1
+#define HOENN_DAN_TEXT_REPLAY 2
 #define FLAG_HOENN_DAILY_BRIDGETTE     (HOENN_21_LANE_A_DAILY + 0)    // battled today
 #define FLAG_HOENN_DAILY_AIDAN         (HOENN_21_LANE_A_DAILY + 1)
 #define FLAG_HOENN_DAILY_BROCK         (HOENN_21_LANE_A_DAILY + 2)

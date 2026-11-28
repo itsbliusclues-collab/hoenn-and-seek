@@ -1079,6 +1079,9 @@ HoennSeek_Text_Hint_LineTipBugContest::
 HoennSeek_Text_Hint_LineTipClock::
 	.string "Did you know? The clock on the\nwall in any POKéMON CENTER lets\lyou set the day and the time.$"
 
+HoennSeek_Text_Hint_LineStoryDan::
+	.string "There's a man up on the MUSEUM's\nsecond floor who talks about\lhistory like he was there.\pHe has a show on the radio, too.\nOnce he starts a story, you'll\lwant to hear how it ends!$"
+
 HoennSeek_Text_Hint_LineStoryAnamaria::
 	.string "Somebody new moved into the house\nby the sea. She labeled every last\lthing in it!\pThey say she's a professional\norganizer. Maybe she'd sort your\lPC boxes, too.$"
 

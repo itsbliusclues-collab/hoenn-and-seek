@@ -21,6 +21,7 @@ HoennSeek_EventScript_PhoneEvent21LaneA::
 	case HOENN_CALL_NEIGHBOR_KANTO4, HoennSeek_EventScript_CallNeighborKanto4
 	case HOENN_CALL_NEIGHBOR_KANTO6, HoennSeek_EventScript_CallNeighborKanto6
 	case HOENN_CALL_NEIGHBOR_WALLACE, HoennSeek_EventScript_CallNeighborWallace
+	case HOENN_CALL_DAN, HoennSeek_EventScript_CallDan @ 2.1-31 (hoenn_dan.inc)
 	goto HoennSeek_EventScript_PhoneEvent21LaneB @ lane B's 2.1 calls (hoenn_2_1_lane_b.inc)
 
 @ ==== 2.1-05: the SEEKER'S JOURNAL ====

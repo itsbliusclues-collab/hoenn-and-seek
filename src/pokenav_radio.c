@@ -832,7 +832,7 @@ static void GenerateStationContent(struct Pokenav_Radio *radio, u8 station)
         radio->lines[n++] = sRadioText_PnP_Intro;
         radio->lines[n++] = sRadioText_PnP_Intro2;
 
-        while (n < MAX_RADIO_LINES - 1 && buf < NUM_RADIO_LINE_BUFS)
+        while (n + HoennRadioReservedLines(HOENN_RADIO_PLACES) < MAX_RADIO_LINES - 1 && buf < NUM_RADIO_LINE_BUFS) // Hoenn & Seek 2.1-31: room for DAN's show
         {
             if (doPeople)
             {
