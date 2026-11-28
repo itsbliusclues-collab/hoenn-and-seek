@@ -12,7 +12,7 @@
 #
 # The order (each line's notes are in CLAUDE.md):
 #   lists → mapsecs → wild tables (+ item upgrades) → weather cycles → weather
-#   tables → strait → base entrances → base spots → composed maps → trainers →
+#   tables → strait → base entrances → base spots → composed maps → gym rugs → trainers →
 #   IDs → gyms, new-game state → battle backgrounds and art → overworld
 #   Pokémon → trainer followers → buildings → hints → light paths → Unown
 #   tiles → radio segments, then the living dex check.
@@ -33,6 +33,7 @@ GENERATORS=(
     gen_hoenn_base_entrances # Johto/Kanto base entrance metatiles (before spots)
     gen_hoenn_base_spots     # secret base spots, chamber-bases
     gen_hoenn_composed_maps  # maps and patches painted from other layouts
+    gen_hoenn_gym_rugs       # leaders' rooms: side-by-side pairs on rugs (2.1-25; before followers)
     gen_hoenn_trainers       # trainer curation (before gen_hoenn_ids)
     gen_hoenn_ids            # Hoenn flag/var/trainer IDs
     gen_hoenn_gyms           # gym trainer table (after IDs)

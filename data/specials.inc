@@ -818,8 +818,6 @@ gSpecials::
 	@ (end of 2.1's shared specials)
 
 	@ Hoenn & Seek 2.1, builder lane A: lane A's 2.1 specials go here
-	def_special HoennJournalPushPages @ 2.1-05
-	def_special HoennJournalPushEntries
 	def_special HoennJournalPageDone @ 2.1-06
 	def_special HoennSwarmBufferNames @ 2.1-07
 	def_special HoennPlantBerryInSoil @ 2.1-07
@@ -831,6 +829,12 @@ gSpecials::
 	def_special HoennFriendHardUnlocked
 	def_special HoennFriendSetHard
 	def_special HoennFriendTypeReaction
+	def_special HoennNeighborStage @ 2.1-15
+	def_special HoennNeighborTownArm @ 2.1-16
+	def_special HoennNeighborLeaveDir @ 2.1-16
+	def_special HoennLoadNeighborMarill
+	def_special HoennStartNeighborDemo
+	def_special HoennEndNeighborDemo
 	@ (end of 2.1 lane A's specials)
 
 	@ Hoenn & Seek 2.1, builder lane B: lane B's 2.1 specials go here

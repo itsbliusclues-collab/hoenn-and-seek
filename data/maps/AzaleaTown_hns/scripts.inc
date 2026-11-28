@@ -4,6 +4,7 @@ AzaleaTown_hns_MapScripts::
 	.byte 0
 
 AzaleaTown_OnTransition::
+	call HoennSeek_EventScript_NeighborTownArmAzalea @ Hoenn & Seek 2.1-16
 	goto_if_eq VAR_AZALEA_TOWN_STATE, 5, AzaleaTown_MapScript_Hide_Silver
 	end
 	

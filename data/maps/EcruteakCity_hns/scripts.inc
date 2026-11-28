@@ -10,6 +10,7 @@ HoennSeek_EcruteakFrameTable:
 	.2byte 0
 
 EcruteakCity_OnTransition::
+	call HoennSeek_EventScript_NeighborTownArmEcruteak @ Hoenn & Seek 2.1-16
 	callnative SetTimeBasedEncounters
 	call HoennSeek_EventScript_EcruteakDawn @ Hoenn & Seek 2.0 part 35b
 	end

@@ -29,7 +29,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CHANNELER_HNS",
-      "x": 24,
+      "x": 25,
       "y": 5,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_ROTATE_COUNTERCLOCKWISE",
@@ -55,7 +55,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_PSYCHIC_M_HNS",
-      "x": 24,
+      "x": 25,
       "y": 21,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_ROTATE_COUNTERCLOCKWISE",
@@ -81,7 +81,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_GYM_GUY_HNS",
-      "x": 15,
+      "x": 16,
       "y": 20,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -94,8 +94,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MON_BASE+SPECIES_ALAKAZAM",
-      "x": 14,
-      "y": 10,
+      "x": 15,
+      "y": 11,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
       "movement_range_x": 0,
@@ -122,14 +122,14 @@
       "dest_warp_id": "8"
     },
     {
-      "x": 15,
+      "x": 16,
       "y": 23,
       "elevation": 0,
       "dest_map": "MAP_SAFFRON_CITY_HNS",
       "dest_warp_id": "8"
     },
     {
-      "x": 18,
+      "x": 19,
       "y": 20,
       "elevation": 3,
       "dest_map": "MAP_SAFFRON_CITY_GYM_HNS",
@@ -234,105 +234,105 @@
       "dest_warp_id": "12"
     },
     {
-      "x": 16,
+      "x": 17,
       "y": 4,
       "elevation": 3,
       "dest_map": "MAP_SAFFRON_CITY_GYM_HNS",
       "dest_warp_id": "10"
     },
     {
-      "x": 16,
+      "x": 17,
       "y": 7,
       "elevation": 3,
       "dest_map": "MAP_SAFFRON_CITY_GYM_HNS",
       "dest_warp_id": "9"
     },
     {
-      "x": 18,
+      "x": 19,
       "y": 15,
       "elevation": 3,
       "dest_map": "MAP_SAFFRON_CITY_GYM_HNS",
       "dest_warp_id": "5"
     },
     {
-      "x": 20,
+      "x": 21,
       "y": 4,
       "elevation": 3,
       "dest_map": "MAP_SAFFRON_CITY_GYM_HNS",
       "dest_warp_id": "23"
     },
     {
-      "x": 20,
+      "x": 21,
       "y": 7,
       "elevation": 3,
       "dest_map": "MAP_SAFFRON_CITY_GYM_HNS",
       "dest_warp_id": "4"
     },
     {
-      "x": 20,
+      "x": 21,
       "y": 12,
       "elevation": 3,
       "dest_map": "MAP_SAFFRON_CITY_GYM_HNS",
       "dest_warp_id": "21"
     },
     {
-      "x": 20,
+      "x": 21,
       "y": 15,
       "elevation": 3,
       "dest_map": "MAP_SAFFRON_CITY_GYM_HNS",
       "dest_warp_id": "16"
     },
     {
-      "x": 20,
+      "x": 21,
       "y": 20,
       "elevation": 3,
       "dest_map": "MAP_SAFFRON_CITY_GYM_HNS",
       "dest_warp_id": "27"
     },
     {
-      "x": 20,
+      "x": 21,
       "y": 23,
       "elevation": 3,
       "dest_map": "MAP_SAFFRON_CITY_GYM_HNS",
       "dest_warp_id": "14"
     },
     {
-      "x": 28,
+      "x": 29,
       "y": 4,
       "elevation": 3,
       "dest_map": "MAP_SAFFRON_CITY_GYM_HNS",
       "dest_warp_id": "25"
     },
     {
-      "x": 28,
+      "x": 29,
       "y": 7,
       "elevation": 3,
       "dest_map": "MAP_SAFFRON_CITY_GYM_HNS",
       "dest_warp_id": "8"
     },
     {
-      "x": 28,
+      "x": 29,
       "y": 12,
       "elevation": 3,
       "dest_map": "MAP_SAFFRON_CITY_GYM_HNS",
       "dest_warp_id": "31"
     },
     {
-      "x": 28,
+      "x": 29,
       "y": 15,
       "elevation": 3,
       "dest_map": "MAP_SAFFRON_CITY_GYM_HNS",
       "dest_warp_id": "6"
     },
     {
-      "x": 28,
+      "x": 29,
       "y": 20,
       "elevation": 3,
       "dest_map": "MAP_SAFFRON_CITY_GYM_HNS",
       "dest_warp_id": "29"
     },
     {
-      "x": 28,
+      "x": 29,
       "y": 23,
       "elevation": 3,
       "dest_map": "MAP_SAFFRON_CITY_GYM_HNS",
@@ -344,6 +344,13 @@
       "elevation": 3,
       "dest_map": "MAP_SAFFRON_CITY_GYM_HNS",
       "dest_warp_id": "3"
+    },
+    {
+      "x": 15,
+      "y": 23,
+      "elevation": 0,
+      "dest_map": "MAP_SAFFRON_CITY_HNS",
+      "dest_warp_id": "8"
     }
   ],
   "coord_events": [],
@@ -358,7 +365,7 @@
     },
     {
       "type": "sign",
-      "x": 16,
+      "x": 17,
       "y": 20,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",

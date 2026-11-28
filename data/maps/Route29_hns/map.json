@@ -276,6 +276,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "FLAG_NIGHT_POKEMON"
+    },
+    {
+      "local_id": "LOCALID_HOENN_ROUTE29_NEIGHBOR",
+      "graphics_id": "OBJ_EVENT_GFX_VAR_E",
+      "x": 11,
+      "y": 16,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HOENN_HIDE_ROUTE29_NEIGHBOR"
     }
   ],
   "warp_events": [
@@ -303,6 +317,60 @@
       "var": "VAR_TEMP_0",
       "var_value": "0",
       "script": "Route29_Trigger_Monview"
+    },
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_HOENN_NEIGHBOR_STATE",
+      "var_value": "HOENN_NEIGHBOR_PHONE",
+      "script": "HoennSeek_EventScript_Route29Demo"
+    },
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 16,
+      "elevation": 0,
+      "var": "VAR_HOENN_NEIGHBOR_STATE",
+      "var_value": "HOENN_NEIGHBOR_PHONE",
+      "script": "HoennSeek_EventScript_Route29Demo"
+    },
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 17,
+      "elevation": 0,
+      "var": "VAR_HOENN_NEIGHBOR_STATE",
+      "var_value": "HOENN_NEIGHBOR_PHONE",
+      "script": "HoennSeek_EventScript_Route29Demo"
+    },
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_HOENN_NEIGHBOR_STATE",
+      "var_value": "HOENN_NEIGHBOR_PHONE",
+      "script": "HoennSeek_EventScript_Route29Demo"
+    },
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 20,
+      "elevation": 0,
+      "var": "VAR_HOENN_NEIGHBOR_STATE",
+      "var_value": "HOENN_NEIGHBOR_PHONE",
+      "script": "HoennSeek_EventScript_Route29Demo"
+    },
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_HOENN_NEIGHBOR_STATE",
+      "var_value": "HOENN_NEIGHBOR_PHONE",
+      "script": "HoennSeek_EventScript_Route29Demo"
     }
   ],
   "bg_events": [
