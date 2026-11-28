@@ -40,3 +40,12 @@ Each sprite is a 32×32 frame; the groups below go by the biggest side of the vi
 - **Small (4 wide, side by side):** Ecruteak, Mahogany, Celadon and Lavaridge get **one more column through the middle** (the door becomes two tiles, the wall emblem sits over the middle), so a 4-wide rug is centred. Celadon is a garden, so no rug. Goldenrod is already an even width: its rug just grows and the pots around it move.
 - **Medium (5 wide, leader / gap / Pokémon, the gap on the centre column):** Blackthorn's and Sootopolis's mats grow to 5; Vermilion's two pillars move out a tile; Cerulean's pedestal grows; Mauville gets one more column (it's 4 wide inside) and the rug covers the dais; Saffron's diamond tiles are already 5 wide; Azalea is a forest with no rug.
 - **Large (Pokémon behind):** where the tile behind the leader is wall (Viridian, Rustboro, Dewford, Petalburg, Fortree) the **leader steps forward one tile** and the Pokémon takes their old spot; Violet's rug grows a row so Noctowl stands on it; Olivine is already this way; Pewter swaps Golem for Onix.
+
+### Bryan's correction (Nov 28, 8:12 AM CT): beside, unless the sprite is huge
+"Unless they are the super big sprites like Steelix and Onix, I prefer beside the trainer": a leader stepping in front of their Pokémon makes the platform look odd and has less aura. So **large is only Olivine (Steelix) and Pewter (Onix)**; Violet, Viridian, Rustboro, Dewford, Petalburg and Fortree move to **medium** (5 wide: leader, gap on the centre column, Pokémon), shown in `gyms_medium_2.png`; `gyms_large.png` now has only the two. Dewford is 4 wide inside, so it gets one more column like Mauville; the others' rugs or mats just grow to 5. The "steps forward" notes above are replaced by this.
+
+| Group | Gyms |
+|---|---|
+| Small (4 wide, side by side) | Goldenrod, Ecruteak, Mahogany, Celadon, Lavaridge |
+| Medium (5 wide, leader / gap / Pokémon) | Azalea, Blackthorn, Cerulean, Vermilion, Saffron, Mauville, Sootopolis, Violet, Viridian, Rustboro, Dewford, Petalburg, Fortree |
+| Large (behind) | Olivine (Steelix), Pewter (Onix) |
