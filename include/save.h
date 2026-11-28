@@ -16,7 +16,7 @@
 
 #define SPECIAL_SECTOR_SENTINEL 0xB39D
 
-#define SAVE_VERSION       7 // Hoenn & Seek 2.1: 2.1 flags/vars in SaveBlock3 (src/save.c); 6 was 2.0's
+#define SAVE_VERSION       8 // Hoenn & Seek 2.1: 8 = 20 more key-item slots (2.1-04), 7 = 2.1 flags/vars in SaveBlock3 (src/save.c); 6 was 2.0's
 #define SAVE_VERSION_MAGIC 0xE8F828BC
 
 #define SECTOR_ID_SAVEBLOCK2          0

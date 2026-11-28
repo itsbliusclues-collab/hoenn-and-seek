@@ -53,6 +53,7 @@ class Emu:
     HOENN_EVENT_FLAGS_SB3, HOENN_EVENT_VARS_SB3 = 0x232, 0x2B2
     # 2.1 flags (0x2400-0x26FF) and vars (0x7100-0x713F), after 2.0's (2.1-02).
     HOENN_21_FLAGS_SB3, HOENN_21_VARS_SB3 = 0x3B2, 0x412
+    HOENN_KEY_ITEMS_SB3 = 0x494  # 2.1-04: 20 extra key-item slots (4 B each: item id, quantity ^ key)
 
     def __init__(self, rom, elf, cwd=None):
         self.rom, self.elf, self.cwd = rom, elf, cwd or os.getcwd()
