@@ -25,7 +25,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "VioletCity_Gym_EventScript_Falkner",
-      "flag": "FLAG_HIDE_JOHTO_GYM_LEADERS"
+      "flag": "FLAG_HOENN_WEEKEND_GYM_FALKNER"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ROCKER_HNS",
@@ -63,7 +63,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "VioletCity_Gym_EventScript_GymGuy",
+      "script": "HoennSeek_EventScript_WeekendGuide_FALKNER",
       "flag": "0"
     },
     {
@@ -77,7 +77,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "HoennSeek_EventScript_TrainerFollower",
-      "flag": "FLAG_HIDE_JOHTO_GYM_LEADERS"
+      "flag": "FLAG_HOENN_WEEKEND_GYM_FALKNER"
     }
   ],
   "warp_events": [

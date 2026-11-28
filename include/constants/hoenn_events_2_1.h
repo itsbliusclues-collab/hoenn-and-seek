@@ -78,4 +78,11 @@
 #define HOENN_TELEPORT_TO_CENTER 0
 #define HOENN_TELEPORT_TO_BASE   1
 
+// 2.1-18 to 20: gym leaders' weekends. Three flags per leader (gym, spot, dojo),
+// 24 leaders; the names are generated (constants/hoenn_weekends.h, from
+// data/hoenn/leader_weekends.json, whose "slot" picks the leader's three).
+#define HOENN_21_WEEKEND_FLAGS       (HOENN_21_LANE_B_FLAGS + 0x00) // 72 flags: +0x00-0x47
+#define FLAG_HOENN_CALL_WEEKENDS     (HOENN_21_LANE_B_FLAGS + 0x48) // May: the League's weekend memo
+#include "constants/hoenn_weekends.h"
+
 #endif // GUARD_CONSTANTS_HOENN_EVENTS_2_1_H

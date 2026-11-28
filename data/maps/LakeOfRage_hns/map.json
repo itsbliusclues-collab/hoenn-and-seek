@@ -287,6 +287,32 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "HoennSeek_EventScript_LakeTotodile",
       "flag": "FLAG_HOENN_HIDE_LAKE_TOTODILE"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_CLAIR_HNS",
+      "x": 46,
+      "y": 34,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "HoennSeek_EventScript_Weekend_CLAIR",
+      "flag": "FLAG_HOENN_WEEKEND_SPOT_CLAIR"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MON_BASE+SPECIES_KINGDRA",
+      "x": 47,
+      "y": 34,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "HoennSeek_EventScript_TrainerFollower",
+      "flag": "FLAG_HOENN_WEEKEND_SPOT_CLAIR"
     }
   ],
   "warp_events": [

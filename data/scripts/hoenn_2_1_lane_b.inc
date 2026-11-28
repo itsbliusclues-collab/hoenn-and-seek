@@ -9,6 +9,7 @@
 @ 	case HOENN_CALL_X, HoennSeek_EventScript_CallX
 HoennSeek_EventScript_PhoneEvent21LaneB::
 	switch VAR_0x8004
+	case HOENN_CALL_WEEKENDS, HoennSeek_EventScript_CallWeekends @ 2.1-18
 	releaseall @ no call matched: the end of the chain
 	end
 
@@ -45,3 +46,26 @@ HoennSeek_Text_TeleportBase:
 
 HoennSeek_Text_TeleportCancel:
 	.string "CANCEL$"
+
+@ ---------------------------------------------------------------- 2.1-18 to 20: leaders' weekends
+@ Design: src/hoenn_2_1_lane_b.c and tools/hoenn/gen_hoenn_weekends.py. The spot
+@ and gym guide scripts are generated from data/hoenn/leader_weekends.json.
+HoennSeek_EventScript_CallWeekends::
+	setflag FLAG_HOENN_CALL_WEEKENDS
+	setspeaker HoennSeek_Text_NameMay
+	pokenavcall HoennSeek_Text_CallWeekends
+	goto HoennSeek_EventScript_CallEnd
+
+HoennSeek_Text_CallWeekends:
+	.string "{PLAYER}! It's MAY! Guess what?\p"
+	.string "DAD got a memo from the LEAGUE.\n"
+	.string "LEADERS can take weekends off\l"
+	.string "once you've earned their BADGE!\p"
+	.string "So the LEADERS you've beaten are\n"
+	.string "out and about on weekends! DAD\l"
+	.string "says to ask their GYM GUIDES.\p"
+	.string "I wonder where DAD would go on\n"
+	.string "a weekend off. Fishing, I bet!$"
+
+	.include "data/scripts/hoenn_weekends.inc"
+

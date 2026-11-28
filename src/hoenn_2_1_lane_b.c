@@ -10,6 +10,22 @@
 //   → Hoenn21LaneADueCall → Hoenn21LaneBDueCall. Add one `if` per call, in the
 //   order they should ring; IDs come from lane B's 2.1 range in constants/hoenn_phone.h.
 // - 2.1-34: Teleport to your secret base (below; plan section 17).
+// - 2.1-18 to 20: gym leaders' weekends (below; plan section 6). A leader you've
+//   beaten takes Saturdays and Sundays off. tools/hoenn/gen_hoenn_weekends.py
+// turns data/hoenn/leader_weekends.json into three flags per leader, the table
+// below, the weekend spots' and gym guides' scripts and the map.json edits:
+//   - the gym object (and its follower) takes FLAG_HOENN_WEEKEND_GYM_<KEY>,
+//     set while HnS's own story flag hides the leader, or while they're away;
+//   - the weekend spot object (and its follower) takes FLAG_HOENN_WEEKEND_SPOT_<KEY>,
+//     clear only while they're away;
+//   - the Dojo copy (Saffron, HnS's post-game rematch) and its Pokémon take
+//     FLAG_HOENN_WEEKEND_DOJO_<KEY>, set while HnS's FLAG_HIDE_DOJO_* is set or
+//     they're away. The weekend spot offers that same rematch once it's open.
+// HoennUpdateLeaderWeekends() sets them on every map load (one hook in each of
+// overworld.c's two map loaders, before the OnTransition script), so a leader
+// leaves or comes back with the next warp or map edge, never in front of you.
+// It reads the calendar weekday (GetDayOfWeek), so changing the day at a wall
+// clock moves them too (Bryan, round 4: calendar, not progress).
 #include "global.h"
 #include "event_data.h"
 #include "field_effect.h"
@@ -19,15 +35,78 @@
 #include "region_map.h"
 #include "script.h"
 #include "string_util.h"
+#include "rtc.h"
 #include "constants/field_effects.h"
 #include "constants/flags.h"
+#include "constants/hoenn_events.h"
 #include "constants/hoenn_events_2_1.h"
 #include "constants/hoenn_phone.h"
 
 #if IS_HNS
 
+struct HoennLeaderWeekend
+{
+    u16 beaten;    // set once you have the badge
+    u16 storyHide; // HnS's own flag for the gym object, or 0
+    u16 dojoHide;  // HnS's FLAG_HIDE_DOJO_*, or 0
+    u16 gymFlag;
+    u16 spotFlag;
+    u16 dojoFlag;  // 0 if the leader has no Dojo copy
+};
+
+#include "data/hoenn_leader_weekends.h"
+
+static void FlagSetTo(u16 flag, bool32 set)
+{
+    if (set)
+        FlagSet(flag);
+    else
+        FlagClear(flag);
+}
+
+static bool32 IsWeekend(void)
+{
+    u32 day = GetDayOfWeek();
+    return day == HOENN_SATURDAY || day == HOENN_SUNDAY;
+}
+
+void HoennUpdateLeaderWeekends(void)
+{
+    bool32 weekend = IsWeekend();
+    u32 i;
+
+    for (i = 0; i < ARRAY_COUNT(sLeaderWeekends); i++)
+    {
+        const struct HoennLeaderWeekend *l = &sLeaderWeekends[i];
+        bool32 storyHidden = l->storyHide != 0 && FlagGet(l->storyHide);
+        bool32 away = weekend && FlagGet(l->beaten) && !storyHidden;
+
+        FlagSetTo(l->gymFlag, storyHidden || away);
+        FlagSetTo(l->spotFlag, !away);
+        if (l->dojoFlag != 0)
+            FlagSetTo(l->dojoFlag, FlagGet(l->dojoHide) || away);
+    }
+}
+
+// TRUE while any leader is at their weekend spot (May's call).
+static bool32 AnyLeaderAway(void)
+{
+    u32 i;
+
+    for (i = 0; i < ARRAY_COUNT(sLeaderWeekends); i++)
+    {
+        if (!FlagGet(sLeaderWeekends[i].spotFlag))
+            return TRUE;
+    }
+    return FALSE;
+}
+
 u16 Hoenn21LaneBDueCall(void)
 {
+    // 2.1-18: May's dad reads the LEAGUE's memos; she calls the first weekend a
+    // leader you've beaten is away.
+    if (FlagGet(FLAG_HOENN_BM_PHONE) && !FlagGet(FLAG_HOENN_CALL_WEEKENDS) && AnyLeaderAway())
+        return HOENN_CALL_WEEKENDS;
     return HOENN_CALL_NONE; // the end of the chain
 }
 
