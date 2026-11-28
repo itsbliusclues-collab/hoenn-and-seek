@@ -59,6 +59,8 @@ bool32 HoennLaneAFollowerOverride(u32 *species, bool32 *shiny, bool32 *female); 
 u16 HoennLaneBDueCall(void); // src/hoenn_lane_b.c
 u16 Hoenn21LaneADueCall(void); // src/hoenn_2_1_lane_a.c (2.1-02)
 u16 HoennNeighborStage(void);                // 2.1-15: specialvar, your progress stage for ETHAN/LYRA's lines
+u16 HoennNeighborTownArm(void);             // 2.1-16: specialvar, shows/hides ETHAN/LYRA in town VAR_0x8004
+u16 HoennNeighborLeaveDir(void);            // 2.1-16: specialvar, the way they move along
 u16 HoennCatchTutorialBackPic(void);         // 2.1-15: the catch-tutorial back pic (WALLY's unless it's your friend's demo)
 const u8 *HoennCatchTutorialString(u32 stringId, const u8 *str);
 const u8 *HoennCatchTutorialWhatWill(const u8 *str);

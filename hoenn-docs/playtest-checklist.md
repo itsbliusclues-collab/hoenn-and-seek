@@ -646,6 +646,12 @@ Lane B's `## 2.0 part NN` sections go below this line, at the end of the file.
 - [ ] **Switching:** when your Pokémon is about to hit theirs super effectively, a friend switches to one that resists it (up to three times a battle). Emulator-tested: Aidan's AERODACTYL switched to SALAMENCE against LAPRAS's SURF. Does it feel clever, or too much?
 - [ ] **Lines:** Aidan's "Mid-air swap!" on his switch and "Pull the cord!" for his last Pokémon (emulator-tested). Not tested: Bridgette's PURSUIT jab (TYRANITAR switching in against a Pokémon weak to Dark), her super-effective and last-Pokémon lines, Brock's clap-and-swap and his lines, Aidan's low-HP line.
 
+### 2.1-16 (ETHAN or LYRA in person)
+- [ ] **Johto towns:** VIOLET (east road by the ROUTE 31 gate, before FALKNER), AZALEA (before your 2nd badge), GOLDENROD (main street, before your 3rd), ECRUTEAK (by the ROUTE 37 gate, before your 4th), OLIVINE (north road, before your 6th). They should spot you and walk over, give their tip and walk off. All five talked to in the emulator; the walk-up was tested in PEWTER. Do the tips help at that point, and does anyone stand in an awkward place?
+- [ ] **Kanto towns** (after the Johto title, before all 8 Kanto badges): VERMILION's dock, CERULEAN's main street, PEWTER (all tested). Arriving from a different side than the one tested (e.g. CERULEAN from ROUTE 4) may mean you only see them when you pass.
+- [ ] **Oak's lab** after all 8 Kanto badges: the scene plays on the way in (walks you up to OAK), they stay; talk to them afterwards (tested). Check it doesn't clash with OAK's own 16-badge talk and the TIDAL TICKET.
+- [ ] **POKéGEAR:** their contact line after the lab scene ("I'm PROF. OAK's field aide now!"). Not checked in the emulator.
+
 ### 2.1-15 (second rival: your childhood friend ETHAN or LYRA)
 - [ ] **Elm's lab, first visit:** LYRA (a boy's game) or ETHAN (a girl's) is by the starter table. Before you pick, they explain the type triangle (emulator-tested); right after, "go show PROF. ELM". Does it feel like a friend you grew up with?
 - [ ] **After Elm's errand scene:** they call "Before you go, come here for a second!" (tested). Walk toward the exit: they come over, tell you about running and talking to your Pokémon, and register their number, then walk out ahead of you (tested from the middle tile; the left/right tiles step you to the middle first). Talking to them first works too.

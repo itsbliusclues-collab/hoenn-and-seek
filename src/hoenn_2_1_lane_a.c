@@ -23,6 +23,10 @@
 #include "battle_setup.h"
 #include "battle_transition.h"
 #include "pokemon.h"
+#include "field_player_avatar.h"
+#include "script.h"
+#include "metatile_behavior.h"
+#include "fieldmap.h"
 #include "string_util.h"
 #include "constants/battle.h"
 #include "constants/battle_string_ids.h"
@@ -201,6 +205,135 @@ void HoennPlantBerryInSoil(void)
     PlantBerryTree(GetObjectEventBerryTreeId(gSelectedObjectEvent), ItemIdToBerryType(gSpecialVar_ItemId), BERRY_STAGE_PLANTED, TRUE);
     RemoveBagItem(gSpecialVar_ItemId, 1);
     ObjectEventInteractionGetBerryTreeData();
+}
+
+
+// 2.1-16: ETHAN or LYRA in person. They're already in a town when you first
+// walk in (5 Johto towns, 3 Kanto ones), spot you, give a tip about the place
+// and move along; after all 8 Kanto badges they tell PROF. OAK, in his lab,
+// that they'll stay on as his field aide (Aidan: a scene, not a call). One
+// object per map (graphics VAR_OBJ_GFX_ID_E, flag FLAG_HOENN_HIDE_NEIGHBOR_TOWN),
+// decided by HoennNeighborTownArm in the map's OnTransition. The town objects
+// are "trainers" whose script isn't a battle, so they walk up to you when you
+// cross their sight (the fake-fight path, part 14). Scripts and texts:
+// data/scripts/hoenn_neighbor_towns.inc.
+extern const u8 HoennSeek_Text_NeighborTownViolet[];
+extern const u8 HoennSeek_Text_NeighborTownAzalea[];
+extern const u8 HoennSeek_Text_NeighborTownGoldenrod[];
+extern const u8 HoennSeek_Text_NeighborTownEcruteak[];
+extern const u8 HoennSeek_Text_NeighborTownOlivine[];
+extern const u8 HoennSeek_Text_NeighborTownVermilion[];
+extern const u8 HoennSeek_Text_NeighborTownCerulean[];
+extern const u8 HoennSeek_Text_NeighborTownPewter[];
+
+static const u8 *const sNeighborTownTexts[] = {
+    [HOENN_NEIGHBOR_TOWN_VIOLET]    = HoennSeek_Text_NeighborTownViolet,
+    [HOENN_NEIGHBOR_TOWN_AZALEA]    = HoennSeek_Text_NeighborTownAzalea,
+    [HOENN_NEIGHBOR_TOWN_GOLDENROD] = HoennSeek_Text_NeighborTownGoldenrod,
+    [HOENN_NEIGHBOR_TOWN_ECRUTEAK]  = HoennSeek_Text_NeighborTownEcruteak,
+    [HOENN_NEIGHBOR_TOWN_OLIVINE]   = HoennSeek_Text_NeighborTownOlivine,
+    [HOENN_NEIGHBOR_TOWN_VERMILION] = HoennSeek_Text_NeighborTownVermilion,
+    [HOENN_NEIGHBOR_TOWN_CERULEAN]  = HoennSeek_Text_NeighborTownCerulean,
+    [HOENN_NEIGHBOR_TOWN_PEWTER]    = HoennSeek_Text_NeighborTownPewter,
+};
+STATIC_ASSERT(HOENN_NEIGHBOR_TOWN_COUNT == FLAG_HOENN_NEIGHBOR_TOWN_LAST - FLAG_HOENN_NEIGHBOR_TOWN_FIRST + 1, NeighborTownFlags);
+STATIC_ASSERT(ARRAY_COUNT(sNeighborTownTexts) == HOENN_NEIGHBOR_TOWN_OAKS_LAB, NeighborTownTexts);
+
+// The Johto badge count each town's scene must still be under.
+static const u8 sNeighborTownBadgesBelow[] = {
+    [HOENN_NEIGHBOR_TOWN_VIOLET] = 1, [HOENN_NEIGHBOR_TOWN_AZALEA] = 2,
+    [HOENN_NEIGHBOR_TOWN_GOLDENROD] = 3, [HOENN_NEIGHBOR_TOWN_ECRUTEAK] = 4,
+    [HOENN_NEIGHBOR_TOWN_OLIVINE] = 6,
+};
+
+static bool32 NeighborTownOut(u32 town)
+{
+    u32 kanto = CountFlags(FLAG_BADGE09_GET, 8);
+
+    if (VarGet(VAR_HOENN_NEIGHBOR_STATE) < HOENN_NEIGHBOR_PHONE)
+        return FALSE;
+    if (town == HOENN_NEIGHBOR_TOWN_OAKS_LAB)
+        return kanto == 8 || FlagGet(FLAG_HOENN_NEIGHBOR_STAYED); // they work there afterwards
+    if (FlagGet(FLAG_HOENN_NEIGHBOR_TOWN_FIRST + town))
+        return FALSE;
+    if (town < ARRAY_COUNT(sNeighborTownBadgesBelow))
+        return CountFlags(FLAG_BADGE01_GET, 8) < sNeighborTownBadgesBelow[town];
+    return FlagGet(FLAG_SYS_GAME_CLEAR) && kanto < 8;
+}
+
+// specialvar VAR_RESULT, HoennNeighborTownArm (VAR_0x8004 = town): shows or
+// hides their object; TRUE if it's out.
+u16 HoennNeighborTownArm(void)
+{
+    if (gSpecialVar_0x8004 < HOENN_NEIGHBOR_TOWN_COUNT && NeighborTownOut(gSpecialVar_0x8004))
+    {
+        FlagClear(FLAG_HOENN_HIDE_NEIGHBOR_TOWN);
+        return TRUE;
+    }
+    FlagSet(FLAG_HOENN_HIDE_NEIGHBOR_TOWN);
+    return FALSE;
+}
+
+// callnative HoennSeek_NeighborTownText: data[0] = town VAR_0x8004's line (for
+// callstd MSGBOX_*), and marks that scene done.
+void HoennSeek_NeighborTownText(struct ScriptContext *ctx)
+{
+    u32 town = gSpecialVar_0x8004;
+
+    if (town >= ARRAY_COUNT(sNeighborTownTexts))
+        town = 0;
+    ctx->data[0] = (u32)sNeighborTownTexts[town];
+    FlagSet(FLAG_HOENN_NEIGHBOR_TOWN_FIRST + town);
+}
+
+static bool32 NeighborOpenLand(s32 x, s32 y)
+{
+    struct ObjectEvent *player = &gObjectEvents[gPlayerAvatar.objectEventId];
+
+    if (MapGridGetCollisionAt(x, y))
+        return FALSE;
+    if (MetatileBehavior_IsSurfableWaterOrUnderwater(MapGridGetMetatileBehaviorAt(x, y)))
+        return FALSE;
+    if (x == player->currentCoords.x && y == player->currentCoords.y)
+        return FALSE;
+    return GetObjectEventIdByXY(x, y) == OBJECT_EVENTS_COUNT;
+}
+
+// specialvar VAR_RESULT, HoennNeighborLeaveDir: the way the object you just
+// talked to (or that walked up to you) moves along: 4 tiles of open land, away
+// from you first, then to the sides, then toward you. DIR_NONE if there's none.
+u16 HoennNeighborLeaveDir(void)
+{
+    static const s8 sDeltas[][2] = {
+        [DIR_SOUTH] = {0, 1}, [DIR_NORTH] = {0, -1}, [DIR_WEST] = {-1, 0}, [DIR_EAST] = {1, 0},
+    };
+    struct ObjectEvent *obj = &gObjectEvents[gSelectedObjectEvent];
+    struct ObjectEvent *player = &gObjectEvents[gPlayerAvatar.objectEventId];
+    u8 order[4];
+    s32 x = obj->currentCoords.x, y = obj->currentCoords.y;
+    u32 i, k, away;
+
+    if (x < player->currentCoords.x)
+        away = DIR_WEST;
+    else if (x > player->currentCoords.x)
+        away = DIR_EAST;
+    else if (y < player->currentCoords.y)
+        away = DIR_NORTH;
+    else
+        away = DIR_SOUTH;
+    order[0] = away;
+    order[1] = (away == DIR_NORTH || away == DIR_SOUTH) ? DIR_WEST : DIR_NORTH;
+    order[2] = GetOppositeDirection(order[1]);
+    order[3] = GetOppositeDirection(away);
+    for (i = 0; i < ARRAY_COUNT(order); i++)
+    {
+        for (k = 1; k <= 4; k++)
+            if (!NeighborOpenLand(x + sDeltas[order[i]][0] * k, y + sDeltas[order[i]][1] * k))
+                break;
+        if (k > 4)
+            return order[i];
+    }
+    return DIR_NONE;
 }
 
 #endif // IS_HNS

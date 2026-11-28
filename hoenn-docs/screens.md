@@ -63,7 +63,7 @@ Maps checked: 876. Over budget: 61 (all recorded in `data/hoenn/screen_baseline.
 | LilycoveCity_ContestLobby_hoenn | 14 ⚠ | 11 ⚠ | (9, 1) |
 | Route121 | 15 ⚠ | 7 | (20, 5) |
 | TrainerHill_Courtyard_hns | 15 ⚠ | 8 | (21, 21) |
-| EcruteakCity_hns | 12 | 10 ⚠ | (43, 31) |
+| EcruteakCity_hns | 12 | 10 ⚠ | (43, 41) |
 | LilycoveCity_ContestLobby_hns | 14 ⚠ | 10 ⚠ | (16, 2) |
 | Route103 | 14 ⚠ | 5 | (63, 6) |
 | Route19_hns | 14 ⚠ | 4 | (7, 11) |
@@ -78,6 +78,7 @@ Maps checked: 876. Over budget: 61 (all recorded in `data/hoenn/screen_baseline.
 | FuchsiaCity_hns | 12 | 9 | (23, 12) |
 | NationalPark_BugContest_hns | 12 | 9 | (6, 6) |
 | NationalPark_Normal_hns | 12 | 9 | (32, 8) |
+| OlivineCity_hns | 12 | 9 | (16, 25) |
 | Route40_hns | 12 | 9 | (20, 16) |
 | BattleFrontier_OutsideWest_hns | 11 | 9 | (11, 11) |
 | LittlerootTown | 11 | 9 | (7, 7) |
@@ -90,7 +91,6 @@ Maps checked: 876. Over budget: 61 (all recorded in `data/hoenn/screen_baseline.
 | NewSinjoh_House4_hns | 9 | 9 | (12, 4) |
 | Route15_hns | 9 | 9 | (38, 5) |
 | UnionRoom_hns | 9 | 9 | (2, 2) |
+| CeruleanCity_hns | 13 | 8 | (20, 26) |
 | Route39_hns | 13 | 8 | (21, 24) |
 | WhirlIslands_B1F_hns | 13 | 8 | (19, 57) |
-| Route37_hns | 12 | 8 | (23, 20) |
-| BellchimeTrail_hns | 11 | 8 | (16, 49) |

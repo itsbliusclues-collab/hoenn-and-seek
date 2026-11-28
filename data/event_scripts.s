@@ -1115,6 +1115,7 @@ gStdScripts_End::
 	.include "data/scripts/hoenn_johto_legends.inc" @ Hoenn & Seek 2.0 part 35b (lane A)
 	.include "data/scripts/hoenn_lane_b.inc" @ Hoenn & Seek 2.0, builder lane B (parts 31b+)
 	.include "data/scripts/hoenn_2_1_lane_a.inc" @ Hoenn & Seek 2.1, builder lane A
+	.include "data/scripts/hoenn_neighbor_towns.inc" @ Hoenn & Seek 2.1-16 (lane A): ETHAN/LYRA in person
 	.include "data/scripts/hoenn_2_1_lane_b.inc" @ Hoenn & Seek 2.1, builder lane B
 	.include "data/scripts/hall_of_fame.inc"
 	.include "data/scripts/hall_of_fame_frlg.inc"
