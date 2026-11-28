@@ -167,7 +167,7 @@ Phase G sizes (38 on, one part at a time; measured on `hoenn` with every lane pa
 | 2.1-34 (Teleport to your secret base: entrance recorded on walk-in, Teleport asks heal spot / SECRET BASE / CANCEL; on top of 2.1-04: +768 B release, +736 B debug) | 32,797,796 / 738 KB | 32,951,700 / 588 KB |
 | 2.1-18 (Johto leaders' weekends: 8 weekend spots, gym/Dojo copies away on Sat/Sun once beaten, gym guide lines, May's call; on top of 2.1-34: +3,712 B release, +3,760 B debug) | 32,801,508 / 735 KB | 32,955,460 / 584 KB |
 | 2.1-19 (Kanto leaders' weekends: 8 more spots, cameo rule; re-measured after merging `hoenn-2.1` with lane A's 01, 05–09: +3,408 B release, +3,376 B debug over the combined tree) | 32,838,740 / 698 KB | 32,987,620 / 553 KB |
-| 2.1-20 (Hoenn leaders' weekends: 8 more spots, rematch after Wallace, Tate & Liza as a pair; on top of 2.1-19: SIZE_TBD) |
+| 2.1-20 (Hoenn leaders' weekends: 8 more spots, rematch after Wallace, Tate & Liza as a pair; re-measured on hoenn-2.1 + 2.1-19: +3,488 B release, +3,440 B debug over 19) | 32,842,228 / 695 KB | 32,991,060 / 550 KB |
 
 ¹ Release got 12.5 KB *smaller*: flag/var lookups now go through `HoennGetFlagPointer`/`HoennGetVarPointer`, so LTO stops inlining `GetVarPointer` into ~100 callers (`ScrCmd_createmon` alone −1.6 KB). Same behavior. Measured against a fresh 1.0 release build, which matched the 20a row byte for byte.
 
