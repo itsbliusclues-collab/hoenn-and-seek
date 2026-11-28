@@ -34,3 +34,9 @@ Each sprite is a 32×32 frame; the groups below go by the biggest side of the vi
 - **Small (Goldenrod):** a 4-wide rug with Whitney and Miltank side by side; the pot row above shrinks to 4 and a pot closes the gap on the right, so the rug reads as the middle.
 - **Medium (Cerulean):** the pedestal grows to 5 wide (platform widened to match): Misty, a gap, Starmie.
 - **Large (Pewter):** Onix behind Brock on the dais, replacing Golem.
+
+### Every gym, rough (Nov 28, after Bryan's "try that for all of them")
+`gyms_small.png`, `gyms_medium.png`, `gyms_large.png`: all 20 gyms with a follower, now vs. mockup, same rough method. Claude's calls, for Bryan to check gym by gym:
+- **Small (4 wide, side by side):** Ecruteak, Mahogany, Celadon and Lavaridge get **one more column through the middle** (the door becomes two tiles, the wall emblem sits over the middle), so a 4-wide rug is centred. Celadon is a garden, so no rug. Goldenrod is already an even width: its rug just grows and the pots around it move.
+- **Medium (5 wide, leader / gap / Pokémon, the gap on the centre column):** Blackthorn's and Sootopolis's mats grow to 5; Vermilion's two pillars move out a tile; Cerulean's pedestal grows; Mauville gets one more column (it's 4 wide inside) and the rug covers the dais; Saffron's diamond tiles are already 5 wide; Azalea is a forest with no rug.
+- **Large (Pokémon behind):** where the tile behind the leader is wall (Viridian, Rustboro, Dewford, Petalburg, Fortree) the **leader steps forward one tile** and the Pokémon takes their old spot; Violet's rug grows a row so Noctowl stands on it; Olivine is already this way; Pewter swaps Golem for Onix.
