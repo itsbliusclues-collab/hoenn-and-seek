@@ -38,6 +38,7 @@ COND_TYPES = {  # JSON key -> (C enum, needs a second value?)
     "badges_min": "HINT_IF_BADGES_MIN", "badges_below": "HINT_IF_BADGES_BELOW",
     "caught": "HINT_IF_CAUGHT", "not_caught": "HINT_IF_NOT_CAUGHT",
     "level_cap": "HINT_IF_LEVEL_CAP",
+    "follower": "HINT_IF_FOLLOWER", "party": "HINT_IF_PARTY", "defeated": "HINT_IF_DEFEATED",
 }
 
 
@@ -75,9 +76,9 @@ def cond_c(cond):
         return "{HINT_IF_VAR_BELOW, %s, %d}" % (cond["var"], cond["below"])
     (key, val), = cond.items()
     kind = COND_TYPES[key]
-    if key in ("caught", "not_caught"):
+    if key in ("caught", "not_caught", "follower", "party"):
         return "{%s, SPECIES_%s, 0}" % (kind, val)
-    if key in ("flag", "not_flag"):
+    if key in ("flag", "not_flag", "defeated"):
         return "{%s, %s, 0}" % (kind, val)
     if key == "level_cap":
         return "{%s, 0, 0}" % kind

@@ -256,6 +256,12 @@
      "found": [{"caught": "JIRACHI"}],
      "heard": {"rumors": ["JIRACHI"], "lines": ["STORY_WISHES", "STORY_WISH_MONDAY"], "calls": ["HOENN_CALL_WISHES"]},
      "when": {"days": ["MON"], "times": ["night"]}},
+    {"key": "BROCK_WEEKENDS", "page": "kanto", "hint": "BROCK's weekends?", "title": "BROCK's weekends",
+     "rumor": "BROCK spends his weekends at the PEWTER MUSEUM. Talk to him there: he has something on his mind, and it takes a few weekends to tell.",
+     "found_text": "BROCK's breeder dream: MT. MOON, the DAY CARE, and an ONIX DOLL from his family.",
+     "found": [{"var": "VAR_HOENN_CHAIN_BROCK", "min": 4}],
+     "heard": {"if": [{"var": "VAR_HOENN_CHAIN_BROCK", "min": 1}]},
+     "when": {"days": ["SAT", "SUN"]}},
 
     {"key": "MUDKIP_POND", "page": "hoenn", "hint": "A pond at dawn?", "title": "The MUDKIP pond",
      "rumor": "Every morning, a SWAMPERT brings two MUDKIP to a pond on ROUTE 102 to practice. When they all dive, rain is coming.",

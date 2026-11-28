@@ -571,6 +571,21 @@ HoennSeek_Text_JournalJirachiWishesFoundText::
 HoennSeek_Text_JournalJirachiWishesWhen::
 	.string "At night.$"
 
+HoennSeek_Text_JournalBrockWeekendsHint::
+	.string "BROCK's weekends?$"
+
+HoennSeek_Text_JournalBrockWeekendsTitle::
+	.string "BROCK's weekends$"
+
+HoennSeek_Text_JournalBrockWeekendsRumor::
+	.string "BROCK spends his weekends at the\nPEWTER MUSEUM. Talk to him there:\lhe has something on his mind, and\lit takes a few weekends to tell.$"
+
+HoennSeek_Text_JournalBrockWeekendsFoundText::
+	.string "BROCK's breeder dream: MT. MOON,\nthe DAY CARE, and an ONIX DOLL\lfrom his family.$"
+
+HoennSeek_Text_JournalBrockWeekendsWhen::
+	.string "All day.$"
+
 HoennSeek_Text_JournalMudkipPondHint::
 	.string "A pond at dawn?$"
 

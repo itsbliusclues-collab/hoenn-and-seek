@@ -13,6 +13,7 @@
     "leader_script: only where gym trainers share the leader's graphics (Fuchsia): the gym object's script.",
     "rematch: {if_set, script}: the spot jumps to the leader's own rematch once that flag is set (Hoenn: after WALLACE).",
     "partner: {trainer, at}: a second trainer object that moves with the leader, at the spot + at (Tate & Liza).",
+    "chain: (2.1-21) a fan chain's script the spot calls first (data/hoenn/fan_chains.json); it returns VAR_RESULT TRUE when it said its own line.",
     "spot: where the leader spends Saturdays and Sundays: map, x, y, facing, elevation. The leader's follower there",
     "comes from data/hoenn/trainer_followers.json (the trainer graphics_id is unique on the spot map).",
     "line: what the leader says at the spot (before the rematch question). guide_line: the gym guide on a weekend."
@@ -139,6 +140,7 @@
       "key": "BROCK", "slot": 8, "part": "2.1-19",
       "gym": "PewterCity_Gym_hns", "trainer": "OBJ_EVENT_GFX_BROCK_HNS", "story_flag": "0",
       "beaten": "FLAG_DEFEATED_PEWTER_GYM", "guide": "PewterCity_Gym_EventScript_GymGuy", "dojo": "FLAG_HIDE_DOJO_BROCK", "cameo": "FLAG_HIDE_DIGLETT_BROCK",
+      "chain": "HoennSeek_EventScript_ChainSpot_BROCK",
       "spot": {"map": "PewterCity_Museum_1F_hns", "x": 6, "y": 6, "facing": "LEFT", "elevation": 3},
       "line": [
         "Hey, {PLAYER}! Weekends are when I help out here at the MUSEUM.",

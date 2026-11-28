@@ -191,6 +191,11 @@ extern const u8 HoennSeek_Text_JournalJirachiWishesTitle[];
 extern const u8 HoennSeek_Text_JournalJirachiWishesRumor[];
 extern const u8 HoennSeek_Text_JournalJirachiWishesFoundText[];
 extern const u8 HoennSeek_Text_JournalJirachiWishesWhen[];
+extern const u8 HoennSeek_Text_JournalBrockWeekendsHint[];
+extern const u8 HoennSeek_Text_JournalBrockWeekendsTitle[];
+extern const u8 HoennSeek_Text_JournalBrockWeekendsRumor[];
+extern const u8 HoennSeek_Text_JournalBrockWeekendsFoundText[];
+extern const u8 HoennSeek_Text_JournalBrockWeekendsWhen[];
 extern const u8 HoennSeek_Text_JournalMudkipPondHint[];
 extern const u8 HoennSeek_Text_JournalMudkipPondTitle[];
 extern const u8 HoennSeek_Text_JournalMudkipPondRumor[];
@@ -356,6 +361,7 @@ static const struct HoennJournalEntry sJournalEntries[] = {
     { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_MEW_BLUR_SEEN, 0}}, 1, NULL, 0, &(const struct HoennJournalWhen){ NULL, 0, 0x00, 0x1, 255, 0, FALSE, HoennSeek_Text_JournalMewBlurWhen }, HoennSeek_Text_JournalMewBlurHint, HoennSeek_Text_JournalMewBlurTitle, HoennSeek_Text_JournalMewBlurRumor, HoennSeek_Text_JournalMewBlurFoundText, FLAG_HOENN_HEARD_MEW_BLUR, HOENN_JOURNAL_PAGE_KANTO }, // MEW_BLUR
     { (const struct HoennHintCond[]){{HINT_IF_VAR_MIN, VAR_ROUTE22_GIOVANNI_STATE, 2}}, 1, NULL, 0, NULL, HoennSeek_Text_JournalCelebiMemoryHint, HoennSeek_Text_JournalCelebiMemoryTitle, HoennSeek_Text_JournalCelebiMemoryRumor, HoennSeek_Text_JournalCelebiMemoryFoundText, FLAG_HOENN_HEARD_CELEBI_MEMORY, HOENN_JOURNAL_PAGE_KANTO }, // CELEBI_MEMORY
     { (const struct HoennHintCond[]){{HINT_IF_CAUGHT, SPECIES_JIRACHI, 0}}, 1, NULL, 0, &(const struct HoennJournalWhen){ NULL, 0, 0x02, 0x8, 255, 0, FALSE, HoennSeek_Text_JournalJirachiWishesWhen }, HoennSeek_Text_JournalJirachiWishesHint, HoennSeek_Text_JournalJirachiWishesTitle, HoennSeek_Text_JournalJirachiWishesRumor, HoennSeek_Text_JournalJirachiWishesFoundText, FLAG_HOENN_HEARD_JIRACHI_WISHES, HOENN_JOURNAL_PAGE_KANTO }, // JIRACHI_WISHES
+    { (const struct HoennHintCond[]){{HINT_IF_VAR_MIN, VAR_HOENN_CHAIN_BROCK, 4}}, 1, (const struct HoennHintCond[]){{HINT_IF_VAR_MIN, VAR_HOENN_CHAIN_BROCK, 1}}, 1, &(const struct HoennJournalWhen){ NULL, 0, 0x41, 0x0, 255, 0, FALSE, HoennSeek_Text_JournalBrockWeekendsWhen }, HoennSeek_Text_JournalBrockWeekendsHint, HoennSeek_Text_JournalBrockWeekendsTitle, HoennSeek_Text_JournalBrockWeekendsRumor, HoennSeek_Text_JournalBrockWeekendsFoundText, FLAG_HOENN_HEARD_BROCK_WEEKENDS, HOENN_JOURNAL_PAGE_KANTO }, // BROCK_WEEKENDS
     { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_POND_SEEN, 0}}, 1, NULL, 0, &(const struct HoennJournalWhen){ NULL, 0, 0x00, 0x1, 255, 0, TRUE, HoennSeek_Text_JournalMudkipPondWhen }, HoennSeek_Text_JournalMudkipPondHint, HoennSeek_Text_JournalMudkipPondTitle, HoennSeek_Text_JournalMudkipPondRumor, HoennSeek_Text_JournalMudkipPondFoundText, FLAG_HOENN_HEARD_MUDKIP_POND, HOENN_JOURNAL_PAGE_HOENN }, // MUDKIP_POND
     { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_RALTS_DONE, 0}}, 1, NULL, 0, &(const struct HoennJournalWhen){ NULL, 0, 0x00, 0x1, 255, 0, FALSE, HoennSeek_Text_JournalRaltsGuardWhen }, HoennSeek_Text_JournalRaltsGuardHint, HoennSeek_Text_JournalRaltsGuardTitle, HoennSeek_Text_JournalRaltsGuardRumor, HoennSeek_Text_JournalRaltsGuardFoundText, FLAG_HOENN_HEARD_RALTS_GUARD, HOENN_JOURNAL_PAGE_HOENN }, // RALTS_GUARD
     { (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_MUNCHLAX_DONE, 0}}, 1, NULL, 0, NULL, HoennSeek_Text_JournalMunchlaxNapHint, HoennSeek_Text_JournalMunchlaxNapTitle, HoennSeek_Text_JournalMunchlaxNapRumor, HoennSeek_Text_JournalMunchlaxNapFoundText, FLAG_HOENN_HEARD_MUNCHLAX_NAP, HOENN_JOURNAL_PAGE_HOENN }, // MUNCHLAX_NAP

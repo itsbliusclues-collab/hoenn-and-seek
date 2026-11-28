@@ -1,0 +1,46 @@
+{
+  "_comment": [
+    "Hoenn & Seek 2.1-21 to 23: fan-favorite chains (plan section 6). Read by tools/hoenn/gen_hoenn_chains.py,",
+    "which writes src/data/hoenn_fan_chains.h (the table src/hoenn_fan_chains.c reads; its header explains the",
+    "weekend rule) and data/scripts/hoenn_fan_chains.inc (the pool texts, word-wrapped like the hint lines).",
+    "",
+    "chains: in HOENN_CHAIN_* order (id names the constant). leader: the key of the leader's entry in",
+    "  leader_weekends.json; the chain only runs on that leader's weekends (beaten, cameo met), and that",
+    "  entry's `chain` names the script the weekend spot calls first. stage_var / weekend_var: the chain's",
+    "  two vars (constants/hoenn_events_2_1.h). steps: four places, one per step: spot (the leader's",
+    "  weekend spot) or the hide flag of a chain object of its own (placed by hand in that map's map.json).",
+    "  While a step is ready the leader waits at its place; after it, they stay there for the rest of",
+    "  that weekend; before the first and after the last they're at the weekend spot.",
+    "pool: lines the leader says once the chain is done, taking turns among those whose conditions hold",
+    "  ('if': the hint engine's conditions, data/hoenn/npc_hints.json's comment; all must hold). At most 32.",
+    "  Write them in the character's voice, about what the player has done; keep a few with no condition."
+  ],
+  "chains": [
+    {
+      "key": "BROCK", "id": "HOENN_CHAIN_BROCK", "leader": "BROCK", "part": "2.1-21",
+      "stage_var": "VAR_HOENN_CHAIN_BROCK", "weekend_var": "VAR_HOENN_CHAIN_BROCK_WEEKEND",
+      "steps": ["spot", "FLAG_HOENN_CHAIN_BROCK_MTMOON", "FLAG_HOENN_CHAIN_BROCK_DAYCARE", "spot"],
+      "pool": [
+        {"text": "My brothers and sisters each have a favorite fossil in this MUSEUM. There are ten of them. That's a lot of favorites."},
+        {"text": "A good BREEDER watches before acting. So does a good friend. So does a good GYM LEADER, come to think of it."},
+        {"text": ["Keep your POKéMON's bedding dry and their food warm.", "ROCK types too. Especially ROCK types."]},
+        {"text": "ROCK POKéMON can go a week without eating, you know. I still cook for mine every day. It's the principle."},
+        {"if": [{"follower": "ONIX"}], "text": "Your ONIX looks great! See how its rocks shine? Somebody's been polishing it. I can always tell."},
+        {"if": [{"follower": "GEODUDE"}], "text": "A GEODUDE following you! Rub it with a damp cloth now and then. It won't say so, but it likes that."},
+        {"if": [{"party": "STEELIX"}], "text": "You have a STEELIX! It started out as an ONIX, like my first partner. I wonder what it remembers."},
+        {"if": [{"caught": "LILEEP"}], "text": "You found a LILEEP in HOENN? Those fossils come from the sea floor. A plant that crawled out of the ocean!"},
+        {"if": [{"caught": "ANORITH"}], "text": "ANORITH! Its claws are built for the sea, but it walks on land like it was born there. Tough little thing."},
+        {"if": [{"caught": "AERODACTYL"}], "text": "Your AERODACTYL flew when the skies were empty. Mine still screeches at PIDGEY out of old habit."},
+        {"if": [{"caught": "OMANYTE"}], "text": "OMANYTE's shell spirals the same way every single time. Nature is very tidy, if you look closely."},
+        {"if": [{"caught": "RELICANTH"}], "text": "A RELICANTH! A living fossil. It hasn't changed in a hundred million years, and it doesn't need to."},
+        {"if": [{"flag": "FLAG_HOENN_STAMP_GYM_1"}], "text": "ROXANNE in RUSTBORO writes to this MUSEUM about fossils. Her letters have footnotes. I respect that."},
+        {"if": [{"flag": "FLAG_HOENN_STAMP_WALLACE"}], "text": "You beat WALLACE? All that grace on the outside, and solid as granite underneath. I'd like to try him myself."},
+        {"if": [{"defeated": "TRAINER_RED_HNS"}], "text": "You beat RED? He came through PEWTER once. He didn't say a word, just nodded at the fossils."},
+        {"if": [{"badges_min": 16}], "text": "Sixteen BADGES! When I started out, I thought eight was the whole world."},
+        {"if": [{"flag": "FLAG_HOENN_MET_BROCK"}], "text": "There's a trainer in HOENN named BROCK? An ATHLETE? Tell him the name comes with responsibilities."},
+        {"if": [{"flag": "FLAG_HOENN_BROCK_BEST_FRIEND"}], "text": "That other BROCK calls you his best friend? I'm not jealous. ROCKS don't get jealous."},
+        {"if": [{"flag": "FLAG_HOENN_STAMP_GYM_8"}], "text": "Eight BADGES in HOENN, too? Your POKéMON must eat well. That's half the work, you know."}
+      ]
+    }
+  ]
+}

@@ -114,7 +114,10 @@ HoennSeek_EventScript_WeekendGuide_CLAIR::
 HoennSeek_EventScript_Weekend_BROCK::
 	lock
 	faceplayer
+	call HoennSeek_EventScript_ChainSpot_BROCK
+	goto_if_eq VAR_RESULT, TRUE, HoennSeek_EventScript_Weekend_BROCK_Rematch
 	msgbox HoennSeek_Text_Weekend_BROCK, MSGBOX_DEFAULT
+HoennSeek_EventScript_Weekend_BROCK_Rematch:
 	goto_if_unset FLAG_HIDE_DOJO_BROCK, SaffronCity_FightingDojoVIP_EventScript_Brock
 	closemessage
 	release

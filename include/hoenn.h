@@ -60,6 +60,13 @@ u16 HoennLaneBDueCall(void); // src/hoenn_lane_b.c
 u16 Hoenn21LaneADueCall(void); // src/hoenn_2_1_lane_a.c (2.1-02)
 void HoennUpdateLeaderWeekends(void); // 2.1-18: leaders' weekends (src/hoenn_2_1_lane_b.c)
 u16 Hoenn21LaneBDueCall(void); // src/hoenn_2_1_lane_b.c (2.1-02)
+// 2.1-21 to 23: fan-favorite chains (src/hoenn_fan_chains.c)
+void HoennUpdateFanChains(void);
+bool32 HoennBrockChainCallDue(void);
+u16 HoennChainStepReady(void); // specialvar
+void HoennChainStepDone(void);  // special
+struct ScriptContext;
+void HoennSeek_ChainPoolLine(struct ScriptContext *ctx); // callnative
 // 2.1-05: the SEEKER'S JOURNAL (src/hoenn_journal.c, lane A)
 void HoennJournalHeardCall(u16 call); // an event call rang (HoennTryEventCall)
 void HoennJournalPushPages(void);     // special

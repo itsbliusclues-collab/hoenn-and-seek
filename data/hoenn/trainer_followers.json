@@ -61,6 +61,7 @@
     {"map": "Route44_hns",                 "trainer": "OBJ_EVENT_GFX_PRYCE_HNS",    "species": "PILOSWINE", "_": "2.1-18 weekend spot"},
     {"map": "LakeOfRage_hns",              "trainer": "OBJ_EVENT_GFX_CLAIR_HNS",    "species": "KINGDRA",   "_": "2.1-18 weekend spot"},
     {"map": "PewterCity_Museum_1F_hns",      "trainer": "OBJ_EVENT_GFX_BROCK_HNS",   "species": "GOLEM",     "_": "2.1-19 weekend spot"},
+    {"map": "MtMoon_Cave_hns",               "trainer": "OBJ_EVENT_GFX_BROCK_HNS",   "species": "GOLEM",     "_": "2.1-21 chain step 2"},
     {"map": "Route20_hns",                   "trainer": "OBJ_EVENT_GFX_MISTY_HNS",   "species": "STARMIE",   "_": "2.1-19 weekend spot"},
     {"map": "VermilionCity_PortOutside_hns", "trainer": "OBJ_EVENT_GFX_SURGE_HNS",   "species": "RAICHU",    "_": "2.1-19 weekend spot"},
     {"map": "PalletTown_hns",                "trainer": "OBJ_EVENT_GFX_ERIKA_HNS",   "species": "BELLOSSOM", "_": "2.1-19 weekend spot"},
