@@ -78,6 +78,12 @@ python3 tools/hoenn/living_dex.py --report hoenn-docs/living-dex.md
 echo "== text_audit"
 python3 tools/hoenn/text_audit.py
 
+# Also a check (2.1-03): no screen gets more objects or sprite palettes than
+# the engine can load (the generators above run it too). Rewrites
+# hoenn-docs/screens.md.
+echo "== check_screens"
+python3 tools/hoenn/check_screens.py --report hoenn-docs/screens.md
+
 # Two generators rewrite files that come out byte-different but identical in
 # content: gen_hoenn_base_entrances.py and gen_hoenn_battle_art.py re-encode
 # their PNGs (same pixels and palette, other zlib settings), and .pal files can
