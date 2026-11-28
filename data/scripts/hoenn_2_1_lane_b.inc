@@ -50,6 +50,13 @@ HoennSeek_Text_TeleportBase:
 HoennSeek_Text_TeleportCancel:
 	.string "CANCEL$"
 
+@ ---------------------------------------------------------------- 2.1-28: people's Pokémon
+@ Pets placed by tools/hoenn/gen_hoenn_peoples_pokemon.py (data/hoenn/peoples_pokemon.json)
+@ run this. The script name is how the generator finds them again, so it must stay
+@ its own label; it plays the cry like the trainer followers.
+HoennSeek_EventScript_PeoplesPet::
+	goto HoennSeek_EventScript_TrainerFollower
+
 @ ---------------------------------------------------------------- 2.1-18 to 20: leaders' weekends
 @ Design: src/hoenn_2_1_lane_b.c and tools/hoenn/gen_hoenn_weekends.py. The spot
 @ and gym guide scripts are generated from data/hoenn/leader_weekends.json.
