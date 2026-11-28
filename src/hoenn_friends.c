@@ -28,21 +28,37 @@
 //   last normal battle; if the ladder is higher now, they open with that line.
 // - Name lines: once, at the first meeting, if your name is one they know
 //   (AIDAN, BRIDGET or BROCK, exact spelling, any case).
+// - In battle (2.1-14b): HoennFriendSwitchFunc (expansion's per-battle switch
+//   hook, set by the script with setdynamicswitchaifunc) switches out of a
+//   predicted super-effective hit into a party member that resists it (at most
+//   three times a battle); trainer slides from sFriendSlides (one hook in
+//   src/trainer_slide.c, so the 197 KB slide table doesn't grow); and a line on
+//   a voluntary switch (BS_HoennFriendSwitchTaunt, one callnative in
+//   BattleScript_DoSwitchOut): Bridgette's PURSUIT jab when TYRANITAR comes in
+//   against a Pokémon weak to Dark, Aidan's and Brock's on their first switch.
 // - BROCK asks what type of Pokémon you're into at the first meeting
 //   (HoennFriendTypeReaction) and calls you his best friend once you've beaten
 //   him (FLAG_HOENN_BROCK_BEST_FRIEND).
 #include "global.h"
 #include "battle.h"
+#include "battle_ai_util.h"
 #include "battle_main.h"
+#include "battle_scripts.h"
+#include "battle_util.h"
 #include "battle_setup.h"
 #include "data.h"
 #include "event_data.h"
+#include "move.h"
+#include "pokemon.h"
 #include "hoenn.h"
 #include "script.h"
 #include "string_util.h"
 #include "constants/battle.h"
 #include "constants/characters.h"
+#include "constants/moves.h"
 #include "constants/opponents.h"
+#include "constants/species.h"
+#include "constants/trainer_slide.h"
 
 #if IS_HNS
 
@@ -147,6 +163,44 @@ static const struct HoennFriend sFriends[HOENN_FRIEND_COUNT] =
 // Set by the script just before a HARD battle, cleared when it ends. Not
 // saved: the game can't be saved mid-battle.
 static EWRAM_DATA bool8 sHardBattle = FALSE;
+static EWRAM_DATA u8 sSwitchTricks = 0; // HoennFriendSwitchFunc's switches this battle
+static EWRAM_DATA u8 sTauntsDone = 0;   // bit per friend: the switch line was said
+
+#define MAX_SWITCH_TRICKS 3
+
+// Trainer slides (the engine's mid-battle lines), one array per friend.
+static const u8 sText_BridgetteSuperEffective[] = _("Ooh, right on a weak spot!\nI'm writing that down.");
+static const u8 sText_BridgetteLast[] = _("Last one out of the dig site!\nLet's find something good!");
+static const u8 sText_AidanFirstDown[] = _("Ouch! Hard landing for that one.");
+static const u8 sText_AidanLast[] = _("Last one in the plane...\nPull the cord!");
+static const u8 sText_AidanLowHp[] = _("We're coming in fast!\nBrace for landing!");
+static const u8 sText_BrockFirstDown[] = _("HA! You're even better than\nI thought!");
+static const u8 sText_BrockLast[] = _("Last one standing! Let's make\nthis one count!");
+
+static const u8 *const sFriendSlides[HOENN_FRIEND_COUNT][TRAINER_SLIDE_COUNT] =
+{
+    [HOENN_FRIEND_BRIDGETTE] =
+    {
+        [TRAINER_SLIDE_PLAYER_LANDS_FIRST_SUPER_EFFECTIVE_HIT] = sText_BridgetteSuperEffective,
+        [TRAINER_SLIDE_LAST_SWITCHIN] = sText_BridgetteLast,
+    },
+    [HOENN_FRIEND_AIDAN] =
+    {
+        [TRAINER_SLIDE_PLAYER_LANDS_FIRST_DOWN] = sText_AidanFirstDown,
+        [TRAINER_SLIDE_LAST_SWITCHIN] = sText_AidanLast,
+        [TRAINER_SLIDE_LAST_LOW_HP] = sText_AidanLowHp,
+    },
+    [HOENN_FRIEND_BROCK] =
+    {
+        [TRAINER_SLIDE_PLAYER_LANDS_FIRST_DOWN] = sText_BrockFirstDown,
+        [TRAINER_SLIDE_LAST_SWITCHIN] = sText_BrockLast,
+    },
+};
+
+// Lines on a voluntary switch (BS_HoennFriendSwitchTaunt).
+static const u8 sText_BridgettePursuit[] = _("TYRANITAR's here! Go on, switch\nout. I dare you. PURSUIT's ready!");
+static const u8 sText_AidanSwitch[] = _("Mid-air swap! Never jump\nwithout a backup chute!");
+static const u8 sText_BrockSwitch[] = _("CLAP! Switched places!\nBet you didn't see that coming!");
 
 bool32 HoennIsFriendTrainer(const struct Trainer *trainer)
 {
@@ -213,10 +267,97 @@ u16 HoennFriendHardUnlocked(void)
     return HasTrainerBeenFought(TRAINER_RED_POSTOBC_HNS);
 }
 
-// special HoennFriendSetHard: VAR_0x8005 TRUE for a HARD battle.
+// special HoennFriendSetHard: VAR_0x8005 TRUE for a HARD battle. Runs just
+// before every friend battle, so it also resets the per-battle state.
 void HoennFriendSetHard(void)
 {
     sHardBattle = (VarGet(VAR_0x8005) != 0);
+    sSwitchTricks = 0;
+    sTauntsDone = 0;
+}
+
+const u8 *const *HoennFriendSlides(u32 trainerId)
+{
+    u32 i;
+    for (i = 0; i < HOENN_FRIEND_COUNT; i++)
+        if (sFriends[i].trainerId == trainerId)
+            return sFriendSlides[i];
+    return NULL;
+}
+
+// setdynamicswitchaifunc: if the player's predicted move (AI_FLAG_PREDICT_MOVE,
+// else their last one) hits the friend's Pokémon super effectively, switch to
+// the party member that takes it best, if one resists it. Singles only. TRUE
+// = switch (the engine's ShouldSwitch then uses AI_monToSwitchIntoId).
+bool32 HoennFriendSwitchFunc(u32 battler)
+{
+    enum BattlerId foe = GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
+    enum Move move;
+    uq4_12_t mod, bestMod = UQ_4_12(0.5);
+    u32 i, best = PARTY_SIZE;
+
+    if (IsDoubleBattle() || sSwitchTricks >= MAX_SWITCH_TRICKS || !IsBattlerAlive(foe))
+        return FALSE;
+    move = GetIncomingMove(battler, foe, gAiLogicData);
+    if (move == MOVE_NONE || GetMovePower(move) == 0)
+        return FALSE;
+    if (CalcPartyMonTypeEffectivenessMultiplier(move, gBattleMons[battler].species, gBattleMons[battler].ability) < UQ_4_12(2.0))
+        return FALSE;
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        struct Pokemon *mon = &gEnemyParty[i];
+        u32 species = GetMonData(mon, MON_DATA_SPECIES_OR_EGG);
+
+        if (i == gBattlerPartyIndexes[battler] || species == SPECIES_NONE || species == SPECIES_EGG || GetMonData(mon, MON_DATA_HP) == 0)
+            continue;
+        mod = CalcPartyMonTypeEffectivenessMultiplier(move, species, GetMonAbility(mon));
+        if (mod <= bestMod)
+        {
+            best = i;
+            bestMod = mod;
+        }
+    }
+    if (best == PARTY_SIZE)
+        return FALSE;
+    sSwitchTricks++;
+    gBattleStruct->AI_monToSwitchIntoId[battler] = best;
+    return TRUE;
+}
+
+// callnative in BattleScript_DoSwitchOut, after the new Pokémon is out: a
+// friend's line, once a battle, through the trainer-slide script.
+void BS_HoennFriendSwitchTaunt(void)
+{
+    const u8 *next = gBattlescriptCurrInstr + 5; // opcode + function pointer
+    enum BattlerId battler = gBattlerAttacker;
+    enum BattlerId foe = GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
+    s32 friend = BattleFriend();
+    const u8 *text = NULL;
+
+    gBattlescriptCurrInstr = next;
+    if (friend < 0 || IsDoubleBattle() || GetBattlerSide(battler) != B_SIDE_OPPONENT || (sTauntsDone & (1 << friend)))
+        return;
+    switch (friend)
+    {
+    case HOENN_FRIEND_BRIDGETTE:
+        if (gBattleMons[battler].species == SPECIES_TYRANITAR && IsBattlerAlive(foe)
+         && CalcPartyMonTypeEffectivenessMultiplier(MOVE_PURSUIT, gBattleMons[foe].species, gBattleMons[foe].ability) >= UQ_4_12(2.0))
+            text = sText_BridgettePursuit;
+        break;
+    case HOENN_FRIEND_AIDAN:
+        text = sText_AidanSwitch;
+        break;
+    case HOENN_FRIEND_BROCK:
+        text = sText_BrockSwitch;
+        break;
+    }
+    if (text == NULL)
+        return;
+    sTauntsDone |= 1 << friend;
+    gBattleStruct->trainerSlideMsg = text;
+    gBattleScripting.battler = battler;
+    BattleScriptPush(next);
+    gBattlescriptCurrInstr = BattleScript_TrainerASlideMsgRet;
 }
 
 // specialvar VAR_RESULT, HoennFriendBattleEnded: after the battle. Puts the
