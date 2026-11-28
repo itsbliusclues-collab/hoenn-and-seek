@@ -880,6 +880,14 @@ static void Task_PetalburgGymSlideOpenRoomDoors(u8 taskId)
     }
 }
 
+// Hoenn & Seek 2.1-27: every room of the HnS build's Petalburg Gym is one column wider (a middle
+// column at x 4, tools/hoenn/gen_hoenn_gym_rugs.py), so its right-hand doors are at x 8.
+#if IS_HNS
+#define PETALBURG_GYM_RIGHT_DOOR_X 8
+#else
+#define PETALBURG_GYM_RIGHT_DOOR_X 7
+#endif
+
 static void PetalburgGymSetDoorMetatiles(u8 roomNumber, u16 metatileId)
 {
     u16 doorCoordsX[4];
@@ -891,33 +899,33 @@ static void PetalburgGymSetDoorMetatiles(u8 roomNumber, u16 metatileId)
     case 1:
         nDoors = 2;
         doorCoordsX[0] = 1;
-        doorCoordsX[1] = 7;
+        doorCoordsX[1] = PETALBURG_GYM_RIGHT_DOOR_X;
         doorCoordsY[0] = 104;
         doorCoordsY[1] = 104;
         break;
     case 2:
         nDoors = 2;
         doorCoordsX[0] = 1;
-        doorCoordsX[1] = 7;
+        doorCoordsX[1] = PETALBURG_GYM_RIGHT_DOOR_X;
         doorCoordsY[0] = 78;
         doorCoordsY[1] = 78;
         break;
     case 3:
         nDoors = 2;
         doorCoordsX[0] = 1;
-        doorCoordsX[1] = 7;
+        doorCoordsX[1] = PETALBURG_GYM_RIGHT_DOOR_X;
         doorCoordsY[0] = 91;
         doorCoordsY[1] = 91;
         break;
     case 4:
         nDoors = 1;
-        doorCoordsX[0] = 7;
+        doorCoordsX[0] = PETALBURG_GYM_RIGHT_DOOR_X;
         doorCoordsY[0] = 39;
         break;
     case 5:
         nDoors = 2;
         doorCoordsX[0] = 1;
-        doorCoordsX[1] = 7;
+        doorCoordsX[1] = PETALBURG_GYM_RIGHT_DOOR_X;
         doorCoordsY[0] = 52;
         doorCoordsY[1] = 52;
         break;
@@ -928,7 +936,7 @@ static void PetalburgGymSetDoorMetatiles(u8 roomNumber, u16 metatileId)
         break;
     case 7:
         nDoors = 1;
-        doorCoordsX[0] = 7;
+        doorCoordsX[0] = PETALBURG_GYM_RIGHT_DOOR_X;
         doorCoordsY[0] = 13;
         break;
     case 8:

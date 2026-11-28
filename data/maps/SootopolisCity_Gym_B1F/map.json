@@ -30,7 +30,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
-      "x": 9,
+      "x": 10,
       "y": 19,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
@@ -43,7 +43,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_2",
-      "x": 12,
+      "x": 13,
       "y": 7,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
@@ -56,7 +56,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
-      "x": 11,
+      "x": 12,
       "y": 9,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -108,7 +108,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
-      "x": 9,
+      "x": 10,
       "y": 7,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -134,7 +134,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_POKEFAN_F",
-      "x": 10,
+      "x": 11,
       "y": 13,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
@@ -148,7 +148,7 @@
   ],
   "warp_events": [
     {
-      "x": 11,
+      "x": 12,
       "y": 22,
       "elevation": 3,
       "dest_map": "MAP_SOOTOPOLIS_CITY_GYM_1F",

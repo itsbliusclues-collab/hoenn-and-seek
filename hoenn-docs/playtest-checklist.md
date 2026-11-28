@@ -702,3 +702,11 @@ Lane B's `## 2.0 part NN` sections go below this line, at the end of the file.
 - SAFFRON: try a few teleport pads in the middle rooms (those rooms are a tile wider; the pads moved with them).
 - MT. SILVER summit by day and by night: Red and Pikachu side by side on the middle of the peak; battle Red; Pikachu disappears with him afterwards.
 - PEWTER MUSEUM 1F on a weekend after beating BROCK: Onix beside him.
+
+### 2.1-27 (Hoenn gym rugs)
+- Each Hoenn leader with their Pokémon side by side on a 4-wide rug: RUSTBORO (Probopass), DEWFORD (Hariyama; the gym is dark, use FLASH), MAUVILLE (Manectric), LAVARIDGE (Torkoal), PETALBURG (Slaking), FORTREE (Altaria), SOOTOPOLIS (Kingdra). Talk to each leader and battle.
+- PETALBURG: go through the gym room by room; each sliding door you open after a win is drawn in the right place (the rooms are a tile wider) and leads on.
+- SOOTOPOLIS: the ice puzzle on all three floors (each staircase opens once every ice tile is cracked; the top floor has one more rock), and fall through once on purpose: you land on B1F and can climb back.
+- FORTREE: the turnstiles still turn and block as before; the entrance door is 3 wide.
+- LAVARIDGE: walk the steam path to Flannery (the room is a tile wider at the top).
+- RUSTBORO: walk the maze to Roxanne (the top rows are a tile wider).

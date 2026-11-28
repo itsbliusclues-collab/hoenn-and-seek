@@ -85,6 +85,52 @@
     {"map": "MtSilver_SummitNight_hns", "_": "the night summit, the same change",
      "ops": [
        {"op": "insert_col", "x": 10}
+     ]},
+    {"map": "RustboroCity_Gym", "_": "the maze and the leader's dais (rows 0-18) get a middle column (5), so Roxanne and Probopass stand centred on a 4-wide rug; the door row keeps its 2-tile door, now centred, and gains a wall column on the map's right edge",
+     "ops": [
+       {"op": "widen"},
+       {"op": "insert_col", "x": 5, "rows": [0, 18]},
+       {"op": "orn", "x": 5, "y": 0, "h": 2},
+       {"op": "nine", "from": "orig", "src": [4, 2, 2, 1], "dst": [4, 2, 4, 1], "b": 6}
+     ]},
+    {"map": "DewfordTown_Gym", "_": "the dais is already even (x 2-5): the mat grows to 4 and Brawly moves to its left middle, Hariyama to its right",
+     "ops": [
+       {"op": "nine", "src": [3, 3, 2, 1], "dst": [2, 3, 4, 1], "b": 5},
+       {"op": "move_event", "kind": "object_events", "index": 0, "x": 3}
+     ]},
+    {"map": "MauvilleCity_Gym", "_": "the dais is already even (x 3-6): the rug grows to 4 and Wattson moves to its left middle, Manectric to its right",
+     "ops": [
+       {"op": "nine", "src": [4, 2, 2, 1], "dst": [3, 2, 4, 1], "b": 5},
+       {"op": "move_event", "kind": "object_events", "index": 0, "x": 4}
+     ]},
+    {"map": "LavaridgeTown_Gym_1F", "_": "the right-hand rooms (rows 0-17, x 13 on) get a middle column, so Flannery and Torkoal sit centred on a 4-wide bench; the door row keeps its 2-tile door, now centred, and gains a pillar column on the map's right edge",
+     "ops": [
+       {"op": "widen"},
+       {"op": "insert_col", "x": 13, "rows": [0, 17]},
+       {"op": "orn", "x": 13, "y": 7},
+       {"op": "nine", "from": "orig", "src": [13, 9, 1, 1], "dst": [12, 9, 4, 1], "b": 3}
+     ]},
+    {"map": "PetalburgCity_Gym", "_": "a middle column (4) through every room, so each stays symmetric (the sliding doors' x in src/field_specials.c and the room-door setmetatile lines moved with it); Norman and Slaking centred on a 4-wide mat",
+     "ops": [
+       {"op": "insert_col", "x": 4},
+       {"op": "orn", "x": 4, "y": 1},
+       {"op": "nine", "from": "orig", "src": [4, 2, 1, 1], "dst": [3, 2, 4, 1], "b": 3}
+     ]},
+    {"map": "FortreeCity_Gym", "_": "a middle column (15) through the leader's side; the door becomes 3 wide, centred between the statues",
+     "ops": [
+       {"op": "insert_col", "x": 15},
+       {"op": "orn", "x": 15, "y": 1},
+       {"op": "nine", "from": "orig", "src": [15, 24, 2, 1], "dst": [15, 24, 3, 1], "b": 3, "_": "the door, redrawn 3 wide"}
+     ]},
+    {"map": "SootopolisCity_Gym_1F", "_": "a middle column (8) through the whole gym, so Juan and Kingdra are centred and every staircase is 2 wide; the ice puzzle's bounds (src/field_tasks.c) and step counts (scripts.inc) moved with it, and B1F (where you fall) gets the same column",
+     "ops": [
+       {"op": "insert_col", "x": 8},
+       {"op": "orn", "x": 8, "y": 0, "h": 2},
+       {"op": "put", "src": [7, 8, 1, 1], "dst": [8, 8], "_": "a second rock beside (7,8): with the extra column the top floor had no way to crack every tile and reach the stairs (checked by a solver); with it, it does"}
+     ]},
+    {"map": "SootopolisCity_Gym_B1F", "_": "the floor you fall to: the same middle column, so every hole lands on the same tile",
+     "ops": [
+       {"op": "insert_col", "x": 8}
      ]}
   ]
 }

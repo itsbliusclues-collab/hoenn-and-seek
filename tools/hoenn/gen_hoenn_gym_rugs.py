@@ -39,7 +39,7 @@ the block it replaces (behavior, layer type), made of existing tiles where one m
 flips) and new tiles otherwise. New tiles go into blank tiles of the secondary tileset that no
 metatile uses; new metatiles go into blank metatile slots that no layout using that tileset
 draws, then into new slots after the tileset's last metatile (its metatile and attribute files
-grow; up to 384). Every 8x8 tile of a layer must keep one palette (the generator stops if an op mixes two).
+grow, up to 1024 metatiles in all). Every 8x8 tile of a layer must keep one palette (the generator stops if an op mixes two).
 
 Undo: data/hoenn/gym_rug_slots.json records what each run changed (the tileset slots and their
 old contents, the events it moved or added) and data/hoenn/gym_originals/<LAYOUT>.bin keeps each
@@ -61,9 +61,10 @@ import render_layout as R  # tileset sources, palettes, tile sheets
 CFG = "data/hoenn/gym_rugs.json"
 SLOTS = "data/hoenn/gym_rug_slots.json"
 ORIG = "data/hoenn/gym_originals"
-NUM_PRIMARY = 640        # HnS primary tilesets: 640 tiles, 640 metatiles, 7 palettes
-NUM_PRIMARY_PALS = 7
-NUM_SECONDARY_METATILES = 384
+# Primary tileset sizes by layout_version: HnS 640 tiles/metatiles and 7 palettes (secondary
+# metatiles 640-1023), Emerald 512 and 6 (secondary 512-1023). Each Tileset carries its own.
+SIZES = {"hns": (640, 7), "emerald": (512, 6)}
+NUM_METATILES = 1024
 FOLLOWER = "HoennSeek_EventScript_TrainerFollower"
 
 
@@ -84,9 +85,10 @@ def sheet_path(tiles):
 class Tileset:
     """A secondary tileset: its sheet, metatiles and attributes, plus the primary it is drawn with."""
 
-    def __init__(self, name, prim, sec):
+    def __init__(self, name, prim, sec, version="hns"):
         from PIL import Image
         self.name = name
+        self.np, self.npal = SIZES[version]  # primary tiles = primary metatiles, primary palettes
         self.sheet_file = sheet_path(sec["tiles"])
         self.sheet = Image.open(P(self.sheet_file))
         assert self.sheet.mode == "P", self.sheet_file
@@ -96,14 +98,14 @@ class Tileset:
         self.mt = list(struct.unpack("<%dH" % (len(d) // 2), d))
         self.attr = list(struct.unpack("<%dH" % (len(open(P(self.attr_file), "rb").read()) // 2),
                                        open(P(self.attr_file), "rb").read()))
-        self.prim_tiles = R.read_tiles(prim["tiles"])[:NUM_PRIMARY]
-        self.prim_tiles += [[[0] * 8 for _ in range(8)]] * (NUM_PRIMARY - len(self.prim_tiles))
+        self.prim_tiles = R.read_tiles(prim["tiles"])[:self.np]
+        self.prim_tiles += [[[0] * 8 for _ in range(8)]] * (self.np - len(self.prim_tiles))
         d = open(P(prim["metatiles"]), "rb").read()
         self.prim_mt = list(struct.unpack("<%dH" % (len(d) // 2), d))
         a = open(P(re.sub(r"metatiles\.bin$", "metatile_attributes.bin", prim["metatiles"])), "rb").read()
         self.prim_attr = list(struct.unpack("<%dH" % (len(a) // 2), a))
-        self.pals = [R.read_pal(f) for f in prim["pals"][:NUM_PRIMARY_PALS]] + \
-                    [R.read_pal(f) for f in sec["pals"][NUM_PRIMARY_PALS:]]
+        self.pals = [R.read_pal(f) for f in prim["pals"][:self.npal]] + \
+                    [R.read_pal(f) for f in sec["pals"][self.npal:]]
         self.sheet_w = self.sheet.size[0] // 8
         self.n_sheet = self.sheet_w * (self.sheet.size[1] // 8)
         self.changed = False
@@ -114,6 +116,27 @@ class Tileset:
         tx, ty = i % self.sheet_w, i // self.sheet_w
         return [[self.sheet.getpixel((tx * 8 + x, ty * 8 + y)) & 15 for x in range(8)] for y in range(8)]
 
+    def grow_sheet(self):
+        """One more row of blank tiles at the bottom of the sheet (a tileset with no blank tile
+        left: Rustboro's). Returns the new tile indices; None if the secondary is full."""
+        from PIL import Image
+        w, h = self.sheet.size
+        if self.np + self.n_sheet + self.sheet_w > 1024:  # secondary tiles: 384 (HnS), 512 (Emerald)
+            return None
+        grown = Image.new("P", (w, h + 8), 0)
+        grown.putpalette(self.sheet.getpalette())
+        grown.paste(self.sheet, (0, 0))
+        self.sheet = grown
+        first = self.n_sheet
+        self.n_sheet += self.sheet_w
+        self.sheet_changed = True
+        return list(range(first, self.n_sheet))
+
+    def crop_sheet(self, rows):
+        self.sheet = self.sheet.crop((0, 0, self.sheet.size[0], rows * 8))
+        self.n_sheet = self.sheet_w * rows
+        self.sheet_changed = True
+
     def put_sheet_tile(self, i, tile):
         tx, ty = i % self.sheet_w, i // self.sheet_w
         for y in range(8):
@@ -122,28 +145,28 @@ class Tileset:
         self.sheet_changed = True
 
     def tile(self, t):
-        return self.prim_tiles[t] if t < NUM_PRIMARY else self.sheet_tile(t - NUM_PRIMARY)
+        return self.prim_tiles[t] if t < self.np else self.sheet_tile(t - self.np)
 
     # --- metatiles ---
     def count(self):
         return len(self.mt) // 8
 
     def entries(self, mid):
-        if mid < NUM_PRIMARY:
+        if mid < self.np:
             return list(self.prim_mt[mid * 8:mid * 8 + 8])
-        i = mid - NUM_PRIMARY
+        i = mid - self.np
         return list(self.mt[i * 8:i * 8 + 8])
 
     def attribute(self, mid):
-        return self.prim_attr[mid] if mid < NUM_PRIMARY else self.attr[mid - NUM_PRIMARY]
+        return self.prim_attr[mid] if mid < self.np else self.attr[mid - self.np]
 
     def set_metatile(self, mid, ents, attr):
-        i = mid - NUM_PRIMARY
+        i = mid - self.np
         if ents is None:  # undo of an appended slot: drop it (and anything after it)
             del self.mt[i * 8:], self.attr[i:]
             self.changed = True
             return
-        while self.count() <= i:  # a slot past the end: the tileset grows (up to 384 metatiles)
+        while self.count() <= i:  # a slot past the end: the tileset grows (up to 1024 metatiles in all)
             self.mt += [0] * 8
             self.attr.append(0)
         self.mt[i * 8:i * 8 + 8] = ents
@@ -252,8 +275,8 @@ class Tiler:
     def __init__(self, ts, free_tiles, free_mts, record):
         self.ts, self.free_tiles, self.free_mts, self.record = ts, free_tiles, free_mts, record
         self.tile_index = {}  # 64 indices -> (tile, hflip, vflip)
-        for t in list(range(NUM_PRIMARY)) + [NUM_PRIMARY + i for i in range(ts.n_sheet)]:
-            if t >= NUM_PRIMARY and t - NUM_PRIMARY in free_tiles:
+        for t in list(range(self.ts.np)) + [self.ts.np + i for i in range(ts.n_sheet)]:
+            if t >= self.ts.np and t - self.ts.np in free_tiles:
                 continue
             tile = ts.tile(t)
             for hf in (0, 1):
@@ -261,8 +284,8 @@ class Tiler:
                     key = tuple(tile[7 - y if vf else y][7 - x if hf else x] for y in range(8) for x in range(8))
                     self.tile_index.setdefault(key, (t, hf, vf))
         self.mt_index = {}
-        for mid in list(range(len(ts.prim_mt) // 8)) + [NUM_PRIMARY + i for i in range(ts.count())]:
-            if mid >= NUM_PRIMARY and mid in free_mts:
+        for mid in list(range(len(ts.prim_mt) // 8)) + [self.ts.np + i for i in range(ts.count())]:
+            if mid >= self.ts.np and mid in free_mts:
                 continue
             self.mt_index.setdefault((tuple(ts.entries(mid)), ts.attribute(mid)), mid)
 
@@ -275,11 +298,15 @@ class Tiler:
         key = tuple(p & 15 for row in pix for p in row)
         if key not in self.tile_index:
             if not self.free_tiles:
-                sys.exit(f"gen_hoenn_gym_rugs: {self.ts.name} has no free tiles left")
+                if "sheet_rows" not in self.record:
+                    self.record["sheet_rows"] = self.ts.sheet.size[1] // 8
+                self.free_tiles = self.ts.grow_sheet() or []
+                if not self.free_tiles:
+                    sys.exit(f"gen_hoenn_gym_rugs: {self.ts.name} has no free tiles left")
             t = self.free_tiles.pop(0)
             self.record["tiles"].append({"slot": t, "old": self.ts.sheet_tile(t)})
             self.ts.put_sheet_tile(t, [[p & 15 for p in row] for row in pix])
-            self.tile_index[key] = (NUM_PRIMARY + t, 0, 0)
+            self.tile_index[key] = (self.ts.np + t, 0, 0)
         t, hf, vf = self.tile_index[key]
         return (pal << 12) | (vf << 11) | (hf << 10) | t
 
@@ -322,7 +349,7 @@ class Tiler:
             if not self.free_mts:
                 sys.exit(f"gen_hoenn_gym_rugs: {self.ts.name} has no free metatile slots left")
             mid = self.free_mts.pop(0)
-            grown = mid - NUM_PRIMARY >= self.ts.count()
+            grown = mid - self.ts.np >= self.ts.count()
             self.record["metatiles"].append({"slot": mid, "old": None if grown else self.ts.entries(mid),
                                              "old_attr": 0 if grown else self.ts.attribute(mid)})
             self.ts.set_metatile(mid, ents, attr)
@@ -337,7 +364,10 @@ def undo(slots, layouts_by_id, tilesets):
         for m in reversed(rec["metatiles"]):
             ts.set_metatile(m["slot"], m["old"], m["old_attr"])
         for t in reversed(rec["tiles"]):
-            ts.put_sheet_tile(t["slot"], t["old"])
+            if t["slot"] < ts.n_sheet:
+                ts.put_sheet_tile(t["slot"], t["old"])
+        if "sheet_rows" in rec:  # the sheet grew: back to its old size
+            ts.crop_sheet(rec["sheet_rows"])
     for lid, rec in slots.get("layouts", {}).items():
         lay = layouts_by_id[lid]
         shutil.copyfile(P(ORIG, lid + ".bin"), P(lay["blockdata_filepath"]))
@@ -369,7 +399,8 @@ def main():
     def tileset(name, primary=None):
         if name not in cache:
             prim = primary or next(l["primary_tileset"] for l in layouts if l["secondary_tileset"] == name)
-            cache[name] = Tileset(name, sets[prim], sets[name])
+            ver = next((l.get("layout_version", "hns") for l in layouts if l["secondary_tileset"] == name), "hns")
+            cache[name] = Tileset(name, sets[prim], sets[name], ver)
         return cache[name]
 
     undo(slots, by_id, tileset)
@@ -495,13 +526,14 @@ def main():
             # done earlier in this run only use metatiles that are no longer blank), plus this one.
             used = used_metatiles(layouts, ts.name) | {b & 0x3FF for b in blocks}
             referenced = {e & 0x3FF for e in ts.mt}
-            free_mts = [NUM_PRIMARY + i for i in range(ts.count())
-                        if NUM_PRIMARY + i not in used and all(e & 0x3FF == 0 for e in ts.entries(NUM_PRIMARY + i))
-                        and NUM_PRIMARY + i not in cfg.get("reserved_metatiles", {}).get(ts.name, [])]
+            NP = ts.np
+            free_mts = [NP + i for i in range(ts.count())
+                        if NP + i not in used and all(e & 0x3FF == 0 for e in ts.entries(NP + i))
+                        and NP + i not in cfg.get("reserved_metatiles", {}).get(ts.name, [])]
             # then slots past the end of the tileset's metatile list (Vermilion's has 78 of 384)
-            free_mts += [NUM_PRIMARY + i for i in range(ts.count(), NUM_SECONDARY_METATILES)]
+            free_mts += [NP + i for i in range(ts.count(), NUM_METATILES - NP)]
             free_tiles = [i for i in range(ts.n_sheet)
-                          if NUM_PRIMARY + i not in referenced and not any(any(r) for r in ts.sheet_tile(i))]
+                          if NP + i not in referenced and not any(any(r) for r in ts.sheet_tile(i))]
             free_tiles.reverse()  # take from the end of the sheet
             tiler = Tiler(ts, free_tiles, free_mts, rec)
             for by in range(H):
