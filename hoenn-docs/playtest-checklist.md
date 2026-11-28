@@ -669,6 +669,14 @@ Lane B's `## 2.0 part NN` sections go below this line, at the end of the file.
 - [ ] **Contact:** OLD FRIEND in the POKéGEAR list, NEW BARK TOWN; 11 lines by stage (Kanto lines at Oak's lab, a Hoenn line once you've been to Slateport). Not re-tested after the rework (the list itself was tested before it).
 - [ ] **Elm's journal calls** (2.1-06) now ring in Johto before you have Brendan & May's numbers (they couldn't before). Untested in the emulator on this part.
 
+### 2.1-32 (ANAMARIA sorts your PC boxes; lane B's part, built by lane A)
+- [ ] **Cherrygrove House 3:** ANAMARIA and her SKITTY (cry), and the youngster who lived there by the door: he complains once and leaves (tested). The Cherrygrove Pokémon Center gentleman mentions her until you've met her.
+- [ ] **Her menu:** BY NUMBER / BY TYPE / BY LEVEL / NOT NOW, then how many of your first boxes to leave alone (NONE to 13 BOXES); next time she asks "like last time?" (tested). BY TYPE asks before relabeling.
+- [ ] **On your real boxes:** sort a full PC each way and look through every box. BY NUMBER: Pokédex order, forms after their base form, eggs last. BY LEVEL: highest first. BY TYPE: each type starts a new box unless it fits in the last one ("ICE +"), named and with a matching wallpaper; on nearly full boxes she packs them and says so. Empty slots end up at the end; the party never changes. A test ROM sorted 420 random slots (eggs, gaps, duplicates) every way and checked every slot, and a save + reload kept the result (tested); not yet with a real playthrough's boxes.
+- [ ] **Your own box names:** a box you renamed yourself keeps its name after BY NUMBER or BY LEVEL; only boxes she named go back to BOX<n> (tested on the test ROM).
+- [ ] **POKéGEAR:** ETHAN's or LYRA's contact line about her (the mailbox labeled MAIL), until their first milestone call. Not checked in the emulator.
+- [ ] **Dialogue is a draft** until the 2.1-36c pass.
+
 ## 2.1 lane B
 
 ### 2.1-02 (foundations)
