@@ -321,12 +321,14 @@ HoennSeek_EventScript_BrendanHome::
 	lock
 	faceplayer
 	call HoennSeek_EventScript_RivalsEggs
+	call HoennSeek_EventScript_BMSilverLine @ 2.1-08: they met SILVER at the LEAGUE (hoenn_2_1_lane_a.inc)
 	msgbox HoennSeek_Text_BrendanHome, MSGBOX_YESNO
 	goto HoennSeek_EventScript_RivalsRematch
 HoennSeek_EventScript_MayHome::
 	lock
 	faceplayer
 	call HoennSeek_EventScript_RivalsEggs
+	call HoennSeek_EventScript_BMSilverLine @ 2.1-08: they met SILVER at the LEAGUE (hoenn_2_1_lane_a.inc)
 	msgbox HoennSeek_Text_MayHome, MSGBOX_YESNO
 HoennSeek_EventScript_RivalsRematch::
 	goto_if_eq VAR_RESULT, NO, HoennSeek_EventScript_RivalsLater

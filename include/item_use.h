@@ -37,6 +37,7 @@ void ItemUseOutOfBattle_ZygardeCube(u8 taskId);
 void ItemUseOutOfBattle_Fusion(u8 taskId);
 void ItemUseOutOfBattle_Honey(u8 taskId);
 void ItemUseOutOfBattle_HoennSandChime(u8 taskId); // Hoenn & Seek 2.0 part 24b
+void ItemUseOutOfBattle_HoennSeekersJournal(u8 taskId); // Hoenn & Seek 2.1-05
 void ItemUseOutOfBattle_InfiniteRareCandies(u8 taskId);
 void ItemUseOutOfBattle_PokeBall(u8 taskId);
 void ItemUseOutOfBattle_CannotUse(u8 taskId);

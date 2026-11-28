@@ -5,6 +5,7 @@ AUTO_GEN_TARGETS += src/data/trainers.h
 AUTO_GEN_TARGETS += src/data/trainers_frlg.h
 AUTO_GEN_TARGETS += src/data/trainers_hns.h
 AUTO_GEN_TARGETS += src/data/trainers_hoenn.h
+AUTO_GEN_TARGETS += src/data/hoenn_silver.h
 AUTO_GEN_TARGETS += src/data/battle_partners.h
 AUTO_GEN_TARGETS += test/battle/trainer_control.h
 AUTO_GEN_TARGETS += test/battle/partner_control.h

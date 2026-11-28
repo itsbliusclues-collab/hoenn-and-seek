@@ -71,3 +71,4 @@ tools/poryscript
 porymap.user.json
 tools/mid2gbs/.venv
 src/data/trainers_hoenn.h
+src/data/hoenn_silver.h

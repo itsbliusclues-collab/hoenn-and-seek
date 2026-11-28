@@ -212,9 +212,10 @@ HoennSeek_EventScript_HintNpc25::
 
 @ IndigoPlateau_PokemonCenter_hns
 HoennSeek_EventScript_HintNpc26::
+	call HoennSeek_EventScript_SilverCelebiLine
 	callnative HoennSeek_NpcHint
 	.2byte 26
-	goto_if_eq VAR_RESULT, FALSE, IndigoPlateau_EventScript_Silver
+	goto_if_eq VAR_RESULT, FALSE, HoennSeek_EventScript_IndigoSilver
 	callstd MSGBOX_NPC
 	end
 
@@ -228,6 +229,7 @@ HoennSeek_EventScript_HintNpc27::
 
 @ NewBarkTown_Lab_hns
 HoennSeek_EventScript_HintNpc28::
+	call HoennSeek_EventScript_ElmAideJournal
 	callnative HoennSeek_NpcHint
 	.2byte 28
 	goto_if_eq VAR_RESULT, FALSE, NewBarkTown_EventScript_Aide2
@@ -780,17 +782,11 @@ HoennSeek_Text_Hint_RumorCastformBefore::
 HoennSeek_Text_Hint_RumorCastformAfter::
 	.string "Somebody caught a CASTFORM! So it\nreally does ride the weather near\lthe WEATHER INSTITUTE.$"
 
-HoennSeek_Text_Hint_RumorCastformNotes::
-	.string "Something near the WEATHER\nINSTITUTE changes with the sky…\pIt only appears when the\nweather turns.$"
-
 HoennSeek_Text_Hint_RumorFeebasBefore::
 	.string "A fisherman swears a little pond\non ROUTE 119 hides a POKéMON\lnobody else can find.\pOnly after sundown, and only with\nthe plainest rod, he says!$"
 
 HoennSeek_Text_Hint_RumorFeebasAfter::
 	.string "So FEEBAS really lives in that\npond on ROUTE 119! The first one\leven had a PRISM SCALE.$"
-
-HoennSeek_Text_Hint_RumorFeebasNotes::
-	.string "A shabby fish hides in a still\npond above the falls. It only\lbites after sundown, on an\lold rod.$"
 
 HoennSeek_Text_Hint_RumorMasquerainBefore::
 	.string "In HOENN, MASQUERAIN only flutter\nout of the grass on rainy days.$"
@@ -798,17 +794,11 @@ HoennSeek_Text_Hint_RumorMasquerainBefore::
 HoennSeek_Text_Hint_RumorMasquerainAfter::
 	.string "Somebody caught a MASQUERAIN in\nthe rain! I knew those rainy days\lwere worth it.$"
 
-HoennSeek_Text_Hint_RumorMasquerainNotes::
-	.string "A bug with eye-patterned wings\nonly comes out on HOENN's\lrainy days.$"
-
 HoennSeek_Text_Hint_RumorLaprasBefore::
 	.string "Every Friday, a LAPRAS is said to\nsing deep down in UNION CAVE.$"
 
 HoennSeek_Text_Hint_RumorLaprasAfter::
 	.string "Somebody met UNION CAVE's Friday\nLAPRAS! Its song is real\lafter all.$"
-
-HoennSeek_Text_Hint_RumorLaprasNotes::
-	.string "Deep in a JOHTO cave, a song can\nbe heard once a week. Which day\lwas it…?$"
 
 HoennSeek_Text_Hint_RumorRaltsBefore::
 	.string "They say the only RALTS in HOENN\nlives on ROUTE 102, with a\lGARDEVOIR watching over it.\pIt won't let just anyone near.$"
@@ -816,17 +806,11 @@ HoennSeek_Text_Hint_RumorRaltsBefore::
 HoennSeek_Text_Hint_RumorRaltsAfter::
 	.string "Someone earned that GARDEVOIR's\ntrust! The RALTS on ROUTE 102 went\lwith them.$"
 
-HoennSeek_Text_Hint_RumorRaltsNotes::
-	.string "On a quiet HOENN route, a guardian\nreads the hearts of those who\lcome near.\pCome in the morning, and\ndon't rush.$"
-
 HoennSeek_Text_Hint_RumorMachampBefore::
 	.string "The KARATE KING in MT. MORTAR\nspars with a wild MACHAMP every\lmorning, they say.$"
 
 HoennSeek_Text_Hint_RumorMachampAfter::
 	.string "Somebody watched KIYO's morning\nmatch with that MACHAMP! Not a\lpeep the whole time, I heard.$"
-
-HoennSeek_Text_Hint_RumorMachampNotes::
-	.string "Deep in a JOHTO mountain, two\nfighters meet every morning.\lWatch quietly…$"
 
 HoennSeek_Text_Hint_RumorScizorBefore::
 	.string "On TUESDAY, THURSDAY and SATURDAY\nevenings, the SCYTHER behind the\lNATIONAL PARK's trees duel.\pThey say a SCIZOR breaks it up!$"
@@ -834,17 +818,11 @@ HoennSeek_Text_Hint_RumorScizorBefore::
 HoennSeek_Text_Hint_RumorScizorAfter::
 	.string "Somebody saw the NATIONAL PARK's\nSCIZOR! It's so fast, nobody had\lever seen it properly.$"
 
-HoennSeek_Text_Hint_RumorScizorNotes::
-	.string "In a JOHTO park, blades clash at\ndusk on the bug contest's\lold days.$"
-
 HoennSeek_Text_Hint_RumorGengarBefore::
 	.string "They say a GENGAR hides in\npeople's shadows at night, here\lin LAVENDER.\pIt leads you on a chase, and only\nthe trainers it likes get to\lsee it.$"
 
 HoennSeek_Text_Hint_RumorGengarAfter::
 	.string "A GENGAR came out of somebody's\nshadow and went with them!\lLAVENDER's nights feel\lquieter now.$"
-
-HoennSeek_Text_Hint_RumorGengarNotes::
-	.string "In a KANTO town of quiet\nmemorials, your shadow may laugh\lat night. Follow it.$"
 
 HoennSeek_Text_Hint_RumorSageBefore::
 	.string "The SLOWKING in the SLOWPOKE WELL\nasks one riddle a day, a new one\leach weekday.\pAnswer all seven and you'll hear\nits whole prophecy.$"
@@ -852,17 +830,11 @@ HoennSeek_Text_Hint_RumorSageBefore::
 HoennSeek_Text_Hint_RumorSageAfter::
 	.string "Somebody heard the SLOWKING's\nwhole prophecy! Something about\llights under the sea.$"
 
-HoennSeek_Text_Hint_RumorSageNotes::
-	.string "A wise king in a JOHTO well asks\none riddle each day of the week.$"
-
 HoennSeek_Text_Hint_RumorMunchlaxBefore::
 	.string "They say a MUNCHLAX on ROUTE 113\nhas been asleep so long, the ash\lis piling up on it.\pSomething sweet-sounding might\nwake it.$"
 
 HoennSeek_Text_Hint_RumorMunchlaxAfter::
 	.string "Somebody woke the sleepy MUNCHLAX\non ROUTE 113! There was a grotto\lbehind it the whole time.$"
-
-HoennSeek_Text_Hint_RumorMunchlaxNotes::
-	.string "A sleeping glutton blocks a path\nin the ash. A flute of glass might\lwake it.$"
 
 HoennSeek_Text_Hint_RumorSpindaBefore::
 	.string "They say a SPINDA dances in the\nfalling ash on ROUTE 113, on a\lmorning once a week.$"
@@ -870,17 +842,11 @@ HoennSeek_Text_Hint_RumorSpindaBefore::
 HoennSeek_Text_Hint_RumorSpindaAfter::
 	.string "Somebody saw the dancing SPINDA on\nROUTE 113! Every one of them has\ldifferent spots, you know.$"
 
-HoennSeek_Text_Hint_RumorSpindaNotes::
-	.string "In the falling ash, on a morning\nonce a week, someone dances alone.$"
-
 HoennSeek_Text_Hint_RumorSlakingBefore::
 	.string "They say a SLAKING sleeps across a\npath in PETALBURG WOODS. It only\lmoves when the sun is highest.$"
 
 HoennSeek_Text_Hint_RumorSlakingAfter::
 	.string "Somebody caught the SLAKING in\nPETALBURG WOODS! NORMAN's old\ltraining spot is open again.$"
-
-HoennSeek_Text_Hint_RumorSlakingNotes::
-	.string "In the woods by PETALBURG, a lazy\ngiant only stirs at noon.$"
 
 HoennSeek_Text_Hint_RumorTropiusBefore::
 	.string "They say there's an orchard hidden\nin ROUTE 119's jungle, and a\lTROPIUS that tends it\levery morning.$"
@@ -888,17 +854,11 @@ HoennSeek_Text_Hint_RumorTropiusBefore::
 HoennSeek_Text_Hint_RumorTropiusAfter::
 	.string "Somebody found the hidden orchard\non ROUTE 119! Its tree drops rare\lfruit every day.$"
 
-HoennSeek_Text_Hint_RumorTropiusNotes::
-	.string "Under the FORTREE sign on ROUTE\n119, one tree is a door. Mornings,\lsomething tends fruit there.$"
-
 HoennSeek_Text_Hint_RumorFeudBefore::
 	.string "They say a ZANGOOSE and a SEVIPER\nfight on the lake island on ROUTE\l114, every Sunday night.$"
 
 HoennSeek_Text_Hint_RumorFeudAfter::
 	.string "Somebody broke up the Sunday fight\non ROUTE 114's island! They'll be\lback next week, though.$"
-
-HoennSeek_Text_Hint_RumorFeudNotes::
-	.string "Two old enemies meet on ROUTE\n114's lake island on\lSunday nights.$"
 
 HoennSeek_Text_Hint_RumorAbsolBefore::
 	.string "They say a white POKéMON stands\nover ROUTE 120 on stormy nights.\lNobody's ever caught it.$"
@@ -906,17 +866,11 @@ HoennSeek_Text_Hint_RumorAbsolBefore::
 HoennSeek_Text_Hint_RumorAbsolAfter::
 	.string "Somebody saw the white one on\nROUTE 120's ridge! Now it runs\lthrough the grass on\lstormy nights.$"
 
-HoennSeek_Text_Hint_RumorAbsolNotes::
-	.string "On ROUTE 120's storm nights,\nsomething white watches from the\lridge between the paths.$"
-
 HoennSeek_Text_Hint_RumorWailordBefore::
 	.string "They say a WAILORD sleeps in a gap\nin the rocks on ROUTE 131, and\lnothing will wake it.$"
 
 HoennSeek_Text_Hint_RumorWailordAfter::
 	.string "The sleeping WAILORD on ROUTE 131\nwoke up! There's an atoll past the\lrocks where it was.$"
-
-HoennSeek_Text_Hint_RumorWailordNotes::
-	.string "A WAILORD blocks a strait on ROUTE\n131. It's waiting for its young on\lSaturday mornings.$"
 
 HoennSeek_Text_Hint_RumorChimechoBefore::
 	.string "They say wind chimes ring on MT.\nPYRE's summit at night, even when\lthere's no wind.$"
@@ -924,17 +878,11 @@ HoennSeek_Text_Hint_RumorChimechoBefore::
 HoennSeek_Text_Hint_RumorChimechoAfter::
 	.string "Somebody followed the chimes on\nMT. PYRE's summit and found a\lCHIMECHO singing!$"
 
-HoennSeek_Text_Hint_RumorChimechoNotes::
-	.string "Chimes ring among MT. PYRE's\nsummit graves at night. Follow\lthe sound.$"
-
 HoennSeek_Text_Hint_RumorChorusBefore::
 	.string "They say a flock sings on a hidden\ncliff above METEOR FALLS, but only\lon SATURDAYS.$"
 
 HoennSeek_Text_Hint_RumorChorusAfter::
 	.string "Somebody watched the ALTARIA\nchorus above METEOR FALLS without\lscaring the flock!$"
-
-HoennSeek_Text_Hint_RumorChorusNotes::
-	.string "An ALTARIA chorus sings above\nMETEOR FALLS on SATURDAY mornings.\lWatch from behind the boulders.$"
 
 HoennSeek_Text_Hint_RumorBagonBefore::
 	.string "They say a BAGON in METEOR FALLS\njumps off a cliff every morning,\ltrying to fly.$"
@@ -942,17 +890,11 @@ HoennSeek_Text_Hint_RumorBagonBefore::
 HoennSeek_Text_Hint_RumorBagonAfter::
 	.string "The BAGON in METEOR FALLS finally\ngot to show someone how high it\lcan jump!$"
 
-HoennSeek_Text_Hint_RumorBagonNotes::
-	.string "A BAGON leaps into a pool deep in\nMETEOR FALLS every morning. Surf\lto its ledge.$"
-
 HoennSeek_Text_Hint_RumorMetagrossBefore::
 	.string "They say two METANG become one at\nnight, deep in STEVEN's cave at\lMETEOR FALLS.$"
 
 HoennSeek_Text_Hint_RumorMetagrossAfter::
 	.string "Somebody saw two METANG fuse into\na METAGROSS in STEVEN's cave!$"
-
-HoennSeek_Text_Hint_RumorMetagrossNotes::
-	.string "Two METANG hover over a glowing\nrock in STEVEN's cave at night,\lonce a week.$"
 
 HoennSeek_Text_Hint_RumorDesert_SongBefore::
 	.string "They say the ROUTE 111 desert hums\nlike a song, but only in\lthe evening.$"
@@ -960,17 +902,11 @@ HoennSeek_Text_Hint_RumorDesert_SongBefore::
 HoennSeek_Text_Hint_RumorDesert_SongAfter::
 	.string "Somebody found what was humming\nunder the desert: a VIBRAVA!$"
 
-HoennSeek_Text_Hint_RumorDesert_SongNotes::
-	.string "The ROUTE 111 desert hums in the\nevening. Follow the TRAPINCH that\lcome up to listen.$"
-
 HoennSeek_Text_Hint_RumorMirage_TowerBefore::
 	.string "They say a tower rises out of the\nROUTE 111 sand at sunset, then\lfades away like a mirage.$"
 
 HoennSeek_Text_Hint_RumorMirage_TowerAfter::
 	.string "Somebody climbed the mirage tower\nin the desert and caught a FLYGON\lat the top!$"
-
-HoennSeek_Text_Hint_RumorMirage_TowerNotes::
-	.string "A chime made from singing sand,\nrung in the ROUTE 111 desert at\lsunset, raises the MIRAGE TOWER.\lSomething hums at the top.$"
 
 HoennSeek_Text_Hint_RumorNight_DiveBefore::
 	.string "They say lights dance on the\nseabed off ROUTE 124, but only\lat night.$"
@@ -978,17 +914,11 @@ HoennSeek_Text_Hint_RumorNight_DiveBefore::
 HoennSeek_Text_Hint_RumorNight_DiveAfter::
 	.string "Somebody followed the lights off\nROUTE 124 down into a\lhidden trench!$"
 
-HoennSeek_Text_Hint_RumorNight_DiveNotes::
-	.string "At night, a CHINCHOU's light on\nthe seabed under ROUTE 124 leads\lsomewhere. Bring a POKéMON\lthat glows.$"
-
 HoennSeek_Text_Hint_RumorTrench_GuardiansBefore::
 	.string "They say three old POKéMON guard\nthe trench under ROUTE 124, and\lsomething sleeps behind them.$"
 
 HoennSeek_Text_Hint_RumorTrench_GuardiansAfter::
 	.string "Somebody caught all three of the\nROUTE 124 trench's guardians, and\lthe mound down there opened up!$"
-
-HoennSeek_Text_Hint_RumorTrench_GuardiansNotes::
-	.string "The ROUTE 124 trench's guardian\nchanges with the weekday. Catch\lall three and the mound in the\ltrench opens.$"
 
 HoennSeek_Text_Hint_RumorIce_ChamberBefore::
 	.string "They say a hole opens in the ice\ndeep inside SHOAL CAVE, but only\lwhen the tide is out.$"
@@ -996,17 +926,11 @@ HoennSeek_Text_Hint_RumorIce_ChamberBefore::
 HoennSeek_Text_Hint_RumorIce_ChamberAfter::
 	.string "Somebody climbed down through the\nice in SHOAL CAVE at low tide and\lfound a frozen chamber!$"
 
-HoennSeek_Text_Hint_RumorIce_ChamberNotes::
-	.string "When the tide is out, the ice room\nat the bottom of SHOAL CAVE has a\lway down. Mind the slippery floor.$"
-
 HoennSeek_Text_Hint_RumorIce_FroslassBefore::
 	.string "They say a ghost walks the ice\nunder SHOAL CAVE at night. Her\lface shows in the ice, but she's\lnever there when you look!$"
 
 HoennSeek_Text_Hint_RumorIce_FroslassAfter::
 	.string "Somebody chased that ghost through\nthe ice under SHOAL CAVE. It was\la FROSLASS!$"
-
-HoennSeek_Text_Hint_RumorIce_FroslassNotes::
-	.string "At night, a FROSLASS's face shows\nin the pillars of the SHOAL CAVE\lice chamber. Touch the one she's\lin, and only that one.$"
 
 HoennSeek_Text_Hint_RumorHoney_TrailBefore::
 	.string "They say a beekeeper lives up on\nROUTE 45, and the wild bears there\lcan't resist his HONEY!$"
@@ -1014,17 +938,11 @@ HoennSeek_Text_Hint_RumorHoney_TrailBefore::
 HoennSeek_Text_Hint_RumorHoney_TrailAfter::
 	.string "Somebody followed an URSARING up a\ncliff on ROUTE 45 at night!\lThere's a hollow up there where\lthe bears watch the moon.$"
 
-HoennSeek_Text_Hint_RumorHoney_TrailNotes::
-	.string "The beekeeper on JOHTO's ROUTE 45\ngives out HONEY. Spread it on the\lold pine by the pond and come back\lin the morning. If the cubs trust\lyou, their mother may show you the\lway up.$"
-
 HoennSeek_Text_Hint_RumorMoltres_FlyoverBefore::
 	.string "They say a burning shadow\nsometimes sweeps over the ash on\lROUTE 113. The ash goes warm right\lbefore it comes!$"
 
 HoennSeek_Text_Hint_RumorMoltres_FlyoverAfter::
 	.string "Somebody saw a great bird of flame\nfly over ROUTE 113! It dropped\lsomething in the ash.$"
-
-HoennSeek_Text_Hint_RumorMoltres_FlyoverNotes::
-	.string "A burning shadow crosses ROUTE\n113's ash fields, heading\lnorth-west. Walk the ash east of\lthe glass workshop.$"
 
 HoennSeek_Text_Hint_RumorOnix_BoreBefore::
 	.string "Hikers say ROCK TUNNEL rumbles at\nnight, and every night there's a\lfresh hole in a different wall!\pSomething big is digging down\nthere. They say it's never the\lsame wall two nights running.$"
@@ -1032,17 +950,11 @@ HoennSeek_Text_Hint_RumorOnix_BoreBefore::
 HoennSeek_Text_Hint_RumorOnix_BoreAfter::
 	.string "A trainer found a crystal ONIX\nresting under ROCK TUNNEL! So\lthat's what's been digging all\lthose holes.$"
 
-HoennSeek_Text_Hint_RumorOnix_BoreNotes::
-	.string "At night a fresh hole opens in a\ndifferent wall of ROCK TUNNEL B1F,\lone for each day of the week. Look\lalong the rock faces.$"
-
 HoennSeek_Text_Hint_RumorDunsparce_BurrowBefore::
 	.string "DARK CAVE has DUNSPARCE holes, but\nthey're never in the same place!\lOne in the morning, one by day,\lone at sunset, one at night.\pMy dad says they're all digging\ntoward the same spot. I want to\lknow what's down there!$"
 
 HoennSeek_Text_Hint_RumorDunsparce_BurrowAfter::
 	.string "Somebody found a DUDUNSPARCE with\nthree segments under DARK CAVE!\lThe DUNSPARCE were digging to it\lall along.$"
-
-HoennSeek_Text_Hint_RumorDunsparce_BurrowNotes::
-	.string "DARK CAVE's burrow holes move with\nthe time of day: morning, day,\levening and night. Each time, a\ldifferent DUNSPARCE digs a\llittle further.$"
 
 HoennSeek_Text_Hint_RumorTangela_VinesBefore::
 	.string "A fisherman pal of mine says one\nof ROUTE 21's islets is all\ltangled up in vines. Nothing\lgets through!\pHe says they go limp first thing\nin the morning, though. Real\lsleepyheads, those vines!$"
@@ -1050,17 +962,11 @@ HoennSeek_Text_Hint_RumorTangela_VinesBefore::
 HoennSeek_Text_Hint_RumorTangela_VinesAfter::
 	.string "So those vines on ROUTE 21 were\nTANGELA all along! Guarding\lsomething in the middle, I hear.$"
 
-HoennSeek_Text_Hint_RumorTangela_VinesNotes::
-	.string "The islet on ROUTE 21 nearest\nPALLET is wrapped in writhing\lvines. They only relax in\lthe morning.$"
-
 HoennSeek_Text_Hint_RumorKanga_BabyBefore::
 	.string "Evenings, we hear crying down on\nthe BEACH. Something small and\llost, I'd guess.\pAnd a KANGASKHAN mother keeps\npacing where the woods bend in,\lwest of here. Her pouch is empty.$"
 
 HoennSeek_Text_Hint_RumorKanga_BabyAfter::
 	.string "Somebody brought a lost KANGASKHAN\nbaby home to its mother! Now the\lpair nest in the woods out west.$"
-
-HoennSeek_Text_Hint_RumorKanga_BabyNotes::
-	.string "Evenings in the FUCHSIA SAFARI\nZONE, a KANGASKHAN baby cries on\lthe BEACH. Its mother waits in a\lnook of the BRUSH's woods.$"
 
 HoennSeek_Text_Hint_RumorTauros_StampedeBefore::
 	.string "Hear that rumbling? MONDAY\nmornings, a TAUROS herd stampedes\lacross the highland above\lthe MOUNTAIN.\pEach bull keeps to its own lane.\nThe wardens say the herd's leader\lis no KANTO TAUROS at all!$"
@@ -1068,17 +974,11 @@ HoennSeek_Text_Hint_RumorTauros_StampedeBefore::
 HoennSeek_Text_Hint_RumorTauros_StampedeAfter::
 	.string "Somebody caught the TAUROS herd's\nlead bull! Funny thing is, there's\la new one leading them every\lfew weeks.$"
 
-HoennSeek_Text_Hint_RumorTauros_StampedeNotes::
-	.string "MONDAY mornings, a TAUROS herd\ncharges across the highland above\lthe SAFARI ZONE's MOUNTAIN, up its\least canyon. Its lead bull waits\lbeyond the herd.$"
-
 HoennSeek_Text_Hint_RumorSeafoam_TitansBefore::
 	.string "Some days the fog over these\nwaters is so thick, I can't see my\lown float.\pGrandpa said the right ORB would\nturn that fog into a storm, and\lwake whatever sleeps under the\lSEAFOAM ISLANDS.$"
 
 HoennSeek_Text_Hint_RumorSeafoam_TitansAfter::
 	.string "Did you see that downpour on ROUTE\n19? Rain like that only falls when\lsomething enormous wakes up.$"
-
-HoennSeek_Text_Hint_RumorSeafoam_TitansNotes::
-	.string "On the days fog covers ROUTES 19\nand 20, KANTO's sea caves stir for\lanyone carrying an ORB. The old\lman at MT. PYRE's summit\lkeeps them.$"
 
 HoennSeek_Text_Hint_RumorEnigma_ShardsBefore::
 	.string "While I wait by the boat, I see\nred and blue sparkles in the\lgrass. Warm, like little embers.\pThe PEWTER MUSEUM knows its\nstones. They'd know what\lthose are.$"
@@ -1086,17 +986,11 @@ HoennSeek_Text_Hint_RumorEnigma_ShardsBefore::
 HoennSeek_Text_Hint_RumorEnigma_ShardsAfter::
 	.string "The grove feels different since\nyou brought that stone back. Like\lsomeone in there is listening.$"
 
-HoennSeek_Text_Hint_RumorEnigma_ShardsNotes::
-	.string "Shards of a red and blue stone lie\nhidden on the SOUTHERN ISLAND. The\lPEWTER MUSEUM's stone expert can\lpiece them together.$"
-
 HoennSeek_Text_Hint_RumorMansion_JournalBefore::
 	.string "The volcano took the old MANSION,\nlab and all. Nobody went near the\lruins for years.\pBut pages of its journal keep\nturning up all over. They're\lsigned FUJI. Like old MR. FUJI\lin LAVENDER…$"
 
 HoennSeek_Text_Hint_RumorMansion_JournalAfter::
 	.string "They say someone went down into\nCERULEAN CAVE and met what that\lMANSION made. The whole island\lbreathes easier.$"
-
-HoennSeek_Text_Hint_RumorMansion_JournalNotes::
-	.string "Pages of the burned MANSION's\njournal are scattered across KANTO\land JOHTO. MR. FUJI in LAVENDER\lwrote them, and knows where\lthey went.$"
 
 HoennSeek_Text_Hint_RumorMew_BlurBefore::
 	.string "My cousin swears something pink\nzips through the grass at first\llight. On ROUTE 1, ROUTE 22, even\lHOENN's ROUTE 101!\pBy the time you look again it's\ngone. Only a scrap of old paper,\lblowing in the wind…$"
@@ -1104,8 +998,11 @@ HoennSeek_Text_Hint_RumorMew_BlurBefore::
 HoennSeek_Text_Hint_RumorMew_BlurAfter::
 	.string "Someone's been picking up the\nscraps that pink blur drops. I bet\lthey'd make a map!$"
 
-HoennSeek_Text_Hint_RumorMew_BlurNotes::
-	.string "At dawn, something pink plays in\nthe grass of ROUTE 1, ROUTE 22 and\lHOENN's ROUTE 101. It leaves\lscraps of an old sea chart behind.$"
+HoennSeek_Text_Hint_RumorCelebi_MemoryBefore::
+	.string "You caught the forest's time\ntraveller? Take it down ROUTE 22\lwith it following you, healthy\land happy.\pThey say it remembers that road,\nand a boy who stood on it with\lhis father.$"
+
+HoennSeek_Text_Hint_RumorCelebi_MemoryAfter::
+	.string "Someone saw a white flash on ROUTE\n22 and a man in a black suit,\lstanding where nobody was a\lsecond later.$"
 
 HoennSeek_Text_Hint_RumorLugia_SongBefore::
 	.string "Old sailors in OLIVINE say there's\na song under the sea near the\lWHIRL ISLANDS.\pFire, ice and thunder, it goes,\nand something silver to bring\lthem together.$"
@@ -1113,17 +1010,11 @@ HoennSeek_Text_Hint_RumorLugia_SongBefore::
 HoennSeek_Text_Hint_RumorLugia_SongAfter::
 	.string "The sea round the WHIRL ISLANDS\nhas been dead calm lately. Like\lit's listening for something.$"
 
-HoennSeek_Text_Hint_RumorLugia_SongNotes::
-	.string "The SLOWKING in SLOWPOKE WELL\nsings an old prophecy. The three\lbirds' feathers and a SILVER WING,\llaid on a stone past ROUTE 41's\lnight lights, open the WHIRL\lISLANDS' deepest chamber.$"
-
 HoennSeek_Text_Hint_RumorJirachiBefore::
 	.string "They say a POKéMON sleeps for a\nthousand years and wakes for\la wish.\pWish on a falling star in three\nplaces, and it might hear you.$"
 
 HoennSeek_Text_Hint_RumorJirachiAfter::
 	.string "Somebody woke the wishing POKéMON\nat MT. MOON! Was it you?$"
-
-HoennSeek_Text_Hint_RumorJirachiNotes::
-	.string "At night, wish on a falling star\nat METEOR FALLS, at MOSSDEEP's\lSPACE CENTER and at a moonlit\lhollow in JOHTO. Then go to MT.\lMOON on the CLEFAIRY's night.$"
 
 HoennSeek_Text_Hint_RumorDeoxys_SignalBefore::
 	.string "MOSSDEEP's SPACE CENTER is picking\nup a signal from space. Only at\lnight, they say.$"
@@ -1131,17 +1022,11 @@ HoennSeek_Text_Hint_RumorDeoxys_SignalBefore::
 HoennSeek_Text_Hint_RumorDeoxys_SignalAfter::
 	.string "The SPACE CENTER tracked its space\nsignal to an island south\lof KANTO!$"
 
-HoennSeek_Text_Hint_RumorDeoxys_SignalNotes::
-	.string "The SPACE CENTER's scientist on 2F\nlogs a signal from space at night.\lHe needs three different nights.$"
-
 HoennSeek_Text_Hint_RumorRegi_DoorsBefore::
 	.string "Up at the SINJOH RUINS, boulders\nseal the caves in the cliffs.\lSomething big lives behind them.$"
 
 HoennSeek_Text_Hint_RumorRegi_DoorsAfter::
 	.string "All three boulders at the SINJOH\nRUINS have rolled away!$"
-
-HoennSeek_Text_Hint_RumorRegi_DoorsNotes::
-	.string "The boulders at the SINJOH RUINS\ncarry braille that the RUINS OF\lALPH's final inscription explains:\lRELICANTH and WAILORD.$"
 
 HoennSeek_Text_Hint_RumorUnown_CipherBefore::
 	.string "The RUINS OF ALPH have a room full\nof writing nobody can read.\pThe lab says the UNOWN spell a\ndifferent word each night. Spooky,\lif you ask me.$"
@@ -1149,17 +1034,11 @@ HoennSeek_Text_Hint_RumorUnown_CipherBefore::
 HoennSeek_Text_Hint_RumorUnown_CipherAfter::
 	.string "They say someone read the last\nline in the RUINS. The lab hasn't\lstopped talking about it!$"
 
-HoennSeek_Text_Hint_RumorUnown_CipherNotes::
-	.string "A braille line in the RUINS OF\nALPH's first word room teaches the\lUNOWN letters. Each night's word\lnames a place where the UNOWN\lgather; the pieces they leave open\la boulder outside the RUINS.$"
-
 HoennSeek_Text_Hint_RumorIce_ThiefBefore::
 	.string "Hikers say things go missing deep\nin the ICE PATH, but only\lat night.\pLeave an item lying on the ice\ndown there and it's gone\lby morning!$"
 
 HoennSeek_Text_Hint_RumorIce_ThiefAfter::
 	.string "Nothing's gone missing in the ICE\nPATH lately. Someone must've\lcaught up with that thief.$"
-
-HoennSeek_Text_Hint_RumorIce_ThiefNotes::
-	.string "Once the ICE PATH's boulders have\ndropped to the bottom floor, a\lSNEASEL snatches the items off the\lice at night. Chase it across the\lice to its nook.$"
 
 HoennSeek_Text_Hint_RumorLanturn_LightsBefore::
 	.string "Fishermen from OLIVINE talk about\na light that drifts on ROUTE 41\lafter dark.\pIt keeps just ahead of your boat,\nas if it wants you to follow.$"
@@ -1167,17 +1046,11 @@ HoennSeek_Text_Hint_RumorLanturn_LightsBefore::
 HoennSeek_Text_Hint_RumorLanturn_LightsAfter::
 	.string "Someone followed the ROUTE 41\nlight all the way, I hear. Now the\lsea there is just dark again.$"
 
-HoennSeek_Text_Hint_RumorLanturn_LightsNotes::
-	.string "At night on ROUTE 41, a LANTURN's\nlight drifts away from the WHIRL\lISLANDS. Surf after it, staying\lclose, and it leads to a sea cave\lin the eastern rocks.$"
-
 HoennSeek_Text_Hint_RumorAmpharos_RescueBefore::
 	.string "Sailors coming into OLIVINE at\nnight see a second light, out on\lthe rocks off ROUTE 40.\pIt blinks like a lighthouse, only\nit's far too small. And it\lnever moves.$"
 
 HoennSeek_Text_Hint_RumorAmpharos_RescueAfter::
 	.string "The little light off ROUTE 40 is\ngone. JASMINE says the LIGHTHOUSE\lhas a new keeper now!$"
-
-HoennSeek_Text_Hint_RumorAmpharos_RescueNotes::
-	.string "An AMPHAROS is stranded on a sea\nrock off ROUTE 40. It's\lfrightened: bring it a BERRY each\lnight until it trusts you enough\lto ride ashore.$"
 
 HoennSeek_Text_Hint_RumorHooh_DawnBefore::
 	.string "My grandma says HO-OH only lands\non the TIN TOWER at dawn.\pAnd only for someone who's met the\nPOKéMON it brought back from\lthe fire.$"
@@ -1185,26 +1058,17 @@ HoennSeek_Text_Hint_RumorHooh_DawnBefore::
 HoennSeek_Text_Hint_RumorHooh_DawnAfter::
 	.string "Did you see the rainbow over\nECRUTEAK at dawn? Grandma cried.\lShe says HO-OH has come home.$"
 
-HoennSeek_Text_Hint_RumorHooh_DawnNotes::
-	.string "With the CLEAR BELL, the RUINS OF\nALPH's HO-OH panel solved, RAIKOU\land ENTEI met and SUICUNE seen\lmany times, HO-OH waits on the TIN\lTOWER's roof at dawn. The TIN\lTOWER's sages know more.$"
-
 HoennSeek_Text_Hint_RumorForest_OfferingsBefore::
 	.string "The ILEX FOREST shrine has three\nlittle dishes, and they're\lalways empty.\pOld folks say the forest's\nguardian wants something grown in\lold soil.$"
 
 HoennSeek_Text_Hint_RumorForest_OfferingsAfter::
 	.string "Someone filled the dishes at the\nILEX shrine! The whole forest felt\lbrighter for a day.$"
 
-HoennSeek_Text_Hint_RumorForest_OfferingsNotes::
-	.string "There's old, dark soil in ILEX\nFOREST, VIRIDIAN FOREST and\lPETALBURG WOODS. Plant a BERRY in\leach, come back the next day, and\llay what grew at the ILEX shrine.$"
-
 HoennSeek_Text_Hint_RumorSky_Pillar_MuralBefore::
 	.string "There's an old mural on top of SKY\nPILLAR. Three great POKéMON, and\lone of them holds a green orb.\pMy grandpa says it only means\nsomething once the other two are\lat peace.$"
 
 HoennSeek_Text_Hint_RumorSky_Pillar_MuralAfter::
 	.string "Someone took the green orb from\nSKY PILLAR's mural, they say. The\lsky over the sea looks\ldifferent since.$"
-
-HoennSeek_Text_Hint_RumorSky_Pillar_MuralNotes::
-	.string "Once KYOGRE and GROUDON have been\nsettled, SKY PILLAR's mural gives\lup the JADE ORB. RAYQUAZA comes to\lKANTO's EMBEDDED TOWER at noon for\lanyone who carries it, unless it\lrains there.$"
 
 HoennSeek_Text_Hint_LineTipDaycare::
 	.string "The DAY-CARE couple on ROUTE 34\nwill raise two POKéMON for you.\pLeave two that get along, and one\nday they may find an EGG!$"
@@ -1464,6 +1328,9 @@ HoennSeek_Text_Hint_LineStoryRegiSea::
 HoennSeek_Text_Hint_LineStoryArceusWaits::
 	.string "ARCEUS is still up in its chamber,\nwatching. It won't come with\lanyone yet.\pThe UNOWN wrote about SINJOH, long\nago. Their words are somewhere\lunder the RUINS OF ALPH.$"
 
+HoennSeek_Text_Hint_LineStorySquirtleSquad::
+	.string "Have you been down ROUTE 6? A gang\nof SQUIRTLE plays south of the\lpond, mornings and days.\pTheir leader wears sunglasses!\nWatch your step around\lthem, though.$"
+
 HoennSeek_Text_Hint_Forecast0::
 	.string "Fog is due over ROUTE 19 {STR_VAR_1}.\pOdd… the rain gauges out there\nkeep twitching anyway.$"
 
@@ -1498,7 +1365,7 @@ HoennSeek_Text_Hint_Forecast10::
 	.string "Rain is coming to ROUTE\n121 {STR_VAR_1}.\pThat's when MASQUERAIN flutter out\nof the grass!$"
 
 HoennSeek_Text_FieldNotesIntro:
-	.string "Oh, hello! I keep PROF. BIRCH's\nfield notes on POKéMON rumors from\lall over.\pYou've confirmed {STR_VAR_1} of the\n{STR_VAR_2} rumors in my notes\lso far!$"
+	.string "Oh, hello! I keep PROF. BIRCH's\nfield notes on POKéMON rumors from\lall over.\pYou've confirmed {STR_VAR_1} of the\n{STR_VAR_2} rumors in my notes\lso far!\pThey're in your SEEKER'S JOURNAL\ntoo, once you've heard of them.$"
 
 HoennSeek_Text_FieldNotesNext:
 	.string "Here's one nobody has\nconfirmed yet…$"

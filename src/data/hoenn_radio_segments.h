@@ -5,12 +5,17 @@ static const struct HoennRadioSegment sRadioSegments[] =
 {
     { // UNOWN_SIGNAL
         .station = HOENN_RADIO_UNOWN, .maxLines = 2, .buffers = 1,
-        .conds = NULL, .condCount = 0,
+        .heard = 0, .conds = NULL, .condCount = 0,
         .lines = NULL, .builder = HoennRadioUnownBroadcast,
     },
     { // EUSINE_NOTES
         .station = HOENN_RADIO_OAK, .maxLines = 3, .buffers = 2,
-        .conds = (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_EUSINE_NOTES, 0}}, .condCount = 1,
+        .heard = 0, .conds = (const struct HoennHintCond[]){{HINT_IF_FLAG, FLAG_HOENN_EUSINE_NOTES, 0}}, .condCount = 1,
         .lines = NULL, .builder = HoennRadioEusineReport,
+    },
+    { // DAILY_SWARM
+        .station = HOENN_RADIO_POKEDEX, .maxLines = 3, .buffers = 2,
+        .heard = FLAG_HOENN_HEARD_DAILY_SWARM, .conds = NULL, .condCount = 0,
+        .lines = NULL, .builder = HoennRadioSwarm,
     },
 };
