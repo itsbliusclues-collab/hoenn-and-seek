@@ -673,3 +673,16 @@ Lane B's `## 2.0 part NN` sections go below this line, at the end of the file.
 - Change the day at a wall clock and go back outside: the leaders move with the calendar.
 - May calls once, the first weekend a leader is away (needs her number from BIRCH).
 - Load a save made inside a gym on a Friday and continue on Saturday: the leader is still there until you leave the map (expected; the next map load moves them).
+
+### 2.1-19 (Kanto leaders' weekends)
+- After beating a Kanto leader and meeting their cameo (Diglett's Cave BROCK, the cape MISTY, the Power Plant SURGE, Celadon's fountain ERIKA, Route 22's gate JANINE, Olivine port SABRINA, Cinnabar BLAINE; BLUE has none): on a weekend the gym is empty and its guide says where they went. Spots: PEWTER MUSEUM (BROCK), the SEAFOAM ISLANDS' beach on ROUTE 20 (MISTY), VERMILION's docks (SURGE), PALLET TOWN's flower bed (ERIKA), ROUTE 15 (JANINE), the SOUL HOUSE (SABRINA), CINNABAR's POKéMON CENTER (BLAINE), ROUTE 22 (BLUE).
+- Before you've met a leader's cameo, they stay in their gym on weekends (no leader in two places). Same for a Johto leader whose post-game cameo is out.
+- FUCHSIA GYM on a weekend: only the disguised trainers are left; the real JANINE is on ROUTE 15.
+- Each spot offers that leader's Fighting Dojo rematch (they all have one after their cameo), and the Dojo copy is away on weekends.
+- CERULEAN, VIRIDIAN and SEAFOAM's story moments (MISTY's date, BLUE away, BLAINE's move) still hide those leaders as before, weekends or not.
+
+### 2.1-20 (Hoenn leaders' weekends)
+- On a weekend, after earning a Hoenn badge, that gym is empty and its guide says where the leader went. Spots: ROUTE 114 by the FOSSIL MANIAC's house (ROXANNE), SLATEPORT's beach on ROUTE 109 (BRAWLY), ROUTE 110 by the CYCLING ROAD (WATTSON), MT. CHIMNEY (FLANNERY), ROUTE 104's pond (NORMAN), ROUTE 120 (WINONA), the SPACE CENTER 1F (TATE & LIZA, both), the LILYCOVE contest lobby (JUAN).
+- After beating WALLACE, talking to a leader at their spot offers the same rematch as in their gym.
+- WINONA: talk to her on ROUTE 119, then go straight to FORTREE GYM: she must be there on the first visit (the weekend code reads her gym flag before the gym's own script runs; her ROUTE 119 script now clears it).
+- WATTSON before NEW MAUVILLE is finished is in MAUVILLE CITY, not his gym, weekends or not.
